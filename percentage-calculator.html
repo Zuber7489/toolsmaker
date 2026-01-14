@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator | Difference, Change, and Percentage Of</title>
+    <meta name="description"
+        content="Free online Percentage Calculator. Calculate percentage difference between two numbers, percentage change, and find what percentage X is of Y.">
+    <meta name="keywords"
+        content="percentage calculator, percent difference, percentage change, calculate percentage, math tool">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            min-height: 100vh;
+        }
+
+        .calc-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .calc-card:focus-within {
+            border-color: #14b8a6;
+            background: rgba(30, 41, 59, 0.8);
+            transform: scale(1.01);
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav
+        class="w-full bg-slate-900 border-b border-white/10 px-6 py-4 flex justify-between items-center mb-10 sticky top-0 z-50">
+        <a href="index.html"
+            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+        <a href="index.html" class="text-sm hover:text-white">Home</a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto space-y-8">
+        <div class="text-center mb-12">
+            <h1 class="text-3xl font-bold text-white mb-2">Percentage Calculator</h1>
+            <p class="text-slate-400">All your percentage calculations in one place.</p>
+        </div>
+
+        <!-- 1. What is X% of Y? -->
+        <section class="calc-card rounded-2xl p-6 md:p-8 shadow-lg">
+            <div class="flex flex-col md:flex-row items-center gap-4 text-lg">
+                <span class="font-medium text-slate-300">What is</span>
+                <input type="number" id="p1-percent"
+                    class="w-24 bg-slate-900 border border-slate-700 rounded-lg p-3 text-center text-brand-400 font-bold focus:outline-none focus:border-brand-500"
+                    placeholder="X">
+                <span class="font-medium text-slate-300">% of</span>
+                <input type="number" id="p1-num"
+                    class="w-32 bg-slate-900 border border-slate-700 rounded-lg p-3 text-center text-white font-bold focus:outline-none focus:border-brand-500"
+                    placeholder="Y">
+                <span class="font-medium text-slate-300">?</span>
+
+                <div class="flex-grow flex justify-end">
+                    <div class="bg-brand-500/10 px-6 py-3 rounded-xl border border-brand-500/20">
+                        <span class="text-2xl font-bold text-brand-400" id="p1-res">0</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. X is what percent of Y? -->
+        <section class="calc-card rounded-2xl p-6 md:p-8 shadow-lg">
+            <div class="flex flex-col md:flex-row items-center gap-4 text-lg">
+                <input type="number" id="p2-num1"
+                    class="w-24 bg-slate-900 border border-slate-700 rounded-lg p-3 text-center text-white font-bold focus:outline-none focus:border-brand-500"
+                    placeholder="X">
+                <span class="font-medium text-slate-300">is what % of</span>
+                <input type="number" id="p2-num2"
+                    class="w-32 bg-slate-900 border border-slate-700 rounded-lg p-3 text-center text-white font-bold focus:outline-none focus:border-brand-500"
+                    placeholder="Y">
+                <span class="font-medium text-slate-300">?</span>
+
+                <div class="flex-grow flex justify-end">
+                    <div class="bg-brand-500/10 px-6 py-3 rounded-xl border border-brand-500/20">
+                        <span class="text-2xl font-bold text-brand-400"><span id="p2-res">0</span>%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Percentage Change (Increase/Decrease) -->
+        <section class="calc-card rounded-2xl p-6 md:p-8 shadow-lg">
+            <div class="mb-4">
+                <h3 class="text-base font-semibold text-slate-400 uppercase tracking-wider">Percentage Change /
+                    Difference</h3>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-4 text-lg">
+                <div class="flex flex-col w-full md:w-auto">
+                    <label class="text-xs text-slate-500 mb-1">From Value</label>
+                    <input type="number" id="p3-v1"
+                        class="w-full md:w-32 bg-slate-900 border border-slate-700 rounded-lg p-3 text-center text-white font-bold focus:outline-none focus:border-brand-500"
+                        placeholder="Start">
+                </div>
+                <div class="hidden md:block text-slate-500">→</div>
+                <div class="flex flex-col w-full md:w-auto">
+                    <label class="text-xs text-slate-500 mb-1">To Value</label>
+                    <input type="number" id="p3-v2"
+                        class="w-full md:w-32 bg-slate-900 border border-slate-700 rounded-lg p-3 text-center text-white font-bold focus:outline-none focus:border-brand-500"
+                        placeholder="End">
+                </div>
+
+                <div class="flex-grow flex justify-end w-full md:w-auto mt-4 md:mt-0">
+                    <div class="bg-slate-800 px-6 py-3 rounded-xl border border-slate-700 w-full md:w-auto text-center">
+                        <div class="text-2xl font-bold text-white mb-1" id="p3-res">0%</div>
+                        <div class="text-xs text-slate-400" id="p3-desc">Difference</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Calc 1: X% of Y
+        const p1 = { x: document.getElementById('p1-percent'), y: document.getElementById('p1-num'), res: document.getElementById('p1-res') };
+        function calc1() {
+            const x = parseFloat(p1.x.value) || 0;
+            const y = parseFloat(p1.y.value) || 0;
+            p1.res.innerText = (y * (x / 100)).toFixed(2).replace(/\.00$/, '');
+        }
+        p1.x.addEventListener('input', calc1);
+        p1.y.addEventListener('input', calc1);
+
+        // Calc 2: X is what % of Y
+        const p2 = { x: document.getElementById('p2-num1'), y: document.getElementById('p2-num2'), res: document.getElementById('p2-res') };
+        function calc2() {
+            const x = parseFloat(p2.x.value) || 0;
+            const y = parseFloat(p2.y.value) || 0;
+            if (y === 0) return;
+            p2.res.innerText = ((x / y) * 100).toFixed(2).replace(/\.00$/, '');
+        }
+        p2.x.addEventListener('input', calc2);
+        p2.y.addEventListener('input', calc2);
+
+        // Calc 3: Change
+        const p3 = { v1: document.getElementById('p3-v1'), v2: document.getElementById('p3-v2'), res: document.getElementById('p3-res'), desc: document.getElementById('p3-desc') };
+        function calc3() {
+            const v1 = parseFloat(p3.v1.value);
+            const v2 = parseFloat(p3.v2.value);
+            if (isNaN(v1) || isNaN(v2)) return;
+
+            if (v1 === 0) {
+                p3.res.innerText = "∞";
+                return;
+            }
+
+            const diff = v2 - v1;
+            const pct = (diff / Math.abs(v1)) * 100;
+
+            p3.res.innerText = (pct > 0 ? '+' : '') + pct.toFixed(2).replace(/\.00$/, '') + "%";
+            p3.res.className = `text-2xl font-bold mb-1 ${pct > 0 ? 'text-green-400' : (pct < 0 ? 'text-red-400' : 'text-slate-400')}`;
+            p3.desc.innerText = pct > 0 ? "Increase" : (pct < 0 ? "Decrease" : "No Change");
+        }
+        p3.v1.addEventListener('input', calc3);
+        p3.v2.addEventListener('input', calc3);
+
+    </script>
+</body>
+
+</html>

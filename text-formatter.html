@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatter | Slugify, Case Converter, Remove Spaces</title>
+    <meta name="description"
+        content="Free online text tools: Convert text to slug, change case (upper/lower/title), and remove extra spaces. SEO friendly text formatter.">
+    <meta name="keywords"
+        content="text to slug, slug generator, url slug maker, case converter, uppercase to lowercase, remove extra spaces, text cleaner">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 50% 0%, hsla(240, 50%, 15%, 1) 0, transparent 70%);
+            min-height: 100vh;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-btn.active {
+            background-color: rgba(20, 184, 166, 0.2);
+            color: #14b8a6;
+            border-color: #14b8a6;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav class="w-full glass-panel fixed top-0 left-0 z-50 border-b border-white/10 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html"
+                class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+            <a href="index.html" class="text-sm hover:text-white transition">Home</a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto mt-20">
+        <h1 class="text-3xl md:text-5xl font-bold text-center mb-8 text-white">All-in-One Text Formatter</h1>
+
+        <div class="glass-panel rounded-2xl p-1 overflow-hidden mb-8">
+            <div class="flex flex-wrap gap-1 p-1 bg-slate-900/50 rounded-xl">
+                <button onclick="switchTab('slug')" id="tab-slug"
+                    class="tab-btn active flex-1 py-2 px-4 rounded-lg text-sm font-medium border border-transparent transition hover:bg-slate-800">Text
+                    to Slug</button>
+                <button onclick="switchTab('case')" id="tab-case"
+                    class="tab-btn flex-1 py-2 px-4 rounded-lg text-sm font-medium border border-transparent transition hover:bg-slate-800">Case
+                    Converter</button>
+                <button onclick="switchTab('clean')" id="tab-clean"
+                    class="tab-btn flex-1 py-2 px-4 rounded-lg text-sm font-medium border border-transparent transition hover:bg-slate-800">Clean
+                    Text</button>
+            </div>
+        </div>
+
+        <section class="glass-panel rounded-2xl p-6 md:p-8 shadow-xl relative">
+
+            <!-- SLUG GENERATOR -->
+            <div id="content-slug" class="space-y-4">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-lg font-semibold text-brand-500">URL Slug Generator</h2>
+                    <span class="text-xs text-slate-500">Converts spaces to dashes, lowercase</span>
+                </div>
+                <input type="text" id="slugInput" placeholder="Enter text to slugify (e.g. Hello World)"
+                    class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-brand-500 transition">
+
+                <div class="p-4 bg-slate-900/80 rounded-lg border border-slate-700 font-mono text-brand-500 break-all select-all cursor-pointer"
+                    onclick="copyText('slugOutput')" title="Click to copy">
+                    <span id="slugOutput" class="opacity-50">Result will appear here...</span>
+                </div>
+            </div>
+
+            <!-- CASE CONVERTER -->
+            <div id="content-case" class="space-y-4 hidden">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-lg font-semibold text-brand-500">Case Converter</h2>
+                </div>
+                <textarea id="caseInput" rows="4" placeholder="Type or paste text..."
+                    class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-brand-500 transition"></textarea>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                    <button onclick="convertCase('upper')"
+                        class="bg-slate-800 hover:bg-slate-700 text-xs py-2 px-3 rounded border border-slate-700">UPPERCASE</button>
+                    <button onclick="convertCase('lower')"
+                        class="bg-slate-800 hover:bg-slate-700 text-xs py-2 px-3 rounded border border-slate-700">lowercase</button>
+                    <button onclick="convertCase('title')"
+                        class="bg-slate-800 hover:bg-slate-700 text-xs py-2 px-3 rounded border border-slate-700">Title
+                        Case</button>
+                    <button onclick="convertCase('sentence')"
+                        class="bg-slate-800 hover:bg-slate-700 text-xs py-2 px-3 rounded border border-slate-700">Sentence
+                        case</button>
+                </div>
+
+                <div class="relative">
+                    <textarea id="caseOutput" rows="4" readonly
+                        class="w-full bg-slate-900/80 border border-slate-700 rounded-lg p-3 text-white opacity-80"
+                        placeholder="Result..."></textarea>
+                    <button onclick="copyInput('caseOutput')"
+                        class="absolute top-2 right-2 bg-slate-700 hover:bg-slate-600 text-xs px-2 py-1 rounded text-white">Copy</button>
+                </div>
+            </div>
+
+            <!-- CLEAN TEXT -->
+            <div id="content-clean" class="space-y-4 hidden">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-lg font-semibold text-brand-500">Remove Extra Spaces</h2>
+                </div>
+                <textarea id="cleanInput" rows="6" placeholder="Paste text with   weird    spacing..."
+                    class="w-full bg-slate-900/50 border border-slate-700 rounded-lg p-3 text-white focus:outline-none focus:border-brand-500 transition"></textarea>
+
+                <button onclick="cleanText()"
+                    class="w-full bg-brand-600 hover:bg-brand-500 text-white font-medium py-2 rounded-lg transition shadow-lg shadow-brand-500/20">Clean
+                    My Text</button>
+
+                <div class="relative">
+                    <textarea id="cleanOutput" rows="6" readonly
+                        class="w-full bg-slate-900/80 border border-slate-700 rounded-lg p-3 text-white opacity-80"
+                        placeholder="Cleaned text will appear here..."></textarea>
+                    <button onclick="copyInput('cleanOutput')"
+                        class="absolute top-2 right-2 bg-slate-700 hover:bg-slate-600 text-xs px-2 py-1 rounded text-white">Copy</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        // Tab Logic
+        function switchTab(tab) {
+            ['slug', 'case', 'clean'].forEach(t => {
+                document.getElementById('content-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).classList.remove('active');
+            });
+            document.getElementById('content-' + tab).classList.remove('hidden');
+            document.getElementById('tab-' + tab).classList.add('active');
+        }
+
+        // Slug Logic
+        document.getElementById('slugInput').addEventListener('input', function (e) {
+            const val = e.target.value;
+            const slug = val.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
+            const out = document.getElementById('slugOutput');
+            out.innerText = slug || 'Result will appear here...';
+            out.classList.toggle('opacity-50', !slug);
+        });
+
+        function copyText(id) {
+            const text = document.getElementById(id).innerText;
+            if (text && text !== 'Result will appear here...') {
+                navigator.clipboard.writeText(text);
+                alert('Copied to clipboard!');
+            }
+        }
+
+        // Case Converter Logic
+        function convertCase(type) {
+            const input = document.getElementById('caseInput').value;
+            const outputEl = document.getElementById('caseOutput');
+            let res = '';
+
+            if (type === 'upper') res = input.toUpperCase();
+            if (type === 'lower') res = input.toLowerCase();
+            if (type === 'title') {
+                res = input.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+            }
+            if (type === 'sentence') {
+                res = input.toLowerCase().replace(/(^\s*\w|[\.\!\?]\s*\w)/g, c => c.toUpperCase());
+            }
+
+            outputEl.value = res;
+        }
+
+        // Clean Text Logic
+        function cleanText() {
+            const input = document.getElementById('cleanInput').value;
+            // Replace multiple spaces with single space, trim, remove empty lines if strictly needed but usually just spaces
+            const cleaned = input.replace(/\s+/g, ' ').trim();
+            document.getElementById('cleanOutput').value = cleaned;
+        }
+
+        function copyInput(id) {
+            const el = document.getElementById(id);
+            el.select();
+            document.execCommand('copy');
+        }
+    </script>
+</body>
+
+</html>

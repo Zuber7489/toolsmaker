@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Formatter & Validator | Beautify & Minify JSON Online</title>
+    <meta name="description"
+        content="Free online JSON Formatter and Validator. Beautify your JSON code, minify it for production, or fix common errors. Fast, client-side, and secure.">
+    <meta name="keywords"
+        content="json formatter, json validator, beautify json, minify json, json beautifier, online json tool">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 100% 0%, hsla(240, 50%, 15%, 1) 0, transparent 70%);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav class="w-full bg-slate-900/80 fixed top-0 left-0 z-50 border-b border-white/10 px-4 py-3 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html"
+                class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+            <a href="index.html" class="text-sm hover:text-white transition">Home</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto mt-20 h-[calc(100vh-140px)] flex flex-col">
+        <header class="flex justify-between items-end mb-4">
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold text-white">JSON Formatter</h1>
+                <p class="text-xs text-slate-400">Validate, Beautify, and Minify JSON instantly.</p>
+            </div>
+            <div class="flex gap-2">
+                <button onclick="formatJSON()"
+                    class="bg-brand-600 hover:bg-brand-500 text-white px-4 py-2 rounded-lg font-medium transition shadow-lg shadow-brand-500/20">Beautify</button>
+                <button onclick="minifyJSON()"
+                    class="bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded-lg font-medium transition">Minify</button>
+                <button onclick="clearJSON()"
+                    class="bg-red-500/10 text-red-400 hover:bg-red-500/20 px-4 py-2 rounded-lg font-medium transition border border-red-500/20">Clear</button>
+            </div>
+        </header>
+
+        <section class="flex-grow grid md:grid-cols-2 gap-4 h-full pb-4">
+            <!-- Input -->
+            <div class="flex flex-col h-full">
+                <div class="flex justify-between items-center mb-2 px-1">
+                    <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Input JSON</label>
+                    <button onclick="pasteJSON()" class="text-xs text-brand-400 hover:text-brand-300">Paste</button>
+                </div>
+                <div class="flex-grow relative group">
+                    <textarea id="jsonInput"
+                        class="w-full h-full bg-slate-900 border border-slate-700 rounded-xl p-4 text-sm font-mono text-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent resize-none transition"
+                        placeholder='{"key": "value"}'></textarea>
+                </div>
+            </div>
+
+            <!-- Output -->
+            <div class="flex flex-col h-full">
+                <div class="flex justify-between items-center mb-2 px-1">
+                    <div class="flex items-center gap-2">
+                        <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Output</label>
+                        <span id="status"
+                            class="hidden px-2 py-0.5 rounded text-[10px] uppercase font-bold bg-green-500/20 text-green-400">Valid</span>
+                    </div>
+                    <button onclick="copyOutput()" class="text-xs text-brand-400 hover:text-brand-300">Copy
+                        Result</button>
+                </div>
+                <div class="flex-grow relative">
+                    <textarea id="jsonOutput" readonly
+                        class="w-full h-full bg-slate-800/50 border border-slate-700 rounded-xl p-4 text-sm font-mono text-emerald-300 focus:outline-none resize-none transition"
+                        placeholder="Result..."></textarea>
+
+                    <div id="errorMsg"
+                        class="hidden absolute bottom-4 left-4 right-4 bg-red-900/90 border border-red-500 text-red-200 p-3 rounded-lg text-sm font-mono shadow-xl backdrop-blur-sm">
+                        Error: Invalid JSON
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center text-xs text-slate-500 py-2">
+            Local processing only. Your data never leaves your browser.
+        </div>
+    </main>
+
+    <script>
+        const input = document.getElementById('jsonInput');
+        const output = document.getElementById('jsonOutput');
+        const errorMsg = document.getElementById('errorMsg');
+        const statusBadge = document.getElementById('status');
+
+        function formatJSON() {
+            try {
+                if (!input.value.trim()) return;
+                const obj = JSON.parse(input.value);
+                output.value = JSON.stringify(obj, null, 4);
+                showStatus(true);
+            } catch (e) {
+                showError(e.message);
+                showStatus(false);
+            }
+        }
+
+        function minifyJSON() {
+            try {
+                if (!input.value.trim()) return;
+                const obj = JSON.parse(input.value);
+                output.value = JSON.stringify(obj);
+                showStatus(true);
+            } catch (e) {
+                showError(e.message);
+                showStatus(false);
+            }
+        }
+
+        function clearJSON() {
+            input.value = '';
+            output.value = '';
+            errorMsg.classList.add('hidden');
+            statusBadge.classList.add('hidden');
+            input.focus();
+        }
+
+        async function pasteJSON() {
+            const text = await navigator.clipboard.readText();
+            input.value = text;
+        }
+
+        function copyOutput() {
+            if (!output.value) return;
+            output.select();
+            document.execCommand('copy');
+            alert('Copied to clipboard!');
+        }
+
+        function showError(msg) {
+            errorMsg.textContent = "Error: " + msg;
+            errorMsg.classList.remove('hidden');
+            setTimeout(() => errorMsg.classList.add('hidden'), 5000);
+        }
+
+        function showStatus(isValid) {
+            if (isValid) {
+                statusBadge.textContent = "Valid JSON";
+                statusBadge.className = "px-2 py-0.5 rounded text-[10px] uppercase font-bold bg-green-500/20 text-green-400";
+            } else {
+                statusBadge.textContent = "Invalid";
+                statusBadge.className = "px-2 py-0.5 rounded text-[10px] uppercase font-bold bg-red-500/20 text-red-400";
+            }
+            statusBadge.classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>

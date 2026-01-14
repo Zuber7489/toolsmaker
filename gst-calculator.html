@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GST Calculator India | Inclusive & Exclusive GST Calculation</title>
+    <meta name="description"
+        content="Calculate GST in India easily. Support for 5%, 12%, 18%, 28% tax slabs. Calculate Inclusive and Exclusive GST amounts with this free online tool.">
+    <meta name="keywords"
+        content="gst calculator, gst india, calculate gst, exclusive gst, inclusive gst, tax calculator">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image:
+                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2314b8a6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased flex flex-col min-h-screen">
+    <nav class="w-full bg-slate-900/80 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-brand-500">ToolsMaker</a>
+            <a href="index.html" class="text-sm hover:text-white transition">More Tools</a>
+        </div>
+    </nav>
+
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div
+            class="w-full max-w-2xl bg-slate-800/60 border border-slate-700/50 p-8 rounded-2xl shadow-2xl backdrop-blur-sm">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl font-bold text-white mb-2">GST Calculator <span class="text-brand-500">India</span>
+                </h1>
+                <p class="text-sm text-slate-400">Calculate inclusive or exclusive GST amounts instantly.</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Amount Input -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Initial Amount (₹)</label>
+                    <input type="number" id="amount" placeholder="e.g. 10000"
+                        class="w-full bg-slate-900 text-2xl font-semibold text-white p-4 rounded-xl border border-slate-700 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition">
+                </div>
+
+                <!-- Rate Selection -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">GST Rate (%)</label>
+                    <div class="grid grid-cols-5 gap-2">
+                        <button class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 rounded-lg transition"
+                            data-rate="5">5%</button>
+                        <button class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 rounded-lg transition"
+                            data-rate="12">12%</button>
+                        <button
+                            class="rate-btn bg-brand-600 text-white py-2 rounded-lg transition ring-2 ring-brand-400"
+                            data-rate="18">18%</button>
+                        <button class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 rounded-lg transition"
+                            data-rate="28">28%</button>
+                        <input type="number" id="customRate" placeholder="Other"
+                            class="bg-slate-900 text-white text-center rounded-lg border border-slate-700 focus:border-brand-500 outline-none">
+                    </div>
+                </div>
+
+                <!-- Mode Selection -->
+                <div class="flex p-1 bg-slate-900 rounded-lg">
+                    <button id="modeEx"
+                        class="flex-1 py-2 rounded-md text-sm font-medium bg-slate-700 text-white shadow-sm transition">GST
+                        Exclusive (Add GST)</button>
+                    <button id="modeIn"
+                        class="flex-1 py-2 rounded-md text-sm font-medium text-slate-400 hover:text-white transition">GST
+                        Inclusive (Remove GST)</button>
+                </div>
+
+                <!-- Results -->
+                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-700">
+                    <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/50">
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">GST Amount</div>
+                        <div class="text-2xl font-bold text-brand-400">₹ <span id="gstAmount">0.00</span></div>
+                    </div>
+                    <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/50">
+                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Net / Gross Total</div>
+                        <div class="text-2xl font-bold text-white">₹ <span id="totalAmount">0.00</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-6 text-center text-slate-600 text-sm">
+        &copy; ToolsMaker. Made for Indian Businesses & Freelancers.
+    </footer>
+
+    <script>
+        const amountInput = document.getElementById('amount');
+        const customRateInput = document.getElementById('customRate');
+        const rateBtns = document.querySelectorAll('.rate-btn');
+        const gstOut = document.getElementById('gstAmount');
+        const totalOut = document.getElementById('totalAmount');
+        const modeEx = document.getElementById('modeEx');
+        const modeIn = document.getElementById('modeIn');
+
+        let currentRate = 18;
+        let isExclusive = true;
+
+        // Rate Button Logic
+        rateBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Reset styles
+                rateBtns.forEach(b => b.classList.replace('bg-brand-600', 'bg-slate-700'));
+                rateBtns.forEach(b => b.classList.remove('ring-2', 'ring-brand-400'));
+
+                // Set active
+                btn.classList.replace('bg-slate-700', 'bg-brand-600');
+                btn.classList.add('ring-2', 'ring-brand-400');
+
+                currentRate = parseFloat(btn.dataset.rate);
+                customRateInput.value = ''; // clear custom
+                calculate();
+            });
+        });
+
+        customRateInput.addEventListener('input', () => {
+            rateBtns.forEach(b => b.classList.replace('bg-brand-600', 'bg-slate-700'));
+            rateBtns.forEach(b => b.classList.remove('ring-2', 'ring-brand-400'));
+            currentRate = parseFloat(customRateInput.value) || 0;
+            calculate();
+        });
+
+        // Mode Logic
+        modeEx.addEventListener('click', () => setMode(true));
+        modeIn.addEventListener('click', () => setMode(false));
+
+        function setMode(exclusive) {
+            isExclusive = exclusive;
+            if (exclusive) {
+                modeEx.classList.add('bg-slate-700', 'text-white', 'shadow-sm');
+                modeEx.classList.remove('text-slate-400');
+                modeIn.classList.remove('bg-slate-700', 'text-white', 'shadow-sm');
+                modeIn.classList.add('text-slate-400');
+            } else {
+                modeIn.classList.add('bg-slate-700', 'text-white', 'shadow-sm');
+                modeIn.classList.remove('text-slate-400');
+                modeEx.classList.remove('bg-slate-700', 'text-white', 'shadow-sm');
+                modeEx.classList.add('text-slate-400');
+            }
+            calculate();
+        }
+
+        // Calc Logic
+        amountInput.addEventListener('input', calculate);
+
+        function calculate() {
+            const amount = parseFloat(amountInput.value) || 0;
+            let gst = 0;
+            let total = 0;
+
+            if (isExclusive) {
+                // Add GST
+                gst = (amount * currentRate) / 100;
+                total = amount + gst;
+            } else {
+                // Remove GST
+                gst = amount - (amount * (100 / (100 + currentRate)));
+                total = amount; // The input is the total
+                // Display pre-tax amount as "Net"? Actually standard display is GST Amount and Total. 
+                // For inclusive, usually people want to know "How much was tax".
+                // So Total is Input. GST is component. 
+                // Let's keep logic simple: Total display shows the FINAL Bill Amount.
+                // In exclusive: Final = Base + GST.
+                // In inclusive: Final = Base (which already includes GST). 
+            }
+
+            gstOut.innerText = gst.toFixed(2);
+            totalOut.innerText = total.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>

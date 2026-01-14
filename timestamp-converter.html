@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timestamp Converter | Unix Epoch to Date & Date to Timestamp</title>
+    <meta name="description"
+        content="Free online Unix Timestamp Converter. Convert seconds/milliseconds epoch to human readable date, or date to timestamp. Developer handy tool.">
+    <meta name="keywords"
+        content="timestamp converter, unix timestamp, epoch time, date to timestamp, timestamp to date, epoch converter">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 0% 100%, hsla(240, 50%, 15%, 1) 0, transparent 70%);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav
+        class="w-full bg-slate-900 border-b border-white/10 px-6 py-4 flex justify-between items-center mb-10 sticky top-0 z-50">
+        <a href="index.html"
+            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+        <a href="index.html" class="text-sm hover:text-white">Home</a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto space-y-8">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-white mb-2">Epoch Timestamp Converter</h1>
+            <p class="text-slate-400">Convert between Unix Timestamps and Human Readable Dates.</p>
+            <div
+                class="mt-4 inline-flex items-center gap-2 bg-slate-800 px-4 py-2 rounded-full border border-slate-700">
+                <span class="text-xs text-slate-500 uppercase tracking-wider">Current Epoch</span>
+                <span id="currentEpoch" class="text-brand-400 font-mono font-bold">...</span>
+            </div>
+        </div>
+
+        <!-- 1. Timestamp to Date -->
+        <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 md:p-8">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Timestamp to Date
+            </h2>
+            <div class="flex flex-col md:flex-row gap-4 mb-4">
+                <input type="number" id="tsInput"
+                    class="flex-grow bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:outline-none focus:border-brand-500 font-mono"
+                    placeholder="1672531200 or 1672531200000">
+                <button onclick="convertTS()"
+                    class="bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded-lg font-medium transition">Convert</button>
+            </div>
+
+            <div id="tsResult" class="hidden space-y-2 bg-slate-900 p-4 rounded-xl border border-slate-700/50">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <span class="text-xs text-slate-500 uppercase">GMT / UTC</span>
+                        <div id="res-utc" class="text-white font-mono"></div>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-500 uppercase">Your Local Time</span>
+                        <div id="res-local" class="text-brand-400 font-bold font-mono"></div>
+                    </div>
+                    <div>
+                        <span class="text-xs text-slate-500 uppercase">Relative</span>
+                        <div id="res-relative" class="text-slate-300"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Date to Timestamp -->
+        <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 md:p-8">
+            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                    </path>
+                </svg>
+                Date to Timestamp
+            </h2>
+            <div class="flex flex-col md:flex-row gap-4 mb-4">
+                <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="date" id="dateDate"
+                        class="bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:outline-none focus:border-brand-500">
+                    <input type="time" id="dateTime" step="1"
+                        class="bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:outline-none focus:border-brand-500">
+                </div>
+                <button onclick="convertDate()"
+                    class="bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded-lg font-medium transition">Get
+                    Timestamp</button>
+            </div>
+
+            <div id="dateResult" class="hidden bg-slate-900 p-4 rounded-xl border border-slate-700/50">
+                <div class="flex flex-wrap items-center gap-4">
+                    <div>
+                        <span class="text-xs text-slate-500 uppercase">Epoch (Seconds)</span>
+                        <div id="res-sec" class="text-white font-mono text-lg font-bold select-all cursor-pointer">
+                        </div>
+                    </div>
+                    <div class="w-px h-10 bg-slate-700 hidden md:block"></div>
+                    <div>
+                        <span class="text-xs text-slate-500 uppercase">Epoch (Millis)</span>
+                        <div id="res-ms" class="text-slate-300 font-mono text-lg select-all cursor-pointer"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Ticker
+        setInterval(() => {
+            document.getElementById('currentEpoch').innerText = Math.floor(Date.now() / 1000);
+        }, 1000);
+
+        // Convert TS -> Date
+        function convertTS() {
+            let val = document.getElementById('tsInput').value.trim();
+            if (!val) return;
+
+            // Heuristic detection: seconds vs ms
+            // Seconds usually ~10 digits (167...), ms ~13 digits
+            let ts = parseInt(val);
+            if (val.length <= 11) {
+                ts *= 1000;
+            }
+
+            const date = new Date(ts);
+
+            if (isNaN(date.getTime())) {
+                alert("Invalid Timestamp");
+                return;
+            }
+
+            document.getElementById('tsResult').classList.remove('hidden');
+            document.getElementById('res-utc').innerText = date.toUTCString();
+            document.getElementById('res-local').innerText = date.toString();
+
+            // Relative
+            const diff = Date.now() - ts;
+            const diffSec = Math.floor(Math.abs(diff) / 1000);
+            const rtf = new Intl.RelativeTimeFormat('en', { numeric: 'auto' });
+            if (diffSec < 60) document.getElementById('res-relative').innerText = rtf.format(-Math.sign(diff) * diffSec, 'seconds');
+            else if (diffSec < 3600) document.getElementById('res-relative').innerText = rtf.format(-Math.sign(diff) * Math.floor(diffSec / 60), 'minutes');
+            else if (diffSec < 86400) document.getElementById('res-relative').innerText = rtf.format(-Math.sign(diff) * Math.floor(diffSec / 3600), 'hours');
+            else document.getElementById('res-relative').innerText = rtf.format(-Math.sign(diff) * Math.floor(diffSec / 86400), 'days');
+        }
+
+        // Convert Date -> TS
+        function convertDate() {
+            const dVal = document.getElementById('dateDate').value;
+            const tVal = document.getElementById('dateTime').value; // HH:mm:ss
+
+            if (!dVal) return;
+
+            // Combine
+            // Note: input type=date/time creates string YYYY-MM-DD and HH:mm:ss
+            // We can construct new Date("YYYY-MM-DD HH:mm:ss") logic
+            const dateStr = dVal + ' ' + (tVal || '00:00:00');
+            const date = new Date(dateStr);
+
+            const ms = date.getTime();
+            const sec = Math.floor(ms / 1000);
+
+            document.getElementById('dateResult').classList.remove('hidden');
+            document.getElementById('res-sec').innerText = sec;
+            document.getElementById('res-ms').innerText = ms;
+        }
+
+        // Init Date Inputs with expected format
+        const now = new Date();
+        document.getElementById('dateDate').value = now.toISOString().split('T')[0];
+        document.getElementById('dateTime').value = now.toTimeString().split(' ')[0];
+        document.getElementById('tsInput').value = Math.floor(Date.now() / 1000);
+
+    </script>
+</body>
+
+</html>

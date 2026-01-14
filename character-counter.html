@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Character Counter | Instagram, Twitter, YouTube</title>
+    <meta name="description"
+        content="Free character counter for social media. Check text length for Instagram Bio, Twitter posts, YouTube titles, and more. Real-time word and character count.">
+    <meta name="keywords"
+        content="character counter, word counter, instagram bio length, tweet counter, youtube title length checker, social media tool">
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        brand: { 50: '#f0fdfa', 100: '#ccfbf1', 500: '#14b8a6', 600: '#0d9488' }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%), radial-gradient(at 100% 100%, hsla(225, 39%, 30%, 1) 0, transparent 50%);
+            min-height: 100vh;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased">
+    <!-- Navbar -->
+    <nav class="w-full glass-panel sticky top-0 z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html"
+                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+            <a href="index.html" class="text-sm font-medium text-slate-300 hover:text-white transition">Back to
+                Tools</a>
+        </div>
+    </nav>
+
+    <main class="pt-12 pb-12 px-4 max-w-5xl mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Social Media Character Counter</h1>
+            <p class="text-slate-400">Write perfectly sized content for Instagram, Twitter, and YouTube.</p>
+        </header>
+
+        <section class="glass-panel rounded-2xl p-6 shadow-2xl">
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Main Input Area -->
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <label class="text-sm font-medium text-slate-300">Enter your text below</label>
+                        <div class="space-x-2">
+                            <button id="copyBtn"
+                                class="text-xs bg-slate-700 hover:bg-slate-600 px-3 py-1 rounded text-white transition">Copy</button>
+                            <button id="clearBtn"
+                                class="text-xs bg-red-500/10 text-red-400 hover:bg-red-500/20 px-3 py-1 rounded transition">Clear</button>
+                        </div>
+                    </div>
+                    <textarea id="textInput" rows="12"
+                        class="w-full bg-slate-900/50 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-brand-500 transition resize-none font-mono text-base"
+                        placeholder="Start typing or pasting your content here..."></textarea>
+
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                        <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                            <div class="text-2xl font-bold text-white" id="charCount">0</div>
+                            <div class="text-xs text-slate-500 uppercase">Characters</div>
+                        </div>
+                        <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                            <div class="text-2xl font-bold text-white" id="wordCount">0</div>
+                            <div class="text-xs text-slate-500 uppercase">Words</div>
+                        </div>
+                        <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                            <div class="text-2xl font-bold text-white" id="sentenceCount">0</div>
+                            <div class="text-xs text-slate-500 uppercase">Sentences</div>
+                        </div>
+                        <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                            <div class="text-2xl font-bold text-white" id="paraCount">0</div>
+                            <div class="text-xs text-slate-500 uppercase">Paragraphs</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Platform Specifics -->
+                <div class="space-y-4">
+                    <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Platform Limits</h3>
+
+                    <!-- Twitter -->
+                    <div class="bg-slate-800/30 p-4 rounded-xl border border-slate-700/50">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-blue-400 font-medium">Twitter / X Post</span>
+                            <span class="text-slate-400" id="twitterStats">0 / 280</span>
+                        </div>
+                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div id="twitterBar" class="bg-blue-500 h-full rounded-full transition-all duration-300"
+                                style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Bio -->
+                    <div class="bg-slate-800/30 p-4 rounded-xl border border-slate-700/50">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-pink-400 font-medium">Instagram Bio</span>
+                            <span class="text-slate-400" id="instaBioStats">0 / 150</span>
+                        </div>
+                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div id="instaBioBar" class="bg-pink-500 h-full rounded-full transition-all duration-300"
+                                style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- YouTube Title -->
+                    <div class="bg-slate-800/30 p-4 rounded-xl border border-slate-700/50">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-red-400 font-medium">YouTube Title</span>
+                            <span class="text-slate-400" id="ytTitleStats">0 / 100</span>
+                        </div>
+                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div id="ytTitleBar" class="bg-red-500 h-full rounded-full transition-all duration-300"
+                                style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- LinkedIn Headline -->
+                    <div class="bg-slate-800/30 p-4 rounded-xl border border-slate-700/50">
+                        <div class="flex justify-between text-sm mb-1">
+                            <span class="text-sky-400 font-medium">LinkedIn Headline</span>
+                            <span class="text-slate-400" id="liHeadlineStats">0 / 220</span>
+                        </div>
+                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                            <div id="liHeadlineBar" class="bg-sky-500 h-full rounded-full transition-all duration-300"
+                                style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <article class="mt-16 prose prose-invert max-w-none">
+            <h2 class="text-2xl font-bold text-white mb-4">Why use a Character Counter?</h2>
+            <p class="text-slate-400">
+                Every social media platform has different limits for their posts, bios, and titles. Exceeding these
+                limits can result in your message being cut off or your post failing to publish.
+                Our **free online character counter** helps you draft your content to fit perfectly within these
+                constraints.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8 mt-8">
+                <div class="bg-slate-800/50 p-6 rounded-lg">
+                    <h3 class="text-white font-semibold mb-2">Instagram Bio Limit</h3>
+                    <p class="text-sm text-slate-400">Instagram bios are limited to <strong>150 characters</strong>. Use
+                        this space wisely to convey who you are and what you do.</p>
+                </div>
+                <div class="bg-slate-800/50 p-6 rounded-lg">
+                    <h3 class="text-white font-semibold mb-2">Twitter / X Character Limit</h3>
+                    <p class="text-sm text-slate-400">Standard tweets are limited to <strong>280 characters</strong>.
+                        Blue subscribers may have more, but brevity is key on this platform.</p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        const input = document.getElementById('textInput');
+
+        // Stats Elements
+        const counters = {
+            char: document.getElementById('charCount'),
+            word: document.getElementById('wordCount'),
+            sentence: document.getElementById('sentenceCount'),
+            para: document.getElementById('paraCount')
+        };
+
+        // Progress Bars Components
+        const platforms = [
+            { id: 'twitter', max: 280, elStat: document.getElementById('twitterStats'), elBar: document.getElementById('twitterBar') },
+            { id: 'instaBio', max: 150, elStat: document.getElementById('instaBioStats'), elBar: document.getElementById('instaBioBar') },
+            { id: 'ytTitle', max: 100, elStat: document.getElementById('ytTitleStats'), elBar: document.getElementById('ytTitleBar') },
+            { id: 'liHeadline', max: 220, elStat: document.getElementById('liHeadlineStats'), elBar: document.getElementById('liHeadlineBar') }
+        ];
+
+        input.addEventListener('input', updateStats);
+
+        document.getElementById('clearBtn').addEventListener('click', () => {
+            input.value = '';
+            updateStats();
+            input.focus();
+        });
+
+        document.getElementById('copyBtn').addEventListener('click', () => {
+            input.select();
+            document.execCommand('copy');
+            const originalText = document.getElementById('copyBtn').innerText;
+            document.getElementById('copyBtn').innerText = 'Copied!';
+            setTimeout(() => document.getElementById('copyBtn').innerText = originalText, 2000);
+        });
+
+        function updateStats() {
+            const text = input.value;
+            const charCount = text.length;
+
+            // Basic Counts
+            counters.char.innerText = charCount.toLocaleString();
+            counters.word.innerText = text.trim() === '' ? 0 : text.trim().split(/\s+/).length.toLocaleString();
+            counters.sentence.innerText = text.trim() === '' ? 0 : text.split(/[.!?]+/).filter(x => x.trim().length > 0).length.toLocaleString();
+            counters.para.innerText = text.trim() === '' ? 0 : text.split(/\n+/).filter(x => x.trim().length > 0).length.toLocaleString();
+
+            // Update Progress Bars
+            platforms.forEach(p => {
+                p.elStat.innerText = `${charCount} / ${p.max}`;
+                const percentage = Math.min((charCount / p.max) * 100, 100);
+                p.elBar.style.width = `${percentage}%`;
+
+                // Colors
+                if (charCount > p.max) {
+                    p.elBar.classList.remove('bg-brand-500', 'bg-blue-500', 'bg-pink-500', 'bg-sky-500');
+                    p.elBar.classList.add('bg-red-600');
+                } else if (charCount > p.max * 0.9) {
+                    // Keep original color but maybe warn? For now simple logic
+                    // Reset to original if needed, assuming inline styles handled class add/remove
+                    // actually simpler to just toggle warning class
+                } else {
+                    p.elBar.classList.remove('bg-red-600');
+                    // Re-adding specific color classes is complex if removed, 
+                    // so simplifying: rely on inline style for width and base classes.
+                    // A robust way:
+                    if (p.id === 'twitter') p.elBar.className = `h-full rounded-full transition-all duration-300 ${charCount > p.max ? 'bg-red-500' : 'bg-blue-500'}`;
+                    if (p.id === 'instaBio') p.elBar.className = `h-full rounded-full transition-all duration-300 ${charCount > p.max ? 'bg-red-500' : 'bg-pink-500'}`;
+                    if (p.id === 'ytTitle') p.elBar.className = `h-full rounded-full transition-all duration-300 ${charCount > p.max ? 'bg-red-500' : 'bg-red-500'}`; // YT is red anyway, darker red for error?
+                    if (p.id === 'liHeadline') p.elBar.className = `h-full rounded-full transition-all duration-300 ${charCount > p.max ? 'bg-red-500' : 'bg-sky-500'}`;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

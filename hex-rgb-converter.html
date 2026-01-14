@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEX to RGB Converter | Color Converter Tool</title>
+    <meta name="description"
+        content="Convert HEX color codes to RGB or RGBA instantly. Modern and clean color picker and converter for designers and developers.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav
+        class="w-full bg-slate-900 border-b border-white/10 px-6 py-4 flex justify-between items-center mb-10 sticky top-0 z-50">
+        <a href="index.html"
+            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+        <a href="index.html" class="text-sm hover:text-white transition">Home</a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto space-y-8">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-white mb-2">HEX to RGB Converter</h1>
+            <p class="text-slate-400">Perfectly convert color codes for your web projects.</p>
+        </div>
+
+        <section class="grid md:grid-cols-2 gap-8 items-stretch">
+            <!-- Left: Converter -->
+            <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 shadow-xl space-y-8">
+                <div>
+                    <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 block">Pick or Enter
+                        HEX</label>
+                    <div class="flex gap-4">
+                        <div class="relative w-16 h-12 rounded-lg overflow-hidden border border-slate-700">
+                            <input type="color" id="colorPicker" value="#14b8a6"
+                                class="absolute inset-0 w-full h-full scale-150 cursor-pointer">
+                        </div>
+                        <input type="text" id="hexInput" value="#14b8a6"
+                            class="flex-grow bg-slate-900 border border-slate-700 rounded-lg px-4 font-mono text-xl text-white outline-none focus:border-brand-500 transition">
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="relative">
+                        <label
+                            class="text-[10px] text-slate-500 absolute -top-2 left-3 bg-slate-800 px-2 font-bold uppercase">RGB</label>
+                        <div class="flex">
+                            <input type="text" id="rgbOutput" readonly
+                                class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 pt-4 font-mono text-brand-400 outline-none">
+                            <button onclick="copy('rgbOutput')"
+                                class="ml-2 bg-slate-700 hover:bg-slate-600 px-4 rounded-lg transition text-xs">Copy</button>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <label
+                            class="text-[10px] text-slate-500 absolute -top-2 left-3 bg-slate-800 px-2 font-bold uppercase">RGBA
+                            (0.8)</label>
+                        <div class="flex">
+                            <input type="text" id="rgbaOutput" readonly
+                                class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 pt-4 font-mono text-brand-400 outline-none">
+                            <button onclick="copy('rgbaOutput')"
+                                class="ml-2 bg-slate-700 hover:bg-slate-600 px-4 rounded-lg transition text-xs">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Preview -->
+            <div class="flex flex-col gap-6">
+                <div id="previewBox"
+                    class="flex-grow rounded-2xl shadow-2xl border border-white/10 transition-colors duration-200 flex items-center justify-center min-h-[200px]"
+                    style="background-color: #14b8a6;">
+                    <span id="previewText" class="text-white font-bold text-2xl drop-shadow-md">Preview</span>
+                </div>
+                <!-- Mini Gradients -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div id="grad-1" class="h-24 rounded-2xl border border-white/5"
+                        style="background: linear-gradient(135deg, #14b8a6, #000)"></div>
+                    <div id="grad-2" class="h-24 rounded-2xl border border-white/5"
+                        style="background: linear-gradient(135deg, #fff, #14b8a6)"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const hexInput = document.getElementById('hexInput');
+        const colorPicker = document.getElementById('colorPicker');
+        const rgbOutput = document.getElementById('rgbOutput');
+        const rgbaOutput = document.getElementById('rgbaOutput');
+        const previewBox = document.getElementById('previewBox');
+        const previewText = document.getElementById('previewText');
+        const grad1 = document.getElementById('grad-1');
+        const grad2 = document.getElementById('grad-2');
+
+        function hexToRgb(hex) {
+            let r = 0, g = 0, b = 0;
+            // Handle #123
+            if (hex.length == 4) {
+                r = parseInt(hex[1] + hex[1], 16);
+                g = parseInt(hex[2] + hex[2], 16);
+                b = parseInt(hex[3] + hex[3], 16);
+            } else if (hex.length == 7) {
+                r = parseInt(hex[1] + hex[2], 16);
+                g = parseInt(hex[3] + hex[4], 16);
+                b = parseInt(hex[5] + hex[6], 16);
+            }
+            return { r, g, b };
+        }
+
+        function update() {
+            let hex = hexInput.value;
+            if (!/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)) return;
+
+            colorPicker.value = hex;
+            const { r, g, b } = hexToRgb(hex);
+
+            rgbOutput.value = `rgb(${r}, ${g}, ${b})`;
+            rgbaOutput.value = `rgba(${r}, ${g}, ${b}, 0.8)`;
+
+            previewBox.style.backgroundColor = hex;
+            grad1.style.background = `linear-gradient(135deg, ${hex}, #000)`;
+            grad2.style.background = `linear-gradient(135deg, #fff, ${hex})`;
+
+            // Adaptive text color
+            const brightness = (r * 299 + g * 587 + b * 114) / 1000;
+            previewText.className = brightness > 155 ? 'text-slate-900 font-bold text-2xl' : 'text-white font-bold text-2xl drop-shadow-md';
+        }
+
+        hexInput.addEventListener('input', update);
+        colorPicker.addEventListener('input', (e) => {
+            hexInput.value = e.target.value.toUpperCase();
+            update();
+        });
+
+        function copy(id) {
+            const el = document.getElementById(id);
+            el.select();
+            document.execCommand('copy');
+            alert("Copied!");
+        }
+
+        // Init
+        update();
+    </script>
+</body>
+
+</html>

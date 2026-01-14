@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lorem Ipsum Generator | Free Placeholder Text Online</title>
+    <meta name="description"
+        content="Generate high-quality Lorem Ipsum placeholder text for your designs and mockups. Customize paragraphs, sentences, and words instantly.">
+    <meta name="keywords"
+        content="lorem ipsum generator, dummy text, placeholder text, placeholder generator, design tool">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 100% 0%, hsla(120, 50%, 15%, 1) 0, transparent 70%);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav
+        class="w-full bg-slate-900 border-b border-white/10 px-6 py-4 flex justify-between items-center mb-10 sticky top-0 z-50">
+        <a href="index.html"
+            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+        <a href="index.html" class="text-sm hover:text-white transition">Home</a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto space-y-8">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-white mb-2">Lorem Ipsum Generator</h1>
+            <p class="text-slate-400">Quickly generate professional placeholder text for your next project.</p>
+        </div>
+
+        <section class="max-w-3xl mx-auto space-y-6">
+            <div
+                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 md:p-8 shadow-xl flex flex-wrap gap-6 items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <label class="text-sm font-medium text-slate-400">Type:</label>
+                    <select id="type"
+                        class="bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white outline-none focus:border-brand-500">
+                        <option value="p">Paragraphs</option>
+                        <option value="w">Words</option>
+                    </select>
+                </div>
+                <div class="flex items-center gap-4">
+                    <label class="text-sm font-medium text-slate-400">Count:</label>
+                    <input type="number" id="count" value="3" min="1" max="50"
+                        class="w-20 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white outline-none focus:border-brand-500">
+                </div>
+                <button onclick="generate()"
+                    class="flex-grow md:flex-none bg-brand-600 hover:bg-brand-500 text-white font-bold px-8 py-2 rounded-lg transition active:scale-95">Generate</button>
+            </div>
+
+            <div
+                class="bg-slate-800/80 border border-slate-700 rounded-2xl p-6 md:p-8 shadow-2xl relative min-h-[300px]">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Text Preview</span>
+                    <button onclick="copyText()"
+                        class="text-xs bg-slate-700 hover:bg-slate-600 text-white px-4 py-1.5 rounded-full transition">Copy
+                        Text</button>
+                </div>
+                <div id="output"
+                    class="text-slate-300 leading-relaxed text-sm md:text-base prose prose-invert max-w-none">
+                    <!-- Text goes here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ".split(" ");
+
+        function generate() {
+            const type = document.getElementById('type').value;
+            const count = parseInt(document.getElementById('count').value);
+            const output = document.getElementById('output');
+
+            let result = "";
+
+            if (type === 'w') {
+                result = generateWords(count);
+            } else {
+                for (let i = 0; i < count; i++) {
+                    result += `<p class="mb-6">${generateParagraph()}</p>`;
+                }
+            }
+
+            output.innerHTML = result;
+        }
+
+        function generateWords(n) {
+            let words = [];
+            for (let i = 0; i < n; i++) {
+                words.push(lorem[Math.floor(Math.random() * lorem.length)]);
+            }
+            return words.join(" ");
+        }
+
+        function generateParagraph() {
+            // A paragraph is 5-10 sentences.
+            const sentences = 5 + Math.floor(Math.random() * 5);
+            let para = "";
+            for (let i = 0; i < sentences; i++) {
+                // Sentence is 8-15 words.
+                const wordCount = 8 + Math.floor(Math.random() * 8);
+                let sentence = generateWords(wordCount);
+                sentence = sentence.charAt(0).toUpperCase() + sentence.slice(1) + ". ";
+                para += sentence;
+            }
+            return para;
+        }
+
+        function copyText() {
+            const text = document.getElementById('output').innerText;
+            if (!text) return;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Text copied!");
+            });
+        }
+
+        // Init
+        generate();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator | Calculate Loan EMI Online</title>
+    <meta name="description"
+        content="Free EMI Calculator for Home Loan, Car Loan, and Personal Loan. Calculate monthly installments, total interest, and amortization schedule instantly.">
+    <meta name="keywords"
+        content="emi calculator, loan calculator, home loan emi, car loan emi, interest rate calculator, finance tool">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: linear-gradient(to bottom right, #0f172a, #1e293b);
+            min-height: 100vh;
+        }
+
+        .slider-thumb::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #14b8a6;
+            margin-top: -8px;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
+        }
+
+        .slider-track::-webkit-slider-runnable-track {
+            height: 4px;
+            background: #475569;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased font-sans">
+
+    <nav
+        class="w-full bg-slate-900/50 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center sticky top-0 z-50">
+        <a href="index.html"
+            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+        <a href="index.html" class="text-sm font-medium hover:text-white transition">Home</a>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-4 py-10 grid lg:grid-cols-2 gap-10">
+        <!-- Input Section -->
+        <div class="space-y-8">
+            <h1 class="text-3xl font-bold text-white">EMI Calculator</h1>
+
+            <!-- Amount -->
+            <div class="bg-slate-800/40 p-6 rounded-2xl border border-slate-700">
+                <div class="flex justify-between mb-4 items-end">
+                    <label class="text-sm font-medium text-slate-300">Loan Amount</label>
+                    <div class="relative">
+                        <span class="absolute left-3 top-2 text-slate-500">₹</span>
+                        <input type="number" id="inp-amount" value="1000000"
+                            class="w-32 bg-slate-900 border border-slate-600 rounded-lg py-1 pl-6 pr-2 text-right text-white focus:border-brand-500 outline-none">
+                    </div>
+                </div>
+                <input type="range" id="rng-amount" min="10000" max="10000000" step="10000" value="1000000"
+                    class="slider-track slider-thumb w-full bg-transparent appearance-none">
+            </div>
+
+            <!-- Rate -->
+            <div class="bg-slate-800/40 p-6 rounded-2xl border border-slate-700">
+                <div class="flex justify-between mb-4 items-end">
+                    <label class="text-sm font-medium text-slate-300">Interest Rate (p.a)</label>
+                    <div class="relative">
+                        <input type="number" id="inp-rate" value="10.5" step="0.1"
+                            class="w-20 bg-slate-900 border border-slate-600 rounded-lg py-1 px-2 text-right text-white focus:border-brand-500 outline-none">
+                        <span class="absolute right-8 top-1 text-slate-500">%</span>
+                    </div>
+                </div>
+                <input type="range" id="rng-rate" min="1" max="30" step="0.1" value="10.5"
+                    class="slider-track slider-thumb w-full bg-transparent appearance-none">
+            </div>
+
+            <!-- Tenure -->
+            <div class="bg-slate-800/40 p-6 rounded-2xl border border-slate-700">
+                <div class="flex justify-between mb-4 items-end">
+                    <label class="text-sm font-medium text-slate-300">Loan Tenure</label>
+                    <div class="flex gap-2 bg-slate-900 p-1 rounded-lg">
+                        <button id="btn-yr"
+                            class="px-3 py-1 rounded text-xs font-bold bg-brand-600 text-white shadow">Yr</button>
+                        <button id="btn-mo"
+                            class="px-3 py-1 rounded text-xs font-bold text-slate-400 hover:text-white">Mo</button>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-2xl font-bold text-brand-400" id="disp-tenure">5</span>
+                    <span class="text-sm text-slate-400" id="disp-unit">Years</span>
+                </div>
+                <input type="range" id="rng-tenure" min="1" max="30" step="1" value="5"
+                    class="slider-track slider-thumb w-full bg-transparent appearance-none">
+            </div>
+        </div>
+
+        <!-- Result Section -->
+        <div class="flex flex-col justify-center">
+            <div
+                class="bg-slate-800/80 p-8 rounded-3xl border border-slate-700 shadow-2xl backdrop-blur-xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl"></div>
+
+                <div class="text-center mb-8 relative z-10">
+                    <p class="text-slate-400 text-sm uppercase tracking-wider mb-2">Monthly EMI</p>
+                    <h2 class="text-5xl font-bold text-white">₹ <span id="res-emi">0</span></h2>
+                </div>
+
+                <div class="space-y-4 relative z-10">
+                    <div class="flex justify-between p-4 bg-slate-900/50 rounded-xl">
+                        <span class="text-slate-400">Principal Amount</span>
+                        <span class="font-semibold text-white">₹ <span id="res-principal">0</span></span>
+                    </div>
+                    <div class="flex justify-between p-4 bg-slate-900/50 rounded-xl border border-brand-500/10">
+                        <span class="text-slate-400">Total Interest</span>
+                        <span class="font-semibold text-brand-400">₹ <span id="res-interest">0</span></span>
+                    </div>
+                    <div class="flex justify-between p-4 bg-slate-700/30 rounded-xl">
+                        <span class="text-slate-300 font-medium">Total Payable</span>
+                        <span class="font-bold text-white">₹ <span id="res-total">0</span></span>
+                    </div>
+                </div>
+
+                <!-- Donut Chart Canvas -->
+                <div class="mt-8 flex justify-center">
+                    <div class="relative w-48 h-48">
+                        <svg viewBox="0 0 36 36" class="w-full h-full transform -rotate-90">
+                            <!-- Background Circle -->
+                            <path class="text-slate-700"
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                fill="none" stroke="currentColor" stroke-width="4" />
+                            <!-- Interest Slice -->
+                            <path id="chart-ring" class="text-brand-500 transition-all duration-700 ease-out"
+                                stroke-dasharray="0, 100"
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                fill="none" stroke="currentColor" stroke-width="4" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-xs text-slate-400">
+                            <span>Breakup</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const els = {
+            amount: { inp: document.getElementById('inp-amount'), rng: document.getElementById('rng-amount') },
+            rate: { inp: document.getElementById('inp-rate'), rng: document.getElementById('rng-rate') },
+            tenure: { rng: document.getElementById('rng-tenure'), disp: document.getElementById('disp-tenure'), unit: document.getElementById('disp-unit') },
+            btnYr: document.getElementById('btn-yr'),
+            btnMo: document.getElementById('btn-mo'),
+            res: { emi: document.getElementById('res-emi'), principal: document.getElementById('res-principal'), interest: document.getElementById('res-interest'), total: document.getElementById('res-total') },
+            chart: document.getElementById('chart-ring')
+        };
+
+        let isYear = true;
+
+        function sync(source, type) {
+            if (type === 'amount') {
+                els.amount.rng.value = els.amount.inp.value;
+                els.amount.inp.value = els.amount.rng.value; // clamp logic if needed
+            } else if (type === 'rate') {
+                els.rate.rng.value = els.rate.inp.value;
+                els.rate.inp.value = els.rate.rng.value;
+            }
+            calculate();
+        }
+
+        els.amount.inp.addEventListener('input', () => { els.amount.rng.value = els.amount.inp.value; calculate(); });
+        els.amount.rng.addEventListener('input', () => { els.amount.inp.value = els.amount.rng.value; calculate(); });
+
+        els.rate.inp.addEventListener('input', () => { els.rate.rng.value = els.rate.inp.value; calculate(); });
+        els.rate.rng.addEventListener('input', () => { els.rate.inp.value = els.rate.rng.value; calculate(); });
+
+        els.tenure.rng.addEventListener('input', () => { els.tenure.disp.innerText = els.tenure.rng.value; calculate(); });
+
+        els.btnYr.addEventListener('click', () => { setMode(true) });
+        els.btnMo.addEventListener('click', () => { setMode(false) });
+
+        function setMode(year) {
+            isYear = year;
+            if (year) {
+                els.btnYr.className = "px-3 py-1 rounded text-xs font-bold bg-brand-600 text-white shadow";
+                els.btnMo.className = "px-3 py-1 rounded text-xs font-bold text-slate-400 hover:text-white";
+                els.tenure.rng.max = 30;
+                els.tenure.unit.innerText = "Years";
+                if (parseInt(els.tenure.rng.value) > 30) els.tenure.rng.value = 30; // clamp
+            } else {
+                els.btnMo.className = "px-3 py-1 rounded text-xs font-bold bg-brand-600 text-white shadow";
+                els.btnYr.className = "px-3 py-1 rounded text-xs font-bold text-slate-400 hover:text-white";
+                els.tenure.rng.max = 360;
+                els.tenure.unit.innerText = "Months";
+            }
+            els.tenure.disp.innerText = els.tenure.rng.value;
+            calculate();
+        }
+
+        function calculate() {
+            const P = parseFloat(els.amount.inp.value) || 0;
+            const R = parseFloat(els.rate.inp.value) || 0;
+            let N = parseFloat(els.tenure.rng.value) || 0;
+
+            if (isYear) N = N * 12;
+
+            if (P === 0 || R === 0 || N === 0) return;
+
+            const r = R / 12 / 100;
+            const emi = P * r * (Math.pow(1 + r, N) / (Math.pow(1 + r, N) - 1));
+
+            const totalPay = emi * N;
+            const totalInt = totalPay - P;
+
+            els.res.emi.innerText = Math.round(emi).toLocaleString();
+            els.res.principal.innerText = P.toLocaleString();
+            els.res.interest.innerText = Math.round(totalInt).toLocaleString();
+            els.res.total.innerText = Math.round(totalPay).toLocaleString();
+
+            // Chart
+            const intPct = (totalInt / totalPay) * 100;
+            // Stroke-dasharray "value, 100" ... wait, standard svg circle logic:
+            // 2 * pi * r. If r ~ 16 (viewbox 36, so r approx 16 is 100 circumference in this path setup usually? No.)
+            // Path defines r=15.9155 => diam=31.831 => C=100. Correct.
+            els.chart.setAttribute('stroke-dasharray', `${intPct}, 100`);
+        }
+
+        calculate();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JPG to WebP Converter | Free Image Format Converter</title>
+    <meta name="description"
+        content="Convert JPG and PNG images to WebP format online. Free, fast, and secure client-side converter. Reduce image size and improve web performance.">
+    <meta name="keywords" content="jpg to webp, png to webp, image converter, webp converter, free online converter">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 100% 0%, hsla(300, 50%, 15%, 1) 0, transparent 70%);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav
+        class="w-full bg-slate-900 border-b border-white/10 px-6 py-4 flex justify-between items-center mb-10 sticky top-0 z-50">
+        <a href="index.html"
+            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+        <a href="index.html" class="text-sm hover:text-white">Home</a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto space-y-8">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-white mb-2">JPG to WebP Converter</h1>
+            <p class="text-slate-400">Modernize your images (JPG/PNG) to high-performance WebP format.</p>
+        </div>
+
+        <section class="bg-slate-800/50 rounded-2xl p-8 border border-slate-700 shadow-2xl flex flex-col items-center">
+
+            <div class="w-full max-w-xl">
+                <label for="imageInput"
+                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-slate-600 border-dashed rounded-2xl cursor-pointer bg-slate-900 hover:bg-slate-800 transition">
+                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                        <svg class="w-10 h-10 mb-3 text-slate-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                        </svg>
+                        <p class="mb-2 text-sm text-slate-400"><span class="font-semibold text-white">Click to
+                                upload</span> or drag and drop</p>
+                        <p class="text-xs text-slate-500">JPG, PNG, GIF</p>
+                    </div>
+                    <input id="imageInput" type="file" class="hidden" accept="image/*" />
+                </label>
+            </div>
+
+            <div id="resultArea" class="hidden w-full max-w-xl mt-8 animate-fade-in">
+                <div class="bg-slate-900 border border-slate-700 rounded-xl p-6 flex items-center justify-between">
+                    <div class="flex items-center gap-4">
+                        <img id="thumb" class="w-16 h-16 object-cover rounded shadow" src="">
+                        <div>
+                            <p class="text-white font-medium">Converted Image</p>
+                            <p class="text-xs text-brand-400 font-bold">.webp</p>
+                        </div>
+                    </div>
+                    <a id="downloadLink" download="image.webp"
+                        class="bg-brand-600 hover:bg-brand-500 text-white px-6 py-2 rounded-lg text-sm font-bold transition shadow-lg shadow-brand-500/20">
+                        Download
+                    </a>
+                </div>
+                <div id="msg" class="text-center text-xs text-green-400 mt-2">Conversion Successful!</div>
+            </div>
+
+        </section>
+
+        <!-- SEO Content -->
+        <article class="prose prose-invert max-w-none mt-12 bg-slate-800/30 p-8 rounded-2xl">
+            <h2 class="text-2xl font-bold text-white mb-4">Why use WebP?</h2>
+            <p class="text-slate-400">
+                WebP is a modern image format that provides superior lossless and lossy compression for images on the
+                web. Using WebP, webmasters and web developers can create smaller, richer images that make the web
+                faster.
+            </p>
+            <ul class="list-disc pl-5 space-y-2 mt-4 text-slate-400">
+                <li>Smaller file sizes compared to PNG and JPEG.</li>
+                <li>Support for transparency (alpha channel).</li>
+                <li>Supported by all modern browsers (Chrome, Firefox, Edge, Safari).</li>
+            </ul>
+        </article>
+    </main>
+
+    <script>
+        const input = document.getElementById('imageInput');
+        const resultArea = document.getElementById('resultArea');
+        const thumb = document.getElementById('thumb');
+        const downloadLink = document.getElementById('downloadLink');
+
+        input.addEventListener('change', function (e) {
+            if (e.target.files && e.target.files[0]) {
+                const file = e.target.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function (event) {
+                    const img = new Image();
+                    img.src = event.target.result;
+
+                    img.onload = function () {
+                        const canvas = document.createElement('canvas');
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        const ctx = canvas.getContext('2d');
+                        ctx.drawImage(img, 0, 0);
+
+                        // Convert
+                        const webpData = canvas.toDataURL('image/webp', 0.85);
+
+                        // Update UI
+                        thumb.src = webpData;
+                        downloadLink.href = webpData;
+
+                        // Set filename
+                        const originalName = file.name.split('.')[0];
+                        downloadLink.download = `${originalName}.webp`;
+
+                        resultArea.classList.remove('hidden');
+                    }
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+
+</html>

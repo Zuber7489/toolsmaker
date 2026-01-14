@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Hashtag Generator | Viral Hashtags for Growth</title>
+    <meta name="description"
+        content="Get viral Instagram hashtags for your posts. Browse categories like Travel, Food, Fashion, and Tech. Copy popular hashtag sets to boost your reach.">
+    <meta name="keywords"
+        content="instagram hashtags, hashtag generator, viral hashtags, instagram growth tools, popular hashtags 2024">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            min-height: 100vh;
+        }
+
+        .hashtag-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .hashtag-card:hover {
+            border-color: #14b8a6;
+            background: rgba(30, 41, 59, 0.8);
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav
+        class="w-full bg-slate-900 border-b border-white/10 px-6 py-4 flex justify-between items-center mb-10 sticky top-0 z-50">
+        <a href="index.html"
+            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+        <a href="index.html" class="text-sm hover:text-white">Home</a>
+    </nav>
+
+    <main class="max-w-6xl mx-auto space-y-8">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl font-bold text-white mb-2">Instagram Hashtag Generator</h1>
+            <p class="text-slate-400">Copy the best hashtag sets for your niche to increase your visibility.</p>
+        </div>
+
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Travel -->
+            <div class="hashtag-card rounded-2xl p-6 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-white">✈️ Travel</h3>
+                    <button onclick="copyTags('tags-travel')"
+                        class="text-xs bg-brand-500/20 text-brand-400 px-3 py-1 rounded-full border border-brand-500/30 hover:bg-brand-500 hover:text-white transition">Copy
+                        All</button>
+                </div>
+                <p id="tags-travel" class="text-sm text-slate-400 leading-relaxed">
+                    #travel #wanderlust #nature #adventure #travelgram #explore #instatravel #photography
+                    #travelphotography #vacation #winter #mountains #sunset #beach #holiday
+                </p>
+            </div>
+
+            <!-- Food -->
+            <div class="hashtag-card rounded-2xl p-6 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-white">🍕 Foodie</h3>
+                    <button onclick="copyTags('tags-food')"
+                        class="text-xs bg-brand-500/20 text-brand-400 px-3 py-1 rounded-full border border-brand-500/30 hover:bg-brand-500 hover:text-white transition">Copy
+                        All</button>
+                </div>
+                <p id="tags-food" class="text-sm text-slate-400 leading-relaxed">
+                    #food #foodporn #instafood #foodie #healthyfood #yummy #delicious #dinner #breakfast #homemade
+                    #cooking #pizza #coffee #foodblogger #lunch
+                </p>
+            </div>
+
+            <!-- Fitness -->
+            <div class="hashtag-card rounded-2xl p-6 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-white">💪 Fitness</h3>
+                    <button onclick="copyTags('tags-fitness')"
+                        class="text-xs bg-brand-500/20 text-brand-400 px-3 py-1 rounded-full border border-brand-500/30 hover:bg-brand-500 hover:text-white transition">Copy
+                        All</button>
+                </div>
+                <p id="tags-fitness" class="text-sm text-slate-400 leading-relaxed">
+                    #fitness #gym #workout #motivation #fit #bodybuilding #training #health #lifestyle #fitfam
+                    #healthylifestyle #sport #personaltrainer #crossfit #muscle
+                </p>
+            </div>
+
+            <!-- Technology -->
+            <div class="hashtag-card rounded-2xl p-6 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-white">💻 Tech</h3>
+                    <button onclick="copyTags('tags-tech')"
+                        class="text-xs bg-brand-500/20 text-brand-400 px-3 py-1 rounded-full border border-brand-500/30 hover:bg-brand-500 hover:text-white transition">Copy
+                        All</button>
+                </div>
+                <p id="tags-tech" class="text-sm text-slate-400 leading-relaxed">
+                    #tech #technology #coding #programming #software #webdevelopment #ai #javascript #python #developer
+                    #innovation #gadgets #cybersecurity #data #computer
+                </p>
+            </div>
+
+            <!-- Fashion -->
+            <div class="hashtag-card rounded-2xl p-6 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-white">👗 Fashion</h3>
+                    <button onclick="copyTags('tags-fashion')"
+                        class="text-xs bg-brand-500/20 text-brand-400 px-3 py-1 rounded-full border border-brand-500/30 hover:bg-brand-500 hover:text-white transition">Copy
+                        All</button>
+                </div>
+                <p id="tags-fashion" class="text-sm text-slate-400 leading-relaxed">
+                    #fashion #style #love #instagood #outfit #model #photography #shopping #beauty #fashionblogger
+                    #instadaily #lifestyle #shoes #dress #ootd
+                </p>
+            </div>
+
+            <!-- Self Love -->
+            <div class="hashtag-card rounded-2xl p-6 flex flex-col">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold text-white">✨ Self Love</h3>
+                    <button onclick="copyTags('tags-love')"
+                        class="text-xs bg-brand-500/20 text-brand-400 px-3 py-1 rounded-full border border-brand-500/30 hover:bg-brand-500 hover:text-white transition">Copy
+                        All</button>
+                </div>
+                <p id="tags-love" class="text-sm text-slate-400 leading-relaxed">
+                    #love #selflove #happiness #positivevibes #mentalhealth #mindset #growth #care #peace #gratitude
+                    #confidence #healing #inspiration #life #smile
+                </p>
+            </div>
+        </section>
+
+        <section class="mt-12 bg-slate-800/20 p-8 rounded-2xl border border-slate-700/50">
+            <h2 class="text-2xl font-bold text-white mb-4">How to Use Hashtags effectively?</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-slate-400 text-sm">
+                <p>
+                    Using hashtags is one of the easiest ways to get your posts seen by people who don't follow you yet.
+                    However, simply using 30 random tags won't work. You need to mix popular hashtags (1M+ posts) with
+                    niche-specific ones (10k-50k posts) to stand a chance of ranking on the explore page.
+                </p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li>Use between 3 to 15 relevant hashtags per post.</li>
+                    <li>Hide tags in the first comment to keep the caption clean.</li>
+                    <li>Vary your tag sets for different posts to avoid being flagged as spam.</li>
+                    <li>Analyze which tags bring you the most engagement.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function copyTags(id) {
+            const tags = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(tags).then(() => {
+                alert('Hashtags copied to clipboard!');
+            });
+        }
+    </script>
+</body>
+
+</html>
