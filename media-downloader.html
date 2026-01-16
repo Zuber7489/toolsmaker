@@ -278,10 +278,12 @@
         // List of public Cobalt instances (Priority Order)
         // We use a CORS Proxy to bypass browser restrictions on the official API
         const apiInstances = [
+            // Try wrapping the official API with a robust CORS proxy
             "https://corsproxy.io/?https://api.cobalt.tools/api/json",
-            "https://api.cobalt.tools/api/json", // Direct fallback
-            // Other community instances (high volatility)
-            "https://cobalt.q13.me/api/json",
+            // Fallbacks (try direct or other proxies)
+            "https://api.cobalt.tools/api/json",
+            "https://dl.khinsider.com/api/json",
+            "https://cobalt.api.sc/api/json",
         ];
 
         async function fetchVideo() {
@@ -305,13 +307,22 @@
             for (const apiBase of apiInstances) {
                 try {
                     console.log(`Trying API: ${apiBase}`);
-                    // Note: "Accept" header is important for Cobalt
+
+                    const isProxy = apiBase.includes("corsproxy.io");
+
+                    // Note: When using corsproxy, we often need to be careful with headers.
+                    // Simple requests (text/plain) might work better to avoid preflight if the proxy allows it.
+                    // But Cobalt expects JSON.
+
+                    const headers = {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    };
+
+                    // Execute Fetch
                     const response = await fetch(apiBase, {
                         method: "POST",
-                        headers: {
-                            "Accept": "application/json",
-                            "Content-Type": "application/json"
-                        },
+                        headers: headers,
                         body: JSON.stringify({
                             url: url,
                             vCodec: "h264",
