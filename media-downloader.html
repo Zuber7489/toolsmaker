@@ -276,14 +276,11 @@
         const resMeta = document.getElementById('resMeta');
 
         // List of public Cobalt instances (Priority Order)
-        // We use a CORS Proxy to bypass browser restrictions on the official API
         const apiInstances = [
-            // Try wrapping the official API with a robust CORS proxy
+            "https://cobalt.api.sc/api/json", // Try direct first
+            "https://api.allorigins.win/raw?url=https://api.cobalt.tools/api/json", // Permissive CORS proxy
             "https://corsproxy.io/?https://api.cobalt.tools/api/json",
-            // Fallbacks (try direct or other proxies)
             "https://api.cobalt.tools/api/json",
-            "https://dl.khinsider.com/api/json",
-            "https://cobalt.api.sc/api/json",
         ];
 
         async function fetchVideo() {
@@ -309,6 +306,7 @@
                     console.log(`Trying API: ${apiBase}`);
 
                     const isProxy = apiBase.includes("corsproxy.io");
+                    // const isRapid = apiBase.includes("rapidapi"); // Logic for RapidAPI if integrated later
 
                     // Note: When using corsproxy, we often need to be careful with headers.
                     // Simple requests (text/plain) might work better to avoid preflight if the proxy allows it.
