@@ -195,9 +195,10 @@
             reader.readAsDataURL(file);
 
             try {
-                // imgly removeBackground
-                // Blob URL is safer
-                const blob = await imglyRemoveBackground(file);
+                // imgly removeBackground with explicit asset path
+                const blob = await imglyRemoveBackground(file, {
+                    publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal-data@1.4.5/dist/'
+                });
                 const url = URL.createObjectURL(blob);
 
                 resImg.src = url;
