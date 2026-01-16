@@ -276,11 +276,12 @@
         const resMeta = document.getElementById('resMeta');
 
         // List of public Cobalt instances (Priority Order)
+        // v10+ API uses root endpoint "/"
         const apiInstances = [
-            "https://cobalt.api.sc/api/json", // Try direct first
-            "https://api.allorigins.win/raw?url=https://api.cobalt.tools/api/json", // Permissive CORS proxy
-            "https://corsproxy.io/?https://api.cobalt.tools/api/json",
-            "https://api.cobalt.tools/api/json",
+            "https://cobalt.api.sc", // Try direct first
+            "https://api.allorigins.win/raw?url=https://api.cobalt.tools", // Permissive CORS proxy (Official)
+            "https://corsproxy.io/?https://api.cobalt.tools",
+            "https://api.cobalt.tools",
         ];
 
         async function fetchVideo() {
