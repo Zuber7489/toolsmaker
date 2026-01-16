@@ -21,8 +21,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Background Removal Library -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/imgly-background-removal.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -157,7 +156,9 @@
         &copy; 2024 FreeProducts24. AI Powered Privacy.
     </footer>
 
-    <script>
+    <script type="module">
+        import imglyRemoveBackground from "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/index.js";
+
         const dropZone = document.getElementById('dropZone');
         const fileInput = document.getElementById('fileInput');
         const resultContainer = document.getElementById('resultContainer');
@@ -196,12 +197,11 @@
             reader.readAsDataURL(file);
 
             try {
-                // imgly removeBackground with explicit asset path
+                // imgly removeBackground
                 const blob = await imglyRemoveBackground(file, {
                     publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal-data@1.4.5/dist/',
-                    debug: true,
                     progress: (key, current, total) => {
-                        console.log(`Downloading ${key}: ${Math.round(current / total * 100)}%`);
+                        // console.log(`Downloading ${key}: ${Math.round(current / total * 100)}%`);
                     }
                 });
                 const url = URL.createObjectURL(blob);
