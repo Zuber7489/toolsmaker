@@ -319,15 +319,14 @@
                     };
 
                     // Execute Fetch
+                    // Cobalt v10 simple request structure
                     const response = await fetch(apiBase, {
                         method: "POST",
                         headers: headers,
                         body: JSON.stringify({
                             url: url,
-                            vCodec: "h264",
-                            vQuality: "1080",
-                            aFormat: "mp3",
-                            filenamePattern: "basic"
+                            // vCodec/vQuality/aFormat are often not supported or require specific config on v10
+                            // Let's keep it minimal for maximum compatibility
                         })
                     });
 
