@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Background Remover | Remove Image BG Online | FreeProducts24</title>
+    <meta name="description"
+        content="Remove image backgrounds automatically in 5 seconds with AI. 100% free and private. No image upload required - runs in browser.">
+    <meta name="keywords"
+        content="background remover, remove bg, transparent background, ai background removal, free bg remover, freeproducts24">
+    <link rel="canonical" href="https://freeproducts24.site/bg-remover.html" />
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AI Background Remover - 100% Free & Private">
+    <meta property="og:description" content="Remove backgrounds from images instantly using browser-based AI.">
+    <meta property="og:url" content="https://freeproducts24.site/bg-remover.html">
+    <meta property="og:type" content="article">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Background Removal Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/index.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 100% 100%, hsla(280, 50%, 10%, 1) 0, transparent 70%);
+            min-height: 100vh;
+        }
+
+        .loading-spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: #14b8a6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav
+        class="w-full bg-slate-900/50 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center mb-10 sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center font-bold text-slate-900">F
+            </div>
+            <span
+                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">FreeProducts24</span>
+        </a>
+        <a href="index.html" class="text-sm hover:text-white transition">Home</a>
+    </nav>
+
+    <main class="max-w-4xl mx-auto py-10 px-6">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-white mb-4">AI Background Remover</h1>
+            <p class="text-slate-400">Professional background removal in seconds. 100% Private, no data leaves your
+                browser.</p>
+        </div>
+
+        <div class="bg-slate-800/40 border border-slate-700 rounded-3xl p-8 shadow-2xl">
+            <!-- Upload Box -->
+            <div id="dropZone"
+                class="border-2 border-dashed border-slate-600 rounded-2xl p-12 text-center hover:border-brand-500 transition-all cursor-pointer group">
+                <input type="file" id="fileInput" class="hidden" accept="image/*">
+                <div class="space-y-4">
+                    <div
+                        class="w-16 h-16 bg-brand-500/10 rounded-full flex items-center justify-center text-brand-500 mx-auto group-hover:bg-brand-500 group-hover:text-white transition">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="text-lg font-bold text-white">Choose an image</p>
+                        <p class="text-sm text-slate-500">or drag and drop it here</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Processing / Result -->
+            <div id="resultContainer" class="hidden mt-8 space-y-6">
+                <div id="loader" class="hidden flex flex-col items-center space-y-4 py-12">
+                    <div class="loading-spinner"></div>
+                    <p class="text-brand-400 font-medium">AI is removing background... (May take 10-20s for first run)
+                    </p>
+                </div>
+
+                <div id="imageDisplay" class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-2">
+                        <p class="text-xs font-bold text-slate-500 uppercase">Original</p>
+                        <img id="origImg" class="rounded-xl w-full border border-slate-700" alt="Original">
+                    </div>
+                    <div class="space-y-2">
+                        <p class="text-xs font-bold text-brand-500 uppercase">Transparent Result</p>
+                        <div
+                            class="rounded-xl w-full border border-brand-500/30 overflow-hidden bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+                            <img id="resImg" class="w-full" alt="Result">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex justify-center pt-6">
+                    <button id="downloadBtn"
+                        class="bg-brand-600 hover:bg-brand-500 text-white font-bold py-4 px-10 rounded-xl transition shadow-lg shadow-brand-500/20">Download
+                        Transparent PNG</button>
+                    <button onclick="location.reload()"
+                        class="ml-4 bg-slate-700 hover:bg-slate-600 text-white font-bold py-4 px-6 rounded-xl transition">New
+                        Image</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <section class="mt-20 border-t border-white/5 pt-12">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="text-left">
+                    <h2 class="text-2xl font-bold text-white mb-4">How it works?</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        We use a powerful AI model that runs directly in your web browser. This means your private
+                        photos are never uploaded to any server. Your data stays on your machine, making it the most
+                        secure way to remove backgrounds.
+                    </p>
+                </div>
+                <div class="bg-slate-800/20 p-8 rounded-2xl border border-white/5 text-left">
+                    <h3 class="text-lg font-bold text-white mb-4">Important Note</h3>
+                    <p class="text-sm text-slate-500">
+                        The first time you use this tool, your browser will download the AI model (approx. 20MB).
+                        Subsequent uses will be much faster.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-20 py-8 border-t border-white/5 text-center text-slate-500 text-xs text-left">
+        &copy; 2024 FreeProducts24. AI Powered Privacy.
+    </footer>
+
+    <script>
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const resultContainer = document.getElementById('resultContainer');
+        const loader = document.getElementById('loader');
+        const imageDisplay = document.getElementById('imageDisplay');
+        const origImg = document.getElementById('origImg');
+        const resImg = document.getElementById('resImg');
+        const downloadBtn = document.getElementById('downloadBtn');
+
+        dropZone.onclick = () => fileInput.click();
+
+        fileInput.onchange = (e) => {
+            const file = e.target.files[0];
+            if (file) handleFile(file);
+        };
+
+        // Drag and drop support
+        dropZone.ondragover = (e) => { e.preventDefault(); dropZone.classList.add('border-brand-500'); };
+        dropZone.ondragleave = (e) => { e.preventDefault(); dropZone.classList.remove('border-brand-500'); };
+        dropZone.ondrop = (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('border-brand-500');
+            if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+        };
+
+        async function handleFile(file) {
+            // Setup UI
+            dropZone.classList.add('hidden');
+            resultContainer.classList.remove('hidden');
+            loader.classList.remove('hidden');
+            imageDisplay.classList.add('hidden');
+            downloadBtn.classList.add('hidden');
+
+            const reader = new FileReader();
+            reader.onload = (e) => origImg.src = e.target.result;
+            reader.readAsDataURL(file);
+
+            try {
+                // imgly removeBackground
+                // Blob URL is safer
+                const blob = await imglyRemoveBackground(file);
+                const url = URL.createObjectURL(blob);
+
+                resImg.src = url;
+
+                loader.classList.add('hidden');
+                imageDisplay.classList.remove('hidden');
+                downloadBtn.classList.remove('hidden');
+
+                downloadBtn.onclick = () => {
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'freeproducts24-removed-bg.png';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                };
+            } catch (err) {
+                console.error(err);
+                alert("Processing failed. Please try a different image.");
+                location.reload();
+            }
+        }
+    </script>
+</body>
+
+</html>
