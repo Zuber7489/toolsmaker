@@ -276,13 +276,12 @@
         const resMeta = document.getElementById('resMeta');
 
         // List of public Cobalt instances (Priority Order)
-        // Note to future maintainers: These change often!
-        // Using 'no-key' APIs often means relying on community instances.
+        // We use a CORS Proxy to bypass browser restrictions on the official API
         const apiInstances = [
-            "https://dl.khinsider.com/api/json", // Often reliable
-            "https://api.cobalt.tools/api/json", // Official, often blocks CORS
-            "https://cobalt.api.sc/api/json",
-            "https://co.wuk.sh/api/json",
+            "https://corsproxy.io/?https://api.cobalt.tools/api/json",
+            "https://api.cobalt.tools/api/json", // Direct fallback
+            // Other community instances (high volatility)
+            "https://cobalt.q13.me/api/json",
         ];
 
         async function fetchVideo() {
