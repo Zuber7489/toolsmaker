@@ -21,7 +21,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Background Removal Library -->
-    <script src="https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/dist/index.js"></script>
+    <script src="https://unpkg.com/@imgly/background-removal@1.4.5/dist/index.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -195,9 +195,13 @@
             reader.readAsDataURL(file);
 
             try {
-                // imgly removeBackground with explicit asset path
+                // imgly removeBackground with explicit asset path using UNPKG
                 const blob = await imglyRemoveBackground(file, {
-                    publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal-data@1.4.5/dist/'
+                    publicPath: 'https://unpkg.com/@imgly/background-removal-data@1.4.5/dist/',
+                    debug: true,
+                    progress: (key, current, total) => {
+                        console.log(`Downloading ${key}: ${Math.round(current / total * 100)}%`);
+                    }
                 });
                 const url = URL.createObjectURL(blob);
 
@@ -217,7 +221,7 @@
                 };
             } catch (err) {
                 console.error(err);
-                alert("Processing failed. Please try a different image.");
+                alert("Error Details: " + (err.message || err));
                 location.reload();
             }
         }
