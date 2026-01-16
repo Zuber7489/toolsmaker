@@ -157,7 +157,9 @@
     </footer>
 
     <script type="module">
-        import imglyRemoveBackground from "https://esm.sh/@imgly/background-removal@1.7.0?bundle";
+        import * as imgly from "https://esm.sh/@imgly/background-removal@1.7.0?bundle";
+        // Handle various export structures (Default vs Named vs CommonJS)
+        window.imglyRemoveBackground = imgly.default || imgly;
 
         const dropZone = document.getElementById('dropZone');
         const fileInput = document.getElementById('fileInput');
