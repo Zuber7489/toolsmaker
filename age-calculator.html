@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- SEO Meta Tags -->
-    <title>Free Age Calculator with Days | Calculate Exact Age Online</title>
-    <meta name="description" content="Calculate your exact age in years, months, weeks, and days. Free online Age Calculator tool for birth date analysis, next birthday countdown, and more. Fast & mobile-friendly.">
-    <meta name="keywords" content="age calculator, calculate age, birth date calculator, age in days, how old am i, birthday calculator, online tools">
+    <title>Age Calculator | Accurate Age (Years, Months, Days) | FreeProducts24</title>
+    <meta name="description"
+        content="Calculate your exact age in years, months, days, minutes, and seconds. Find out exactly when is your next birthday and how many days are left. Fast & Free.">
+    <meta name="keywords"
+        content="age calculator, exact age, birthday countdown, how old am i, date of birth calculator, freeproducts24">
+    <link rel="canonical" href="https://freeproducts24.site/age-calculator.html" />
     <meta name="author" content="ToolsMaker">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph / Social -->
-    <meta property="og:type" content="website">
     <meta property="og:title" content="Free Age Calculator with Days | Calculate Exact Age Online">
-    <meta property="og:description" content="Find out exactly how old you are in years, months, and days. Simple, fast, and accurate age calculation tool.">
+    <meta property="og:description"
+        content="Find out exactly how old you are in years, months, and days. Simple, fast, and accurate age calculation tool.">
     <meta property="og:url" content="https://toolsmaker.com/age-calculator">
-    
+
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -66,14 +70,15 @@
     <!-- Custom Styles -->
     <style>
         body {
-            background-color: #0f172a; /* Slate 900 */
-            background-image: 
-                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+            background-color: #0f172a;
+            /* Slate 900 */
+            background-image:
+                radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
             min-height: 100vh;
         }
-        
+
         .glass-panel {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(12px);
@@ -86,11 +91,12 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: all 0.3s ease;
         }
-        
+
         .result-card:hover {
             transform: translateY(-2px);
             background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(20, 184, 166, 0.3); /* Brand color hint */
+            border-color: rgba(20, 184, 166, 0.3);
+            /* Brand color hint */
         }
 
         /* Custom Date Input Styling */
@@ -99,7 +105,7 @@
             cursor: pointer;
         }
     </style>
-    
+
     <!-- Schema.org FAQ -->
     <script type="application/ld+json">
     {
@@ -130,6 +136,7 @@
     }
     </script>
 </head>
+
 <body class="text-slate-200 antialiased selection:bg-brand-500 selection:text-white">
 
     <!-- Navbar -->
@@ -137,14 +144,17 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0 flex items-center">
-                    <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">
+                    <span
+                        class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">
                         ToolsMaker
                     </span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#" class="px-3 py-2 rounded-md text-sm font-medium text-white bg-white/10 hover:bg-white/20 transition">Home</a>
-                        <a href="#about" class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">About</a>
+                        <a href="#"
+                            class="px-3 py-2 rounded-md text-sm font-medium text-white bg-white/10 hover:bg-white/20 transition">Home</a>
+                        <a href="#about"
+                            class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 transition">About</a>
                     </div>
                 </div>
             </div>
@@ -153,10 +163,11 @@
 
     <!-- Main Content -->
     <main class="pt-24 pb-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        
+
         <!-- Header Section -->
         <header class="text-center mb-12 animate-fade-in">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
+            <h1
+                class="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
                 Age Calculator with Days
             </h1>
             <p class="text-lg text-slate-400 max-w-2xl mx-auto">
@@ -165,29 +176,34 @@
         </header>
 
         <!-- Tool Card -->
-        <section class="glass-panel rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden animate-slide-up" style="animation-delay: 0.1s;">
+        <section class="glass-panel rounded-2xl p-6 md:p-8 shadow-2xl relative overflow-hidden animate-slide-up"
+            style="animation-delay: 0.1s;">
             <!-- Decorative blur blob -->
-            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div
+                class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl pointer-events-none">
+            </div>
 
             <form id="ageForm" class="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-                
+
                 <!-- Inputs -->
                 <div class="space-y-6">
                     <div>
-                        <label for="birthDate" class="block text-sm font-medium text-slate-300 mb-2">Date of Birth</label>
+                        <label for="birthDate" class="block text-sm font-medium text-slate-300 mb-2">Date of
+                            Birth</label>
                         <input type="date" id="birthDate" required
                             class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition shadow-inner">
                     </div>
 
                     <div>
-                        <label for="targetDate" class="block text-sm font-medium text-slate-300 mb-2">Calculate Age At (Optional)</label>
+                        <label for="targetDate" class="block text-sm font-medium text-slate-300 mb-2">Calculate Age At
+                            (Optional)</label>
                         <input type="date" id="targetDate"
                             class="w-full bg-slate-900/50 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition shadow-inner">
                         <p class="text-xs text-slate-500 mt-1">Leave empty to use today's date.</p>
                     </div>
 
                     <div class="flex gap-4 pt-2">
-                        <button type="submit" 
+                        <button type="submit"
                             class="flex-1 bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 text-white font-semibold py-3 px-6 rounded-lg shadow-lg hover:shadow-brand-500/25 transition transform hover:-translate-y-0.5 active:translate-y-0">
                             Calculate Age
                         </button>
@@ -196,23 +212,28 @@
                             Reset
                         </button>
                     </div>
-                    
-                    <div id="errorMessage" class="hidden p-3 bg-red-500/10 border border-red-500/20 text-red-200 text-sm rounded-lg animate-pulse">
+
+                    <div id="errorMessage"
+                        class="hidden p-3 bg-red-500/10 border border-red-500/20 text-red-200 text-sm rounded-lg animate-pulse">
                         Please enter a valid birth date.
                     </div>
                 </div>
 
                 <!-- Main Result Display -->
-                <div id="mainResult" class="flex flex-col justify-center items-center text-center p-6 bg-slate-800/50 rounded-xl border-2 border-dashed border-slate-700/50 min-h-[200px]">
+                <div id="mainResult"
+                    class="flex flex-col justify-center items-center text-center p-6 bg-slate-800/50 rounded-xl border-2 border-dashed border-slate-700/50 min-h-[200px]">
                     <div id="placeholderState" class="text-slate-500">
-                        <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <p>Enter your birth date to see results</p>
                     </div>
-                    
+
                     <div id="ageOutput" class="hidden space-y-2">
-                        <p class="text-sm uppercase tracking-wider text-brand-500 font-semibold mb-2">You are exactly</p>
+                        <p class="text-sm uppercase tracking-wider text-brand-500 font-semibold mb-2">You are exactly
+                        </p>
                         <div class="text-5xl md:text-6xl font-extrabold text-white tracking-tight">
                             <span id="yearsVal">0</span><span class="text-2xl text-slate-400 ml-1">years</span>
                         </div>
@@ -225,7 +246,8 @@
             </form>
 
             <!-- Detailed Stats Grid -->
-            <div id="detailedStats" class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 hidden border-t border-slate-700/50 pt-8">
+            <div id="detailedStats"
+                class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 hidden border-t border-slate-700/50 pt-8">
                 <div class="result-card p-4 rounded-xl text-center">
                     <div class="text-slate-400 text-xs uppercase tracking-wider mb-1">Total Months</div>
                     <div id="totalMonths" class="text-2xl font-bold text-brand-100">0</div>
@@ -263,29 +285,44 @@
             <div class="grid md:grid-cols-2 gap-8 text-slate-400">
                 <div>
                     <p class="mb-4">
-                        Calculating your age manually can be tricky due to leap years and varying month lengths (28, 30, or 31 days). This <strong>free online Age Calculator</strong> does the math instantly for you.
+                        Calculating your age manually can be tricky due to leap years and varying month lengths (28, 30,
+                        or 31 days). This <strong>free online Age Calculator</strong> does the math instantly for you.
                     </p>
                     <p>
-                        Just enter your date of birth, and we'll calculate exactly how many years, months, and days you've been alive. It's perfect for verifying age for forms, planning birthdays, or satisfying your curiosity.
+                        Just enter your date of birth, and we'll calculate exactly how many years, months, and days
+                        you've been alive. It's perfect for verifying age for forms, planning birthdays, or satisfying
+                        your curiosity.
                     </p>
                 </div>
                 <div class="bg-slate-800/50 p-6 rounded-xl border border-slate-700">
                     <h3 class="text-white text-lg font-semibold mb-3">Key Features</h3>
                     <ul class="space-y-2 text-sm">
                         <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
                             Instant Calculation (No Page Reload)
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
                             Detailed breakdown (Weeks, Hours, Minutes)
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
                             Mobile-Friendly & 100% Secure
                         </li>
                         <li class="flex items-center gap-2">
-                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
                             Countdown to Next Birthday
                         </li>
                     </ul>
@@ -293,6 +330,63 @@
             </div>
         </article>
 
+        <section class="mt-16 border-t border-white/5 pt-12">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="prose prose-invert max-w-none">
+                    <h2 class="text-2xl font-bold text-white mb-4">How to use the Online Age Calculator?</h2>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Our free age calculator tool is designed to provide you with the most accurate results for any
+                        date of birth. Simply select your birthday from the date picker, and the tool will instantly
+                        compute your age in years, months, and days. It even calculates how long you've been alive in
+                        total weeks, hours, and minutes.
+                    </p>
+                    <h3 class="text-xl font-semibold text-white mb-2">Why knowing your exact age is useful?</h3>
+                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-5">
+                        <li>Filling out legal forms and insurance documents.</li>
+                        <li>Planning for retirement or long-term financial goals.</li>
+                        <li>Curiosity about exactly how many days are left until your next big milestone.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-slate-800/20 p-8 rounded-2xl border border-white/5">
+                    <h3 class="text-lg font-bold text-white mb-6">Related Tools You Might Like</h3>
+                    <div class="grid grid-cols-1 gap-4">
+                        <a href="health-calculator.html"
+                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-brand-500/10 transition group">
+                            <div
+                                class="w-10 h-10 bg-brand-500/10 rounded-lg flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-bold text-slate-200">BMI & BMR Calculator</span>
+                                <span class="text-xs text-slate-500">Track your health metrics.</span>
+                            </div>
+                        </a>
+                        <a href="gst-calculator.html"
+                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-emerald-500/10 transition group">
+                            <div
+                                class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="block text-sm font-bold text-slate-200">GST Calculator</span>
+                                <span class="text-xs text-slate-500">Calculate tax in seconds.</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="mt-20 py-8 border-t border-white/5 text-center text-slate-500 text-xs">
+            &copy; 2024 FreeProducts24. Accurate tools for daily use.
+        </footer>
     </main>
 
     <!-- Footer -->
@@ -307,7 +401,7 @@
     <!-- Logic -->
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-        
+
         // Auto-set today's date placeholder (not value, to keep it clean)
         const today = new Date().toISOString().split('T')[0];
         document.getElementById('birthDate').setAttribute('max', today);
@@ -316,7 +410,7 @@
         const form = document.getElementById('ageForm');
         const resetBtn = document.getElementById('resetBtn');
         const errorMessage = document.getElementById('errorMessage');
-        
+
         // Output Elements
         const mainResult = document.getElementById('mainResult');
         const placeholderState = document.getElementById('placeholderState');
@@ -325,7 +419,7 @@
 
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             const birthDateVal = document.getElementById('birthDate').value;
             let targetDateVal = document.getElementById('targetDate').value;
 
@@ -393,7 +487,7 @@
             const totalWeeks = Math.floor(totalDays / 7);
             const totalHours = Math.floor(diffTime / (1000 * 60 * 60));
             const totalMinutes = Math.floor(diffTime / (1000 * 60));
-            
+
             // Approximate total months (simplified)
             const totalMonths = (years * 12) + months;
 
@@ -401,7 +495,7 @@
             const currentYear = target.getFullYear();
             let nextBirthday = new Date(birth);
             nextBirthday.setFullYear(currentYear);
-            
+
             if (nextBirthday < target) {
                 nextBirthday.setFullYear(currentYear + 1);
             }
@@ -414,13 +508,13 @@
             animateValue("yearsVal", years);
             animateValue("monthsVal", months);
             animateValue("daysVal", days);
-            
+
             document.getElementById("totalMonths").textContent = totalMonths.toLocaleString();
             document.getElementById("totalWeeks").textContent = totalWeeks.toLocaleString();
             document.getElementById("totalDays").textContent = totalDays.toLocaleString();
             document.getElementById("totalHours").textContent = totalHours.toLocaleString();
             document.getElementById("totalMinutes").textContent = totalMinutes.toLocaleString();
-            
+
             document.getElementById("nextBirthday").textContent = daysToBirthday === 0 ? "Today!" : `${daysToBirthday} Days`;
             document.getElementById("nextBirthdayDay").textContent = daysToBirthday === 0 ? "Happy Birthday!" : `on ${nextBirthdayDayName}`;
 
@@ -428,7 +522,7 @@
             placeholderState.classList.add('hidden');
             ageOutput.classList.remove('hidden');
             detailedStats.classList.remove('hidden');
-            
+
             // Trigger animation class re-flow
             ageOutput.classList.remove('animate-fade-in');
             void ageOutput.offsetWidth;
@@ -440,7 +534,7 @@
             const start = 0;
             const duration = 1000;
             let startTimestamp = null;
-            
+
             const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
                 const progress = Math.min((timestamp - startTimestamp) / duration, 1);
@@ -453,4 +547,5 @@
         }
     </script>
 </body>
+
 </html>

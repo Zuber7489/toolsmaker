@@ -4,11 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIP Calculator | Systematic Investment Plan Calculator</title>
-    <meta name="description"
-        content="Calculate returns on your Systematic Investment Plan (SIP). Free tool to estimate mutual fund returns with monthly investment, rate, and time period.">
-    <meta name="keywords"
-        content="sip calculator, mutual fund calculator, investment calculator, sip return calculator, systematic investment plan">
+    <meta property="og:url" content="https://freeproducts24.site/sip-calculator.html">
+    <meta property="og:type" content="article">
+
+    <!-- Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is SIP in Mutual Funds?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SIP stands for Systematic Investment Plan, which allows you to invest a fixed amount of money regularly in mutual fund schemes."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How is SIP return calculated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SIP returns are calculated using the compound interest formula applied to each monthly installment over the tenure of the investment."
+        }
+      }]
+    }
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -29,6 +49,7 @@
         }
 
         input[type=range] {
+            appearance: none;
             -webkit-appearance: none;
             width: 100%;
             background: transparent;

@@ -4,10 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Minifier | Minify HTML Code Online</title>
+    <title>HTML Minifier Online | Compress HTML Code Fast | FreeProducts24</title>
     <meta name="description"
-        content="Free online HTML Minifier. Compress HTML code by removing whitespace, newlines, and comments. Improve website loading speed instantly.">
-    <meta name="keywords" content="html minifier, html compressor, minify html, code optimizer, html cleaner">
+        content="Minify your HTML code instantly. Remove comments, whitespace, and extra newlines to reduce file size and improve website speed. 100% free and secure.">
+    <meta name="keywords"
+        content="html minifier, compress html, html optimizer, website speed tool, minify html online, freeproducts24">
+    <link rel="canonical" href="https://freeproducts24.site/html-minifier.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="HTML Minifier - Boost Website Performance">
+    <meta property="og:description" content="Reduce your HTML file size in one click.">
+    <meta property="og:url" content="https://freeproducts24.site/html-minifier.html">
+    <meta property="og:type" content="article">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -34,8 +42,8 @@
     <nav
         class="w-full bg-slate-900 border-b border-white/10 px-6 py-4 flex justify-between items-center mb-6 sticky top-0 z-50">
         <a href="index.html"
-            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
-        <a href="index.html" class="text-sm hover:text-white">Home</a>
+            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">FreeProducts24</a>
+        <a href="index.html" class="text-sm hover:text-white transition">Home</a>
     </nav>
 
     <main class="max-w-6xl mx-auto h-[calc(100vh-120px)] flex flex-col">
@@ -52,7 +60,6 @@
         </header>
 
         <section class="flex-grow grid md:grid-cols-2 gap-4 h-full pb-4">
-            <!-- Input -->
             <div class="flex flex-col h-full relative group">
                 <label
                     class="absolute top-2 left-4 text-xs font-bold text-slate-500 bg-slate-900 px-2 rounded">INPUT</label>
@@ -60,8 +67,6 @@
                     class="w-full h-full bg-slate-900 border border-slate-700 rounded-2xl p-6 pt-8 text-sm font-mono text-slate-300 focus:outline-none focus:border-brand-500 resize-none transition"
                     placeholder="Paste your HTML code here..."></textarea>
             </div>
-
-            <!-- Output -->
             <div class="flex flex-col h-full relative">
                 <label
                     class="absolute top-2 left-4 text-xs font-bold text-slate-500 bg-slate-800 px-2 rounded">OUTPUT</label>
@@ -73,42 +78,37 @@
             </div>
         </section>
 
-        <div class="flex justify-between text-xs text-slate-500 px-2">
+        <div class="flex justify-between text-xs text-slate-500 px-2 pb-4">
             <span id="stats">Original: 0B | Minified: 0B | Savings: 0%</span>
         </div>
     </main>
 
     <script>
         function minify() {
-            const code = document.getElementById('input').value;
+            const inputEl = document.getElementById('input');
+            const outputEl = document.getElementById('output');
+            const statsEl = document.getElementById('stats');
+
+            const code = inputEl.value;
             if (!code) return;
 
-            // Basic HTML Minification Logic (Regex)
-            // 1. Remove comments
             let min = code.replace(/<!--[\s\S]*?-->/g, "");
-                // 2. Remove whitespace between tags
                 min = min.replace(/>\s+</g, "><");
-            // 3. Remove whitespace at start/end
+            min = min.replace(/\s{2,}/g, " ");
             min = min.trim();
-            // 4. Collapse multiple spaces
-            min = min.replace(/\s{2,}/g, ' ');
 
-            document.getElementById('output').value = min;
-            updateStats(code, min);
-        }
+            outputEl.value = min;
 
-        function updateStats(orig, min) {
-            const oLen = orig.length;
-            const mLen = min.length; // Approximate bytes (utf-8 varies but length is decent proxy for text)
+            const oLen = code.length;
+            const mLen = min.length;
             const save = oLen > 0 ? ((oLen - mLen) / oLen * 100).toFixed(2) : 0;
-
-            document.getElementById('stats').innerText = `Original: ${oLen} chars | Minified: ${mLen} chars | Savings: ${save}%`;
+            statsEl.innerText = `Original: ${oLen} chars | Minified: ${mLen} chars | Savings: ${save}%`;
         }
 
         function copyOut() {
             const out = document.getElementById('output');
             out.select();
-            document.execCommand('copy');
+            navigator.clipboard.writeText(out.value);
         }
     </script>
 </body>
