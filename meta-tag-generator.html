@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Tag Generator | SEO & Social Media Preview</title>
+    <meta name="description"
+        content="Free online Meta Tag Generator. Create SEO-friendly meta tags, Open Graph (Facebook/LinkedIn), and Twitter Card tags. Preview how your site looks in search results and social media.">
+    <meta name="keywords"
+        content="meta tag generator, seo tool, open graph generator, twitter card generator, seo preview, meta description maker, html meta tags">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            min-height: 100vh;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-input {
+            width: 100%;
+            background-color: rgba(15, 23, 42, 0.5);
+            border: 1px solid #334155;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #14b8a6;
+            box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Preview Styles */
+        .google-preview {
+            background: #fff;
+            color: #4d5156;
+            font-family: Arial, sans-serif;
+            border-radius: 8px;
+            padding: 16px;
+        }
+
+        .google-title {
+            color: #1a0dab;
+            font-size: 20px;
+            line-height: 1.3;
+            cursor: pointer;
+        }
+
+        .google-title:hover {
+            text-decoration: underline;
+        }
+
+        .google-url {
+            color: #202124;
+            font-size: 14px;
+            line-height: 1.3;
+            margin-bottom: 2px;
+        }
+
+        .google-desc {
+            color: #4d5156;
+            font-size: 14px;
+            line-height: 1.58;
+        }
+
+        .social-preview {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #dadde1;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav class="w-full glass-panel fixed top-0 left-0 z-50 border-b border-white/10 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html"
+                class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+            <a href="index.html" class="text-sm hover:text-white transition">Home</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto mt-24 mb-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- LEFT COLUMN - FORM -->
+        <div class="space-y-6">
+            <div class="glass-panel p-6 rounded-2xl">
+                <h1 class="text-2xl font-bold text-white mb-1">Meta Tag Generator</h1>
+                <p class="text-slate-400 text-sm mb-6">Create SEO-friendly tags for Google, Facebook, and Twitter.</p>
+
+                <!-- TABS -->
+                <div class="flex gap-2 mb-6 border-b border-slate-700 pb-2">
+                    <button onclick="switchTab('general')" id="tab-general"
+                        class="tab-btn active text-brand-500 font-medium text-sm pb-2 border-b-2 border-brand-500 px-2 transition-all">General
+                        SEO</button>
+                    <button onclick="switchTab('og')" id="tab-og"
+                        class="tab-btn text-slate-400 hover:text-white font-medium text-sm pb-2 border-b-2 border-transparent px-2 transition-all">Open
+                        Graph (FB)</button>
+                    <button onclick="switchTab('twitter')" id="tab-twitter"
+                        class="tab-btn text-slate-400 hover:text-white font-medium text-sm pb-2 border-b-2 border-transparent px-2 transition-all">Twitter
+                        Card</button>
+                </div>
+
+                <!-- FORM CONTENT -->
+                <div id="form-general" class="space-y-4">
+                    <div>
+                        <label class="form-label">Site Title (Max 60 chars)</label>
+                        <input type="text" id="siteTitle" class="form-input" placeholder="e.g. Best Pizza in New York"
+                            oninput="updatePreview()">
+                        <div class="text-right text-xs text-slate-500 mt-1"><span id="titleCount">0</span>/60</div>
+                    </div>
+                    <div>
+                        <label class="form-label">Meta Description (Max 160 chars)</label>
+                        <textarea id="siteDesc" rows="3" class="form-input"
+                            placeholder="e.g. Order the best authentic Italian pizza online..."
+                            oninput="updatePreview()"></textarea>
+                        <div class="text-right text-xs text-slate-500 mt-1"><span id="descCount">0</span>/160</div>
+                    </div>
+                    <div>
+                        <label class="form-label">Keywords (Comma separated)</label>
+                        <input type="text" id="siteKeywords" class="form-input"
+                            placeholder="pizza, italian food, delivery" oninput="generateCode()">
+                    </div>
+                    <div>
+                        <label class="form-label">Author</label>
+                        <input type="text" id="siteAuthor" class="form-input" placeholder="e.g. Luigi's Pizza"
+                            oninput="generateCode()">
+                    </div>
+                    <div class="flex gap-4">
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" id="checkViewport" checked
+                                class="w-4 h-4 rounded border-gray-600 text-brand-500 focus:ring-brand-500 bg-slate-800"
+                                onchange="generateCode()">
+                            <span class="text-sm text-slate-300">Responsive Viewport</span>
+                        </label>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" id="checkCharset" checked
+                                class="w-4 h-4 rounded border-gray-600 text-brand-500 focus:ring-brand-500 bg-slate-800"
+                                onchange="generateCode()">
+                            <span class="text-sm text-slate-300">UTF-8 Charset</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="form-og" class="space-y-4 hidden">
+                    <div>
+                        <label class="form-label">OG Title (Facebook Title)</label>
+                        <input type="text" id="ogTitle" class="form-input" placeholder="Same as site title..."
+                            oninput="updatePreview()">
+                    </div>
+                    <div>
+                        <label class="form-label">OG Description</label>
+                        <textarea id="ogDesc" rows="2" class="form-input" placeholder="Same as meta description..."
+                            oninput="updatePreview()"></textarea>
+                    </div>
+                    <div>
+                        <label class="form-label">OG Image URL (1200x630px recommended)</label>
+                        <input type="text" id="ogImage" class="form-input" placeholder="https://example.com/image.jpg"
+                            oninput="updatePreview()">
+                    </div>
+                    <div>
+                        <label class="form-label">OG URL (Canonical URL)</label>
+                        <input type="text" id="ogUrl" class="form-input" placeholder="https://example.com"
+                            oninput="generateCode()">
+                    </div>
+                    <div>
+                        <label class="form-label">OG Type</label>
+                        <select id="ogType" class="form-input" onchange="generateCode()">
+                            <option value="website">Website</option>
+                            <option value="article">Article</option>
+                            <option value="profile">Profile</option>
+                            <option value="book">Book</option>
+                            <option value="music.song">Music</option>
+                            <option value="video.movie">Video</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="form-twitter" class="space-y-4 hidden">
+                    <div>
+                        <label class="form-label">Card Type</label>
+                        <select id="twCard" class="form-input" onchange="generateCode()">
+                            <option value="summary_large_image">Summary Large Image</option>
+                            <option value="summary">Summary</option>
+                            <option value="app">App</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Twitter Title</label>
+                        <input type="text" id="twTitle" class="form-input" placeholder="Leave empty to use OG Title"
+                            oninput="generateCode()">
+                    </div>
+                    <div>
+                        <label class="form-label">Twitter Description</label>
+                        <textarea id="twDesc" rows="2" class="form-input"
+                            placeholder="Leave empty to use OG Description" oninput="generateCode()"></textarea>
+                    </div>
+                    <div>
+                        <label class="form-label">Twitter Image URL</label>
+                        <input type="text" id="twImage" class="form-input" placeholder="Leave empty to use OG Image"
+                            oninput="generateCode()">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN - PREVIEW & CODE -->
+        <div class="space-y-6">
+
+            <!-- GOOGLE PREVIEW -->
+            <div class="glass-panel p-6 rounded-2xl">
+                <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Google Search Preview</h2>
+                <div class="google-preview">
+                    <div class="google-title" id="prevGoogleTitle">Page Title Goes Here</div>
+                    <div class="google-url"><span id="prevGoogleUrlRoot">example.com</span> <span
+                            style="color:#5f6368">› ...</span></div>
+                    <div class="google-desc" id="prevGoogleDesc">This is how your page description will show up in
+                        Google search results. Keep it between 140-160 characters for best results.</div>
+                </div>
+            </div>
+
+            <!-- SOCIAL PREVIEW -->
+            <div class="glass-panel p-6 rounded-2xl">
+                <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Social Share Preview</h2>
+                <div class="social-preview max-w-sm mx-auto">
+                    <div class="h-48 bg-slate-200 border-b border-slate-200 bg-cover bg-center" id="prevSocialImage"
+                        style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E');">
+                    </div>
+                    <div class="p-3 bg-[#f0f2f5]">
+                        <div class="text-[10px] text-slate-500 uppercase mb-1" id="prevSocialUrl">EXAMPLE.COM</div>
+                        <div class="text-slate-900 font-bold text-sm mb-1 leading-tight line-clamp-2"
+                            id="prevSocialTitle">Your Page Title</div>
+                        <div class="text-slate-600 text-xs line-clamp-2" id="prevSocialDesc">Your page description shows
+                            here...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CODE OUTPUT -->
+            <div class="glass-panel p-6 rounded-2xl relative">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest">Generated HTML</h2>
+                    <button onclick="copyCode()"
+                        class="bg-brand-600 hover:bg-brand-500 text-white text-xs px-3 py-1.5 rounded-lg transition">Copy
+                        Code</button>
+                </div>
+                <textarea id="outputCode" readonly
+                    class="w-full bg-slate-900/80 border border-slate-700 rounded-lg p-3 text-brand-500 font-mono text-xs focus:outline-none h-64"></textarea>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        // State
+        const els = {
+            siteTitle: document.getElementById('siteTitle'),
+            siteDesc: document.getElementById('siteDesc'),
+            siteKeywords: document.getElementById('siteKeywords'),
+            siteAuthor: document.getElementById('siteAuthor'),
+            checkViewport: document.getElementById('checkViewport'),
+            checkCharset: document.getElementById('checkCharset'),
+            ogTitle: document.getElementById('ogTitle'),
+            ogDesc: document.getElementById('ogDesc'),
+            ogImage: document.getElementById('ogImage'),
+            ogUrl: document.getElementById('ogUrl'),
+            ogType: document.getElementById('ogType'),
+            twCard: document.getElementById('twCard'),
+            twTitle: document.getElementById('twTitle'),
+            twDesc: document.getElementById('twDesc'),
+            twImage: document.getElementById('twImage'),
+            // Preview Elements
+            prevGoogleTitle: document.getElementById('prevGoogleTitle'),
+            prevGoogleDesc: document.getElementById('prevGoogleDesc'),
+            prevGoogleUrlRoot: document.getElementById('prevGoogleUrlRoot'),
+            prevSocialImage: document.getElementById('prevSocialImage'),
+            prevSocialUrl: document.getElementById('prevSocialUrl'),
+            prevSocialTitle: document.getElementById('prevSocialTitle'),
+            prevSocialDesc: document.getElementById('prevSocialDesc'),
+            // Output
+            outputCode: document.getElementById('outputCode'),
+            // Counters
+            titleCount: document.getElementById('titleCount'),
+            descCount: document.getElementById('descCount')
+        };
+
+        function switchTab(tab) {
+            ['general', 'og', 'twitter'].forEach(t => {
+                document.getElementById('form-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).classList.remove('text-brand-500', 'border-brand-500');
+                document.getElementById('tab-' + t).classList.add('text-slate-400', 'border-transparent');
+            });
+            document.getElementById('form-' + tab).classList.remove('hidden');
+            document.getElementById('tab-' + tab).classList.remove('text-slate-400', 'border-transparent');
+            document.getElementById('tab-' + tab).classList.add('text-brand-500', 'border-brand-500');
+        }
+
+        function updatePreview() {
+            // Get values
+            const title = els.siteTitle.value || "Page Title Goes Here";
+            const desc = els.siteDesc.value || "This is how your page description will show up in results.";
+            const ogTitleVal = els.ogTitle.value || title;
+            const ogDescVal = els.ogDesc.value || desc;
+            const ogImageVal = els.ogImage.value;
+            const url = els.ogUrl.value || "example.com";
+
+            // Update Counters
+            els.titleCount.innerText = els.siteTitle.value.length;
+            els.descCount.innerText = els.siteDesc.value.length;
+            els.titleCount.classList.toggle('text-red-500', els.siteTitle.value.length > 60);
+            els.descCount.classList.toggle('text-red-500', els.siteDesc.value.length > 160);
+
+            // Google Preview
+            els.prevGoogleTitle.innerText = title.length > 60 ? title.substring(0, 60) + '...' : title;
+            els.prevGoogleDesc.innerText = desc.length > 160 ? desc.substring(0, 160) + '...' : desc;
+            try {
+                const urlObj = new URL(url.startsWith('http') ? url : 'http://' + url);
+                els.prevGoogleUrlRoot.innerText = urlObj.hostname;
+                els.prevSocialUrl.innerText = urlObj.hostname.toUpperCase();
+            } catch (e) {
+                els.prevGoogleUrlRoot.innerText = url;
+                els.prevSocialUrl.innerText = url.toUpperCase();
+            }
+
+            // Social Preview
+            els.prevSocialTitle.innerText = ogTitleVal;
+            els.prevSocialDesc.innerText = ogDescVal;
+            if (ogImageVal) {
+                els.prevSocialImage.style.backgroundImage = `url('${ogImageVal}')`;
+            } else {
+                els.prevSocialImage.style.backgroundImage = `url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23dddddd%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20dominant-baseline%3D%22middle%22%20text-anchor%3D%22middle%22%20fill%3D%22%23999%22%20font-family%3D%22sans-serif%22%3EImage%3C%2Ftext%3E%3C%2Fsvg%3E')`;
+            }
+
+            generateCode();
+        }
+
+        function generateCode() {
+            let code = `<!-- SEO Meta Tags -->\n`;
+
+            if (els.checkCharset.checked) code += `<meta charset="UTF-8">\n`;
+            if (els.checkViewport.checked) code += `<meta name="viewport" content="width=device-width, initial-scale=1.0">\n`;
+
+            if (els.siteTitle.value) code += `<title>${els.siteTitle.value}</title>\n`;
+            if (els.siteDesc.value) code += `<meta name="description" content="${els.siteDesc.value}">\n`;
+            if (els.siteKeywords.value) code += `<meta name="keywords" content="${els.siteKeywords.value}">\n`;
+            if (els.siteAuthor.value) code += `<meta name="author" content="${els.siteAuthor.value}">\n`;
+
+            // Open Graph
+            if (els.ogTitle.value || els.ogDesc.value || els.ogImage.value || els.ogUrl.value) {
+                code += `\n<!-- Open Graph / Meta Tags -->\n`;
+                if (els.ogType.value) code += `<meta property="og:type" content="${els.ogType.value}">\n`;
+                if (els.ogUrl.value) code += `<meta property="og:url" content="${els.ogUrl.value}">\n`;
+                const ogT = els.ogTitle.value || els.siteTitle.value;
+                if (ogT) code += `<meta property="og:title" content="${ogT}">\n`;
+                const ogD = els.ogDesc.value || els.siteDesc.value;
+                if (ogD) code += `<meta property="og:description" content="${ogD}">\n`;
+                if (els.ogImage.value) code += `<meta property="og:image" content="${els.ogImage.value}">\n`;
+            }
+
+            // Twitter
+            code += `\n<!-- Twitter Card Meta Tags -->\n`;
+            code += `<meta name="twitter:card" content="${els.twCard.value}">\n`;
+
+            const twT = els.twTitle.value || els.ogTitle.value || els.siteTitle.value;
+            if (twT) code += `<meta name="twitter:title" content="${twT}">\n`;
+
+            const twD = els.twDesc.value || els.ogDesc.value || els.siteDesc.value;
+            if (twD) code += `<meta name="twitter:description" content="${twD}">\n`;
+
+            const twI = els.twImage.value || els.ogImage.value;
+            if (twI) code += `<meta name="twitter:image" content="${twI}">\n`;
+
+            els.outputCode.value = code;
+        }
+
+        function copyCode() {
+            els.outputCode.select();
+            document.execCommand('copy');
+            // Temporary feedback
+            const btn = document.querySelector('button[onclick="copyCode()"]');
+            const orig = btn.innerText;
+            btn.innerText = 'Copied!';
+            setTimeout(() => btn.innerText = orig, 2000);
+        }
+
+        // Initialize
+        updatePreview();
+
+    </script>
+</body>
+
+</html>

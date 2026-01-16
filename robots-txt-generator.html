@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robots.txt Generator | Free SEO Tool</title>
+    <meta name="description"
+        content="Free online robots.txt generator. Create valid robots.txt files for your website to control search engine crawlers. Allow or disallow specific bots.">
+    <meta name="keywords"
+        content="robots.txt generator, seo tool, create robots.txt, robots.txt syntax, allow disallow bots">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            min-height: 100vh;
+        }
+
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .form-input {
+            width: 100%;
+            background-color: rgba(15, 23, 42, 0.5);
+            border: 1px solid #334155;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            color: white;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #14b8a6;
+            box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+        }
+
+        .scroll-custom::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .scroll-custom::-webkit-scrollbar-track {
+            background: rgba(30, 41, 59, 0.5);
+        }
+
+        .scroll-custom::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+
+        .scroll-custom::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav class="w-full glass-panel fixed top-0 left-0 z-50 border-b border-white/10 px-4 py-3">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html"
+                class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+            <a href="index.html" class="text-sm hover:text-white transition">Home</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto mt-24 mb-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        <!-- LEFT: BUILDER -->
+        <div class="glass-panel p-6 rounded-2xl space-y-6">
+            <div class="border-b border-slate-700 pb-4">
+                <h1 class="text-2xl font-bold text-white mb-1">Robots.txt Generator</h1>
+                <p class="text-slate-400 text-sm">Define how search engines crawl your site.</p>
+            </div>
+
+            <!-- Default Rule -->
+            <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+                <h3 class="text-brand-500 font-bold mb-3">Add Rule</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-3">
+                    <div class="md:col-span-1">
+                        <label class="text-xs text-slate-400 block mb-1">User Agent</label>
+                        <select id="userAgentSelect" class="form-input text-sm py-2" onchange="toggleCustomUA()">
+                            <option value="*">All Robots (*)</option>
+                            <option value="Googlebot">Googlebot</option>
+                            <option value="Bingbot">Bingbot</option>
+                            <option value="Slurp">Yahoo Slurp</option>
+                            <option value="DuckDuckBot">DuckDuckBot</option>
+                            <option value="Baiduspider">Baidu</option>
+                            <option value="Yandex">Yandex</option>
+                            <option value="custom">Custom...</option>
+                        </select>
+                        <input type="text" id="customUA" class="form-input text-sm py-2 mt-2 hidden"
+                            placeholder="e.g. GPTBot">
+                    </div>
+                    <div class="md:col-span-1">
+                        <label class="text-xs text-slate-400 block mb-1">Directive</label>
+                        <select id="directiveSelect" class="form-input text-sm py-2">
+                            <option value="Disallow">Disallow</option>
+                            <option value="Allow">Allow</option>
+                        </select>
+                    </div>
+                    <div class="md:col-span-1">
+                        <label class="text-xs text-slate-400 block mb-1">Path</label>
+                        <input type="text" id="pathInput" class="form-input text-sm py-2" placeholder="e.g. /admin/">
+                    </div>
+                </div>
+                <button onclick="addRule()"
+                    class="w-full bg-slate-700 hover:bg-slate-600 text-white text-sm py-2 rounded-lg transition">+ Add
+                    Rule</button>
+            </div>
+
+            <!-- Directives List -->
+            <div class="bg-slate-900/30 p-4 rounded-xl border border-slate-700 min-h-[150px]">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="text-slate-300 font-bold text-sm">Active Rules</h3>
+                    <button onclick="clearRules()" class="text-xs text-red-400 hover:text-red-300">Clear All</button>
+                </div>
+                <ul id="rulesList" class="space-y-2 max-h-60 overflow-y-auto scroll-custom p-1">
+                    <!-- Rules injected here -->
+                    <li class="text-center text-slate-500 text-sm py-4">No rules added yet. (Default allows everything)
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Sitemap -->
+            <div>
+                <label class="text-sm font-bold text-slate-300 block mb-2">Sitemap URL (Optional)</label>
+                <div class="flex gap-2">
+                    <input type="text" id="sitemapInput" class="form-input"
+                        placeholder="https://example.com/sitemap.xml">
+                    <button onclick="updateOutput()"
+                        class="bg-brand-600 px-4 rounded-lg text-white font-medium hover:bg-brand-500 transition">Set</button>
+                </div>
+            </div>
+
+            <div class="flex gap-4 pt-4 border-t border-slate-700">
+                <div class="flex items-center gap-2">
+                    <input type="number" id="crawlDelay"
+                        class="bg-slate-900 border border-slate-700 rounded w-16 px-2 py-1 text-white text-sm"
+                        placeholder="Sec">
+                    <span class="text-sm text-slate-400">Crawl Delay (seconds)</span>
+                </div>
+                <button onclick="addCrawlDelay()" class="text-brand-500 text-sm hover:underline">Add Delay</button>
+            </div>
+
+        </div>
+
+        <!-- RIGHT: PREVIEW -->
+        <div class="space-y-6">
+            <div class="glass-panel p-6 rounded-2xl h-full flex flex-col">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-lg font-bold text-brand-500">Output: robots.txt</h2>
+                    <div class="flex gap-2">
+                        <button onclick="copyOutput()"
+                            class="bg-slate-700 hover:bg-slate-600 text-white text-xs px-3 py-1.5 rounded-lg transition">Copy</button>
+                        <button onclick="downloadFile()"
+                            class="bg-brand-600 hover:bg-brand-500 text-white text-xs px-3 py-1.5 rounded-lg transition">Download</button>
+                    </div>
+                </div>
+
+                <textarea id="outputArea" readonly
+                    class="flex-1 w-full bg-slate-900 border border-slate-700 rounded-lg p-4 font-mono text-sm text-slate-300 focus:outline-none min-h-[400px]"></textarea>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // State
+        let rules = [
+            // Example internal structure: { ua: '*', type: 'Disallow', path: '/private' }
+        ];
+        let sitemap = '';
+        let crawlDelay = null;
+
+        const ui = {
+            uaSelect: document.getElementById('userAgentSelect'),
+            customUA: document.getElementById('customUA'),
+            dirSelect: document.getElementById('directiveSelect'),
+            pathInput: document.getElementById('pathInput'),
+            list: document.getElementById('rulesList'),
+            output: document.getElementById('outputArea'),
+            sitemap: document.getElementById('sitemapInput'),
+            delay: document.getElementById('crawlDelay')
+        };
+
+        function toggleCustomUA() {
+            if (ui.uaSelect.value === 'custom') {
+                ui.customUA.classList.remove('hidden');
+                ui.customUA.focus();
+            } else {
+                ui.customUA.classList.add('hidden');
+            }
+        }
+
+        function addRule() {
+            let ua = ui.uaSelect.value;
+            if (ua === 'custom') ua = ui.customUA.value.trim();
+            if (!ua) return alert('Please enter a User Agent');
+
+            const type = ui.dirSelect.value;
+            let path = ui.pathInput.value.trim();
+            if (!path) path = '/';
+
+            rules.push({ ua, type, path });
+            renderRules();
+            updateOutput();
+            ui.pathInput.value = ''; // Reset path input only, keep UA usually
+        }
+
+        function removeRule(index) {
+            rules.splice(index, 1);
+            renderRules();
+            updateOutput();
+        }
+
+        function clearRules() {
+            rules = [];
+            crawlDelay = null;
+            renderRules();
+            updateOutput();
+        }
+
+        function addCrawlDelay() {
+            const val = parseInt(ui.delay.value);
+            if (!isNaN(val) && val > 0) {
+                crawlDelay = val;
+                updateOutput();
+            }
+        }
+
+        function renderRules() {
+            if (rules.length === 0) {
+                ui.list.innerHTML = '<li class="text-center text-slate-500 text-sm py-4">No specific rules. (Everything allowed)</li>';
+                return;
+            }
+
+            let html = '';
+            rules.forEach((r, idx) => {
+                html += `
+                <li class="bg-slate-800/50 px-3 py-2 rounded border border-slate-700 flex justify-between items-center group">
+                    <div class="text-sm">
+                        <span class="text-brand-400 font-bold">${r.ua}</span>:
+                        <span class="${r.type === 'Allow' ? 'text-green-400' : 'text-red-400'}">${r.type}</span>
+                        <span class="font-mono text-slate-300">${r.path}</span>
+                    </div>
+                    <button onclick="removeRule(${idx})" class="text-slate-500 hover:text-red-400 opacity-0 group-hover:opacity-100 transition">✕</button>
+                </li>
+                `;
+            });
+            ui.list.innerHTML = html;
+        }
+
+        function updateOutput() {
+            // Group By User Agent for cleaner output
+            const grouped = {};
+            // Initialize '*' group if not present, though dynamic is fine
+
+            rules.forEach(r => {
+                if (!grouped[r.ua]) grouped[r.ua] = [];
+                grouped[r.ua].push(r);
+            });
+
+            let text = '';
+
+            // Process specific user agents first, then '*'
+            const uas = Object.keys(grouped).sort((a, b) => (a === '*' ? 1 : -1));
+
+            uas.forEach(ua => {
+                text += `User-agent: ${ua}\n`;
+                grouped[ua].forEach(r => {
+                    text += `${r.type}: ${r.path}\n`;
+                });
+                text += '\n';
+            });
+
+            // If no rules, default to allow all
+            if (rules.length === 0 && !crawlDelay) {
+                text = "User-agent: *\nAllow: /\n";
+            } else if (text === '' && crawlDelay) {
+                text = "User-agent: *\n"; // ensure header if only delay exists
+            }
+
+            if (crawlDelay) {
+                // Crawl-delay usually sits under a User-agent. We'll append it to the last one or global if standard.
+                // For simplicity in this generator, we assume it applies to the global scope or the last block processed.
+                // Ideally, attach to * or specific.
+                // If text is generated, we just append content.
+                // A better approach for this simple tool: Clean re-gen logic?
+                // Actually robots.txt is flexible. Let's just append Crawl-delay to the * block if exists, or global.
+                // Simplifying: Just let user manage via text? No, let's append valid directive.
+                // If we haven't written a * block explicitly, this might be ambiguous.
+                // Let's just output it at the end of the * block if it exists, or create one.
+                if (!grouped['*']) {
+                    if (uas.length === 0) text += "User-agent: *\n";
+                }
+                text += `Crawl-delay: ${crawlDelay}\n`;
+            }
+
+            if (ui.sitemap.value) {
+                text += `\nSitemap: ${ui.sitemap.value}`;
+            }
+
+            ui.output.value = text.trim();
+        }
+
+        function copyOutput() {
+            ui.output.select();
+            document.execCommand('copy');
+            alert('Copied to clipboard!');
+        }
+
+        function downloadFile() {
+            const blob = new Blob([ui.output.value], { type: "text/plain" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "robots.txt";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        updateOutput();
+    </script>
+</body>
+
+</html>

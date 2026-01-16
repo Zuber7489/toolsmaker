@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Markdown Editor | Live Preview</title>
+    <meta name="description"
+        content="Free online Markdown Editor with live preview. Write Markdown and see the HTML instantly. Export to HTML or .md file.">
+    <meta name="keywords"
+        content="markdown editor, online markdown, markdown to html, live markdown preview, markdown writer">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .editor-container {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .pane {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        textarea {
+            resize: none;
+            outline: none;
+            width: 100%;
+            height: 100%;
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1.5rem;
+            font-family: 'Courier New', Courier, monospace;
+            border: none;
+            line-height: 1.6;
+        }
+
+        .preview {
+            background: #ffffff;
+            color: #1e293b;
+            padding: 2rem;
+            overflow-y: auto;
+            height: 100%;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+
+        .toolbar-btn {
+            background: transparent;
+            border: 1px solid transparent;
+            color: #94a3b8;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .toolbar-btn:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .split-border {
+            width: 1px;
+            background: #334155;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="w-full bg-slate-900 border-b border-slate-800 px-4 py-3 flex justify-between items-center shrink-0">
+        <div class="flex items-center gap-4">
+            <a href="index.html" class="flex items-center gap-2">
+                <span
+                    class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</span>
+            </a>
+            <span class="text-slate-600">/</span>
+            <span class="text-sm font-medium text-white">Markdown Editor</span>
+        </div>
+        <div class="flex gap-2">
+            <button onclick="downloadMd()"
+                class="bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white text-xs px-3 py-1.5 rounded transition">
+                Download .md
+            </button>
+            <button onclick="copyHtml()"
+                class="bg-brand-600 hover:bg-brand-500 text-white text-xs px-3 py-1.5 rounded transition">
+                Copy HTML
+            </button>
+        </div>
+    </nav>
+
+    <!-- TOOLBAR -->
+    <div class="bg-slate-900 border-b border-slate-800 px-4 py-2 flex items-center gap-1 shrink-0">
+        <button class="toolbar-btn font-bold" onclick="insertSyntax('**', '**')" title="Bold">B</button>
+        <button class="toolbar-btn italic" onclick="insertSyntax('*', '*')" title="Italic">I</button>
+        <button class="toolbar-btn line-through" onclick="insertSyntax('~~', '~~')" title="Strikethrough">S</button>
+        <div class="w-px h-4 bg-slate-700 mx-2"></div>
+        <button class="toolbar-btn" onclick="insertSyntax('# ', '')" title="H1">H1</button>
+        <button class="toolbar-btn" onclick="insertSyntax('## ', '')" title="H2">H2</button>
+        <button class="toolbar-btn" onclick="insertSyntax('### ', '')" title="H3">H3</button>
+        <div class="w-px h-4 bg-slate-700 mx-2"></div>
+        <button class="toolbar-btn" onclick="insertSyntax('[', '](url)')" title="Link">Link</button>
+        <button class="toolbar-btn" onclick="insertSyntax('![alt text](', ')')" title="Image">Img</button>
+        <button class="toolbar-btn" onclick="insertSyntax('`', '`')" title="Code">Code</button>
+        <button class="toolbar-btn" onclick="insertSyntax('```\n', '\n```')" title="Block Code">Pre</button>
+        <div class="w-px h-4 bg-slate-700 mx-2"></div>
+        <button class="toolbar-btn" onclick="insertSyntax('- ', '')" title="List">• List</button>
+        <button class="toolbar-btn" onclick="insertSyntax('1. ', '')" title="Ordered List">1. List</button>
+        <button class="toolbar-btn" onclick="insertSyntax('> ', '')" title="Quote">Quote</button>
+    </div>
+
+    <!-- MAIN EDITOR -->
+    <div class="editor-container">
+        <!-- Input -->
+        <div class="pane">
+            <textarea id="editor" placeholder="# Hello World&#10;&#10;Start typing markdown here..."></textarea>
+        </div>
+
+        <div class="split-border"></div>
+
+        <!-- Preview -->
+        <div class="pane bg-white">
+            <div id="preview" class="preview prose prose-slate max-w-none"></div>
+        </div>
+    </div>
+
+    <script>
+        const editor = document.getElementById('editor');
+        const preview = document.getElementById('preview');
+
+        // Initial Text
+        const defaultText = `# Welcome to Markdown Editor
+
+This is a **live preview** editor. Type on the left, see results on the right.
+
+## Features
+- Github Flavored Markdown
+- Live rendering
+- HTML Export
+
+### Code Example
+\`\`\`javascript
+console.log('Hello World');
+\`\`\`
+
+> "Markdown is a lightweight markup language with plain text formatting syntax."
+
+1. List item one
+2. List item two
+   - Sub item
+
+[Learn more about Markdown](https://www.markdownguide.org)
+`;
+
+        editor.value = defaultText;
+
+        function updatePreview() {
+            const text = editor.value;
+            preview.innerHTML = marked.parse(text);
+        }
+
+        editor.addEventListener('input', updatePreview);
+
+        // Sync scroll (basic)
+        editor.addEventListener('scroll', () => {
+            const percent = editor.scrollTop / (editor.scrollHeight - editor.clientHeight);
+            preview.scrollTop = percent * (preview.scrollHeight - preview.clientHeight);
+        });
+
+        function insertSyntax(prefix, suffix) {
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const text = editor.value;
+            const selected = text.substring(start, end);
+
+            const before = text.substring(0, start);
+            const after = text.substring(end, text.length);
+
+            editor.value = before + prefix + selected + suffix + after;
+
+            editor.focus();
+            editor.selectionStart = start + prefix.length;
+            editor.selectionEnd = end + prefix.length;
+
+            updatePreview();
+        }
+
+        function copyHtml() {
+            const html = preview.innerHTML;
+            navigator.clipboard.writeText(html).then(() => {
+                alert('HTML Copied to clipboard!');
+            });
+        }
+
+        function downloadMd() {
+            const blob = new Blob([editor.value], { type: 'text/markdown' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'document.md';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // Init
+        updatePreview();
+    </script>
+</body>
+
+</html>
