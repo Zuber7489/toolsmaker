@@ -157,7 +157,7 @@
     </footer>
 
     <script type="module">
-        import imglyRemoveBackground from "https://cdn.jsdelivr.net/npm/@imgly/background-removal@1.4.5/+esm";
+        import imglyRemoveBackground from "https://esm.sh/@imgly/background-removal@1.7.0?bundle";
 
         const dropZone = document.getElementById('dropZone');
         const fileInput = document.getElementById('fileInput');
@@ -199,10 +199,7 @@
             try {
                 // imgly removeBackground
                 const blob = await imglyRemoveBackground(file, {
-                    publicPath: 'https://cdn.jsdelivr.net/npm/@imgly/background-removal-data@1.4.5/dist/',
-                    progress: (key, current, total) => {
-                        // console.log(`Downloading ${key}: ${Math.round(current / total * 100)}%`);
-                    }
+                    publicPath: 'https://static.img.ly/background-removal-data/1.7.0/dist/',
                 });
                 const url = URL.createObjectURL(blob);
 
