@@ -37,7 +37,14 @@
         .editor-container {
             flex: 1;
             display: flex;
+            flex-direction: column;
             overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .editor-container {
+                flex-direction: row;
+            }
         }
 
         .pane {
@@ -45,6 +52,13 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            min-height: 300px;
+        }
+
+        @media (min-width: 768px) {
+            .pane {
+                min-height: 0;
+            }
         }
 
         textarea {
@@ -54,18 +68,32 @@
             height: 100%;
             background: #1e293b;
             color: #e2e8f0;
-            padding: 1.5rem;
+            padding: 1rem;
             font-family: 'Courier New', Courier, monospace;
             border: none;
             line-height: 1.6;
+            font-size: 0.875rem;
+        }
+
+        @media (min-width: 640px) {
+            textarea {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
         }
 
         .preview {
             background: #ffffff;
             color: #1e293b;
-            padding: 2rem;
+            padding: 1rem;
             overflow-y: auto;
             height: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .preview {
+                padding: 2rem;
+            }
         }
 
         /* Custom Scrollbar */
@@ -85,8 +113,15 @@
             color: #94a3b8;
             padding: 0.25rem 0.5rem;
             border-radius: 0.25rem;
-            font-size: 0.875rem;
+            font-size: 0.75rem;
             transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        @media (min-width: 640px) {
+            .toolbar-btn {
+                font-size: 0.875rem;
+            }
         }
 
         .toolbar-btn:hover {
@@ -97,6 +132,13 @@
         .split-border {
             width: 1px;
             background: #334155;
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .split-border {
+                display: block;
+            }
         }
     </style>
 </head>
@@ -104,42 +146,44 @@
 <body>
 
     <!-- NAV -->
-    <nav class="w-full bg-slate-900 border-b border-slate-800 px-4 py-3 flex justify-between items-center shrink-0">
-        <div class="flex items-center gap-4">
+    <nav
+        class="w-full bg-slate-900 border-b border-slate-800 px-3 sm:px-4 py-2 sm:py-3 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-0 shrink-0">
+        <div class="flex items-center gap-2 sm:gap-4">
             <a href="index.html" class="flex items-center gap-2">
                 <span
-                    class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</span>
+                    class="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</span>
             </a>
-            <span class="text-slate-600">/</span>
-            <span class="text-sm font-medium text-white">Markdown Editor</span>
+            <span class="text-slate-600 hidden sm:inline">/</span>
+            <span class="text-xs sm:text-sm font-medium text-white">Markdown Editor</span>
         </div>
-        <div class="flex gap-2">
+        <div class="flex gap-2 w-full sm:w-auto">
             <button onclick="downloadMd()"
-                class="bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white text-xs px-3 py-1.5 rounded transition">
+                class="bg-slate-800 border border-slate-700 hover:bg-slate-700 text-white text-[10px] sm:text-xs px-2 sm:px-3 py-1.5 rounded transition flex-1 sm:flex-initial">
                 Download .md
             </button>
             <button onclick="copyHtml()"
-                class="bg-brand-600 hover:bg-brand-500 text-white text-xs px-3 py-1.5 rounded transition">
+                class="bg-brand-600 hover:bg-brand-500 text-white text-[10px] sm:text-xs px-2 sm:px-3 py-1.5 rounded transition flex-1 sm:flex-initial">
                 Copy HTML
             </button>
         </div>
     </nav>
 
     <!-- TOOLBAR -->
-    <div class="bg-slate-900 border-b border-slate-800 px-4 py-2 flex items-center gap-1 shrink-0">
+    <div
+        class="bg-slate-900 border-b border-slate-800 px-2 sm:px-4 py-2 flex items-center gap-1 shrink-0 overflow-x-auto">
         <button class="toolbar-btn font-bold" onclick="insertSyntax('**', '**')" title="Bold">B</button>
         <button class="toolbar-btn italic" onclick="insertSyntax('*', '*')" title="Italic">I</button>
         <button class="toolbar-btn line-through" onclick="insertSyntax('~~', '~~')" title="Strikethrough">S</button>
-        <div class="w-px h-4 bg-slate-700 mx-2"></div>
+        <div class="w-px h-4 bg-slate-700 mx-1 sm:mx-2"></div>
         <button class="toolbar-btn" onclick="insertSyntax('# ', '')" title="H1">H1</button>
         <button class="toolbar-btn" onclick="insertSyntax('## ', '')" title="H2">H2</button>
         <button class="toolbar-btn" onclick="insertSyntax('### ', '')" title="H3">H3</button>
-        <div class="w-px h-4 bg-slate-700 mx-2"></div>
+        <div class="w-px h-4 bg-slate-700 mx-1 sm:mx-2"></div>
         <button class="toolbar-btn" onclick="insertSyntax('[', '](url)')" title="Link">Link</button>
         <button class="toolbar-btn" onclick="insertSyntax('![alt text](', ')')" title="Image">Img</button>
         <button class="toolbar-btn" onclick="insertSyntax('`', '`')" title="Code">Code</button>
         <button class="toolbar-btn" onclick="insertSyntax('```\n', '\n```')" title="Block Code">Pre</button>
-        <div class="w-px h-4 bg-slate-700 mx-2"></div>
+        <div class="w-px h-4 bg-slate-700 mx-1 sm:mx-2"></div>
         <button class="toolbar-btn" onclick="insertSyntax('- ', '')" title="List">• List</button>
         <button class="toolbar-btn" onclick="insertSyntax('1. ', '')" title="Ordered List">1. List</button>
         <button class="toolbar-btn" onclick="insertSyntax('> ', '')" title="Quote">Quote</button>
