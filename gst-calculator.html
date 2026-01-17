@@ -65,71 +65,78 @@
 
 <body class="text-slate-200 antialiased flex flex-col min-h-screen">
     <nav class="w-full bg-slate-900/80 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold text-brand-500">ToolsMaker</a>
-            <a href="index.html" class="text-sm hover:text-white transition">More Tools</a>
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex justify-between items-center">
+            <a href="index.html" class="text-lg sm:text-xl font-bold text-brand-500">ToolsMaker</a>
+            <a href="index.html" class="text-xs sm:text-sm hover:text-white transition">More Tools</a>
         </div>
     </nav>
 
-    <main class="flex-grow flex items-center justify-center p-4">
+    <main class="flex-grow flex items-center justify-center p-3 sm:p-4">
         <div
-            class="w-full max-w-2xl bg-slate-800/60 border border-slate-700/50 p-8 rounded-2xl shadow-2xl backdrop-blur-sm">
-            <div class="text-center mb-8">
-                <h1 class="text-3xl font-bold text-white mb-2">GST Calculator <span class="text-brand-500">India</span>
+            class="w-full max-w-2xl bg-slate-800/60 border border-slate-700/50 p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl backdrop-blur-sm">
+            <div class="text-center mb-6 sm:mb-8">
+                <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">GST Calculator <span
+                        class="text-brand-500">India</span>
                 </h1>
-                <p class="text-sm text-slate-400">Calculate inclusive or exclusive GST amounts instantly.</p>
+                <p class="text-xs sm:text-sm text-slate-400">Calculate inclusive or exclusive GST amounts instantly.</p>
             </div>
 
-            <div class="space-y-6">
+            <div class="space-y-4 sm:space-y-6">
                 <!-- Amount Input -->
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-2">Initial Amount (₹)</label>
+                    <label class="block text-xs sm:text-sm font-medium text-slate-300 mb-2">Initial Amount (₹)</label>
                     <input type="number" id="amount" placeholder="e.g. 10000"
-                        class="w-full bg-slate-900 text-2xl font-semibold text-white p-4 rounded-xl border border-slate-700 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition">
+                        class="w-full bg-slate-900 text-xl sm:text-2xl font-semibold text-white p-3 sm:p-4 rounded-xl border border-slate-700 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition">
                 </div>
 
                 <!-- Rate Selection -->
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-2">GST Rate (%)</label>
-                    <div class="grid grid-cols-5 gap-2">
-                        <button class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 rounded-lg transition"
+                    <label class="block text-xs sm:text-sm font-medium text-slate-300 mb-2">GST Rate (%)</label>
+                    <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+                        <button
+                            class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 text-sm sm:text-base rounded-lg transition"
                             data-rate="5">5%</button>
-                        <button class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 rounded-lg transition"
+                        <button
+                            class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 text-sm sm:text-base rounded-lg transition"
                             data-rate="12">12%</button>
                         <button
-                            class="rate-btn bg-brand-600 text-white py-2 rounded-lg transition ring-2 ring-brand-400"
+                            class="rate-btn bg-brand-600 text-white py-2 text-sm sm:text-base rounded-lg transition ring-2 ring-brand-400"
                             data-rate="18">18%</button>
-                        <button class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 rounded-lg transition"
+                        <button
+                            class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 text-sm sm:text-base rounded-lg transition"
                             data-rate="28">28%</button>
                         <input type="number" id="customRate" placeholder="Other"
-                            class="bg-slate-900 text-white text-center rounded-lg border border-slate-700 focus:border-brand-500 outline-none">
+                            class="bg-slate-900 text-white text-sm sm:text-base text-center rounded-lg border border-slate-700 focus:border-brand-500 outline-none col-span-3 sm:col-span-1">
                     </div>
                 </div>
 
                 <!-- Mode Selection -->
-                <div class="flex p-1 bg-slate-900 rounded-lg">
+                <div class="flex p-1 bg-slate-900 rounded-lg gap-1">
                     <button id="modeEx"
-                        class="flex-1 py-2 rounded-md text-sm font-medium bg-slate-700 text-white shadow-sm transition">GST
+                        class="flex-1 py-2 px-1 rounded-md text-[10px] sm:text-sm font-medium bg-slate-700 text-white shadow-sm transition">GST
                         Exclusive (Add GST)</button>
                     <button id="modeIn"
-                        class="flex-1 py-2 rounded-md text-sm font-medium text-slate-400 hover:text-white transition">GST
+                        class="flex-1 py-2 px-1 rounded-md text-[10px] sm:text-sm font-medium text-slate-400 hover:text-white transition">GST
                         Inclusive (Remove GST)</button>
                 </div>
 
                 <!-- Results -->
-                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-700">
-                    <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/50">
-                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">GST Amount</div>
-                        <div class="text-2xl font-bold text-brand-400">₹ <span id="gstAmount">0.00</span></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-slate-700">
+                    <div class="bg-slate-900/50 p-3 sm:p-4 rounded-xl border border-slate-700/50">
+                        <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider mb-1">GST Amount
+                        </div>
+                        <div class="text-xl sm:text-2xl font-bold text-brand-400">₹ <span id="gstAmount">0.00</span>
+                        </div>
                     </div>
-                    <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700/50">
-                        <div class="text-xs text-slate-500 uppercase tracking-wider mb-1">Net / Gross Total</div>
-                        <div class="text-2xl font-bold text-white">₹ <span id="totalAmount">0.00</span></div>
+                    <div class="bg-slate-900/50 p-3 sm:p-4 rounded-xl border border-slate-700/50">
+                        <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider mb-1">Net / Gross
+                            Total</div>
+                        <div class="text-xl sm:text-2xl font-bold text-white">₹ <span id="totalAmount">0.00</span></div>
                     </div>
                 </div>
             </div>
         </div>
-        <section class="mt-16 border-t border-white/5 pt-12 text-left">
+        <section class="hidden lg:block mt-16 border-t border-white/5 pt-12 text-left">
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="prose prose-invert max-w-none">
                     <h2 class="text-2xl font-bold text-white mb-4">GST Calculation for India (2024)</h2>
