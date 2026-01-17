@@ -1,4 +1,42 @@
+# Robots.txt for FreeProducts24 - ToolsMaker
+# Updated: January 17, 2026
+# Purpose: Guide search engine crawlers for optimal indexing
+
+# Allow all compliant crawlers
 User-agent: *
 Allow: /
+Disallow: /.git/
+Disallow: /.agent/
+Disallow: /google*.html
 
+# Specific crawler rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+# Sitemap location
 Sitemap: https://freeproducts24.site/sitemap.xml
+
+# Host preference
+Host: https://freeproducts24.site
