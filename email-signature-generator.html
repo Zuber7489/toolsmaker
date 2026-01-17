@@ -67,144 +67,223 @@
         #preview-container {
             background: white;
             border-radius: 0.5rem;
-            padding: 2rem;
+            padding: 1.5rem;
             min-height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: auto;
         }
+
+        .style-btn {
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            border: 2px solid #334155;
+            background: rgba(15, 23, 42, 0.5);
+            color: #94a3b8;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .style-btn:hover {
+            border-color: #14b8a6;
+            color: white;
+        }
+
+        .style-btn.active {
+            border-color: #14b8a6;
+            background: rgba(20, 184, 166, 0.1);
+            color: #14b8a6;
+        }
+
+        @media (max-width: 1024px) {
+            #preview-container {
+                padding: 1rem;
+            }
+        }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased p-4">
+<body class="text-slate-200 antialiased">
 
-    <nav class="w-full glass-panel fixed top-0 left-0 z-50 border-b border-white/10 px-4 py-3">
+    <nav class="w-full glass-panel fixed top-0 left-0 z-50 border-b border-white/10 px-3 sm:px-4 py-3">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
             <a href="index.html"
-                class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
-            <a href="index.html" class="text-sm hover:text-white transition">Home</a>
+                class="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
+            <a href="index.html" class="text-xs sm:text-sm hover:text-white transition">Home</a>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto mt-24 mb-10 grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <main class="max-w-7xl mx-auto mt-16 sm:mt-20 mb-10 px-3 sm:px-4">
+        <div class="mb-6 sm:mb-8 text-center">
+            <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">Email Signature Generator</h1>
+            <p class="text-xs sm:text-sm text-slate-400">Create professional email signatures in seconds</p>
+        </div>
 
-        <!-- LEFT: FORM INPUTS -->
-        <div class="glass-panel p-6 rounded-2xl lg:col-span-5 h-fit">
-            <h1 class="text-2xl font-bold text-white mb-6">Signature Gen</h1>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8">
+            <!-- LEFT: FORM INPUTS -->
+            <div class="glass-panel p-4 sm:p-6 rounded-2xl lg:col-span-5 h-fit">
+                <h2 class="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">Your Details</h2>
 
-            <div class="space-y-6">
-                <!-- Personal Info -->
-                <div>
-                    <h3 class="text-brand-500 font-bold mb-3 border-b border-slate-700 pb-1">1. Personal Info</h3>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div>
-                            <label class="form-label">First Name</label>
-                            <input type="text" id="inFirstName" class="form-input" placeholder="John" value="John"
-                                oninput="render()">
-                        </div>
-                        <div>
-                            <label class="form-label">Last Name</label>
-                            <input type="text" id="inLastName" class="form-input" placeholder="Doe" value="Doe"
-                                oninput="render()">
-                        </div>
-                        <div class="col-span-2">
-                            <label class="form-label">Job Title</label>
-                            <input type="text" id="inJob" class="form-input" placeholder="Software Engineer"
-                                value="Software Engineer" oninput="render()">
-                        </div>
-                        <div class="col-span-2">
-                            <label class="form-label">Department</label>
-                            <input type="text" id="inDept" class="form-input" placeholder="Product Team"
-                                oninput="render()">
+                <div class="space-y-5 sm:space-y-6">
+                    <!-- Personal Info -->
+                    <div>
+                        <h3 class="text-brand-500 font-bold text-sm sm:text-base mb-3 border-b border-slate-700 pb-1">1.
+                            Personal Info</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="form-label">First Name</label>
+                                <input type="text" id="inFirstName" class="form-input" placeholder="John" value="John"
+                                    oninput="render()">
+                            </div>
+                            <div>
+                                <label class="form-label">Last Name</label>
+                                <input type="text" id="inLastName" class="form-input" placeholder="Doe" value="Doe"
+                                    oninput="render()">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="form-label">Job Title</label>
+                                <input type="text" id="inJob" class="form-input" placeholder="Software Engineer"
+                                    value="Software Engineer" oninput="render()">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="form-label">Department (Optional)</label>
+                                <input type="text" id="inDept" class="form-input" placeholder="Product Team"
+                                    oninput="render()">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Company Info -->
-                <div>
-                    <h3 class="text-brand-500 font-bold mb-3 border-b border-slate-700 pb-1">2. Company Info</h3>
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="col-span-2">
-                            <label class="form-label">Company Name</label>
-                            <input type="text" id="inCompany" class="form-input" placeholder="Acme Inc."
-                                value="Acme Inc." oninput="render()">
-                        </div>
-                        <div>
-                            <label class="form-label">Phone</label>
-                            <input type="text" id="inPhone" class="form-input" placeholder="+1 123 456 7890"
-                                value="+1 123 456 7890" oninput="render()">
-                        </div>
-                        <div>
-                            <label class="form-label">Website</label>
-                            <input type="text" id="inWeb" class="form-input" placeholder="www.example.com"
-                                value="www.example.com" oninput="render()">
-                        </div>
-                        <div class="col-span-2">
-                            <label class="form-label">Email</label>
-                            <input type="text" id="inEmail" class="form-input" placeholder="john@example.com"
-                                value="john@example.com" oninput="render()">
-                        </div>
-                        <div class="col-span-2">
-                            <label class="form-label">Address</label>
-                            <input type="text" id="inAddr" class="form-input" placeholder="123 St, City, Country"
-                                value="123 Tech St, San Francisco, CA" oninput="render()">
+                    <!-- Company Info -->
+                    <div>
+                        <h3 class="text-brand-500 font-bold text-sm sm:text-base mb-3 border-b border-slate-700 pb-1">2.
+                            Company Info</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div class="sm:col-span-2">
+                                <label class="form-label">Company Name</label>
+                                <input type="text" id="inCompany" class="form-input" placeholder="Acme Inc."
+                                    value="Acme Inc." oninput="render()">
+                            </div>
+                            <div>
+                                <label class="form-label">Phone</label>
+                                <input type="text" id="inPhone" class="form-input" placeholder="+1 123 456 7890"
+                                    value="+1 123 456 7890" oninput="render()">
+                            </div>
+                            <div>
+                                <label class="form-label">Website</label>
+                                <input type="text" id="inWeb" class="form-input" placeholder="www.example.com"
+                                    value="www.example.com" oninput="render()">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="form-label">Email</label>
+                                <input type="text" id="inEmail" class="form-input" placeholder="john@example.com"
+                                    value="john@example.com" oninput="render()">
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label class="form-label">Address (Optional)</label>
+                                <input type="text" id="inAddr" class="form-input" placeholder="123 St, City, Country"
+                                    value="123 Tech St, San Francisco, CA" oninput="render()">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Images & Social -->
-                <div>
-                    <h3 class="text-brand-500 font-bold mb-3 border-b border-slate-700 pb-1">3. Media & Style</h3>
-                    <div class="space-y-3">
-                        <div>
-                            <label class="form-label">Photo URL</label>
-                            <input type="text" id="inPhoto" class="form-input" placeholder="https://..."
-                                value="https://via.placeholder.com/100" oninput="render()">
+                    <!-- Social Links -->
+                    <div>
+                        <h3 class="text-brand-500 font-bold text-sm sm:text-base mb-3 border-b border-slate-700 pb-1">3.
+                            Social Links (Optional)</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <div>
+                                <label class="form-label">LinkedIn</label>
+                                <input type="text" id="inLinkedin" class="form-input"
+                                    placeholder="linkedin.com/in/username" oninput="render()">
+                            </div>
+                            <div>
+                                <label class="form-label">Twitter/X</label>
+                                <input type="text" id="inTwitter" class="form-input" placeholder="twitter.com/username"
+                                    oninput="render()">
+                            </div>
                         </div>
-                        <div>
-                            <label class="form-label">Theme Color</label>
-                            <input type="color" id="inColor" class="w-full h-10 rounded cursor-pointer" value="#14b8a6"
-                                oninput="render()">
+                    </div>
+
+                    <!-- Images & Style -->
+                    <div>
+                        <h3 class="text-brand-500 font-bold text-sm sm:text-base mb-3 border-b border-slate-700 pb-1">4.
+                            Style & Media</h3>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="form-label">Photo URL</label>
+                                <input type="text" id="inPhoto" class="form-input" placeholder="https://..."
+                                    value="https://via.placeholder.com/100" oninput="render()">
+                            </div>
+                            <div>
+                                <label class="form-label">Theme Color</label>
+                                <input type="color" id="inColor" class="w-full h-10 rounded cursor-pointer"
+                                    value="#14b8a6" oninput="render()">
+                            </div>
+                            <div>
+                                <label class="form-label">Template Style</label>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button onclick="setStyle('modern')" class="style-btn active"
+                                        id="style-modern">Modern</button>
+                                    <button onclick="setStyle('classic')" class="style-btn"
+                                        id="style-classic">Classic</button>
+                                    <button onclick="setStyle('minimal')" class="style-btn"
+                                        id="style-minimal">Minimal</button>
+                                    <button onclick="setStyle('bold')" class="style-btn" id="style-bold">Bold</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- RIGHT: PREVIEW -->
-        <div class="lg:col-span-7 flex flex-col gap-6 sticky top-24">
-            <div class="glass-panel p-6 rounded-2xl">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-lg font-bold text-white">Live Preview</h2>
-                    <div class="flex gap-2">
-                        <button onclick="copySignature()"
-                            class="bg-brand-600 hover:bg-brand-500 text-white font-bold py-2 px-6 rounded-lg shadow-lg shadow-brand-500/20 transition transform hover:-translate-y-0.5">
-                            Select Signature
-                        </button>
-                        <button onclick="copySource()"
-                            class="bg-slate-700 hover:bg-slate-600 text-white text-sm py-2 px-4 rounded-lg transition">
-                            Copy HTML
-                        </button>
+            <!-- RIGHT: PREVIEW -->
+            <div class="lg:col-span-7 flex flex-col gap-4 sm:gap-6 lg:sticky lg:top-20 h-fit">
+                <div class="glass-panel p-4 sm:p-6 rounded-2xl">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
+                        <h2 class="text-lg font-bold text-white">Live Preview</h2>
+                        <div class="flex flex-wrap gap-2 w-full sm:w-auto">
+                            <button onclick="copySignature()"
+                                class="flex-1 sm:flex-initial bg-brand-600 hover:bg-brand-500 text-white font-bold py-2 px-4 sm:px-6 rounded-lg shadow-lg shadow-brand-500/20 transition transform hover:-translate-y-0.5 text-sm">
+                                Select Signature
+                            </button>
+                            <button onclick="copySource()"
+                                class="flex-1 sm:flex-initial bg-slate-700 hover:bg-slate-600 text-white text-sm py-2 px-3 sm:px-4 rounded-lg transition">
+                                Copy HTML
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <p class="text-xs text-slate-400 mb-4 bg-slate-800/50 p-2 rounded">
-                    <strong>Instructions:</strong> Click "Select Signature", then press <strong>Ctrl + C</strong> (or
-                    Cmd + C) to copy formatted text. Paste directly into Gmail/Outlook settings.
-                </p>
+                    <div class="text-xs text-slate-400 mb-4 bg-slate-800/50 p-3 rounded border-l-2 border-brand-500">
+                        <strong>📋 How to use:</strong> Click "Select Signature", then press <kbd
+                            class="bg-slate-700 px-1.5 py-0.5 rounded">Ctrl + C</kbd> (or
+                        <kbd class="bg-slate-700 px-1.5 py-0.5 rounded">Cmd + C</kbd>) to copy. Paste directly into
+                        Gmail/Outlook signature settings.
+                    </div>
 
-                <div id="preview-container">
-                    <!-- Signature Renders Here -->
-                    <div id="signature-content"></div>
+                    <div id="preview-container">
+                        <!-- Signature Renders Here -->
+                        <div id="signature-content"></div>
+                    </div>
                 </div>
             </div>
         </div>
-
     </main>
 
     <script>
-        // Mapping IDs to signature parts
+        let currentStyle = 'modern';
+
+        function setStyle(style) {
+            currentStyle = style;
+            // Update button states
+            document.querySelectorAll('.style-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`style-${style}`).classList.add('active');
+            render();
+        }
+
         function render() {
             const d = {
                 fn: document.getElementById('inFirstName').value,
@@ -217,31 +296,103 @@
                 email: document.getElementById('inEmail').value,
                 addr: document.getElementById('inAddr').value,
                 photo: document.getElementById('inPhoto').value,
-                color: document.getElementById('inColor').value
+                color: document.getElementById('inColor').value,
+                linkedin: document.getElementById('inLinkedin').value,
+                twitter: document.getElementById('inTwitter').value
             };
 
-            // Using Table layout for maximum compatibility with email clients (Outlook/Gmail)
-            const html = `
-            <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, sans-serif; font-size: 14px; line-height: 1.4; color: #333;">
-                <tr>
-                    <td style="padding-right: 20px; vertical-align: top;">
-                        <img src="${d.photo}" alt="${d.fn}" width="100" height="100" style="border-radius: 50%; display: block; object-fit: cover;">
-                    </td>
-                    <td style="border-left: 2px solid ${d.color}; padding-left: 20px; vertical-align: top;">
-                        <div style="font-weight: bold; font-size: 18px; color: #111;">${d.fn} ${d.ln}</div>
-                        <div style="color: ${d.color}; font-weight: 500; margin-bottom: 8px;">${d.job} ${d.dept ? ' | ' + d.dept : ''}</div>
-                        <div style="margin-bottom: 8px; font-weight: bold; color: #555;">${d.comp}</div>
-                        
-                        <div style="font-size: 12px; color: #666;">
-                            ${d.phone ? `<div style="margin-bottom: 2px;"><span style="color:${d.color}">📞</span> <a href="tel:${d.phone}" style="color: #666; text-decoration: none;">${d.phone}</a></div>` : ''}
-                            ${d.email ? `<div style="margin-bottom: 2px;"><span style="color:${d.color}">✉️</span> <a href="mailto:${d.email}" style="color: #666; text-decoration: none;">${d.email}</a></div>` : ''}
-                            ${d.web ? `<div style="margin-bottom: 2px;"><span style="color:${d.color}">🌐</span> <a href="http://${d.web}" style="color: #666; text-decoration: none;">${d.web}</a></div>` : ''}
-                            ${d.addr ? `<div><span style="color:${d.color}">📍</span> ${d.addr}</div>` : ''}
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            `;
+            let html = '';
+
+            if (currentStyle === 'modern') {
+                html = `
+                <table cellpadding="0" cellspacing="0" border="0" style="font-family: 'Segoe UI', Arial, sans-serif; font-size: 14px; line-height: 1.4; color: #333;">
+                    <tr>
+                        <td style="padding-right: 20px; vertical-align: top;">
+                            <img src="${d.photo}" alt="${d.fn}" width="100" height="100" style="border-radius: 50%; display: block; object-fit: cover; border: 3px solid ${d.color};">
+                        </td>
+                        <td style="border-left: 3px solid ${d.color}; padding-left: 20px; vertical-align: top;">
+                            <div style="font-weight: bold; font-size: 20px; color: #111; margin-bottom: 4px;">${d.fn} ${d.ln}</div>
+                            <div style="color: ${d.color}; font-weight: 600; margin-bottom: 8px; font-size: 15px;">${d.job}${d.dept ? ' | ' + d.dept : ''}</div>
+                            <div style="margin-bottom: 10px; font-weight: 600; color: #666; font-size: 14px;">${d.comp}</div>
+                            
+                            <div style="font-size: 13px; color: #666; line-height: 1.6;">
+                                ${d.phone ? `<div style="margin-bottom: 3px;"><span style="color:${d.color}">📞</span> <a href="tel:${d.phone}" style="color: #666; text-decoration: none;">${d.phone}</a></div>` : ''}
+                                ${d.email ? `<div style="margin-bottom: 3px;"><span style="color:${d.color}">✉️</span> <a href="mailto:${d.email}" style="color: #666; text-decoration: none;">${d.email}</a></div>` : ''}
+                                ${d.web ? `<div style="margin-bottom: 3px;"><span style="color:${d.color}">🌐</span> <a href="https://${d.web}" style="color: #666; text-decoration: none;">${d.web}</a></div>` : ''}
+                                ${d.addr ? `<div style="margin-bottom: 3px;"><span style="color:${d.color}">📍</span> ${d.addr}</div>` : ''}
+                            </div>
+                            ${(d.linkedin || d.twitter) ? `
+                            <div style="margin-top: 12px; padding-top: 8px; border-top: 1px solid #e5e7eb;">
+                                ${d.linkedin ? `<a href="https://${d.linkedin}" style="display: inline-block; margin-right: 8px; color: ${d.color}; text-decoration: none; font-size: 12px;">LinkedIn</a>` : ''}
+                                ${d.twitter ? `<a href="https://${d.twitter}" style="display: inline-block; color: ${d.color}; text-decoration: none; font-size: 12px;">Twitter</a>` : ''}
+                            </div>` : ''}
+                        </td>
+                    </tr>
+                </table>
+                `;
+            } else if (currentStyle === 'classic') {
+                html = `
+                <table cellpadding="0" cellspacing="0" border="0" style="font-family: 'Times New Roman', serif; font-size: 14px; line-height: 1.6; color: #333;">
+                    <tr>
+                        <td style="text-align: center; padding-bottom: 15px;" colspan="2">
+                            <img src="${d.photo}" alt="${d.fn}" width="80" height="80" style="border-radius: 40%; display: block; margin: 0 auto; object-fit: cover;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: center; border-top: 2px solid ${d.color}; padding-top: 15px;">
+                            <div style="font-weight: bold; font-size: 18px; color: #111; margin-bottom: 5px;">${d.fn} ${d.ln}</div>
+                            <div style="font-style: italic; color: ${d.color}; margin-bottom: 3px;">${d.job}</div>
+                            ${d.dept ? `<div style="color: #666; font-size: 13px; margin-bottom: 8px;">${d.dept}</div>` : ''}
+                            <div style="font-weight: bold; color: #444; margin-bottom: 10px;">${d.comp}</div>
+                            
+                            <div style="font-size: 12px; color: #666;">
+                                ${d.phone ? `<div>${d.phone}</div>` : ''}
+                                ${d.email ? `<div><a href="mailto:${d.email}" style="color: ${d.color}; text-decoration: none;">${d.email}</a></div>` : ''}
+                                ${d.web ? `<div><a href="https://${d.web}" style="color: ${d.color}; text-decoration: none;">${d.web}</a></div>` : ''}
+                                ${d.addr ? `<div style="margin-top: 5px;">${d.addr}</div>` : ''}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                `;
+            } else if (currentStyle === 'minimal') {
+                html = `
+                <table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5; color: #666;">
+                    <tr>
+                        <td>
+                            <div style="font-weight: 700; font-size: 16px; color: #000; margin-bottom: 2px;">${d.fn} ${d.ln}</div>
+                            <div style="color: #888; font-size: 12px; margin-bottom: 8px;">${d.job} at ${d.comp}</div>
+                            <div style="font-size: 12px;">
+                                ${d.email ? `<a href="mailto:${d.email}" style="color: ${d.color}; text-decoration: none; margin-right: 10px;">${d.email}</a>` : ''}
+                                ${d.phone ? `<span style="margin-right: 10px;">${d.phone}</span>` : ''}
+                                ${d.web ? `<a href="https://${d.web}" style="color: ${d.color}; text-decoration: none;">${d.web}</a>` : ''}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                `;
+            } else if (currentStyle === 'bold') {
+                html = `
+                <table cellpadding="0" cellspacing="0" border="0" style="font-family: 'Arial Black', Arial, sans-serif; font-size: 14px; line-height: 1.4; color: #333;">
+                    <tr>
+                        <td style="background-color: ${d.color}; padding: 15px 20px; color: white; text-align: center;">
+                            <div style="font-weight: 900; font-size: 22px; margin-bottom: 5px;">${d.fn} ${d.ln}</div>
+                            <div style="font-size: 14px; opacity: 0.95;">${d.job}</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px 20px; background-color: #f9fafb;">
+                            <div style="font-weight: bold; margin-bottom: 8px; font-size: 15px;">${d.comp}</div>
+                            <div style="font-size: 13px; color: #666;">
+                                ${d.phone ? `<div style="margin-bottom: 3px;">📞 <strong>${d.phone}</strong></div>` : ''}
+                                ${d.email ? `<div style="margin-bottom: 3px;">✉️ <a href="mailto:${d.email}" style="color: ${d.color}; text-decoration: none; font-weight: bold;">${d.email}</a></div>` : ''}
+                                ${d.web ? `<div style="margin-bottom: 3px;">🌐 <a href="https://${d.web}" style="color: ${d.color}; text-decoration: none; font-weight: bold;">${d.web}</a></div>` : ''}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                `;
+            }
 
             document.getElementById('signature-content').innerHTML = html;
         }
@@ -249,25 +400,26 @@
         function copySignature() {
             const el = document.getElementById('signature-content');
 
-            // Selection API
-            if (document.body.createTextRange) {
-                const range = document.body.createTextRange();
-                range.moveToElementText(el);
-                range.select();
-            } else if (window.getSelection) {
+            if (window.getSelection) {
                 const selection = window.getSelection();
                 const range = document.createRange();
                 range.selectNodeContents(el);
                 selection.removeAllRanges();
                 selection.addRange(range);
+
+                try {
+                    document.execCommand('copy');
+                    alert("✅ Signature copied! You can now paste it into your email client's signature settings.");
+                } catch (err) {
+                    alert("⚠️ Signature selected! Now press Ctrl+C (Cmd+C on Mac) to copy manually.");
+                }
             }
-            alert("Signature selected! Now press Ctrl+C (Cmd+C) to copy.");
         }
 
         function copySource() {
             const html = document.getElementById('signature-content').innerHTML;
             navigator.clipboard.writeText(html);
-            alert("HTML source code copied to clipboard!");
+            alert("✅ HTML source code copied to clipboard!");
         }
 
         render();
