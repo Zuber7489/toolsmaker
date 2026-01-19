@@ -106,6 +106,7 @@
             </div>
             <div class="hidden md:flex gap-8 text-sm font-medium">
                 <a href="index.html" class="text-brand-500 hover:text-brand-400 transition">Explore</a>
+                <a href="blog/index.html" class="text-slate-400 hover:text-white transition">Blog</a>
                 <a href="about.html" class="text-slate-400 hover:text-white transition">About</a>
                 <a href="privacy.html" class="text-slate-400 hover:text-white transition">Privacy</a>
             </div>
@@ -621,6 +622,43 @@
                 <p class="text-slate-500 text-sm leading-relaxed">Professional email signatures for Gmail & Outlook.</p>
             </a>
 
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="mt-20 max-w-4xl mx-auto">
+            <div
+                class="bg-gradient-to-r from-brand-500/20 to-cyan-500/20 rounded-3xl p-8 sm:p-12 border border-brand-500/30 text-center">
+                <div class="mb-6">
+                    <span class="text-4xl sm:text-5xl mb-4 block">📧</span>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Get Weekly Tool Tips &
+                        Updates</h2>
+                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
+                        Join 5,000+ users who receive exclusive tips, new tools, and productivity hacks directly in
+                        their inbox.
+                    </p>
+                </div>
+
+                <!-- Newsletter Form -->
+                <form action="https://formspree.io/f/xeeegnjd" method="POST" class="max-w-md mx-auto"
+                    id="newsletterForm">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <input type="email" name="email" placeholder="your@email.com" required
+                            class="flex-1 bg-slate-900/80 border border-slate-700 rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-slate-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition text-sm sm:text-base">
+                        <button type="submit"
+                            class="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition shadow-lg shadow-brand-500/20 text-sm sm:text-base whitespace-nowrap">
+                            Subscribe Free
+                        </button>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-4">
+                        ✓ No spam ever &nbsp;•&nbsp; ✓ Unsubscribe anytime &nbsp;•&nbsp; ✓ 100% Free
+                    </p>
+                </form>
+
+                <!-- Success Message (hidden by default) -->
+                <div id="successMessage" class="hidden mt-6 p-4 bg-green-500/20 border border-green-500/30 rounded-xl">
+                    <p class="text-green-400 font-medium">🎉 Thanks for subscribing! Check your email to confirm.</p>
+                </div>
+            </div>
         </section>
     </main>
 
