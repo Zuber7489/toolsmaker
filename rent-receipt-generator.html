@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Rent Receipt Generator India | Download PDF for HRA Exemption</title>
+    <meta name="description"
+        content="Generate monthly or quarterly rent receipts for HRA exemption. Free online tool to create and download rent receipts in PDF format instantly. No signup required.">
+    <meta name="keywords"
+        content="rent receipt generator, rent receipt pdf, hra rent receipt, rent receipt maker india, house rent receipt format">
+    <link rel="canonical" href="https://freeproducts24.site/rent-receipt-generator.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free Rent Receipt Generator with PDF Download">
+    <meta property="og:description" content="Create compliant rent receipts for HRA tax proof in seconds.">
+    <meta property="og:url" content="https://freeproducts24.site/rent-receipt-generator.html">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: linear-gradient(to bottom right, #0f172a, #1e293b);
+            min-height: 100vh;
+        }
+
+        .receipt-preview {
+            background: white;
+            color: black;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .dashed-line {
+            border-bottom: 1px dashed #cbd5e1;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased font-sans">
+
+    <nav class="w-full bg-slate-900/80 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html"
+                class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">FreeProducts24</a>
+            <div class="flex gap-4 text-sm font-medium">
+                <a href="salary-calculator.html" class="text-slate-400 hover:text-white transition">Salary Calc</a>
+                <a href="index.html" class="text-brand-500 hover:text-brand-400 transition">Back to Tools</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-10">
+        <div class="text-center mb-10">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold mb-4 border border-brand-500/20">
+                ✨ Perfect for HRA Proof
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                Rent Receipt <span class="text-brand-500">Generator</span>
+            </h1>
+            <p class="text-slate-400 max-w-2xl mx-auto">
+                Generate valid rent receipts for your HRA tax exemption claims. Instant PDF download, formatted for
+                Indian tax filing.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8 lg:gap-12">
+            <!-- Form Section -->
+            <div class="space-y-6">
+                <div class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span
+                            class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center text-xs text-black">1</span>
+                        Tenant & Landlord Details
+                    </h2>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Tenant Name (You)</label>
+                            <input type="text" id="tenantName" placeholder="Your Name"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Rent Amount (₹)</label>
+                            <input type="number" id="rentAmount" placeholder="e.g. 15000"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="block text-xs font-medium text-slate-300 mb-1">Rented Property Address</label>
+                        <textarea id="address" rows="2" placeholder="Full address of the house you live in"
+                            class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition"></textarea>
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Landlord Name</label>
+                            <input type="text" id="landlordName" placeholder="Owner's Name"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Landlord PAN (Optional)</label>
+                            <input type="text" id="landlordPan" placeholder="Usually for rent > ₹8,333/m"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition uppercase">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span
+                            class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center text-xs text-black">2</span>
+                        Receipt Period
+                    </h2>
+
+                    <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">From Date</label>
+                            <input type="date" id="fromDate"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">To Date</label>
+                            <input type="date" id="toDate"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                    </div>
+
+                    <button onclick="generatePDF()" id="downloadBtn"
+                        class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-brand-500/20 flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        Download PDF Receipt
+                    </button>
+                    <p class="text-xs text-slate-500 text-center mt-3">Free • No Login • Secure</p>
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="relative">
+                <div class="sticky top-24">
+                    <div class="flex justify-between items-end mb-4">
+                        <h2 class="text-xl font-bold text-white">Live Preview</h2>
+                        <span class="text-xs text-slate-400">Updates automatically</span>
+                    </div>
+
+                    <!-- Receipt Template -->
+                    <div id="receiptContent"
+                        class="receipt-preview rounded shadow-xl p-8 max-w-[600px] mx-auto min-h-[500px] relative">
+                        <div class="border-b-2 border-slate-800 pb-4 mb-6 flex justify-between items-start">
+                            <div>
+                                <h1 class="text-2xl font-bold text-slate-800">RENT RECEIPT</h1>
+                                <p class="text-sm text-slate-500 mt-1">HRA Tax Proof</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm font-bold text-slate-400">Receipt No.</p>
+                                <p class="text-sm text-slate-800" id="prevReceiptNo">#001</p>
+                            </div>
+                        </div>
+
+                        <div class="space-y-6 text-slate-700 leading-relaxed">
+                            <p>
+                                Received a sum of <span class="font-bold text-lg">₹ <span
+                                        id="prevAmount">0</span></span>
+                                from <span class="font-bold border-b border-dotted border-slate-400 px-1"
+                                    id="prevTenant">Tenant Name</span>
+                            </p>
+
+                            <p>
+                                Towards the rent for the period from
+                                <span class="font-bold border-b border-dotted border-slate-400 px-1"
+                                    id="prevFrom">DD/MM/YYYY</span>
+                                to
+                                <span class="font-bold border-b border-dotted border-slate-400 px-1"
+                                    id="prevTo">DD/MM/YYYY</span>
+                            </p>
+
+                            <p>
+                                For the property located at:<br>
+                                <span class="italic block mt-2 p-3 bg-slate-50 rounded border border-slate-200"
+                                    id="prevAddress">Property Address Will Appear Here...</span>
+                            </p>
+
+                            <div class="grid grid-cols-2 gap-8 mt-12 pt-8">
+                                <div>
+                                    <p class="text-sm text-slate-500 mb-1">Landlord's PAN:</p>
+                                    <p class="font-bold uppercase" id="prevPan">NA</p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="h-16 mb-2 border-b border-slate-300"></div>
+                                    <p class="font-bold" id="prevLandlord">Landlord Name</p>
+                                    <p class="text-xs text-slate-500">(Signature of Landlord)</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="absolute bottom-6 left-8 right-8 text-center border-t border-slate-100 pt-4">
+                            <p class="text-[10px] text-slate-400">Generated via FreeProducts24.site</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section for SEO -->
+        <section class="max-w-4xl mx-auto mt-20 pt-10 border-t border-white/5">
+            <h2 class="text-2xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
+            <div class="grid gap-6">
+                <div class="bg-slate-800/30 rounded-xl p-6">
+                    <h3 class="font-semibold text-white mb-2">Why do I need a Rent Receipt?</h3>
+                    <p class="text-sm text-slate-400">If you are a salaried employee claiming HRA (House Rent Allowance)
+                        exemption, you must submit rent receipts to your employer as proof of rent payment. This is
+                        mandatory for claiming tax benefits.</p>
+                </div>
+                <div class="bg-slate-800/30 rounded-xl p-6">
+                    <h3 class="font-semibold text-white mb-2">Is Landlord's PAN mandatory?</h3>
+                    <p class="text-sm text-slate-400">The Landlord's PAN card is mandatory if your annual rent payment
+                        exceeds ₹1,00,000 (approx. ₹8,333 per month). For amounts below this, PAN is not strictly
+                        required but recommended.</p>
+                </div>
+                <div class="bg-slate-800/30 rounded-xl p-6">
+                    <h3 class="font-semibold text-white mb-2">Can I generate monthly or quarterly receipts?</h3>
+                    <p class="text-sm text-slate-400">Yes! You can generate a single receipt for a full year, quarterly,
+                        or monthly payments. Just adjust the "From Date" and "To Date" and the "Rent Amount" accordingly
+                        (e.g., multiply monthly rent by 3 for quarterly).</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Update Live Preview
+        const inputs = ['tenantName', 'rentAmount', 'address', 'landlordName', 'landlordPan', 'fromDate', 'toDate'];
+
+        inputs.forEach(id => {
+            document.getElementById(id).addEventListener('input', updatePreview);
+        });
+
+        // Set default dates
+        const today = new Date();
+        const firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+        const lastDay = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+
+        document.getElementById('fromDate').valueAsDate = firstDay;
+        document.getElementById('toDate').valueAsDate = lastDay;
+
+        function updatePreview() {
+            document.getElementById('prevTenant').textContent = document.getElementById('tenantName').value || 'Tenant Name';
+
+            const rent = document.getElementById('rentAmount').value;
+            document.getElementById('prevAmount').textContent = rent ? Number(rent).toLocaleString('en-IN') : '0';
+
+            document.getElementById('prevAddress').textContent = document.getElementById('address').value || 'Property Address Will Appear Here...';
+
+            document.getElementById('prevLandlord').textContent = document.getElementById('landlordName').value || 'Landlord Name';
+
+            const pan = document.getElementById('landlordPan').value;
+            document.getElementById('prevPan').textContent = pan || 'NA';
+
+            const from = new Date(document.getElementById('fromDate').value);
+            const to = new Date(document.getElementById('toDate').value);
+
+            if (!isNaN(from)) document.getElementById('prevFrom').textContent = formatDate(from);
+            if (!isNaN(to)) document.getElementById('prevTo').textContent = formatDate(to);
+
+            // Generate Receipt No based on date
+            const receiptNo = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+            document.getElementById('prevReceiptNo').textContent = `#${receiptNo}`;
+        }
+
+        function formatDate(date) {
+            return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+        }
+
+        function generatePDF() {
+            const element = document.getElementById('receiptContent');
+            const btn = document.getElementById('downloadBtn');
+            const originalText = btn.innerHTML;
+
+            // Feedback
+            btn.innerHTML = 'Generating...';
+            btn.disabled = true;
+
+            const opt = {
+                margin: 0,
+                filename: `Rent_Receipt_${document.getElementById('tenantName').value || 'Draft'}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
+        }
+
+        // Init
+        updatePreview();
+    </script>
+</body>
+
+</html>
