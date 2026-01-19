@@ -776,54 +776,57 @@
 
         // Add data attributes to tools for categorization
         const toolCategories = {
-            'gst-calculator.html': 'financial',
-            'sip-calculator.html': 'financial',
-            'emi-calculator.html': 'financial',
-            'salary-calculator.html': 'financial',
-            'rent-receipt-generator.html': 'financial',
-            'percentage-calculator.html': 'financial',
-            'health-calculator.html': 'financial',
-            'image-compressor.html': 'image',
-            'image-converter.html': 'image',
-            'dimension-checker.html': 'image',
-            'blur-image.html': 'image',
-            'bg-remover.html': 'image',
-            'yt-thumbnail.html': 'image',
-            'character-counter.html': 'text',
-            'text-formatter.html': 'text',
-            'lorem-ipsum.html': 'text',
-            'fancy-fonts.html': 'text',
-            'email-signature-generator.html': 'text',
-            'marriage-biodata-maker.html': 'social',
-            'reel-caption-formatter.html': 'social',
-            'qr-generator.html': 'social',
-            'link-cloaker.html': 'social',
-            'age-calculator.html': 'social',
-            'json-formatter.html': 'developer',
-            'uuid-generator.html': 'developer',
-            'timestamp-converter.html': 'developer',
-            'html-minifier.html': 'developer',
-            'css-minifier.html': 'developer',
-            'base64-converter.html': 'developer',
-            'url-encoder-decoder.html': 'developer',
-            'hex-rgb-converter.html': 'developer',
-            'password-generator.html': 'developer',
-            'pdf-merger.html': 'developer',
-            'pdf-unlocker.html': 'developer',
-            'meta-tag-generator.html': 'seo',
-            'robots-txt-generator.html': 'seo',
-            'markdown-editor.html': 'developer'
+            'gst-calculator': 'financial',
+            'sip-calculator': 'financial',
+            'emi-calculator': 'financial',
+            'salary-calculator': 'financial',
+            'rent-receipt-generator': 'financial',
+            'percentage-calculator': 'financial',
+            'health-calculator': 'financial',
+            'image-compressor': 'image',
+            'image-converter': 'image',
+            'dimension-checker': 'image',
+            'blur-image': 'image',
+            'bg-remover': 'image',
+            'yt-thumbnail': 'image',
+            'character-counter': 'text',
+            'text-formatter': 'text',
+            'lorem-ipsum': 'text',
+            'fancy-fonts': 'text',
+            'email-signature-generator': 'text',
+            'marriage-biodata-maker': 'social',
+            'reel-caption-formatter': 'social',
+            'qr-generator': 'social',
+            'link-cloaker': 'social',
+            'age-calculator': 'social',
+            'json-formatter': 'developer',
+            'uuid-generator': 'developer',
+            'timestamp-converter': 'developer',
+            'html-minifier': 'developer',
+            'css-minifier': 'developer',
+            'base64-converter': 'developer',
+            'url-encoder-decoder': 'developer',
+            'hex-rgb-converter': 'developer',
+            'password-generator': 'developer',
+            'pdf-merger': 'developer',
+            'pdf-unlocker': 'developer',
+            'meta-tag-generator': 'seo',
+            'robots-txt-generator': 'seo',
+            'markdown-editor': 'developer'
         };
 
         // Apply categories to tool cards
         tools.forEach(tool => {
-            const href = tool.getAttribute('href');
-            const category = toolCategories[href] || 'other';
+            const href = tool.getAttribute('href') || '';
+            // Normalize href: remove leading slash, remove .html, and get only the filename part
+            const cleanHref = href.split('/').pop().replace('.html', '');
+
+            const category = toolCategories[cleanHref] || 'other';
             tool.setAttribute('data-category', category);
 
             // Get tool name and description for search
-            const name = tool.querySelector('h3').textContent.toLowerCase();
-            const desc = tool.querySelector('p').textContent.toLowerCase();
+            const name = tool.querySelector('h3')?.textContent.toLowerCase().trim() || '';
+            const desc = tool.querySelector('p')?.textContent.toLowerCase().trim() || '';
             tool.setAttribute('data-search', name + ' ' + desc);
         });
 
