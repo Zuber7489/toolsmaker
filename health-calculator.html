@@ -4,18 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BMI & BMR Calculator | Healthy Body Metrics | FreeProducts24</title>
+    <!-- SEO Meta Tags -->
+    <title>BMI & BMR Calculator Pro | Daily Calorie & Body Metrics | FreeProducts24</title>
     <meta name="description"
-        content="Calculate your Body Mass Index (BMI) and Basal Metabolic Rate (BMR) instantly. Free online health tool to track your fitness and daily calorie needs.">
+        content="Calculate your Body Mass Index (BMI), Basal Metabolic Rate (BMR), and TDEE instantly. Get personalized calorie recommendations for weight loss or gain. 100% Secure & Private.">
     <meta name="keywords"
-        content="bmi calculator, bmr calculator, body mass index, calorie calculator, health metrics, fitness tracker, freeproducts24">
+        content="bmi calculator, bmr calculator, tdee calculator, calorie needs, ideal weight calculator, health metrics, fitness tools, freeproducts24">
     <link rel="canonical" href="https://freeproducts24.site/health-calculator.html" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="BMI & BMR Calculator - Track Your Health">
-    <meta property="og:description" content="Get your essential body metrics and calorie counts in seconds.">
+    <meta property="og:title" content="Advanced BMI & BMR Calculator - Personal Health Metrics">
+    <meta property="og:description"
+        content="Calculate your BMI, BMR, and Daily Calorie needs based on activity levels. Fast, accurate, and private.">
     <meta property="og:url" content="https://freeproducts24.site/health-calculator.html">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts & CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -23,7 +27,10 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Outfit', 'sans-serif'] },
-                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                    colors: {
+                        brand: { 500: '#14b8a6', 600: '#0d9488' },
+                        slate: { 850: '#1e293b', 950: '#0f172a' }
+                    }
                 }
             }
         }
@@ -31,109 +38,331 @@
     <style>
         body {
             background-color: #0f172a;
-            background-image: radial-gradient(at 100% 100%, hsla(150, 40%, 10%, 1) 0, transparent 70%);
+            background-image:
+                radial-gradient(at 0% 0%, hsla(150, 40%, 10%, 1) 0, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(200, 40%, 10%, 1) 0, transparent 50%);
             min-height: 100vh;
         }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .bmi-pointer {
+            transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
     </style>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Advanced Health Calculator",
+      "url": "https://freeproducts24.site/health-calculator.html",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web",
+      "description": "Calculate BMI, BMR, and TDEE with activity-based calorie recommendations.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://freeproducts24.site/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Health Calculator",
+        "item": "https://freeproducts24.site/health-calculator.html"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is BMI?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BMI or Body Mass Index is a measurement of a person's weight with respect to their height. It is more of an indicator than a direct measurement of a person's total body fat."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How is BMR different from TDEE?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "BMR (Basal Metabolic Rate) is the calories your body burns at complete rest. TDEE (Total Daily Energy Expenditure) is your BMR plus the calories burned through physical activity."
+        }
+      }]
+    }
+    </script>
 </head>
 
 <body class="text-slate-200 antialiased p-4">
 
+    <!-- Header / Nav -->
     <nav
-        class="w-full bg-slate-900 border-b border-white/10 px-6 py-4 flex justify-between items-center mb-10 sticky top-0 z-50">
-        <a href="index.html"
-            class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">ToolsMaker</a>
-        <a href="index.html" class="text-sm hover:text-white transition">Home</a>
+        class="w-full max-w-7xl mx-auto px-6 py-4 flex justify-between items-center mb-10 sticky top-0 z-50 glass-card rounded-2xl mt-4">
+        <a href="index.html" class="flex items-center gap-2">
+            <span
+                class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">T</span>
+            <span class="text-xl font-bold text-white hidden sm:inline">ToolsMaker</span>
+        </a>
+        <div class="flex gap-4">
+            <a href="index.html" class="text-sm font-medium hover:text-brand-500 transition">Back to Tools</a>
+        </div>
     </nav>
 
-    <main class="max-w-4xl mx-auto space-y-12">
-        <div class="text-center">
-            <h1 class="text-3xl font-bold text-white mb-2">BMI & BMR Calculator</h1>
-            <p class="text-slate-400">Calculate your body mass index and daily caloric needs.</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-10">
-            <!-- Form -->
-            <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 space-y-6 shadow-xl">
-                <div class="flex gap-4 mb-4">
-                    <button id="tabMale" onclick="setGender('male')"
-                        class="flex-grow py-3 rounded-xl font-bold border-2 border-brand-500 bg-brand-500/10 text-white transition">Male</button>
-                    <button id="tabFemale" onclick="setGender('female')"
-                        class="flex-grow py-3 rounded-xl font-bold border-2 border-slate-700 text-slate-400 transition">Female</button>
-                </div>
-
-                <div class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="text-xs text-slate-500 font-bold uppercase block mb-1">Age</label>
-                            <input type="number" id="age" value="25"
-                                class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white outline-none focus:border-brand-500">
-                        </div>
-                        <div>
-                            <label class="text-xs text-slate-500 font-bold uppercase block mb-1">Weight (kg)</label>
-                            <input type="number" id="weight" value="70"
-                                class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white outline-none focus:border-brand-500">
-                        </div>
+    <main class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-8">
+        <!-- Left Column: Inputs -->
+        <div class="lg:col-span-5 space-y-6">
+            <div class="glass-card rounded-3xl p-8 shadow-2xl">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-12 h-12 bg-brand-500/20 rounded-2xl flex items-center justify-center text-brand-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
                     </div>
                     <div>
-                        <label class="text-xs text-slate-500 font-bold uppercase block mb-1">Height (cm)</label>
-                        <input type="number" id="height" value="175"
-                            class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white outline-none focus:border-brand-500">
-                    </div>
-                    <button onclick="calculate()"
-                        class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-brand-500/20 active:scale-95">Calculate
-                        Metrics</button>
-                </div>
-            </section>
-
-            <!-- Results -->
-            <section class="space-y-6">
-                <!-- BMI Card -->
-                <div class="bg-slate-800 border border-slate-700 rounded-2xl p-6 shadow-2xl overflow-hidden relative">
-                    <div class="absolute -right-4 -top-4 w-24 h-24 bg-brand-500/10 rounded-full blur-2xl"></div>
-                    <h2 class="text-slate-400 text-sm uppercase font-bold tracking-widest mb-4">BMI Result</h2>
-                    <div class="flex items-end gap-4">
-                        <span id="resBmi" class="text-5xl font-bold text-white">0.0</span>
-                        <span id="resBmiCat" class="text-brand-400 font-medium pb-1 text-lg">Normal</span>
-                    </div>
-                    <!-- Range Bar -->
-                    <div class="mt-6 flex h-2 bg-slate-700 rounded-full overflow-hidden">
-                        <div class="h-full bg-blue-400" style="width: 18.5%;"></div>
-                        <div class="h-full bg-green-400" style="width: 25%;"></div>
-                        <div class="h-full bg-yellow-400" style="width: 25%;"></div>
-                        <div class="h-full bg-red-400" style="width: 31.5%;"></div>
+                        <h1 class="text-2xl font-bold text-white leading-tight">Body Metrics</h1>
+                        <p class="text-slate-400 text-sm">Enter your details for a complete analysis</p>
                     </div>
                 </div>
 
-                <!-- BMR Card -->
-                <div
-                    class="bg-slate-800/80 border border-slate-700 rounded-2xl p-6 shadow-2xl overflow-hidden relative">
-                    <h2 class="text-slate-400 text-sm uppercase font-bold tracking-widest mb-4">Estimated BMR</h2>
-                    <div class="flex items-end gap-2 text-white">
-                        <span id="resBmr" class="text-5xl font-bold font-mono">0</span>
-                        <span class="text-slate-500 pb-1">Calories / day</span>
-                    </div>
-                    <p class="text-slate-500 text-xs mt-4 leading-relaxed italic border-l-2 border-brand-500/30 pl-4">
-                        BMR represents the calories your body needs to function at rest.
-                    </p>
+                <!-- Gender Toggle -->
+                <div class="flex p-1 bg-slate-900 rounded-2xl mb-6">
+                    <button onclick="setGender('male')" id="btnMale"
+                        class="flex-1 py-3 rounded-xl font-bold transition-all duration-300 bg-brand-500 text-white shadow-lg shadow-brand-500/20">Male</button>
+                    <button onclick="setGender('female')" id="btnFemale"
+                        class="flex-1 py-3 rounded-xl font-bold transition-all duration-300 text-slate-500 hover:text-white">Female</button>
                 </div>
-            </section>
+
+                <div class="grid grid-cols-2 gap-4 mb-6">
+                    <div>
+                        <label class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-2">Age
+                            (years)</label>
+                        <input type="number" id="age" value="25"
+                            class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-brand-500 transition">
+                    </div>
+                    <div>
+                        <label class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-2">Weight
+                            (kg)</label>
+                        <input type="number" id="weight" value="70"
+                            class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-brand-500 transition">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-2">Height
+                        (cm)</label>
+                    <input type="number" id="height" value="175"
+                        class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-brand-500 transition">
+                </div>
+
+                <div class="mb-8">
+                    <label class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-2">Activity
+                        Level</label>
+                    <select id="activity" onchange="calculate()"
+                        class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-brand-500 transition appearance-none">
+                        <option value="1.2">Sedentary (Little/No Exercise)</option>
+                        <option value="1.375">Lightly Active (1-3 days/week)</option>
+                        <option value="1.55" selected>Moderately Active (3-5 days/week)</option>
+                        <option value="1.725">Very Active (6-7 days/week)</option>
+                        <option value="1.9">Extra Active (Elite/Physical Work)</option>
+                    </select>
+                </div>
+
+                <button onclick="calculate()"
+                    class="w-full bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 text-white font-bold py-5 rounded-2xl shadow-xl shadow-brand-500/20 transition active:scale-[0.98]">
+                    Calculate Analysis
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Column: Results -->
+        <div class="lg:col-span-7 space-y-8">
+            <!-- BMI Section -->
+            <div class="glass-card rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+                <div class="flex justify-between items-start mb-10">
+                    <div>
+                        <h2 class="text-slate-400 text-xs font-bold uppercase tracking-[0.2em] mb-2">Body Mass Index
+                        </h2>
+                        <div class="flex items-baseline gap-3">
+                            <span id="resBmi" class="text-6xl font-black text-white">0.0</span>
+                            <span id="resBmiCat"
+                                class="text-brand-400 font-bold text-xl uppercase tracking-wider">Normal</span>
+                        </div>
+                    </div>
+                    <div id="idealWeight" class="text-right hidden sm:block">
+                        <span class="block text-slate-500 text-xs font-bold uppercase mb-1">Ideal Weight</span>
+                        <span id="resIdeal" class="text-white font-bold">--- kg</span>
+                    </div>
+                </div>
+
+                <!-- BMI Visual Scale -->
+                <div class="relative pt-6">
+                    <div class="h-4 bg-slate-950 rounded-full flex overflow-hidden border border-white/5">
+                        <div class="h-full bg-blue-500" style="width: 20%"></div>
+                        <div class="h-full bg-green-500" style="width: 20%"></div>
+                        <div class="h-full bg-yellow-500" style="width: 20%"></div>
+                        <div class="h-full bg-orange-500" style="width: 20%"></div>
+                        <div class="h-full bg-red-500" style="width: 20%"></div>
+                    </div>
+                    <!-- Pointer -->
+                    <div id="bmiPointer"
+                        class="bmi-pointer absolute top-4' w-4 h-4 bg-white rounded-full border-4 border-brand-500 shadow-lg shadow-brand-500/50 -ml-2"
+                        style="left: 50%"></div>
+
+                    <div class="flex justify-between mt-4 text-[10px] text-slate-500 font-bold font-mono">
+                        <span>16.0</span>
+                        <span>18.5</span>
+                        <span>25.0</span>
+                        <span>30.0</span>
+                        <span>35.0</span>
+                        <span>40.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calorie Needs Grid -->
+            <div class="grid sm:grid-cols-2 gap-6">
+                <!-- BMR -->
+                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-brand-500">
+                    <h3 class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2">Basal Metabolic
+                        Rate (BMR)</h3>
+                    <div class="flex items-baseline gap-2">
+                        <span id="resBmr" class="text-3xl font-bold text-white">0000</span>
+                        <span class="text-slate-600 text-sm font-medium">cal/day</span>
+                    </div>
+                    <p class="text-slate-500 text-[10px] mt-4 leading-relaxed italic">Calories needed to keep your body
+                        functioning at rest.</p>
+                </div>
+
+                <!-- TDEE -->
+                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-cyan-500">
+                    <h3 class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2">Daily Needs (TDEE)
+                    </h3>
+                    <div class="flex items-baseline gap-2">
+                        <span id="resTdee" class="text-3xl font-bold text-white">0000</span>
+                        <span class="text-slate-600 text-sm font-medium">cal/day</span>
+                    </div>
+                    <p class="text-slate-500 text-[10px] mt-4 leading-relaxed italic">Real calories burned based on your
+                        activity level.</p>
+                </div>
+            </div>
+
+            <!-- Calorie Recommendations -->
+            <div class="glass-card rounded-3xl p-8">
+                <h3 class="text-white font-bold mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-brand-500 rounded-full"></span>
+                    Personalized Diet Recommendations
+                </h3>
+                <div class="grid sm:grid-cols-3 gap-6">
+                    <div class="p-4 bg-slate-950 rounded-2xl border border-white/5 text-center">
+                        <span class="block text-slate-500 text-xs font-bold uppercase mb-2">Weight Loss</span>
+                        <span id="kcalLoss" class="text-xl font-bold text-emerald-400">0000</span>
+                        <span class="block text-[10px] text-slate-600 mt-1">kcal/day</span>
+                    </div>
+                    <div
+                        class="p-4 bg-slate-950 rounded-2xl border border-white/5 text-center ring-2 ring-brand-500/20">
+                        <span class="block text-slate-500 text-xs font-bold uppercase mb-2">Maintenance</span>
+                        <span id="kcalMaintain" class="text-xl font-bold text-white">0000</span>
+                        <span class="block text-[10px] text-slate-600 mt-1">kcal/day</span>
+                    </div>
+                    <div class="p-4 bg-slate-950 rounded-2xl border border-white/5 text-center">
+                        <span class="block text-slate-500 text-xs font-bold uppercase mb-2">Weight Gain</span>
+                        <span id="kcalGain" class="text-xl font-bold text-orange-400">0000</span>
+                        <span class="block text-[10px] text-slate-600 mt-1">kcal/day</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
+
+    <!-- Info Section -->
+    <section class="max-w-6xl mx-auto mt-20 grid md:grid-cols-2 gap-12 border-t border-white/5 pt-12">
+        <div class="prose prose-invert max-w-none">
+            <h2 class="text-2xl font-bold text-white mb-6">Medical Definitions</h2>
+            <div class="space-y-6">
+                <div>
+                    <h4 class="text-brand-500 font-bold mb-1">Body Mass Index (BMI)</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">A screening tool used to identify individuals who
+                        are underweight, overweight, or obese. It is not a diagnostic of body fat percentage but a
+                        useful general indicator.</p>
+                </div>
+                <div>
+                    <h4 class="text-brand-500 font-bold mb-1">Basal Metabolic Rate (BMR)</h4>
+                    <p class="text-sm text-slate-400 leading-relaxed">The minimum amount of energy required to keep your
+                        body functioning at rest (breathing, heart beating, cell production).</p>
+                </div>
+            </div>
+        </div>
+        <div class="bg-slate-900/50 p-8 rounded-3xl border border-white/5 self-start">
+            <h3 class="text-lg font-bold text-white mb-6">Frequently Asked Questions</h3>
+            <div class="space-y-4">
+                <details class="group">
+                    <summary
+                        class="list-none flex justify-between items-center cursor-pointer text-sm font-medium text-slate-300 hover:text-white transition">
+                        How accurate is this BMR calculation?
+                        <span
+                            class="w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center group-open:rotate-180 transition-transform">↓</span>
+                    </summary>
+                    <p class="text-xs text-slate-500 mt-3 pl-2">We use the Mifflin-St Jeor Equation, which is currently
+                        considered the most accurate predictor for healthy adults without specialized medical equipment.
+                    </p>
+                </details>
+                <details class="group border-t border-white/5 pt-4">
+                    <summary
+                        class="list-none flex justify-between items-center cursor-pointer text-sm font-medium text-slate-300 hover:text-white transition">
+                        Does BMI apply to athletes?
+                        <span
+                            class="w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center group-open:rotate-180 transition-transform">↓</span>
+                    </summary>
+                    <p class="text-xs text-slate-500 mt-3 pl-2">Athletes often have higher muscle mass, which is denser
+                        than fat. This may result in a 'High BMI' even if their body fat percentage is very low.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="max-w-6xl mx-auto mt-24 py-12 border-t border-white/5 text-center">
+        <p class="text-slate-600 text-xs font-medium tracking-widest uppercase">&copy; 2024 FreeProducts24. Health &
+            Fitness Division.</p>
+    </footer>
 
     <script>
         let gender = 'male';
 
         function setGender(g) {
             gender = g;
-            const m = document.getElementById('tabMale');
-            const f = document.getElementById('tabFemale');
+            const btnM = document.getElementById('btnMale');
+            const btnF = document.getElementById('btnFemale');
+
             if (g === 'male') {
-                m.className = "flex-grow py-3 rounded-xl font-bold border-2 border-brand-500 bg-brand-500/10 text-white transition";
-                f.className = "flex-grow py-3 rounded-xl font-bold border-2 border-slate-700 text-slate-400 transition";
+                btnM.classList.add('bg-brand-500', 'text-white', 'shadow-lg', 'shadow-brand-500/20');
+                btnM.classList.remove('text-slate-500');
+                btnF.classList.remove('bg-brand-500', 'text-white', 'shadow-lg', 'shadow-brand-500/20');
+                btnF.classList.add('text-slate-500');
             } else {
-                f.className = "flex-grow py-3 rounded-xl font-bold border-2 border-brand-500 bg-brand-500/10 text-white transition";
-                m.className = "flex-grow py-3 rounded-xl font-bold border-2 border-slate-700 text-slate-400 transition";
+                btnF.classList.add('bg-brand-500', 'text-white', 'shadow-lg', 'shadow-brand-500/20');
+                btnF.classList.remove('text-slate-500');
+                btnM.classList.remove('bg-brand-500', 'text-white', 'shadow-lg', 'shadow-brand-500/20');
+                btnM.classList.add('text-slate-500');
             }
             calculate();
         }
@@ -142,89 +371,72 @@
             const age = parseFloat(document.getElementById('age').value);
             const weight = parseFloat(document.getElementById('weight').value);
             const height = parseFloat(document.getElementById('height').value);
+            const activity = parseFloat(document.getElementById('activity').value);
 
             if (!age || !weight || !height) return;
 
-            // BMI = kg / m^2
+            // BMI
             const bmi = weight / ((height / 100) * (height / 100));
             document.getElementById('resBmi').innerText = bmi.toFixed(1);
 
             let cat = "Normal";
-            if (bmi < 18.5) cat = "Underweight";
-            else if (bmi < 25) cat = "Normal";
-            else if (bmi < 30) cat = "Overweight";
-            else cat = "Obese";
+            let color = "text-green-400";
+            let percentOffset = 20; // Default for normal
+
+            if (bmi < 18.5) {
+                cat = "Underweight";
+                color = "text-blue-400";
+                percentOffset = (bmi / 18.5) * 20;
+            } else if (bmi < 25) {
+                cat = "Normal";
+                color = "text-green-400";
+                percentOffset = 20 + ((bmi - 18.5) / 6.5) * 20;
+            } else if (bmi < 30) {
+                cat = "Overweight";
+                color = "text-yellow-400";
+                percentOffset = 40 + ((bmi - 25) / 5) * 20;
+            } else if (bmi < 35) {
+                cat = "Obese";
+                color = "text-orange-400";
+                percentOffset = 60 + ((bmi - 30) / 5) * 20;
+            } else {
+                cat = "Extremely Obese";
+                color = "text-red-400";
+                percentOffset = 80 + Math.min(((bmi - 35) / 10) * 20, 20);
+            }
+
             document.getElementById('resBmiCat').innerText = cat;
+            document.getElementById('resBmiCat').className = `${color} font-bold text-xl uppercase tracking-wider`;
+            document.getElementById('bmiPointer').style.left = `${percentOffset}%`;
 
             // BMR (Mifflin-St Jeor)
-            // Male: 10 * weight + 6.25 * height - 5 * age + 5
-            // Female: 10 * weight + 6.25 * height - 5 * age - 161
             let bmr = (10 * weight) + (6.25 * height) - (5 * age);
             bmr = gender === 'male' ? bmr + 5 : bmr - 161;
-
             document.getElementById('resBmr').innerText = Math.round(bmr).toLocaleString();
+
+            // TDEE
+            const tdee = bmr * activity;
+            document.getElementById('resTdee').innerText = Math.round(tdee).toLocaleString();
+
+            // Recommendations
+            document.getElementById('kcalMaintain').innerText = Math.round(tdee).toLocaleString();
+            document.getElementById('kcalLoss').innerText = Math.round(tdee * 0.82).toLocaleString();
+            document.getElementById('kcalGain').innerText = Math.round(tdee * 1.15).toLocaleString();
+
+            // Ideal Weight (Hamwi Formula Approx)
+            let ideal;
+            if (gender === 'male') {
+                ideal = 48 + 2.7 * ((height - 152.4) / 2.54);
+            } else {
+                ideal = 45.5 + 2.2 * ((height - 152.4) / 2.54);
+            }
+            if (height < 152.4) ideal = gender === 'male' ? 48 : 45.5; // Floor
+
+            document.getElementById('resIdeal').innerText = `${Math.round(ideal)} - ${Math.round(ideal * 1.1)} kg`;
         }
 
         calculate();
     </script>
-    <main class="max-w-4xl mx-auto py-12">
-        <section class="mt-16 border-t border-white/5 pt-12 text-left">
-            <div class="grid md:grid-cols-2 gap-12">
-                <div class="prose prose-invert max-w-none text-left">
-                    <h2 class="text-2xl font-bold text-white mb-4 text-left">How to calculate BMI & BMR?</h2>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4 text-left">
-                        BMI (Body Mass Index) is a simple calculation using a person's height and weight. The formula is
-                        BMI = kg/m², where kg is a person's weight in kilograms and m² is their height in metres
-                        squared.
-                    </p>
-                    <h3 class="text-xl font-semibold text-white mb-2 text-left">Daily Calorie Needs (BMR)</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4 text-left">
-                        Basal Metabolic Rate (BMR) is the number of calories your body burns while at rest to maintain
-                        vital functions like breathing and circulation. Knowing your BMR helps you plan your diet for
-                        weight loss, maintenance, or muscle gain.
-                    </p>
-                </div>
-
-                <div class="bg-slate-800/20 p-8 rounded-2xl border border-white/5 text-left">
-                    <h3 class="text-lg font-bold text-white mb-6">More Health Tools</h3>
-                    <div class="grid grid-cols-1 gap-4">
-                        <a href="age-calculator.html"
-                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-brand-500/10 transition group text-left">
-                            <div
-                                class="w-10 h-10 bg-brand-500/10 rounded-lg flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div>
-                                <span class="block text-sm font-bold text-slate-200">Age Calculator</span>
-                                <span class="text-xs text-slate-500">Find your exact age.</span>
-                            </div>
-                        </a>
-                        <a href="index.html"
-                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-emerald-500/10 transition group text-left">
-                            <div
-                                class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <span class="block text-sm font-bold text-slate-200">Tools Catalog</span>
-                                <span class="text-xs text-slate-500">Explore 24+ tools.</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="mt-20 py-8 border-t border-white/5 text-center text-slate-500 text-xs">
-            &copy; 2024 FreeProducts24. Health & Fitness Utilities.
-        </footer>
-    </main>
 </body>
 
 </html>
