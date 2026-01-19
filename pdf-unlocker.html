@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free PDF Password Remover | Unlock PDF Online Securely | FreeProducts24</title>
+    <meta name="description"
+        content="Remove password from protected PDF files online for free. 100% private and secure - files are processed in your browser and never uploaded to any server.">
+    <meta name="keywords"
+        content="pdf password remover, unlock pdf, remove pdf security, decrypt pdf online, private pdf unlocker">
+    <link rel="canonical" href="https://freeproducts24.site/pdf-unlocker.html" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            500: '#ef4444', // Red for PDF theme
+                            600: '#dc2626'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image:
+                radial-gradient(at 0% 0%, rgba(239, 68, 68, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(220, 38, 38, 0.1) 0px, transparent 50%);
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .drop-zone {
+            border: 2px dashed rgba(239, 68, 68, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.active {
+            border-color: #ef4444;
+            background: rgba(239, 68, 68, 0.05);
+            transform: scale(1.01);
+        }
+
+        .loading-shimmer {
+            background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+    </style>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Secure PDF Password Remover",
+      "url": "https://freeproducts24.site/pdf-unlocker.html",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web",
+      "description": "Unlock password protected PDF files online. Secure browser-level processing ensures your files never leave your device.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://freeproducts24.site/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "PDF Password Remover",
+        "item": "https://freeproducts24.site/pdf-unlocker.html"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Is it safe to upload my bank statement to this PDF unlocker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, because you aren't uploading it! This tool works 100% on the client-side. The file stays in your browser memory and is never sent to our servers. We never see your data."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I remove a password if I don't know it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No, this tool requires you to enter the correct password once to remove the encryption. It does not perform brute-force or password cracking."
+        }
+      }]
+    }
+    </script>
+</head>
+
+<body class="text-slate-200 antialiased">
+
+    <nav class="w-full bg-slate-900/80 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html"
+                class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-red-400">FreeProducts24</a>
+            <div class="flex gap-6">
+                <a href="index.html" class="text-sm hover:text-white transition">All Tools</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-500 text-xs font-bold uppercase tracking-widest mb-4 border border-brand-500/20">
+                <span class="relative flex h-2 w-2">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                </span>
+                100% Private & Secure
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">PDF Password <span
+                    class="text-brand-500">Remover</span></h1>
+            <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                Remove security from protected PDFs instantly. Your files are processed <strong>locally</strong> in your
+                browser and never uploaded to our server. Safe for bank statements & salary slips.
+            </p>
+        </div>
+
+        <!-- Tool Card -->
+        <div class="glass-card rounded-3xl p-6 md:p-10 shadow-2xl">
+
+            <!-- Step 1: Upload -->
+            <div id="uploadStep" class="space-y-6">
+                <label for="fileInput" id="dropZone"
+                    class="drop-zone block rounded-2xl p-12 text-center cursor-pointer hover:bg-white/5 transition-all group">
+                    <input type="file" id="fileInput" class="hidden" accept=".pdf">
+                    <div
+                        class="w-20 h-20 bg-brand-500/10 rounded-2xl flex items-center justify-center text-brand-500 mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414-5.414a1 1 0 01.707.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Drop protected PDF here</h3>
+                    <p class="text-slate-400">or click to browse from your device</p>
+                </label>
+            </div>
+
+            <!-- Step 2: Password Input (Hidden) -->
+            <div id="passwordStep" class="hidden space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                <div
+                    class="flex items-center gap-4 p-4 bg-brand-500/10 rounded-2xl border border-brand-500/20 text-brand-500 mb-6">
+                    <svg class="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                        </path>
+                    </svg>
+                    <p class="font-medium text-sm">File Loaded: <span id="fileName"
+                            class="font-bold underline">document.pdf</span></p>
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold text-slate-400 ml-1">Enter PDF Password</label>
+                    <input type="password" id="pdfPassword" placeholder="Enter current password"
+                        class="w-full bg-slate-800/50 border border-slate-700 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-brand-500 transition shadow-inner">
+                </div>
+
+                <button id="unlockBtn"
+                    class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-2xl transition-all transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-brand-500/20 flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                    Remove Password & Download
+                </button>
+
+                <button onclick="location.reload()"
+                    class="w-full text-slate-500 text-sm hover:text-slate-300 transition-colors">Choose different
+                    file</button>
+            </div>
+
+            <!-- Processing / Success -->
+            <div id="status" class="hidden mt-8 text-center p-6 rounded-2xl bg-slate-800/50">
+                <p id="statusMsg" class="text-brand-400"></p>
+            </div>
+        </div>
+
+        <!-- Info Section -->
+        <div class="mt-16 grid md:grid-cols-3 gap-8">
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <h3 class="font-bold text-white mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                        </path>
+                    </svg>
+                    Client-Side Processing
+                </h3>
+                <p class="text-slate-400 text-sm">Your files are never uploaded to any server. All processing happens
+                    within your browser's memory using JavaScript.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <h3 class="font-bold text-white mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Zero Waiting Time
+                </h3>
+                <p class="text-slate-400 text-sm">Since no upload is required, the password removal process is
+                    near-instant, regardless of your file size or internet speed.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+                <h3 class="font-bold text-white mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Legal & Safe
+                </h3>
+                <p class="text-slate-400 text-sm">Perfect for decrypting bank statements, salary slips, or utility bills
+                    for your personal archives and easier access.</p>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="mt-20">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="glass-card p-6 rounded-2xl">
+                    <h4 class="font-bold text-white mb-2">Can you unlock a PDF without a password?</h4>
+                    <p class="text-slate-400 text-sm">No. This tool is designed to remove the "User Password" from a PDF
+                        so you don't have to enter it every time. You MUST know the current password to unlock the file
+                        initially.</p>
+                </div>
+                <div class="glass-card p-6 rounded-2xl">
+                    <h4 class="font-bold text-white mb-2">Is my data safe?</h4>
+                    <p class="text-slate-400 text-sm">Absolutely. We use `pdf-lib` which runs entire logic on your CPU.
+                        We don't have a backend server that stores files. Open DevTools (F12) and check the network tab
+                        to verify!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-20 py-10 border-t border-white/10 text-center">
+        <p class="text-slate-500 text-sm">&copy; 2026 FreeProducts24 Tools. Standard PDF Security Protocols Applied.</p>
+    </footer>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const dropZone = document.getElementById('dropZone');
+        const uploadStep = document.getElementById('uploadStep');
+        const passwordStep = document.getElementById('passwordStep');
+        const pdfPassword = document.getElementById('pdfPassword');
+        const unlockBtn = document.getElementById('unlockBtn');
+        const status = document.getElementById('status');
+        const statusMsg = document.getElementById('statusMsg');
+        const fileNameDisp = document.getElementById('fileName');
+
+        let currentFile = null;
+
+        // Drag and Drop
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, e => e.preventDefault());
+        });
+
+        dropZone.addEventListener('dragover', () => dropZone.classList.add('active'));
+        dropZone.addEventListener('dragleave', () => dropZone.classList.remove('active'));
+        dropZone.addEventListener('drop', (e) => {
+            dropZone.classList.remove('active');
+            handleFile(e.dataTransfer.files[0]);
+        });
+
+        fileInput.addEventListener('change', (e) => handleFile(e.target.files[0]));
+
+        function handleFile(file) {
+            if (!file || file.type !== 'application/pdf') {
+                alert('Please upload a valid PDF file.');
+                return;
+            }
+            currentFile = file;
+            fileNameDisp.textContent = file.name;
+            uploadStep.classList.add('hidden');
+            passwordStep.classList.remove('hidden');
+            pdfPassword.focus();
+        }
+
+        unlockBtn.addEventListener('click', async () => {
+            const password = pdfPassword.value;
+            if (!password) {
+                showStatus('Please enter the password first.', true);
+                return;
+            }
+
+            unlockBtn.disabled = true;
+            unlockBtn.innerHTML = '<span class="loading-shimmer px-12 py-2 rounded-lg">Decrypting Locally...</span>';
+            showStatus('Processing...', false);
+
+            try {
+                const arrayBuffer = await currentFile.arrayBuffer();
+
+                // Use PDF-Lib to load with password
+                const pdfDoc = await PDFLib.PDFDocument.load(arrayBuffer, {
+                    password: password,
+                    ignoreEncryption: false
+                });
+
+                // Save PDF (this removed encryption)
+                const pdfBytes = await pdfDoc.save();
+
+                // Download
+                const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = `unlocked_${currentFile.name}`;
+                link.click();
+
+                showStatus('Success! Download started.', false);
+                unlockBtn.innerHTML = 'Success! Check Downloads';
+            } catch (err) {
+                console.error(err);
+                showStatus('Error: Incorrect password or corrupted file.', true);
+                unlockBtn.disabled = false;
+                unlockBtn.innerHTML = 'Try Again';
+            }
+        });
+
+        function showStatus(msg, isError) {
+            status.classList.remove('hidden');
+            statusMsg.textContent = msg;
+            statusMsg.className = isError ? 'text-red-400 font-bold' : 'text-brand-400 font-bold';
+        }
+    </script>
+</body>
+
+</html>

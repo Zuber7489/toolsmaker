@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Affiliate Link Cloaker | Shorten & Brand Your Links | FreeProducts24</title>
+    <meta name="description"
+        content="Convert long, ugly affiliate links into clean, branded URLs. Generate your own custom redirect pages for WordPress, HTML sites, or static hosts.">
+    <meta name="keywords"
+        content="link cloaker, affiliate link shortener, url wrapper, link redirect generator, branded links">
+    <link rel="canonical" href="https://freeproducts24.site/link-cloaker.html" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            500: '#8b5cf6', // Purple for branding theme
+                            600: '#7c3aed'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image:
+                radial-gradient(at 0% 100%, rgba(139, 92, 246, 0.1) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.05) 0px, transparent 50%);
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .code-block {
+            background: #011627;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Affiliate Link Cloaker",
+      "url": "https://freeproducts24.site/link-cloaker.html",
+      "applicationCategory": "MarketingApplication",
+      "operatingSystem": "Web",
+      "description": "Convert long affiliate links into clean, branded redirects. Generate custom HTML redirect files for your domain.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://freeproducts24.site/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Link Cloaker",
+        "item": "https://freeproducts24.site/link-cloaker.html"
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is link cloaking?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Link cloaking is a technique used to disguise long, complex affiliate URLs into shorter, branded links (e.g., yoursite.com/go/product) to improve click-through rates and prevent link hijacking."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Do I need a database for this cloaker?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. This tool generates a static HTML redirect file. You just need to upload that file to your server inside a folder named after your 'slug'."
+        }
+      }]
+    }
+    </script>
+</head>
+
+<body class="text-slate-200 antialiased">
+
+    <nav class="w-full bg-slate-900/80 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html"
+                class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-indigo-400">FreeProducts24</a>
+            <div class="flex gap-6">
+                <a href="index.html" class="text-sm hover:text-white transition">All Tools</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Affiliate Link <span
+                    class="text-brand-500">Cloaker</span></h1>
+            <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                Transform ugly affiliate links like <span
+                    class="text-red-400 text-sm italic">amazon.com/gp/product/B08...?aff_id=99</span> into professional,
+                branded URLs on your own domain.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Input Form -->
+            <div class="glass-card rounded-3xl p-8 shadow-xl space-y-6">
+                <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                        </path>
+                    </svg>
+                    Link Details
+                </h2>
+
+                <div class="space-y-4">
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Original
+                            Affiliate Link</label>
+                        <input type="url" id="targetUrl" placeholder="https://amazon.com/..."
+                            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition">
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Redirect Slug
+                            (Folder Name)</label>
+                        <div class="flex items-center bg-slate-800 border border-slate-700 rounded-xl px-4 py-3">
+                            <span class="text-slate-500 text-sm">/go/</span>
+                            <input type="text" id="slug" placeholder="best-laptop"
+                                class="w-full bg-transparent border-none text-white focus:outline-none ml-1">
+                        </div>
+                        <p class="text-[10px] text-slate-500 italic mt-1 font-medium">This will be your folder name on
+                            your server.</p>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label class="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Loading Message
+                            (Optional)</label>
+                        <input type="text" id="brandText" placeholder="Redirecting to Amazon..."
+                            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition">
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <button id="generateBtn"
+                        class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-xl transition-all transform active:scale-95 shadow-lg shadow-brand-500/20">
+                        Generate Redirect Page
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preview/Instructions -->
+            <div class="space-y-6">
+                <div class="glass-card rounded-3xl p-8 border-brand-500/20">
+                    <h3 class="font-bold text-white mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        How to use this?
+                    </h3>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li class="flex gap-3">
+                            <span
+                                class="w-6 h-6 rounded-full bg-brand-500/20 text-brand-500 flex items-center justify-center font-bold text-xs shrink-0">1</span>
+                            <span>Enter your long and messy affiliate link in the target URL field.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span
+                                class="w-6 h-6 rounded-full bg-brand-500/20 text-brand-500 flex items-center justify-center font-bold text-xs shrink-0">2</span>
+                            <span>Click Generate. This tool will create a custom <code>index.html</code> redirect
+                                file.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span
+                                class="w-6 h-6 rounded-full bg-brand-500/20 text-brand-500 flex items-center justify-center font-bold text-xs shrink-0">3</span>
+                            <span>Create a folder on your server (e.g., <code>/go/best-laptop/</code>) and upload the
+                                generated file there.</span>
+                        </li>
+                        <li class="flex gap-3 border-t border-white/5 pt-4">
+                            <span
+                                class="w-6 h-6 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+                            <span class="text-white font-medium italic">Result: yoursite.com/go/best-laptop will now
+                                redirect safely!</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Generated Output (Hidden Initially) -->
+                <div id="outputArea" class="hidden animate-in fade-in slide-in-from-right-4">
+                    <div class="flex justify-between items-center mb-2 px-1">
+                        <span class="text-xs font-bold text-brand-500 uppercase">Redirect File Generated</span>
+                    </div>
+                    <button id="downloadBtn"
+                        class="w-full bg-slate-100 hover:bg-white text-slate-900 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        Download index.html
+                    </button>
+                    <p class="text-[10px] text-center text-slate-500 mt-2 italic px-4">Upload this file to your
+                        website's folder to finish cloaking.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SEO Content -->
+        <article class="mt-20 prose prose-invert max-w-none">
+            <h2 class="text-2xl font-bold text-white border-b border-white/10 pb-2 mb-6 text-center">Why Cloak Your
+                Affiliate Links?</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <div>
+                    <h3 class="text-brand-400 font-bold text-lg mb-2">1. Build Trust & Branding</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Users are 3x more likely to click on a link that
+                        looks like your brand (e.g., <code>yoursite.com/recommends/product</code>) than a random messy
+                        URL full of tracking IDs.</p>
+                </div>
+                <div>
+                    <h3 class="text-brand-400 font-bold text-lg mb-2">2. Avoid Link Hijacking</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Some malicious browser extensions can swap your
+                        affiliate IDs with their own if the link is recognizable. Cloaked links hide the final
+                        destination until the user clicks.</p>
+                </div>
+                <div>
+                    <h3 class="text-brand-400 font-bold text-lg mb-2">3. Easier Link Management</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">If an affiliate program changes its links, you
+                        only need to update the redirect file once. You don't have to edit 100 different blog posts or
+                        social captions.</p>
+                </div>
+                <div>
+                    <h3 class="text-brand-400 font-bold text-lg mb-2">4. Better CTR on Social Media</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">Short, readable links perform significantly better
+                        on platforms like Twitter, Instagram, and YouTube where space is limited and aesthetics matter.
+                    </p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            const targetUrl = document.getElementById('targetUrl').value.trim();
+            const brandText = document.getElementById('brandText').value.trim() || 'Redirecting, please wait...';
+
+            if (!targetUrl) {
+                alert('Please enter a target URL.');
+                return;
+            }
+
+            // Generate HTML Content
+            const htmlContent = `<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>${brandText}</title>
+    <meta http-equiv="refresh" content="1;url=${targetUrl}">
+    <style>
+        body { font-family: sans-serif; height: 100vh; display: flex; align-items: center; justify-content: center; background: #fafafa; color: #444; }
+        .box { text-align: center; padding: 20px; }
+        .loader { border: 4px solid #f3f3f3; border-top: 4px solid #3498db; border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="loader"></div>
+        <h2>${brandText}</h2>
+        <p>If not redirected in 2 seconds, <a href="${targetUrl}">click here</a>.</p>
+    </div>
+    <script>setTimeout(function(){ window.location.href = "${targetUrl}"; }, 500);<\/script>
+</body>
+</html>`;
+
+            // Prepare for download
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+
+            const downloadBtn = document.getElementById('downloadBtn');
+            downloadBtn.onclick = () => {
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = 'index.html';
+                link.click();
+            };
+
+            document.getElementById('outputArea').classList.remove('hidden');
+            window.scrollTo({ top: document.getElementById('outputArea').offsetTop + 100, behavior: 'smooth' });
+        });
+    </script>
+</body>
+
+</html>
