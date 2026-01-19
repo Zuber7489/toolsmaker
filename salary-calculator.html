@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Calculator India 2024 | CTC to In-Hand Salary | FreeProducts24</title>
+    <meta name="description"
+        content="Calculate your in-hand salary from CTC with tax calculations, PF, ESI, and all deductions. Compare old vs new tax regime. Free salary calculator for India 2024.">
+    <meta name="keywords"
+        content="salary calculator, ctc calculator, in hand salary calculator, tax calculator india, salary breakdown, take home salary">
+    <link rel="canonical" href="https://freeproducts24.site/salary-calculator.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Salary Calculator India 2024 - CTC to In-Hand">
+    <meta property="og:description" content="Calculate your exact take-home salary with tax and deductions breakdown">
+    <meta property="og:url" content="https://freeproducts24.site/salary-calculator.html">
+    <meta property="og:type" content="article">
+
+    <!-- Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Salary Calculator India",
+      "applicationCategory": "FinanceApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      }
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image:
+                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2314b8a6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            min-height: 100vh;
+        }
+
+        .input-group {
+            transition: all 0.3s ease;
+        }
+
+        .input-group:hover {
+            transform: translateY(-2px);
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+        }
+
+        .breakdown-item {
+            transition: all 0.2s ease;
+        }
+
+        .breakdown-item:hover {
+            background: rgba(20, 184, 166, 0.05);
+            transform: translateX(4px);
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased font-sans">
+
+    <nav class="w-full bg-slate-900/80 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex justify-between items-center">
+            <a href="index.html"
+                class="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">FreeProducts24</a>
+            <a href="index.html" class="text-xs sm:text-sm hover:text-white transition">More Tools</a>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-10">
+        <!-- Header -->
+        <div class="text-center mb-8 sm:mb-12">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
+                Salary Calculator <span class="text-brand-500">India 2024</span>
+            </h1>
+            <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+                Calculate your exact in-hand salary from CTC with complete tax breakdown and deductions
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Input Section -->
+            <div class="lg:col-span-1 space-y-4 sm:space-y-6">
+                <div class="bg-slate-800/50 rounded-2xl p-4 sm:p-6 border border-slate-700">
+                    <h2 class="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">Salary Details</h2>
+
+                    <!-- CTC Input -->
+                    <div class="input-group mb-4 sm:mb-6">
+                        <label class="block text-xs sm:text-sm font-medium text-slate-300 mb-2">Annual CTC (₹)</label>
+                        <input type="number" id="ctc" value="1200000" placeholder="e.g., 12,00,000"
+                            class="w-full bg-slate-900 text-lg sm:text-xl font-semibold text-white p-3 sm:p-4 rounded-xl border border-slate-700 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition">
+                    </div>
+
+                    <!-- Tax Regime -->
+                    <div class="mb-4 sm:mb-6">
+                        <label class="block text-xs sm:text-sm font-medium text-slate-300 mb-3">Tax Regime</label>
+                        <div class="flex gap-2 bg-slate-900 p-1 rounded-lg">
+                            <button id="oldRegime"
+                                class="flex-1 py-2 px-2 sm:px-3 rounded-md text-xs sm:text-sm font-medium bg-brand-500 text-white transition">
+                                Old Regime
+                            </button>
+                            <button id="newRegime"
+                                class="flex-1 py-2 px-2 sm:px-3 rounded-md text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition">
+                                New Regime
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Age Group -->
+                    <div class="mb-4 sm:mb-6">
+                        <label class="block text-xs sm:text-sm font-medium text-slate-300 mb-2">Age Group</label>
+                        <select id="ageGroup"
+                            class="w-full bg-slate-900 text-white p-2 sm:p-3 rounded-xl border border-slate-700 focus:ring-2 focus:ring-brand-500 outline-none text-sm sm:text-base">
+                            <option value="below60">Below 60 years</option>
+                            <option value="60to80">60 to 80 years (Senior Citizen)</option>
+                            <option value="above80">Above 80 years (Super Senior)</option>
+                        </select>
+                    </div>
+
+                    <!-- Additional Deductions -->
+                    <div class="border-t border-slate-700 pt-4 sm:pt-6">
+                        <h3 class="text-sm sm:text-base font-semibold text-white mb-3 sm:mb-4">Additional Deductions
+                            (Optional)</h3>
+
+                        <div class="space-y-3 sm:space-y-4">
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1">80C (PPF, ELSS, etc.)</label>
+                                <input type="number" id="deduction80C" value="150000" placeholder="Max 1,50,000"
+                                    class="w-full bg-slate-900 text-white p-2 rounded-lg border border-slate-700 focus:border-brand-500 outline-none text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1">80D (Health Insurance)</label>
+                                <input type="number" id="deduction80D" value="25000" placeholder="Max 25,000/50,000"
+                                    class="w-full bg-slate-900 text-white p-2 rounded-lg border border-slate-700 focus:border-brand-500 outline-none text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs text-slate-400 mb-1">HRA Exemption</label>
+                                <input type="number" id="hraExemption" value="0" placeholder="Enter amount"
+                                    class="w-full bg-slate-900 text-white p-2 rounded-lg border border-slate-700 focus:border-brand-500 outline-none text-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="calculate()"
+                        class="w-full mt-6 bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 sm:py-4 rounded-xl transition shadow-lg shadow-brand-500/20 text-sm sm:text-base">
+                        Calculate Salary
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="lg:col-span-2 space-y-4 sm:space-y-6">
+                <!-- Main Result -->
+                <div class="result-card rounded-3xl p-6 sm:p-8 text-center">
+                    <p class="text-xs sm:text-sm text-slate-400 uppercase tracking-wider mb-2">Monthly In-Hand Salary
+                    </p>
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">
+                        ₹ <span id="monthlyInHand">0</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-400">
+                        Annual: ₹<span id="annualInHand">0</span>
+                    </p>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+                    <div class="bg-slate-800/50 rounded-xl p-3 sm:p-4 border border-slate-700">
+                        <p class="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">Annual CTC</p>
+                        <p class="text-base sm:text-xl font-bold text-white">₹<span id="displayCTC">0</span></p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-3 sm:p-4 border border-slate-700">
+                        <p class="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">Total Tax</p>
+                        <p class="text-base sm:text-xl font-bold text-red-400">₹<span id="totalTax">0</span></p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-3 sm:p-4 border border-slate-700">
+                        <p class="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">PF Deduction</p>
+                        <p class="text-base sm:text-xl font-bold text-orange-400">₹<span id="pfAmount">0</span></p>
+                    </div>
+                    <div class="bg-slate-800/50 rounded-xl p-3 sm:p-4 border border-slate-700">
+                        <p class="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">Effective Tax</p>
+                        <p class="text-base sm:text-xl font-bold text-yellow-400"><span id="effectiveTax">0</span>%</p>
+                    </div>
+                </div>
+
+                <!-- Detailed Breakdown -->
+                <div class="bg-slate-800/50 rounded-2xl p-4 sm:p-6 border border-slate-700">
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-4">Detailed Breakdown</h3>
+
+                    <div class="space-y-2 sm:space-y-3" id="breakdownList">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+
+                <!-- Tax Breakdown -->
+                <div class="bg-slate-800/50 rounded-2xl p-4 sm:p-6 border border-slate-700">
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-4">Tax Calculation</h3>
+                    <div class="space-y-2 sm:space-y-3" id="taxBreakdown">
+                        <!-- Dynamically populated -->
+                    </div>
+                </div>
+
+                <!-- Comparison -->
+                <div
+                    class="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-4 sm:p-6 border border-purple-500/30">
+                    <h3 class="text-base sm:text-lg font-bold text-white mb-4">💡 Tax Regime Comparison</h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="bg-slate-900/50 rounded-xl p-4">
+                            <p class="text-xs text-slate-400 mb-2">Old Regime</p>
+                            <p class="text-xl sm:text-2xl font-bold text-white">₹<span id="oldRegimeTax">0</span></p>
+                            <p class="text-xs text-slate-500 mt-1">With deductions</p>
+                        </div>
+                        <div class="bg-slate-900/50 rounded-xl p-4">
+                            <p class="text-xs text-slate-400 mb-2">New Regime</p>
+                            <p class="text-xl sm:text-2xl font-bold text-white">₹<span id="newRegimeTax">0</span></p>
+                            <p class="text-xs text-slate-500 mt-1">No deductions</p>
+                        </div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-center mt-4 text-brand-400 font-medium" id="recommendation"></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-white/5 py-6 sm:py-8 mt-12 sm:mt-16 bg-slate-900/40">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-slate-500 text-xs sm:text-sm">&copy; 2024 FreeProducts24. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const ctcInput = document.getElementById('ctc');
+        const oldRegimeBtn = document.getElementById('oldRegime');
+        const newRegimeBtn = document.getElementById('newRegime');
+        const ageGroupSelect = document.getElementById('ageGroup');
+        const deduction80C = document.getElementById('deduction80C');
+        const deduction80D = document.getElementById('deduction80D');
+        const hraExemption = document.getElementById('hraExemption');
+
+        let isOldRegime = true;
+
+        // Toggle tax regime
+        oldRegimeBtn.addEventListener('click', () => {
+            isOldRegime = true;
+            oldRegimeBtn.classList.add('bg-brand-500', 'text-white');
+            oldRegimeBtn.classList.remove('text-slate-400');
+            newRegimeBtn.classList.remove('bg-brand-500', 'text-white');
+            newRegimeBtn.classList.add('text-slate-400');
+            calculate();
+        });
+
+        newRegimeBtn.addEventListener('click', () => {
+            isOldRegime = false;
+            newRegimeBtn.classList.add('bg-brand-500', 'text-white');
+            newRegimeBtn.classList.remove('text-slate-400');
+            oldRegimeBtn.classList.remove('bg-brand-500', 'text-white');
+            oldRegimeBtn.classList.add('text-slate-400');
+            calculate();
+        });
+
+        // Auto calculate on input
+        ctcInput.addEventListener('input', calculate);
+        ageGroupSelect.addEventListener('change', calculate);
+        deduction80C.addEventListener('input', calculate);
+        deduction80D.addEventListener('input', calculate);
+        hraExemption.addEventListener('input', calculate);
+
+        function calculate() {
+            const ctc = parseFloat(ctcInput.value) || 0;
+            if (ctc === 0) return;
+
+            // Component breakdown (typical structure)
+            const basic = ctc * 0.40; // 40% of CTC
+            const hra = ctc * 0.20; // 20% of CTC
+            const specialAllowance = ctc * 0.25; // 25% of CTC
+            const employerPF = ctc * 0.12; // 12% employer contribution
+            const gratuity = ctc * 0.048; // 4.8% gratuity
+            const bonus = ctc * 0.072; // 7.2% bonus
+
+            // Employee deductions
+            const employeePF = Math.min(basic * 0.12, 21600); // Max 1800/month
+            const professionalTax = 2400; // Annual PT (₹200/month)
+
+            // Gross salary (what you actually get before tax)
+            const grossSalary = basic + hra + specialAllowance + bonus;
+
+            // Standard deduction (Updated Budget July 2024)
+            const standardDeduction = isOldRegime ? 50000 : 75000;
+
+            // HRA exemption calculation
+            const hraExempt = parseFloat(hraExemption.value) || 0;
+
+            // Taxable income
+            let taxableIncome = grossSalary - standardDeduction - hraExempt;
+
+            // Apply 80C and 80D for old regime
+            let deductions80C = 0;
+            let deductions80D = 0;
+
+            if (isOldRegime) {
+                deductions80C = Math.min(parseFloat(deduction80C.value) || 0, 150000);
+                deductions80D = Math.min(parseFloat(deduction80D.value) || 0, 25000);
+                taxableIncome -= (deductions80C + deductions80D);
+            }
+
+            // Calculate tax for both regimes
+            // Note: pass raw income to functions, they handle slab logic
+            const oldTax = calculateOldRegimeTax(grossSalary - 50000 - hraExempt, deductions80C, deductions80D);
+            const newTax = calculateNewRegimeTax(grossSalary - 75000); // New Regime gets 75k std deduction
+
+            const incomeTax = isOldRegime ? oldTax : newTax;
+
+            // Cess (4% of tax)
+            const cess = incomeTax * 0.04;
+            const totalTax = incomeTax + cess;
+
+            // Total deductions
+            const totalDeductions = employeePF + professionalTax + totalTax;
+
+            // In-hand salary
+            const annualInHand = grossSalary - totalDeductions;
+            const monthlyInHand = annualInHand / 12;
+
+            // Effective tax rate
+            const effectiveTaxRate = (totalTax / grossSalary * 100).toFixed(2);
+
+            // Update UI
+            document.getElementById('monthlyInHand').textContent = formatNumber(Math.round(monthlyInHand));
+            document.getElementById('annualInHand').textContent = formatNumber(Math.round(annualInHand));
+            document.getElementById('displayCTC').textContent = formatNumber(ctc);
+            document.getElementById('totalTax').textContent = formatNumber(Math.round(totalTax));
+            document.getElementById('pfAmount').textContent = formatNumber(Math.round(employeePF));
+            document.getElementById('effectiveTax').textContent = effectiveTaxRate;
+
+            // Breakdown
+            updateBreakdown({
+                'Gross Salary': grossSalary,
+                'Employee PF': -employeePF,
+                'Professional Tax': -professionalTax,
+                'Income Tax': -incomeTax,
+                'Cess (4%)': -cess,
+                'Net In-Hand': annualInHand
+            });
+
+            // Tax breakdown
+            // Update breakdown UI based on selected regime
+            updateTaxBreakdown(isOldRegime ? (grossSalary - 50000 - hraExempt - deductions80C - deductions80D) : (grossSalary - 75000), isOldRegime);
+
+            // Comparison
+            document.getElementById('oldRegimeTax').textContent = formatNumber(Math.round(oldTax + oldTax * 0.04));
+            document.getElementById('newRegimeTax').textContent = formatNumber(Math.round(newTax + newTax * 0.04));
+
+            const savings = Math.abs(oldTax - newTax);
+            const better = (oldTax + oldTax * 0.04) < (newTax + newTax * 0.04) ? 'Old Regime' : 'New Regime';
+            document.getElementById('recommendation').textContent =
+                `${better} saves you ₹${formatNumber(Math.round(savings * 1.04))} in taxes!`;
+        }
+
+        function calculateOldRegimeTax(taxableIncome, deductions80C, deductions80D) {
+            taxableIncome -= (deductions80C + deductions80D);
+            let tax = 0;
+
+            if (taxableIncome <= 250000) return 0;
+            if (taxableIncome <= 500000) {
+                tax = (taxableIncome - 250000) * 0.05;
+            } else if (taxableIncome <= 1000000) {
+                tax = 12500 + (taxableIncome - 500000) * 0.20;
+            } else {
+                tax = 12500 + 100000 + (taxableIncome - 1000000) * 0.30;
+            }
+
+            // Rebate under 87A (income <= 5L)
+            if (taxableIncome <= 500000) {
+                tax = 0;
+            }
+
+            return tax;
+        }
+
+        function calculateNewRegimeTax(taxableIncome) {
+            // New Tax Regime Slabs (FY 2025-26)
+            let tax = 0;
+
+            if (taxableIncome <= 400000) return 0; // 0-4L Nil
+
+            if (taxableIncome <= 800000) { // 4L-8L @ 5%
+                tax = (taxableIncome - 400000) * 0.05;
+            } else if (taxableIncome <= 1200000) { // 8L-12L @ 10%
+                tax = 20000 + (taxableIncome - 800000) * 0.10; // 20k is tax for 4-8L
+            } else if (taxableIncome <= 1600000) { // 12L-16L @ 15%
+                tax = 20000 + 40000 + (taxableIncome - 1200000) * 0.15; // 40k is tax for 8-12L
+            } else if (taxableIncome <= 2000000) { // 16L-20L @ 20%
+                tax = 20000 + 40000 + 60000 + (taxableIncome - 1600000) * 0.20; // 60k is tax for 12-16L
+            } else if (taxableIncome <= 2400000) { // 20L-24L @ 25%
+                tax = 20000 + 40000 + 60000 + 80000 + (taxableIncome - 2000000) * 0.25; // 80k is tax for 16-20L
+            } else { // >24L @ 30%
+                tax = 20000 + 40000 + 60000 + 80000 + 100000 + (taxableIncome - 2400000) * 0.30;
+            }
+
+            // Rebate under 87A
+            // Income up to 12L (gross) tax free -> Net Taxable approx 11.25L
+            if (taxableIncome <= 1125000) {
+                tax = 0;
+            }
+
+            return tax;
+        }
+
+        function updateBreakdown(items) {
+            const list = document.getElementById('breakdownList');
+            list.innerHTML = '';
+
+            for (const [label, amount] of Object.entries(items)) {
+                const isNegative = amount < 0;
+                const isTotal = label === 'Net In-Hand';
+                const div = document.createElement('div');
+                div.className = `breakdown-item flex justify-between items-center p-3 rounded-lg ${isTotal ? 'bg-brand-500/10 border border-brand-500/30' : ''}`;
+                div.innerHTML = `
+                    <span class="text-xs sm:text-sm ${isTotal ? 'font-bold text-white' : 'text-slate-300'}">${label}</span>
+                    <span class="text-sm sm:text-base font-semibold ${isNegative ? 'text-red-400' : isTotal ? 'text-brand-400' : 'text-green-400'}">
+                        ${isNegative ? '-' : ''}₹${formatNumber(Math.abs(Math.round(amount)))}
+                    </span>
+                `;
+                list.appendChild(div);
+            }
+        }
+
+        function updateTaxBreakdown(taxableIncome, isOld) {
+            const list = document.getElementById('taxBreakdown');
+            list.innerHTML = '';
+
+            // Updated Slabs for display
+            const slabs = isOld ? [
+                { limit: 250000, rate: 0, label: 'Up to ₹2.5L' },
+                { limit: 500000, rate: 5, label: '₹2.5L - ₹5L' },
+                { limit: 1000000, rate: 20, label: '₹5L - ₹10L' },
+                { limit: Infinity, rate: 30, label: 'Above ₹10L' }
+            ] : [
+                { limit: 400000, rate: 0, label: 'Up to ₹4L' },
+                { limit: 800000, rate: 5, label: '₹4L - ₹8L' },
+                { limit: 1200000, rate: 10, label: '₹8L - ₹12L' },
+                { limit: 1600000, rate: 15, label: '₹12L - ₹16L' },
+                { limit: 2000000, rate: 20, label: '₹16L - ₹20L' },
+                { limit: 2400000, rate: 25, label: '₹20L - ₹24L' },
+                { limit: Infinity, rate: 30, label: 'Above ₹24L' }
+            ];
+
+            let remaining = taxableIncome;
+            let prevLimit = 0;
+
+            slabs.forEach(slab => {
+                if (remaining > 0) {
+                    const taxableInSlab = Math.min(remaining, slab.limit - prevLimit);
+                    const taxAmount = taxableInSlab * (slab.rate / 100);
+
+                    const div = document.createElement('div');
+                    div.className = 'flex justify-between items-center p-2 sm:p-3 rounded-lg bg-slate-900/30';
+                    div.innerHTML = `
+                        <span class="text-xs sm:text-sm text-slate-400">${slab.label} @ ${slab.rate}%</span>
+                        <span class="text-xs sm:text-sm font-semibold text-white">₹${formatNumber(Math.round(taxAmount))}</span>
+                    `;
+                    list.appendChild(div);
+
+                    remaining -= taxableInSlab;
+                    prevLimit = slab.limit;
+                }
+            });
+        }
+
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Initial calculation
+        calculate();
+    </script>
+
+</body>
+
+</html>
