@@ -186,24 +186,26 @@
                     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">₹ <span id="res-emi">0</span></h2>
                 </div>
 
-                <div class="space-y-4 relative z-10">
-                    <div class="flex justify-between p-4 bg-slate-900/50 rounded-xl">
-                        <span class="text-slate-400">Principal Amount</span>
-                        <span class="font-semibold text-white">₹ <span id="res-principal">0</span></span>
+                <div class="space-y-3 sm:space-y-4 relative z-10">
+                    <div class="flex justify-between p-3 sm:p-4 bg-slate-900/50 rounded-xl">
+                        <span class="text-xs sm:text-sm text-slate-400">Principal Amount</span>
+                        <span class="font-semibold text-sm sm:text-base text-white">₹ <span
+                                id="res-principal">0</span></span>
                     </div>
-                    <div class="flex justify-between p-4 bg-slate-900/50 rounded-xl border border-brand-500/10">
-                        <span class="text-slate-400">Total Interest</span>
-                        <span class="font-semibold text-brand-400">₹ <span id="res-interest">0</span></span>
+                    <div class="flex justify-between p-3 sm:p-4 bg-slate-900/50 rounded-xl border border-brand-500/10">
+                        <span class="text-xs sm:text-sm text-slate-400">Total Interest</span>
+                        <span class="font-semibold text-sm sm:text-base text-brand-400">₹ <span
+                                id="res-interest">0</span></span>
                     </div>
-                    <div class="flex justify-between p-4 bg-slate-700/30 rounded-xl">
-                        <span class="text-slate-300 font-medium">Total Payable</span>
-                        <span class="font-bold text-white">₹ <span id="res-total">0</span></span>
+                    <div class="flex justify-between p-3 sm:p-4 bg-slate-700/30 rounded-xl">
+                        <span class="text-xs sm:text-sm text-slate-300 font-medium">Total Payable</span>
+                        <span class="font-bold text-sm sm:text-base text-white">₹ <span id="res-total">0</span></span>
                     </div>
                 </div>
 
                 <!-- Donut Chart Canvas -->
-                <div class="mt-8 flex justify-center">
-                    <div class="relative w-48 h-48">
+                <div class="mt-6 sm:mt-8 flex justify-center">
+                    <div class="relative w-40 h-40 sm:w-48 sm:h-48">
                         <svg viewBox="0 0 36 36" class="w-full h-full transform -rotate-90">
                             <!-- Background Circle -->
                             <path class="text-slate-700"
@@ -215,7 +217,8 @@
                                 d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                                 fill="none" stroke="currentColor" stroke-width="4" />
                         </svg>
-                        <div class="absolute inset-0 flex flex-col items-center justify-center text-xs text-slate-400">
+                        <div
+                            class="absolute inset-0 flex flex-col items-center justify-center text-[10px] sm:text-xs text-slate-400">
                             <span>Breakup</span>
                         </div>
                     </div>
