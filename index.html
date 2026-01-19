@@ -95,12 +95,14 @@
 <body class="text-slate-200 antialiased font-sans">
 
     <nav class="w-full glass-nav sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center font-bold text-slate-900">T
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-500 rounded-lg flex items-center justify-center font-bold text-slate-900 text-sm sm:text-base">
+                    T
                 </div>
                 <span
-                    class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">FreeProducts24</span>
+                    class="text-lg sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">FreeProducts24</span>
             </div>
             <div class="hidden md:flex gap-8 text-sm font-medium">
                 <a href="index.html" class="text-brand-500 hover:text-brand-400 transition">Explore</a>
@@ -110,17 +112,65 @@
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 py-16">
-        <header class="text-center max-w-3xl mx-auto mb-20 animate-fade-in">
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">Powerful Tools, <span
-                    class="text-brand-500">Zero Friction.</span></h1>
-            <p class="text-xl text-slate-400 leading-relaxed font-light">
+    <main class="max-w-7xl mx-auto px-3 sm:px-6 py-10 sm:py-16">
+        <header class="text-center max-w-3xl mx-auto mb-12 sm:mb-20 animate-fade-in">
+            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 tracking-tight">Powerful
+                Tools, <span class="text-brand-500">Zero Friction.</span></h1>
+            <p class="text-base sm:text-xl text-slate-400 leading-relaxed font-light">
                 A premium collection of high-performance utilities for developers, designers, and social media creators.
                 Fast. Secure. No installation needed.
             </p>
         </header>
 
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <!-- Search and Filter Section -->
+        <div class="max-w-4xl mx-auto mb-12 space-y-4">
+            <!-- Search Bar -->
+            <div class="relative">
+                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search tools... (e.g., calculator, image, json)"
+                    class="w-full bg-slate-800/50 border border-slate-700 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-slate-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition">
+            </div>
+
+            <!-- Category Filter -->
+            <div class="flex flex-wrap gap-2">
+                <button
+                    class="category-btn active px-4 py-2 rounded-xl text-sm font-medium bg-brand-500 text-white transition"
+                    data-category="all">
+                    All Tools
+                </button>
+                <button
+                    class="category-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                    data-category="financial">
+                    💰 Financial
+                </button>
+                <button
+                    class="category-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                    data-category="developer">
+                    👨‍💻 Developer
+                </button>
+                <button
+                    class="category-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                    data-category="image">
+                    🖼️ Image
+                </button>
+                <button
+                    class="category-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                    data-category="text">
+                    📝 Text
+                </button>
+                <button
+                    class="category-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                    data-category="social">
+                    📱 Social
+                </button>
+            </div>
+        </div>
+
+        <section id="toolsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
 
 
@@ -584,6 +634,123 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Tool data with categories
+        const tools = document.querySelectorAll('.tool-card');
+
+        // Add data attributes to tools for categorization
+        const toolCategories = {
+            'gst-calculator.html': 'financial',
+            'sip-calculator.html': 'financial',
+            'emi-calculator.html': 'financial',
+            'percentage-calculator.html': 'financial',
+            'health-calculator.html': 'financial',
+            'image-compressor.html': 'image',
+            'image-converter.html': 'image',
+            'dimension-checker.html': 'image',
+            'blur-image.html': 'image',
+            'bg-remover.html': 'image',
+            'yt-thumbnail.html': 'image',
+            'character-counter.html': 'text',
+            'text-formatter.html': 'text',
+            'lorem-ipsum.html': 'text',
+            'fancy-fonts.html': 'text',
+            'reel-caption-formatter.html': 'social',
+            'qr-generator.html': 'social',
+            'json-formatter.html': 'developer',
+            'uuid-generator.html': 'developer',
+            'timestamp-converter.html': 'developer',
+            'html-minifier.html': 'developer',
+            'css-minifier.html': 'developer',
+            'base64-converter.html': 'developer',
+            'url-encoder-decoder.html': 'developer',
+            'hex-rgb-converter.html': 'developer',
+            'password-generator.html': 'developer',
+            'pdf-merger.html': 'developer',
+            'meta-tag-generator.html': 'developer',
+            'robots-txt-generator.html': 'developer',
+            'markdown-editor.html': 'developer',
+            'email-signature-generator.html': 'text'
+        };
+
+        // Apply categories to tool cards
+        tools.forEach(tool => {
+            const href = tool.getAttribute('href');
+            const category = toolCategories[href] || 'other';
+            tool.setAttribute('data-category', category);
+
+            // Get tool name and description for search
+            const name = tool.querySelector('h3').textContent.toLowerCase();
+            const desc = tool.querySelector('p').textContent.toLowerCase();
+            tool.setAttribute('data-search', name + ' ' + desc);
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        let currentCategory = 'all';
+
+        searchInput.addEventListener('input', filterTools);
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                categoryBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-brand-500', 'text-white');
+                    b.classList.add('bg-slate-800/50', 'text-slate-400');
+                });
+                btn.classList.add('active', 'bg-brand-500', 'text-white');
+                btn.classList.remove('bg-slate-800/50', 'text-slate-400');
+
+                currentCategory = btn.getAttribute('data-category');
+                filterTools();
+            });
+        });
+
+        function filterTools() {
+            const searchTerm = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            tools.forEach(tool => {
+                const searchData = tool.getAttribute('data-search');
+                const category = tool.getAttribute('data-category');
+
+                const matchesSearch = searchData.includes(searchTerm);
+                const matchesCategory = currentCategory === 'all' || category === currentCategory;
+
+                if (matchesSearch && matchesCategory) {
+                    tool.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    tool.style.display = 'none';
+                }
+            });
+
+            // Show "no results" message if needed
+            const grid = document.getElementById('toolsGrid');
+            let noResults = grid.querySelector('.no-results');
+
+            if (visibleCount === 0) {
+                if (!noResults) {
+                    noResults = document.createElement('div');
+                    noResults.className = 'no-results col-span-full text-center py-20';
+                    noResults.innerHTML = `
+                        <div class="text-slate-500">
+                            <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <p class="text-xl font-medium mb-2">No tools found</p>
+                            <p class="text-sm">Try adjusting your search or filter</p>
+                        </div>
+                    `;
+                    grid.appendChild(noResults);
+                }
+            } else if (noResults) {
+                noResults.remove();
+            }
+        }
+    </script>
 </body>
 
 </html>
