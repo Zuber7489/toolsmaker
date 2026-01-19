@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Marriage Biodata Maker Online | PDF Download | FreeProducts24</title>
+    <meta name="description"
+        content="Create a beautiful marriage biodata in minutes instantly. Free online maker with photo upload and PDF download. Indian wedding biodata formats.">
+    <meta name="keywords"
+        content="marriage biodata maker, wedding biodata creator, biodata format for marriage, free biodata maker pdf">
+    <link rel="canonical" href="https://freeproducts24.site/marriage-biodata-maker.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Create Stunning Marriage Biodata for Free">
+    <meta property="og:description" content="Easy to use biodata maker with PDF download. No login required.">
+    <meta property="og:url" content="https://freeproducts24.site/marriage-biodata-maker.html">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    colors: {
+                        brand: { 500: '#e11d48', 600: '#be123c' }, // Rose color for wedding theme
+                        gold: { 500: '#d4af37' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: linear-gradient(to bottom right, #0f172a, #1e293b);
+            min-height: 100vh;
+        }
+
+        .biodata-preview {
+            background: white;
+            color: black;
+            font-family: 'Outfit', sans-serif;
+            width: 100%;
+            max-width: 794px;
+            /* A4 width in px at 96 DPI approx */
+            min-height: 1123px;
+            /* A4 height */
+            margin: auto;
+            position: relative;
+        }
+
+        .section-title {
+            color: #be123c;
+            border-bottom: 2px solid #e11d48;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased font-sans">
+
+    <nav class="w-full bg-slate-900/80 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html"
+                class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-rose-400">FreeProducts24</a>
+            <div class="flex gap-4 text-sm font-medium">
+                <a href="index.html" class="text-white hover:text-brand-500 transition">Back to Tools</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-10">
+        <div class="text-center mb-10">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold mb-4 border border-brand-500/20">
+                💍 Wedding Special
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 font-serif">
+                Marriage <span class="text-brand-500">Biodata Maker</span>
+            </h1>
+            <p class="text-slate-400 max-w-2xl mx-auto">
+                Create an elegant and professional biodata for matrimonial purposes. Complete with photo, family
+                details, and PDF download.
+            </p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-8">
+            <!-- Form Section (2 Columns) -->
+            <div class="lg:col-span-2 space-y-6 h-[calc(100vh-100px)] overflow-y-auto pr-2 custom-scrollbar">
+
+                <!-- 1. Personal Details -->
+                <div class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span
+                            class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center text-xs text-white">1</span>
+                        Personal Details
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Full Name</label>
+                            <input type="text" id="fullName" placeholder="e.g. Aditya Sharma"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Date of Birth</label>
+                                <input type="date" id="dob"
+                                    class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Time of Birth</label>
+                                <input type="time" id="tob"
+                                    class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Height</label>
+                                <input type="text" id="height" placeholder="5' 10''"
+                                    class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-slate-300 mb-1">Complexion</label>
+                                <select id="complexion"
+                                    class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                                    <option value="Fair">Fair</option>
+                                    <option value="Wheatish">Wheatish</option>
+                                    <option value="Dusky">Dusky</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Education</label>
+                            <input type="text" id="education" placeholder="e.g. B.Tech in CS"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Occupation & Income</label>
+                            <input type="text" id="occupation" placeholder="Software Engineer @ Google, 20LPA"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Upload Photo</label>
+                            <input type="file" id="photoUpload" accept="image/*"
+                                class="w-full bg-slate-900 text-white p-2 rounded-xl border border-slate-700 file:bg-brand-500 file:border-0 file:rounded-lg file:px-4 file:py-2 file:text-white hover:file:bg-brand-600 transition">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Family Details -->
+                <div class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span
+                            class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center text-xs text-white">2</span>
+                        Family Background
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Father's Name &
+                                Occupation</label>
+                            <input type="text" id="father" placeholder="Mr. Rajesh Sharma (Businessman)"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Mother's Name &
+                                Occupation</label>
+                            <input type="text" id="mother" placeholder="Mrs. Sunita Sharma (Homemaker)"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Siblings</label>
+                            <input type="text" id="siblings" placeholder="1 Elder Brother (Married)"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Gotra / Caste</label>
+                            <input type="text" id="caste" placeholder="Brahmin / Bharadwaj"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Contact -->
+                <div class="bg-slate-800/50 rounded-2xl p-6 border border-slate-700 mb-20">
+                    <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
+                        <span
+                            class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center text-xs text-white">3</span>
+                        Contact Details
+                    </h2>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Contact Number</label>
+                            <input type="text" id="contact" placeholder="+91 98765 43210"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-300 mb-1">Address</label>
+                            <textarea id="address" rows="2" placeholder="Residential Address"
+                                class="w-full bg-slate-900 text-white p-3 rounded-xl border border-slate-700 focus:border-brand-500 outline-none transition"></textarea>
+                        </div>
+                    </div>
+
+                    <button onclick="generatePDF()" id="downloadBtn"
+                        class="w-full mt-8 bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-xl transition shadow-lg shadow-brand-500/20 flex items-center justify-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        Download Biodata PDF
+                    </button>
+                    <p class="text-xs text-slate-500 text-center mt-3">High Quality • A4 Size</p>
+                </div>
+            </div>
+
+            <!-- Preview Section (3 Columns) -->
+            <div
+                class="lg:col-span-3 bg-slate-900/50 rounded-2xl p-4 sm:p-8 border border-slate-700 flex flex-col items-center">
+                <div class="flex justify-between w-full items-end mb-4">
+                    <h2 class="text-xl font-bold text-white">Live Preview</h2>
+                    <span class="text-xs text-slate-400">Updates automatically</span>
+                </div>
+
+                <!-- A4 Preview Container -->
+                <div class="w-full overflow-x-auto">
+                    <div id="biodataContent" class="biodata-preview shadow-2xl p-12">
+                        <!-- Border Design -->
+                        <div
+                            class="absolute top-4 left-4 right-4 bottom-4 border-2 border-brand-500 pointer-events-none">
+                        </div>
+                        <div class="absolute top-5 left-5 right-5 bottom-5 border border-gold-500 pointer-events-none">
+                        </div>
+
+                        <!-- Header -->
+                        <div class="text-center mb-10">
+                            <h1
+                                class="text-2xl font-bold bg-brand-600 text-white inline-block px-12 py-2 rounded-full font-serif uppercase tracking-widest mb-6">
+                                Marriage Biodata</h1>
+
+                            <!-- Photo Placeholder -->
+                            <div
+                                class="w-40 h-40 mx-auto bg-slate-100 rounded-full border-4 border-white shadow-lg overflow-hidden mb-4 relative">
+                                <img id="prevPhoto" src="https://via.placeholder.com/200?text=Photo"
+                                    class="w-full h-full object-cover">
+                            </div>
+
+                            <h2 id="prevName" class="text-3xl font-bold text-slate-800 font-serif mb-1">Your Name</h2>
+                            <p class="text-slate-500 text-sm" id="prevEduHeading">Education / Degree</p>
+                        </div>
+
+                        <!-- Content Grid -->
+                        <div class="grid grid-cols-1 gap-8 px-8">
+
+                            <!-- Personal Details -->
+                            <div>
+                                <h3 class="section-title text-xl font-bold">Personal Details</h3>
+                                <table class="w-full text-slate-700">
+                                    <tr class="h-8">
+                                        <td class="w-1/3 font-semibold text-slate-500">Date of Birth</td>
+                                        <td class="font-medium" id="prevDOB">: -</td>
+                                    </tr>
+                                    <tr class="h-8">
+                                        <td class="font-semibold text-slate-500">Time of Birth</td>
+                                        <td class="font-medium" id="prevTOB">: -</td>
+                                    </tr>
+                                    <tr class="h-8">
+                                        <td class="font-semibold text-slate-500">Height</td>
+                                        <td class="font-medium" id="prevHeight">: -</td>
+                                    </tr>
+                                    <tr class="h-8">
+                                        <td class="font-semibold text-slate-500">Complexion</td>
+                                        <td class="font-medium" id="prevComplexion">: -</td>
+                                    </tr>
+                                    <tr class="h-8">
+                                        <td class="font-semibold text-slate-500">Education</td>
+                                        <td class="font-medium" id="prevEducation">: -</td>
+                                    </tr>
+                                    <tr class="h-8">
+                                        <td class="font-semibold text-slate-500">Occupation</td>
+                                        <td class="font-medium" id="prevOccupation">: -</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!-- Family Background -->
+                            <div>
+                                <h3 class="section-title text-xl font-bold">Family Details</h3>
+                                <table class="w-full text-slate-700">
+                                    <tr class="h-8">
+                                        <td class="w-1/3 font-semibold text-slate-500">Father</td>
+                                        <td class="font-medium" id="prevFather">: -</td>
+                                    </tr>
+                                    <tr class="h-8">
+                                        <td class="font-semibold text-slate-500">Mother</td>
+                                        <td class="font-medium" id="prevMother">: -</td>
+                                    </tr>
+                                    <tr class="h-8">
+                                        <td class="font-semibold text-slate-500">Siblings</td>
+                                        <td class="font-medium" id="prevSiblings">: -</td>
+                                    </tr>
+                                    <tr class="h-8">
+                                        <td class="font-semibold text-slate-500">Gotra/Caste</td>
+                                        <td class="font-medium" id="prevCaste">: -</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!-- Contact -->
+                            <div>
+                                <h3 class="section-title text-xl font-bold">Contact Details</h3>
+                                <table class="w-full text-slate-700">
+                                    <tr class="h-8">
+                                        <td class="w-1/3 font-semibold text-slate-500">Phone</td>
+                                        <td class="font-medium" id="prevContact">: -</td>
+                                    </tr>
+                                    <tr class="h-8 align-top">
+                                        <td class="font-semibold text-slate-500 pt-1">Address</td>
+                                        <td class="font-medium pt-1" id="prevAddress">: -</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                        </div>
+
+                        <!-- Footer -->
+                        <div class="absolute bottom-8 left-0 right-0 text-center">
+                            <div class="text-4xl text-brand-200">❧ ❧ ❧</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // Update Live Preview
+        const inputs = ['fullName', 'dob', 'tob', 'height', 'complexion', 'education', 'occupation', 'father', 'mother', 'siblings', 'caste', 'contact', 'address'];
+
+        inputs.forEach(id => {
+            document.getElementById(id).addEventListener('input', updatePreview);
+        });
+
+        // Photo Upload
+        document.getElementById('photoUpload').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById('prevPhoto').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function updatePreview() {
+            // Mapping
+            const map = {
+                'fullName': ['prevName'],
+                'dob': ['prevDOB'],
+                'tob': ['prevTOB'],
+                'height': ['prevHeight'],
+                'complexion': ['prevComplexion'],
+                'education': ['prevEducation', 'prevEduHeading'],
+                'occupation': ['prevOccupation'],
+                'father': ['prevFather'],
+                'mother': ['prevMother'],
+                'siblings': ['prevSiblings'],
+                'caste': ['prevCaste'],
+                'contact': ['prevContact'],
+                'address': ['prevAddress']
+            };
+
+            for (const [inputId, targetIds] of Object.entries(map)) {
+                let val = document.getElementById(inputId).value;
+                if (inputId === 'dob' && val) val = formatDate(new Date(val));
+
+                targetIds.forEach(targetId => {
+                    const el = document.getElementById(targetId);
+                    if (targetId === 'prevDOB' || targetId.startsWith('prev')) {
+                        // Add ": " prefix if it sits in table, else just val
+                        el.textContent = val ? `: ${val}` : ': -';
+                        if (targetId === 'prevName') el.textContent = val || 'Your Name';
+                        if (targetId === 'prevEduHeading') el.textContent = val || 'Education / Degree';
+                        if (targetId === 'prevAddress') el.textContent = val ? `: ${val}` : ': -';
+                    }
+                });
+            }
+        }
+
+        function formatDate(date) {
+            return date.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+        }
+
+        function generatePDF() {
+            // Native Print Approach (100% Works)
+            const btn = document.getElementById('downloadBtn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Opening Print Dialog...';
+
+            // Create a specific print style
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @media print {
+                    body * {
+                        visibility: hidden;
+                    }
+                    #biodataContent, #biodataContent * {
+                        visibility: visible;
+                    }
+                    #biodataContent {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 100%;
+                        margin: 0;
+                        padding: 0;
+                        box-shadow: none !important;
+                    }
+                    /* Hide preview border in print */
+                    .biodata-preview {
+                         box-shadow: none;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Trigger print
+            window.print();
+
+            // Cleanup
+            setTimeout(() => {
+                document.head.removeChild(style);
+                btn.innerHTML = originalText;
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
