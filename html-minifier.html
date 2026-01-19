@@ -93,7 +93,7 @@
             if (!code) return;
 
             let min = code.replace(/<!--[\s\S]*?-->/g, "");
-                min = min.replace(/>\s+</g, "><");
+            min = min.replace(/>\s+</g, "><");
             min = min.replace(/\s{2,}/g, " ");
             min = min.trim();
 
