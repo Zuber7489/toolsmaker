@@ -47,6 +47,45 @@
             border-bottom: 1px dashed #cbd5e1;
         }
     </style>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Rent Receipt Generator India",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR"
+      },
+      "description": "Free tool to generate monthly or quarterly rent receipts for HRA tax exemption. Download PDF instantly without login.",
+      "featureList": "Instant PDF Download, Custom Date Range, HRA Compliant Format"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Why do I need a Rent Receipt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you are a salaried employee claiming HRA (House Rent Allowance) exemption, you must submit rent receipts to your employer as proof of rent payment for claiming tax benefits."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is the Landlord's PAN mandatory?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Landlord's PAN card is mandatory if your annual rent payment exceeds ₹1,00,000 (approx. ₹8,333 per month). For amounts below this, PAN is not strictly required but recommended."
+        }
+      }]
+    }
+    </script>
 </head>
 
 <body class="text-slate-200 antialiased font-sans">
