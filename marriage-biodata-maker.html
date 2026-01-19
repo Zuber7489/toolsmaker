@@ -249,114 +249,140 @@
             <div
                 class="lg:col-span-3 bg-slate-900/50 rounded-2xl p-4 sm:p-8 border border-slate-700 flex flex-col items-center">
                 <div class="flex justify-between w-full items-end mb-4">
-                    <h2 class="text-xl font-bold text-white">Live Preview</h2>
-                    <span class="text-xs text-slate-400">Updates automatically</span>
+                    <div class="flex items-center gap-4">
+                        <h2 class="text-xl font-bold text-white">Theme</h2>
+                        <div class="flex gap-2">
+                            <button onclick="setTheme('classic')"
+                                class="w-8 h-8 rounded-full bg-rose-500 border-2 border-white shadow-lg cursor-pointer hover:scale-110 transition"
+                                title="Classic Rose"></button>
+                            <button onclick="setTheme('royal')"
+                                class="w-8 h-8 rounded-full bg-slate-800 border-2 border-gold-500 shadow-lg cursor-pointer hover:scale-110 transition"
+                                title="Royal Gold"></button>
+                            <button onclick="setTheme('minimal')"
+                                class="w-8 h-8 rounded-full bg-blue-100 border-2 border-blue-500 shadow-lg cursor-pointer hover:scale-110 transition"
+                                title="Minimal Blue"></button>
+                        </div>
+                    </div>
+                    <span class="text-xs text-slate-400">Live Preview</span>
                 </div>
 
                 <!-- A4 Preview Container -->
                 <div class="w-full overflow-x-auto">
-                    <div id="biodataContent" class="biodata-preview shadow-2xl p-12">
+                    <div id="biodataContent"
+                        class="biodata-preview shadow-2xl p-12 relative flex flex-col justify-between"
+                        data-theme="classic">
+                        <!-- BG Patterns -->
+                        <div class="theme-bg absolute inset-0 pointer-events-none z-0"></div>
+
                         <!-- Border Design -->
                         <div
-                            class="absolute top-4 left-4 right-4 bottom-4 border-2 border-brand-500 pointer-events-none">
+                            class="absolute top-4 left-4 right-4 bottom-4 border-2 border-brand-500 pointer-events-none z-10 theme-border-outer">
                         </div>
-                        <div class="absolute top-5 left-5 right-5 bottom-5 border border-gold-500 pointer-events-none">
-                        </div>
-
-                        <!-- Header -->
-                        <div class="text-center mb-10">
-                            <h1
-                                class="text-2xl font-bold bg-brand-600 text-white inline-block px-12 py-2 rounded-full font-serif uppercase tracking-widest mb-6">
-                                Marriage Biodata</h1>
-
-                            <!-- Photo Placeholder -->
-                            <div
-                                class="w-40 h-40 mx-auto bg-slate-100 rounded-full border-4 border-white shadow-lg overflow-hidden mb-4 relative">
-                                <img id="prevPhoto" src="https://via.placeholder.com/200?text=Photo"
-                                    class="w-full h-full object-cover">
-                            </div>
-
-                            <h2 id="prevName" class="text-3xl font-bold text-slate-800 font-serif mb-1">Your Name</h2>
-                            <p class="text-slate-500 text-sm" id="prevEduHeading">Education / Degree</p>
+                        <div
+                            class="absolute top-6 left-6 right-6 bottom-6 border border-gold-500 pointer-events-none z-10 theme-border-inner">
                         </div>
 
-                        <!-- Content Grid -->
-                        <div class="grid grid-cols-1 gap-8 px-8">
+                        <!-- Content Wrapper -->
+                        <div class="relative z-20 flex-grow">
+                            <!-- Header -->
+                            <div class="text-center mb-10">
+                                <h1
+                                    class="theme-header text-2xl font-bold bg-brand-600 text-white inline-block px-12 py-2 rounded-full font-serif uppercase tracking-widest mb-8 shadow-sm">
+                                    Marriage Biodata</h1>
 
-                            <!-- Personal Details -->
-                            <div>
-                                <h3 class="section-title text-xl font-bold">Personal Details</h3>
-                                <table class="w-full text-slate-700">
-                                    <tr class="h-8">
-                                        <td class="w-1/3 font-semibold text-slate-500">Date of Birth</td>
-                                        <td class="font-medium" id="prevDOB">: -</td>
-                                    </tr>
-                                    <tr class="h-8">
-                                        <td class="font-semibold text-slate-500">Time of Birth</td>
-                                        <td class="font-medium" id="prevTOB">: -</td>
-                                    </tr>
-                                    <tr class="h-8">
-                                        <td class="font-semibold text-slate-500">Height</td>
-                                        <td class="font-medium" id="prevHeight">: -</td>
-                                    </tr>
-                                    <tr class="h-8">
-                                        <td class="font-semibold text-slate-500">Complexion</td>
-                                        <td class="font-medium" id="prevComplexion">: -</td>
-                                    </tr>
-                                    <tr class="h-8">
-                                        <td class="font-semibold text-slate-500">Education</td>
-                                        <td class="font-medium" id="prevEducation">: -</td>
-                                    </tr>
-                                    <tr class="h-8">
-                                        <td class="font-semibold text-slate-500">Occupation</td>
-                                        <td class="font-medium" id="prevOccupation">: -</td>
-                                    </tr>
-                                </table>
+                                <!-- Photo Placeholder -->
+                                <div
+                                    class="w-40 h-40 mx-auto bg-slate-100 rounded-full border-4 border-white shadow-lg overflow-hidden mb-5 relative theme-photo">
+                                    <img id="prevPhoto" src="https://via.placeholder.com/200?text=Photo"
+                                        class="w-full h-full object-cover">
+                                </div>
+
+                                <h2 id="prevName" class="theme-name text-4xl font-bold text-slate-800 font-serif mb-2">
+                                    Your Name</h2>
+                                <p class="theme-sub text-slate-500 text-base font-medium tracking-wide"
+                                    id="prevEduHeading">Education / Degree</p>
                             </div>
 
-                            <!-- Family Background -->
-                            <div>
-                                <h3 class="section-title text-xl font-bold">Family Details</h3>
-                                <table class="w-full text-slate-700">
-                                    <tr class="h-8">
-                                        <td class="w-1/3 font-semibold text-slate-500">Father</td>
-                                        <td class="font-medium" id="prevFather">: -</td>
-                                    </tr>
-                                    <tr class="h-8">
-                                        <td class="font-semibold text-slate-500">Mother</td>
-                                        <td class="font-medium" id="prevMother">: -</td>
-                                    </tr>
-                                    <tr class="h-8">
-                                        <td class="font-semibold text-slate-500">Siblings</td>
-                                        <td class="font-medium" id="prevSiblings">: -</td>
-                                    </tr>
-                                    <tr class="h-8">
-                                        <td class="font-semibold text-slate-500">Gotra/Caste</td>
-                                        <td class="font-medium" id="prevCaste">: -</td>
-                                    </tr>
-                                </table>
-                            </div>
+                            <!-- Content Grid -->
+                            <div class="grid grid-cols-1 gap-8 px-4 sm:px-8">
 
-                            <!-- Contact -->
-                            <div>
-                                <h3 class="section-title text-xl font-bold">Contact Details</h3>
-                                <table class="w-full text-slate-700">
-                                    <tr class="h-8">
-                                        <td class="w-1/3 font-semibold text-slate-500">Phone</td>
-                                        <td class="font-medium" id="prevContact">: -</td>
-                                    </tr>
-                                    <tr class="h-8 align-top">
-                                        <td class="font-semibold text-slate-500 pt-1">Address</td>
-                                        <td class="font-medium pt-1" id="prevAddress">: -</td>
-                                    </tr>
-                                </table>
-                            </div>
+                                <!-- Personal Details -->
+                                <div>
+                                    <h3 class="section-title text-xl font-bold mb-4">Personal Details</h3>
+                                    <table class="w-full text-slate-700 theme-text">
+                                        <tr class="h-9 border-b border-dotted border-slate-200">
+                                            <td class="w-1/3 font-semibold text-slate-500">Date of Birth</td>
+                                            <td class="font-medium pl-4" id="prevDOB">: -</td>
+                                        </tr>
+                                        <tr class="h-9 border-b border-dotted border-slate-200">
+                                            <td class="font-semibold text-slate-500">Time of Birth</td>
+                                            <td class="font-medium pl-4" id="prevTOB">: -</td>
+                                        </tr>
+                                        <tr class="h-9 border-b border-dotted border-slate-200">
+                                            <td class="font-semibold text-slate-500">Height</td>
+                                            <td class="font-medium pl-4" id="prevHeight">: -</td>
+                                        </tr>
+                                        <tr class="h-9 border-b border-dotted border-slate-200">
+                                            <td class="font-semibold text-slate-500">Complexion</td>
+                                            <td class="font-medium pl-4" id="prevComplexion">: -</td>
+                                        </tr>
+                                        <tr class="h-9 border-b border-dotted border-slate-200">
+                                            <td class="font-semibold text-slate-500">Education</td>
+                                            <td class="font-medium pl-4" id="prevEducation">: -</td>
+                                        </tr>
+                                        <tr class="h-9 border-b border-dotted border-slate-200">
+                                            <td class="font-semibold text-slate-500">Occupation</td>
+                                            <td class="font-medium pl-4" id="prevOccupation">: -</td>
+                                        </tr>
+                                    </table>
+                                </div>
 
+                                <!-- Family Background -->
+                                <div>
+                                    <h3 class="section-title text-xl font-bold mb-4">Family Details</h3>
+                                    <table class="w-full text-slate-700 theme-text">
+                                        <tr class="h-9 border-b border-dotted border-slate-200">
+                                            <td class="w-1/3 font-semibold text-slate-500">Father</td>
+                                            <td class="font-medium pl-4" id="prevFather">: -</td>
+                                        </tr>
+                                        <tr class="h-9 border-b border-dotted border-slate-200">
+                                            <td class="font-semibold text-slate-500">Mother</td>
+                                            <td class="font-medium pl-4" id="prevMother">: -</td>
+                                        </tr>
+                                        <tr class="h-9 border-b border-dotted border-slate-200">
+                                            <td class="font-semibold text-slate-500">Siblings</td>
+                                            <td class="font-medium pl-4" id="prevSiblings">: -</td>
+                                        </tr>
+                                        <tr class="h-9 border-b border-dotted border-slate-200">
+                                            <td class="font-semibold text-slate-500">Gotra/Caste</td>
+                                            <td class="font-medium pl-4" id="prevCaste">: -</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <!-- Contact -->
+                                <div>
+                                    <h3 class="section-title text-xl font-bold mb-4">Contact Details</h3>
+                                    <table class="w-full text-slate-700 theme-text">
+                                        <tr class="h-9 border-b border-dotted border-slate-200">
+                                            <td class="w-1/3 font-semibold text-slate-500">Phone</td>
+                                            <td class="font-medium pl-4" id="prevContact">: -</td>
+                                        </tr>
+                                        <tr class="h-9 align-top">
+                                            <td class="font-semibold text-slate-500 pt-2">Address</td>
+                                            <td class="font-medium pl-4 pt-2" id="prevAddress">: -</td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                            </div>
                         </div>
 
                         <!-- Footer -->
-                        <div class="absolute bottom-8 left-0 right-0 text-center">
-                            <div class="text-4xl text-brand-200">❧ ❧ ❧</div>
+                        <div class="relative z-20 mt-12 text-center pb-4">
+                            <div
+                                class="theme-footer text-4xl text-brand-200 font-serif leading-none tracking-widest opacity-60">
+                                ❖ ❖ ❖</div>
                         </div>
 
                     </div>
@@ -367,7 +393,78 @@
     </main>
 
     <script>
-        // Update Live Preview
+        // Themes Config
+        const themes = {
+            classic: {
+                bg: 'white',
+                outerBorder: '#e11d48', // rose-600
+                innerBorder: '#d4af37', // gold
+                headerBg: '#be123c',
+                headerText: 'white',
+                titleColor: '#be123c',
+                titleBorder: '#e11d48',
+                footerColor: '#fecdd3'
+            },
+            royal: {
+                bg: '#fffbf0', // cream
+                outerBorder: '#1e293b', // slate-900
+                innerBorder: '#d4af37', // gold
+                headerBg: '#1e293b',
+                headerText: '#d4af37',
+                titleColor: '#1e293b',
+                titleBorder: '#d4af37',
+                footerColor: '#cbd5e1'
+            },
+            minimal: {
+                bg: 'white',
+                outerBorder: '#3b82f6', // blue-500
+                innerBorder: 'transparent',
+                headerBg: 'white',
+                headerText: '#3b82f6', // blue text
+                titleColor: '#2563eb', // blue-600
+                titleBorder: '#bfdbfe', // blue-200
+                footerColor: '#bfdbfe'
+            }
+        };
+
+        function setTheme(themeName) {
+            const el = document.getElementById('biodataContent');
+            const t = themes[themeName];
+
+            el.style.backgroundColor = t.bg;
+
+            // Borders
+            el.querySelector('.theme-border-outer').style.borderColor = t.outerBorder;
+            el.querySelector('.theme-border-inner').style.borderColor = t.innerBorder;
+
+            // Header Badge
+            const header = el.querySelector('.theme-header');
+            header.style.backgroundColor = t.headerBg;
+            header.style.color = t.headerText;
+            if (themeName === 'minimal') {
+                header.classList.add('border-2', 'border-blue-500');
+            } else {
+                header.classList.remove('border-2', 'border-blue-500');
+            }
+
+            // Section Titles
+            el.querySelectorAll('.section-title').forEach(st => {
+                st.style.color = t.titleColor;
+                st.style.borderBottomColor = t.titleBorder;
+            });
+
+            // Footer
+            el.querySelector('.theme-footer').style.color = t.footerColor;
+
+            // Minimal adjustments
+            if (themeName === 'minimal') {
+                el.querySelector('.theme-border-outer').classList.add('hidden'); // no border for minimal
+            } else {
+                el.querySelector('.theme-border-outer').classList.remove('hidden');
+            }
+        }
+
+        // Update Live Preview (Existing Logic)
         const inputs = ['fullName', 'dob', 'tob', 'height', 'complexion', 'education', 'occupation', 'father', 'mother', 'siblings', 'caste', 'contact', 'address'];
 
         inputs.forEach(id => {
@@ -446,13 +543,17 @@
                         left: 0;
                         top: 0;
                         width: 100%;
+                        height: 100%;
                         margin: 0;
                         padding: 0;
                         box-shadow: none !important;
+                        print-color-adjust: exact;
+                        -webkit-print-color-adjust: exact;
                     }
-                    /* Hide preview border in print */
-                    .biodata-preview {
-                         box-shadow: none;
+                    /* Ensure background colors print */
+                    .theme-header, .theme-bg, .section-title {
+                        print-color-adjust: exact;
+                        -webkit-print-color-adjust: exact;
                     }
                 }
             `;
