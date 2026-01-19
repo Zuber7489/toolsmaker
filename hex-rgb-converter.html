@@ -42,19 +42,20 @@
             <p class="text-sm sm:text-base text-slate-400">Perfectly convert color codes for your web projects.</p>
         </div>
 
-        <section class="grid md:grid-cols-2 gap-8 items-stretch">
+        <section class="grid md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
             <!-- Left: Converter -->
-            <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 shadow-xl space-y-8">
+            <div
+                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-4 sm:p-6 md:p-8 shadow-xl space-y-6 sm:space-y-8">
                 <div>
                     <label class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-3 block">Pick or Enter
                         HEX</label>
-                    <div class="flex gap-4">
-                        <div class="relative w-16 h-12 rounded-lg overflow-hidden border border-slate-700">
+                    <div class="flex gap-3 sm:gap-4">
+                        <div class="relative w-14 sm:w-16 h-12 rounded-lg overflow-hidden border border-slate-700">
                             <input type="color" id="colorPicker" value="#14b8a6"
                                 class="absolute inset-0 w-full h-full scale-150 cursor-pointer">
                         </div>
                         <input type="text" id="hexInput" value="#14b8a6"
-                            class="flex-grow bg-slate-900 border border-slate-700 rounded-lg px-4 font-mono text-xl text-white outline-none focus:border-brand-500 transition">
+                            class="flex-grow bg-slate-900 border border-slate-700 rounded-lg px-3 sm:px-4 font-mono text-lg sm:text-xl text-white outline-none focus:border-brand-500 transition">
                     </div>
                 </div>
 
@@ -62,22 +63,22 @@
                     <div class="relative">
                         <label
                             class="text-[10px] text-slate-500 absolute -top-2 left-3 bg-slate-800 px-2 font-bold uppercase">RGB</label>
-                        <div class="flex">
+                        <div class="flex gap-2">
                             <input type="text" id="rgbOutput" readonly
-                                class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 pt-4 font-mono text-brand-400 outline-none">
+                                class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 sm:p-3 pt-3 sm:pt-4 font-mono text-sm sm:text-base text-brand-400 outline-none">
                             <button onclick="copy('rgbOutput')"
-                                class="ml-2 bg-slate-700 hover:bg-slate-600 px-4 rounded-lg transition text-xs">Copy</button>
+                                class="ml-1 bg-slate-700 hover:bg-slate-600 px-3 sm:px-4 rounded-lg transition text-xs">Copy</button>
                         </div>
                     </div>
                     <div class="relative">
                         <label
                             class="text-[10px] text-slate-500 absolute -top-2 left-3 bg-slate-800 px-2 font-bold uppercase">RGBA
                             (0.8)</label>
-                        <div class="flex">
+                        <div class="flex gap-2">
                             <input type="text" id="rgbaOutput" readonly
-                                class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 pt-4 font-mono text-brand-400 outline-none">
+                                class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2 sm:p-3 pt-3 sm:pt-4 font-mono text-sm sm:text-base text-brand-400 outline-none">
                             <button onclick="copy('rgbaOutput')"
-                                class="ml-2 bg-slate-700 hover:bg-slate-600 px-4 rounded-lg transition text-xs">Copy</button>
+                                class="ml-1 bg-slate-700 hover:bg-slate-600 px-3 sm:px-4 rounded-lg transition text-xs">Copy</button>
                         </div>
                     </div>
                 </div>
