@@ -249,21 +249,27 @@
             <div
                 class="lg:col-span-3 bg-slate-900/50 rounded-2xl p-4 sm:p-8 border border-slate-700 flex flex-col items-center">
                 <div class="flex justify-between w-full items-end mb-4">
-                    <div class="flex items-center gap-4">
-                        <h2 class="text-xl font-bold text-white">Theme</h2>
+                    <div class="flex items-center gap-4 flex-wrap">
+                        <h2 class="text-xl font-bold text-white">Select Theme:</h2>
                         <div class="flex gap-2">
                             <button onclick="setTheme('classic')"
-                                class="w-8 h-8 rounded-full bg-rose-500 border-2 border-white shadow-lg cursor-pointer hover:scale-110 transition"
+                                class="w-8 h-8 rounded-full bg-rose-500 border-2 border-white shadow-lg cursor-pointer hover:scale-110 transition ring-2 ring-transparent focus:ring-white"
                                 title="Classic Rose"></button>
                             <button onclick="setTheme('royal')"
-                                class="w-8 h-8 rounded-full bg-slate-800 border-2 border-gold-500 shadow-lg cursor-pointer hover:scale-110 transition"
+                                class="w-8 h-8 rounded-full bg-slate-800 border-2 border-gold-500 shadow-lg cursor-pointer hover:scale-110 transition ring-2 ring-transparent focus:ring-white"
                                 title="Royal Gold"></button>
                             <button onclick="setTheme('minimal')"
-                                class="w-8 h-8 rounded-full bg-blue-100 border-2 border-blue-500 shadow-lg cursor-pointer hover:scale-110 transition"
+                                class="w-8 h-8 rounded-full bg-blue-100 border-2 border-blue-500 shadow-lg cursor-pointer hover:scale-110 transition ring-2 ring-transparent focus:ring-white"
                                 title="Minimal Blue"></button>
+                            <button onclick="setTheme('floral')"
+                                class="w-8 h-8 rounded-full bg-pink-100 border-2 border-pink-400 shadow-lg cursor-pointer hover:scale-110 transition ring-2 ring-transparent focus:ring-white"
+                                title="Floral Pastel"></button>
+                            <button onclick="setTheme('nature')"
+                                class="w-8 h-8 rounded-full bg-emerald-500 border-2 border-emerald-200 shadow-lg cursor-pointer hover:scale-110 transition ring-2 ring-transparent focus:ring-white"
+                                title="Nature Green"></button>
                         </div>
                     </div>
-                    <span class="text-xs text-slate-400">Live Preview</span>
+                    <span class="text-xs text-slate-400 hidden sm:block">Live Preview</span>
                 </div>
 
                 <!-- A4 Preview Container -->
@@ -424,6 +430,26 @@
                 titleColor: '#2563eb', // blue-600
                 titleBorder: '#bfdbfe', // blue-200
                 footerColor: '#bfdbfe'
+            },
+            floral: {
+                bg: '#fff0f5', // lavender blush
+                outerBorder: '#f472b6', // pink-400
+                innerBorder: '#fbcfe8', // pink-200
+                headerBg: '#fce7f3', // pink-100
+                headerText: '#db2777', // pink-600
+                titleColor: '#be185d', // pink-700
+                titleBorder: '#f9a8d4', // pink-300
+                footerColor: '#fbcfe8'
+            },
+            nature: {
+                bg: '#f0fdf4', // green-50
+                outerBorder: '#15803d', // green-700
+                innerBorder: '#86efac', // green-300
+                headerBg: '#15803d',
+                headerText: 'white',
+                titleColor: '#166534', // green-800
+                titleBorder: '#4ade80', // green-400
+                footerColor: '#bbf7d0'
             }
         };
 
@@ -441,10 +467,14 @@
             const header = el.querySelector('.theme-header');
             header.style.backgroundColor = t.headerBg;
             header.style.color = t.headerText;
+
+            // Specific overrides
             if (themeName === 'minimal') {
                 header.classList.add('border-2', 'border-blue-500');
+            } else if (themeName === 'floral') {
+                header.classList.add('border', 'border-pink-300');
             } else {
-                header.classList.remove('border-2', 'border-blue-500');
+                header.classList.remove('border-2', 'border-blue-500', 'border', 'border-pink-300');
             }
 
             // Section Titles
@@ -456,9 +486,9 @@
             // Footer
             el.querySelector('.theme-footer').style.color = t.footerColor;
 
-            // Minimal adjustments
+            // Border visiblity
             if (themeName === 'minimal') {
-                el.querySelector('.theme-border-outer').classList.add('hidden'); // no border for minimal
+                el.querySelector('.theme-border-outer').classList.add('hidden');
             } else {
                 el.querySelector('.theme-border-outer').classList.remove('hidden');
             }
