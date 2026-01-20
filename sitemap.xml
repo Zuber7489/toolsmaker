@@ -6,65 +6,89 @@
   <!-- Homepage -->
   <url>
     <loc>https://freeproducts24.site/</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <!-- Financial Calculators (High Priority) -->
   <url>
+    <loc>https://freeproducts24.site/salary-calculator.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://freeproducts24.site/gst-calculator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/sip-calculator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/emi-calculator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://freeproducts24.site/percentage-calculator.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://freeproducts24.site/health-calculator.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://freeproducts24.site/rent-receipt-generator.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Popular Tools (High Priority) -->
   <url>
     <loc>https://freeproducts24.site/image-compressor.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/json-formatter.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/markdown-editor.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/email-signature-generator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/bg-remover.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/qr-generator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -72,25 +96,25 @@
   <!-- Social Media Tools -->
   <url>
     <loc>https://freeproducts24.site/character-counter.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/reel-caption-formatter.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/yt-thumbnail.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/fancy-fonts.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -98,19 +122,19 @@
   <!-- Image Tools -->
   <url>
     <loc>https://freeproducts24.site/image-converter.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/dimension-checker.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/blur-image.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -118,49 +142,49 @@
   <!-- Developer Tools -->
   <url>
     <loc>https://freeproducts24.site/text-formatter.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/html-minifier.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/css-minifier.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/base64-converter.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/uuid-generator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/timestamp-converter.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/url-encoder-decoder.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/hex-rgb-converter.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -168,13 +192,13 @@
   <!-- SEO Tools -->
   <url>
     <loc>https://freeproducts24.site/meta-tag-generator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/robots-txt-generator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -182,51 +206,71 @@
   <!-- Utility Tools -->
   <url>
     <loc>https://freeproducts24.site/age-calculator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/percentage-calculator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/health-calculator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/password-generator.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/lorem-ipsum.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/pdf-merger.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://freeproducts24.site/pdf-unlocker.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Social & Productivity Tools -->
+  <url>
+    <loc>https://freeproducts24.site/marriage-biodata-maker.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://freeproducts24.site/link-cloaker.html</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Info Pages -->
   <url>
     <loc>https://freeproducts24.site/about.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://freeproducts24.site/privacy.html</loc>
-    <lastmod>2026-01-17</lastmod>
+    <lastmod>2026-01-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
