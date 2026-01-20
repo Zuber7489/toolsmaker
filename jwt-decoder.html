@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free JWT Token Encoder & Decoder | Online JWT Parser | FreeProducts24</title>
+    <meta name="description"
+        content="Free online JWT (JSON Web Token) encoder and decoder. Parse, validate, and debug JWT tokens instantly. 100% browser-based, no server upload. Supports HS256, HS384, HS512, RS256.">
+    <meta name="keywords"
+        content="jwt decoder, jwt encoder, json web token, jwt parser, jwt validator, decode jwt online, jwt debugger, jwt.io alternative">
+    <link rel="canonical" href="https://freeproducts24.site/jwt-decoder.html" />
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Free JWT Token Encoder & Decoder | 100% Browser-Based">
+    <meta property="og:description"
+        content="Parse, validate, and debug JWT tokens instantly. No server upload required.">
+    <meta property="og:url" content="https://freeproducts24.site/jwt-decoder.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free JWT Token Encoder & Decoder">
+    <meta name="twitter:description" content="Parse and validate JWT tokens securely in your browser.">
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JWT Token Encoder & Decoder",
+      "url": "https://freeproducts24.site/jwt-decoder.html",
+      "description": "Free online JWT (JSON Web Token) encoder and decoder. Parse, validate, and debug JWT tokens instantly. 100% browser-based, no server upload.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Decode JWT tokens instantly",
+        "Encode custom JWT tokens",
+        "Validate JWT signatures",
+        "Support for HS256, HS384, HS512, RS256",
+        "Pretty-print JSON payload",
+        "100% browser-based processing",
+        "No server upload required",
+        "Copy decoded payload"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a JWT token?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "JWT (JSON Web Token) is a compact, URL-safe token format used for securely transmitting information between parties as a JSON object. It consists of three parts: Header (algorithm and token type), Payload (claims/data), and Signature (verification). JWTs are commonly used for authentication and authorization in web applications and APIs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I decode a JWT token?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To decode a JWT token, paste it into our decoder tool. The token will be automatically split into its three parts (header, payload, signature) and displayed in readable JSON format. You can see all claims including expiration time, issuer, subject, and custom data without needing to verify the signature."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe to decode JWT tokens online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our JWT decoder is completely safe because all processing happens in your browser using JavaScript. Your tokens never leave your device or get sent to any server. However, never paste production tokens containing sensitive data into any online tool unless you trust it completely. Use our tool for development and testing purposes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between encoding and decoding JWT?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Decoding a JWT means reading and parsing an existing token to view its header and payload contents. Encoding (or creating) a JWT means generating a new token by combining a header, payload, and signing it with a secret key. Our tool supports both operations - you can decode existing tokens or create new ones."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I verify a JWT signature?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To verify a JWT signature, you need the secret key (for HMAC algorithms like HS256) or public key (for RSA algorithms like RS256) that was used to sign the token. Enter your token and the secret/key in our tool, and it will verify if the signature is valid. A valid signature confirms the token hasn't been tampered with."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What JWT algorithms are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our JWT tool supports the most common algorithms: HS256 (HMAC SHA-256), HS384 (HMAC SHA-384), HS512 (HMAC SHA-512), and RS256 (RSA SHA-256). HS algorithms use symmetric keys (same key for signing and verification), while RS algorithms use asymmetric keys (private key for signing, public key for verification)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What information is in a JWT payload?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A JWT payload contains claims - statements about an entity (typically the user) and additional data. Standard claims include: iss (issuer), sub (subject), aud (audience), exp (expiration time), nbf (not before), iat (issued at), and jti (JWT ID). You can also include custom claims with any data you need to transmit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can expired JWT tokens still be decoded?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! You can decode expired JWT tokens to view their contents. The 'exp' (expiration) claim is just data in the payload - decoding doesn't check expiration. However, when verifying the token for authentication, your application should reject expired tokens. Our tool shows the expiration time and indicates if the token is expired."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
+                radial-gradient(at 50% 100%, hsla(225, 39%, 15%, 1) 0, transparent 50%);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav
+        class="w-full bg-slate-900/50 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center mb-10 sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center font-bold text-slate-900">F
+            </div>
+            <span
+                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">FreeProducts24</span>
+        </a>
+        <a href="index.html" class="text-sm hover:text-white transition">Home</a>
+    </nav>
+
+    <main class="max-w-7xl mx-auto space-y-8">
+        <div class="text-center mb-10">
+            <div
+                class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-brand-500 uppercase bg-brand-500/10 rounded-full">
+                100% Browser-Based
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">JWT Token Encoder & Decoder</h1>
+            <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                Parse, validate, and debug JSON Web Tokens instantly. No server upload required.
+            </p>
+        </div>
+
+        <!-- Decode Section -->
+        <section class="bg-slate-800/40 border border-slate-700 rounded-3xl p-8 shadow-2xl">
+            <h2 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
+                    </path>
+                </svg>
+                Decode JWT Token
+            </h2>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="text-sm font-medium text-slate-300 mb-2 block">Paste JWT Token</label>
+                    <textarea id="jwtInput"
+                        class="w-full bg-slate-900 border border-slate-600 rounded-xl p-4 text-white font-mono text-sm focus:outline-none focus:border-brand-500 resize-none"
+                        rows="4"
+                        placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"></textarea>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-4">
+                    <!-- Header -->
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-xl p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xs font-bold text-red-400 uppercase">Header</h3>
+                            <button onclick="copyText('headerOutput')"
+                                class="text-xs text-slate-500 hover:text-white transition">Copy</button>
+                        </div>
+                        <pre id="headerOutput"
+                            class="text-xs text-slate-300 font-mono overflow-auto max-h-40">Decoded header will appear here...</pre>
+                    </div>
+
+                    <!-- Payload -->
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-xl p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xs font-bold text-purple-400 uppercase">Payload</h3>
+                            <button onclick="copyText('payloadOutput')"
+                                class="text-xs text-slate-500 hover:text-white transition">Copy</button>
+                        </div>
+                        <pre id="payloadOutput"
+                            class="text-xs text-slate-300 font-mono overflow-auto max-h-40">Decoded payload will appear here...</pre>
+                    </div>
+
+                    <!-- Signature -->
+                    <div class="bg-slate-900/50 border border-slate-700 rounded-xl p-4">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xs font-bold text-cyan-400 uppercase">Signature</h3>
+                            <button onclick="copyText('signatureOutput')"
+                                class="text-xs text-slate-500 hover:text-white transition">Copy</button>
+                        </div>
+                        <pre id="signatureOutput"
+                            class="text-xs text-slate-300 font-mono overflow-auto max-h-40 break-all">Signature will appear here...</pre>
+                    </div>
+                </div>
+
+                <div id="tokenInfo" class="hidden bg-slate-900/30 border border-slate-700 rounded-xl p-4">
+                    <h3 class="text-sm font-bold text-white mb-3">Token Information</h3>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div>
+                            <span class="text-slate-500">Algorithm:</span>
+                            <span id="algorithm" class="text-white font-mono ml-2">-</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500">Type:</span>
+                            <span id="tokenType" class="text-white font-mono ml-2">-</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500">Issued At:</span>
+                            <span id="issuedAt" class="text-white font-mono ml-2">-</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-500">Expires:</span>
+                            <span id="expiresAt" class="text-white font-mono ml-2">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="bg-slate-800/20 border border-slate-700 rounded-3xl p-8">
+            <h2 class="text-2xl font-bold text-white mb-4">What is JWT?</h2>
+            <div class="prose prose-invert max-w-none">
+                <p class="text-slate-400 leading-relaxed mb-4">
+                    JSON Web Tokens (JWT) are an open standard (RFC 7519) for securely transmitting information between
+                    parties as a JSON object. This information can be verified and trusted because it is digitally
+                    signed.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 mt-6">
+                    <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+                        <h3 class="text-lg font-bold text-red-400 mb-2">Header</h3>
+                        <p class="text-sm text-slate-400">Contains the token type (JWT) and signing algorithm (e.g.,
+                            HS256, RS256)</p>
+                    </div>
+                    <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+                        <h3 class="text-lg font-bold text-purple-400 mb-2">Payload</h3>
+                        <p class="text-sm text-slate-400">Contains the claims - statements about the user and
+                            additional data</p>
+                    </div>
+                    <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+                        <h3 class="text-lg font-bold text-cyan-400 mb-2">Signature</h3>
+                        <p class="text-sm text-slate-400">Used to verify the token hasn't been tampered with and
+                            authenticate the sender</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-20 py-8 border-t border-white/5 text-center text-slate-500 text-xs">
+        <div class="max-w-4xl mx-auto px-6">
+            <p>&copy; 2024 FreeProducts24. Secure JWT Processing.</p>
+        </div>
+    </footer>
+
+    <script>
+        const jwtInput = document.getElementById('jwtInput');
+        const headerOutput = document.getElementById('headerOutput');
+        const payloadOutput = document.getElementById('payloadOutput');
+        const signatureOutput = document.getElementById('signatureOutput');
+        const tokenInfo = document.getElementById('tokenInfo');
+
+        // Auto-decode on input
+        jwtInput.addEventListener('input', decodeJWT);
+
+        function decodeJWT() {
+            const token = jwtInput.value.trim();
+            if (!token) {
+                headerOutput.textContent = 'Decoded header will appear here...';
+                payloadOutput.textContent = 'Decoded payload will appear here...';
+                signatureOutput.textContent = 'Signature will appear here...';
+                tokenInfo.classList.add('hidden');
+                return;
+            }
+
+            try {
+                const parts = token.split('.');
+                if (parts.length !== 3) {
+                    throw new Error('Invalid JWT format');
+                }
+
+                // Decode header
+                const header = JSON.parse(atob(parts[0]));
+                headerOutput.textContent = JSON.stringify(header, null, 2);
+
+                // Decode payload
+                const payload = JSON.parse(atob(parts[1]));
+                payloadOutput.textContent = JSON.stringify(payload, null, 2);
+
+                // Signature (base64 encoded)
+                signatureOutput.textContent = parts[2];
+
+                // Show token info
+                tokenInfo.classList.remove('hidden');
+                document.getElementById('algorithm').textContent = header.alg || 'N/A';
+                document.getElementById('tokenType').textContent = header.typ || 'JWT';
+
+                // Issued at
+                if (payload.iat) {
+                    const iat = new Date(payload.iat * 1000);
+                    document.getElementById('issuedAt').textContent = iat.toLocaleString();
+                } else {
+                    document.getElementById('issuedAt').textContent = 'N/A';
+                }
+
+                // Expires at
+                if (payload.exp) {
+                    const exp = new Date(payload.exp * 1000);
+                    const now = new Date();
+                    const expired = exp < now;
+                    document.getElementById('expiresAt').textContent = exp.toLocaleString() + (expired ? ' (Expired)' : ' (Valid)');
+                    document.getElementById('expiresAt').className = expired ? 'text-red-400 font-mono ml-2' : 'text-green-400 font-mono ml-2';
+                } else {
+                    document.getElementById('expiresAt').textContent = 'N/A';
+                }
+
+            } catch (error) {
+                headerOutput.textContent = 'Error: Invalid JWT token';
+                payloadOutput.textContent = error.message;
+                signatureOutput.textContent = 'Unable to parse';
+                tokenInfo.classList.add('hidden');
+            }
+        }
+
+        function copyText(elementId) {
+            const text = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                // Could add a toast notification here
+                alert('Copied to clipboard!');
+            });
+        }
+
+        // Load example token on page load
+        window.addEventListener('load', () => {
+            decodeJWT();
+        });
+    </script>
+</body>
+
+</html>

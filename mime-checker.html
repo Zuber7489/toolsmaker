@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIME Type Checker | File Type Identifier Online | FreeProducts24</title>
+    <meta name="description"
+        content="Free online MIME type checker. Identify file types instantly by analyzing file headers and extensions. Supports 100+ file formats including images, documents, videos, and archives.">
+    <meta name="keywords"
+        content="mime type checker, file type identifier, detect file type, file format checker, content type detector, magic number checker">
+    <link rel="canonical" href="https://freeproducts24.site/mime-checker.html" />
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="MIME Type Checker | Identify File Types Online">
+    <meta property="og:description"
+        content="Identify file types instantly by analyzing file headers. Free online MIME type checker.">
+    <meta property="og:url" content="https://freeproducts24.site/mime-checker.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MIME Type Checker | File Type Identifier">
+    <meta name="twitter:description" content="Identify file types by analyzing file headers and magic numbers.">
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "MIME Type Checker",
+      "url": "https://freeproducts24.site/mime-checker.html",
+      "description": "Free online MIME type checker. Identify file types instantly by analyzing file headers and extensions. Supports 100+ file formats.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Detect MIME type from file headers",
+        "Identify file types by magic numbers",
+        "Support for 100+ file formats",
+        "Show file extension and category",
+        "Display file size and metadata",
+        "100% browser-based processing",
+        "No file upload to server",
+        "Instant file type detection"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a MIME type?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "MIME (Multipurpose Internet Mail Extensions) type is a standard way to indicate the nature and format of a file. It consists of a type and subtype, separated by a slash (e.g., image/jpeg, application/pdf, text/html). MIME types are used by web browsers and servers to determine how to handle different file types."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I check the MIME type of a file?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To check a file's MIME type, upload it to our MIME checker tool. The tool analyzes the file's magic numbers (the first few bytes of the file) to accurately identify its type, regardless of the file extension. This is more reliable than checking the extension alone, as extensions can be changed or incorrect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are magic numbers in files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Magic numbers (also called file signatures) are specific byte sequences at the beginning of a file that identify its format. For example, JPEG files start with 'FF D8 FF', PNG files start with '89 50 4E 47', and PDF files start with '25 50 44 46' (%PDF). Our tool reads these magic numbers to accurately determine file types."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is my file extension different from its MIME type?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "File extensions can be changed manually and don't always reflect the actual file content. For example, a JPEG image could be renamed with a .txt extension, but it's still an image file. Our MIME checker reads the actual file content (magic numbers) to determine the true file type, regardless of the extension."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What file types can be detected?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our MIME checker can detect 100+ file types including: Images (JPEG, PNG, GIF, WebP, SVG, BMP, TIFF), Documents (PDF, DOCX, XLSX, PPTX), Archives (ZIP, RAR, 7Z, TAR, GZIP), Videos (MP4, AVI, MKV, WebM), Audio (MP3, WAV, FLAC, OGG), and many more. The detection is based on file signatures, not extensions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it safe to check MIME types online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Our MIME checker is completely safe because all file analysis happens in your browser using JavaScript. Only the first few bytes of your file are read to identify the magic numbers - the file content is never uploaded to any server. Your files remain completely private on your device."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do I need to check MIME types?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Checking MIME types is important for: verifying uploaded files are the correct type, detecting malicious files with fake extensions, ensuring proper file handling in web applications, debugging file upload issues, validating file types before processing, and identifying unknown or corrupted files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can MIME type detection be fooled?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While MIME type detection based on magic numbers is very reliable, sophisticated attackers can craft files with fake headers. For security-critical applications, always combine MIME type checking with additional validation like content scanning, file size limits, and server-side verification. Never trust file types solely based on client-side detection."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0f172a;
+            background-image: radial-gradient(at 100% 0%, hsla(280, 50%, 15%, 1) 0, transparent 50%),
+                radial-gradient(at 0% 100%, hsla(200, 50%, 15%, 1) 0, transparent 50%);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 antialiased p-4">
+
+    <nav
+        class="w-full bg-slate-900/50 backdrop-blur-md border-b border-white/10 px-6 py-4 flex justify-between items-center mb-10 sticky top-0 z-50">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-8 h-8 bg-brand-500 rounded-lg flex items-center justify-center font-bold text-slate-900">F
+            </div>
+            <span
+                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">FreeProducts24</span>
+        </a>
+        <a href="index.html" class="text-sm hover:text-white transition">Home</a>
+    </nav>
+
+    <main class="max-w-5xl mx-auto space-y-8">
+        <div class="text-center mb-10">
+            <div
+                class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-brand-500 uppercase bg-brand-500/10 rounded-full">
+                File Type Detection
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">MIME Type Checker</h1>
+            <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                Identify file types instantly by analyzing file headers and magic numbers. Supports 100+ formats.
+            </p>
+        </div>
+
+        <!-- Upload Section -->
+        <section class="bg-slate-800/40 border border-slate-700 rounded-3xl p-8 shadow-2xl">
+            <div class="w-full">
+                <label for="fileInput"
+                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-slate-600 border-dashed rounded-2xl cursor-pointer bg-slate-900/50 hover:bg-slate-800/50 hover:border-brand-500 transition-all duration-300">
+                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                        <svg class="w-16 h-16 mb-4 text-slate-500 group-hover:text-brand-500 transition" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                            </path>
+                        </svg>
+                        <p class="mb-2 text-lg text-slate-300 font-medium">Click to upload or drag & drop</p>
+                        <p class="text-sm text-slate-500">Any file type supported</p>
+                    </div>
+                    <input id="fileInput" type="file" class="hidden" />
+                </label>
+            </div>
+
+            <!-- Results -->
+            <div id="results" class="hidden mt-8 space-y-6 animate-fade-in">
+                <!-- File Info Card -->
+                <div class="bg-slate-900/50 border border-slate-700 rounded-2xl p-6">
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                        File Information
+                    </h2>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                            <span class="text-xs text-slate-500 uppercase font-bold block mb-1">File Name</span>
+                            <span id="fileName" class="text-white font-medium break-all">-</span>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                            <span class="text-xs text-slate-500 uppercase font-bold block mb-1">File Size</span>
+                            <span id="fileSize" class="text-white font-medium">-</span>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                            <span class="text-xs text-slate-500 uppercase font-bold block mb-1">Detected
+                                Extension</span>
+                            <span id="detectedExt" class="text-brand-400 font-mono font-bold text-lg">-</span>
+                        </div>
+                        <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                            <span class="text-xs text-slate-500 uppercase font-bold block mb-1">File Category</span>
+                            <span id="fileCategory" class="text-purple-400 font-medium">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MIME Type Card -->
+                <div
+                    class="bg-gradient-to-br from-brand-500/10 to-cyan-500/10 border border-brand-500/30 rounded-2xl p-6">
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        MIME Type Detection
+                    </h2>
+                    <div class="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+                        <span class="text-xs text-slate-500 uppercase font-bold block mb-2">Detected MIME Type</span>
+                        <span id="mimeType" class="text-2xl text-brand-400 font-mono font-bold">-</span>
+                    </div>
+                </div>
+
+                <!-- Magic Numbers -->
+                <div class="bg-slate-900/50 border border-slate-700 rounded-2xl p-6">
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path>
+                        </svg>
+                        File Signature (Magic Numbers)
+                    </h2>
+                    <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+                        <pre id="magicNumbers"
+                            class="text-cyan-300 font-mono text-sm overflow-auto">File signature will appear here...</pre>
+                    </div>
+                    <p class="text-xs text-slate-500 mt-2">First 16 bytes of the file in hexadecimal format</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="bg-slate-800/20 border border-slate-700 rounded-3xl p-8">
+            <h2 class="text-2xl font-bold text-white mb-4">Common MIME Types</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+                    <h3 class="text-sm font-bold text-brand-400 mb-2">Images</h3>
+                    <ul class="text-xs text-slate-400 space-y-1 font-mono">
+                        <li>image/jpeg</li>
+                        <li>image/png</li>
+                        <li>image/gif</li>
+                        <li>image/webp</li>
+                        <li>image/svg+xml</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+                    <h3 class="text-sm font-bold text-purple-400 mb-2">Documents</h3>
+                    <ul class="text-xs text-slate-400 space-y-1 font-mono">
+                        <li>application/pdf</li>
+                        <li>application/msword</li>
+                        <li>application/vnd.ms-excel</li>
+                        <li>text/plain</li>
+                        <li>text/html</li>
+                    </ul>
+                </div>
+                <div class="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+                    <h3 class="text-sm font-bold text-cyan-400 mb-2">Archives</h3>
+                    <ul class="text-xs text-slate-400 space-y-1 font-mono">
+                        <li>application/zip</li>
+                        <li>application/x-rar</li>
+                        <li>application/x-7z</li>
+                        <li>application/gzip</li>
+                        <li>application/x-tar</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-20 py-8 border-t border-white/5 text-center text-slate-500 text-xs">
+        <div class="max-w-4xl mx-auto px-6">
+            <p>&copy; 2024 FreeProducts24. Secure File Analysis.</p>
+        </div>
+    </footer>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const results = document.getElementById('results');
+
+        // MIME type signatures (magic numbers)
+        const mimeSignatures = {
+            // Images
+            'ffd8ff': { mime: 'image/jpeg', ext: '.jpg', category: 'Image' },
+            '89504e47': { mime: 'image/png', ext: '.png', category: 'Image' },
+            '47494638': { mime: 'image/gif', ext: '.gif', category: 'Image' },
+            '52494646': { mime: 'image/webp', ext: '.webp', category: 'Image' }, // RIFF (WebP starts with RIFF)
+            '3c3f786d6c': { mime: 'image/svg+xml', ext: '.svg', category: 'Image' }, // <?xml
+            '3c737667': { mime: 'image/svg+xml', ext: '.svg', category: 'Image' }, // <svg
+            '424d': { mime: 'image/bmp', ext: '.bmp', category: 'Image' },
+
+            // Documents
+            '25504446': { mime: 'application/pdf', ext: '.pdf', category: 'Document' }, // %PDF
+            '504b0304': { mime: 'application/zip', ext: '.zip', category: 'Archive' }, // Also DOCX, XLSX, etc
+            'd0cf11e0': { mime: 'application/msword', ext: '.doc', category: 'Document' },
+
+            // Archives
+            '526172211a07': { mime: 'application/x-rar', ext: '.rar', category: 'Archive' },
+            '377abcaf271c': { mime: 'application/x-7z-compressed', ext: '.7z', category: 'Archive' },
+            '1f8b': { mime: 'application/gzip', ext: '.gz', category: 'Archive' },
+
+            // Videos
+            '000000': { mime: 'video/mp4', ext: '.mp4', category: 'Video' }, // ftyp
+            '1a45dfa3': { mime: 'video/webm', ext: '.webm', category: 'Video' },
+
+            // Audio
+            'fffb': { mime: 'audio/mpeg', ext: '.mp3', category: 'Audio' },
+            '494433': { mime: 'audio/mpeg', ext: '.mp3', category: 'Audio' }, // ID3
+            '52494646': { mime: 'audio/wav', ext: '.wav', category: 'Audio' }, // RIFF
+        };
+
+        fileInput.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            // Read first 16 bytes
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const arr = new Uint8Array(event.target.result);
+                const hex = Array.from(arr).map(b => b.toString(16).padStart(2, '0')).join('');
+
+                // Display magic numbers
+                const formatted = hex.match(/.{1,2}/g).join(' ').toUpperCase();
+                document.getElementById('magicNumbers').textContent = formatted;
+
+                // Detect MIME type
+                let detected = { mime: 'application/octet-stream', ext: 'unknown', category: 'Unknown' };
+
+                for (const [signature, info] of Object.entries(mimeSignatures)) {
+                    if (hex.startsWith(signature.toLowerCase())) {
+                        detected = info;
+                        break;
+                    }
+                }
+
+                // Display results
+                document.getElementById('fileName').textContent = file.name;
+                document.getElementById('fileSize').textContent = formatSize(file.size);
+                document.getElementById('mimeType').textContent = detected.mime;
+                document.getElementById('detectedExt').textContent = detected.ext;
+                document.getElementById('fileCategory').textContent = detected.category;
+
+                results.classList.remove('hidden');
+            };
+
+            reader.readAsArrayBuffer(file.slice(0, 16));
+        });
+
+        function formatSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+    </script>
+</body>
+
+</html>
