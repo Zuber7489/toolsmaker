@@ -550,9 +550,12 @@
             </a>
 
             <!-- JWT Decoder -->
-            <a href="jwt-decoder.html" class="tool-card p-6 rounded-3xl flex flex-col group"
+            <a href="jwt-decoder.html" class="tool-card p-6 rounded-3xl flex flex-col group relative"
                 data-search="jwt decoder json web token encoder parser validator authentication security developer"
-                data-category="developer">
+                data-category="developer" data-added="2026-01-20T11:53:00">
+                <!-- NEW Badge -->
+                <span
+                    class="new-badge absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">NEW</span>
                 <div
                     class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-500 mb-5 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -566,9 +569,12 @@
             </a>
 
             <!-- MIME Type Checker -->
-            <a href="mime-checker.html" class="tool-card p-6 rounded-3xl flex flex-col group"
+            <a href="mime-checker.html" class="tool-card p-6 rounded-3xl flex flex-col group relative"
                 data-search="mime type checker file type identifier magic numbers file format detector content type"
-                data-category="developer">
+                data-category="developer" data-added="2026-01-20T11:53:00">
+                <!-- NEW Badge -->
+                <span
+                    class="new-badge absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">NEW</span>
                 <div
                     class="w-12 h-12 bg-teal-500/10 rounded-2xl flex items-center justify-center text-teal-500 mb-5 group-hover:bg-teal-500 group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -925,6 +931,33 @@
                 noResults.remove();
             }
         }
+
+        // Auto-hide NEW badges after 12 hours
+        function checkNewBadges() {
+            const newBadges = document.querySelectorAll('.new-badge');
+            const now = new Date();
+
+            newBadges.forEach(badge => {
+                const toolCard = badge.closest('.tool-card');
+                const addedTime = toolCard.getAttribute('data-added');
+
+                if (addedTime) {
+                    const addedDate = new Date(addedTime);
+                    const hoursPassed = (now - addedDate) / (1000 * 60 * 60); // Convert to hours
+
+                    // Hide badge if more than 12 hours have passed
+                    if (hoursPassed >= 12) {
+                        badge.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Check badges on page load
+        checkNewBadges();
+
+        // Check badges every hour
+        setInterval(checkNewBadges, 60 * 60 * 1000);
     </script>
 </body>
 
