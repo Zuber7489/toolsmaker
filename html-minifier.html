@@ -16,6 +16,112 @@
     <meta property="og:description" content="Reduce your HTML file size in one click.">
     <meta property="og:url" content="https://freeproducts24.site/html-minifier.html">
     <meta property="og:type" content="article">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="HTML Minifier - Optimize Web Pages">
+    <meta name="twitter:description" content="Compress HTML code for faster loading websites.">
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "HTML Minifier Online",
+      "url": "https://freeproducts24.site/html-minifier.html",
+      "description": "Minify HTML code online. Remove whitespace and comments to reduce file size for faster page loads. Free developer tool.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Minify HTML code instantly",
+        "Remove comments and whitespace",
+        "Reduce file size for faster loading",
+        "Shows compression statistics",
+        "One-click copy minified code",
+        "100% client-side processing"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is HTML minification?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HTML minification is the process of removing unnecessary characters from HTML code without changing its functionality. This includes removing whitespace, line breaks, comments, and redundant attributes. Minified HTML files are smaller and load faster, improving website performance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why should I minify my HTML files?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Minifying HTML reduces file size by 10-30%, leading to faster page load times, improved Core Web Vitals scores, better SEO rankings, reduced bandwidth usage, and improved user experience. It's especially important for mobile users on slower connections."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does HTML minification break my website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No! Proper HTML minification only removes unnecessary whitespace and comments. It doesn't change HTML structure, tags, or attributes. However, be careful with inline JavaScript or CSS - some minifiers might affect spacing-sensitive code. Our tool safely minifies standard HTML."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I minify HTML for development or production?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Keep HTML unminified during development for easier debugging and readability. Only minify HTML for production deployment. Most modern frameworks (Next.js, React, Vue) and build tools automatically minify HTML during the build process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much smaller will my HTML file become?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "HTML minification typically reduces file size by 10-30%, depending on your code style. Files with lots of indentation, comments, and whitespace will see bigger reductions. Our tool shows you the exact savings after minification."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I beautify minified HTML back to readable format?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can use HTML beautifiers or formatters to add back whitespace and indentation. However, you cannot recover lost comments or original formatting. Always keep your original HTML files for development and only use minified versions for production."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does minifying HTML affect SEO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, positively! Minified HTML loads faster, which improves page speed - a key SEO ranking factor. Faster pages also improve user experience and reduce bounce rates. However, ensure your minification doesn't remove important semantic HTML or structured data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this tool safe for sensitive HTML code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! All HTML minification happens entirely in your browser using JavaScript. Your code never leaves your device or gets uploaded to any server. This makes it completely private and secure for processing sensitive or proprietary HTML."
+          }
+        }
+      ]
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
@@ -93,7 +199,7 @@
             if (!code) return;
 
             let min = code.replace(/<!--[\s\S]*?-->/g, "");
-            min = min.replace(/>\s+</g, "><");
+                min = min.replace(/>\s+</g, "><");
             min = min.replace(/\s{2,}/g, " ");
             min = min.trim();
 
