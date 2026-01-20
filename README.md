@@ -111,10 +111,3 @@ Feel free to use, modify, and distribute.
 
 * 🌐 Website: [https://freeproducts24.site](https://freeproducts24.site)
 * 💼 Angular Developer
-
-* Customize this README for **Angular-based repo**
-* Add **GitHub badges**
-* Write **SEO-optimized tool descriptions**
-* Create a **CONTRIBUTING.md** file
-
-Just tell me 👍
