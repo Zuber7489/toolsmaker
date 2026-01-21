@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>जीएसटी कैलकुलेटर: भारत में GST कैसे कैलकुलेट करें - पूरी गाइड 2024</title>
+    <meta name="description"
+        content="फ्री जीएसटी कैलकुलेटर से 5%, 12%, 18%, 28% GST कैलकुलेट करें। CGST, SGST, IGST की आसान गणना। व्यावहारिक उदाहरण और फॉर्मूला के साथ complete guide।">
+    <meta name="keywords"
+        content="जीएसटी कैलकुलेटर, gst calculator india, gst calculation, cgst sgst igst, gst formula, जीएसटी गणना">
+    <link rel="canonical" href="https://freeproducts24.site/blog/gst-calculator-india-guide" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="जीएसटी कैलकुलेटर: भारत में GST कैसे कैलकुलेट करें">
+    <meta property="og:description"
+        content="फ्री जीएसटी कैलकुलेटर से CGST, SGST, IGST की आसान गणना। व्यावहारिक उदाहरण के साथ।">
+    <meta property="og:url" content="https://freeproducts24.site/blog/gst-calculator-india-guide">
+    <meta property="og:type" content="article">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "जीएसटी कैलकुलेटर: भारत में GST कैसे कैलकुलेट करें - पूरी गाइड 2024",
+      "description": "फ्री जीएसटी कैलकुलेटर से CGST, SGST, IGST की आसान गणना",
+      "inLanguage": "hi",
+      "author": {
+        "@type": "Organization",
+        "name": "FreeProducts24"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FreeProducts24",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://freeproducts24.site/favicon.png"
+        }
+      },
+      "datePublished": "2024-01-21",
+      "dateModified": "2024-01-21"
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "जीएसटी क्या है?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GST (Goods and Services Tax) यानी वस्तु एवं सेवा कर भारत में 1 जुलाई 2017 से लागू एक अप्रत्यक्ष कर है। यह पुराने VAT, Service Tax, और Excise Duty को replace करता है।"
+        }
+      }, {
+        "@type": "Question",
+        "name": "जीएसटी की दरें क्या हैं?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "भारत में GST की 4 मुख्य दरें हैं: 5% (आवश्यक वस्तुएं), 12% (प्रोसेस्ड फूड), 18% (अधिकांश सामान), और 28% (लग्जरी आइटम्स)।"
+        }
+      }, {
+        "@type": "Question",
+        "name": "CGST और SGST में क्या अंतर है?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CGST (Central GST) केंद्र सरकार को मिलता है और SGST (State GST) राज्य सरकार को मिलता है। दोनों मिलकर कुल GST बनता है। उदाहरण: 18% GST = 9% CGST + 9% SGST।"
+        }
+      }]
+    }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #0f172a, #1e293b);
+            min-height: 100vh;
+        }
+
+        .info-box {
+            background: rgba(20, 184, 166, 0.1);
+            border-left: 4px solid #14b8a6;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0.5rem;
+        }
+
+        .formula-box {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+        }
+
+        .formula-box code {
+            color: #14b8a6;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body class="text-slate-200 font-sans">
+
+    <!-- Navigation -->
+    <nav class="w-full bg-slate-900/80 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
+            <a href="../index.html"
+                class="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">
+                FreeProducts24
+            </a>
+            <div class="flex gap-4 sm:gap-6 text-xs sm:text-sm">
+                <a href="../index.html" class="text-slate-400 hover:text-white transition">Tools</a>
+                <a href="index.html" class="text-brand-500 hover:text-brand-400 transition">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+        <article class="prose prose-invert max-w-none">
+
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6">
+                जीएसटी कैलकुलेटर: भारत में GST कैसे कैलकुलेट करें - पूरी गाइड 2024
+            </h1>
+
+            <div class="flex flex-wrap gap-4 text-sm text-slate-400 mb-8">
+                <span>📅 21 जनवरी 2024</span>
+                <span>⏱️ 10 मिनट पढ़ें</span>
+                <span>💰 वित्तीय टूल्स</span>
+            </div>
+
+            <!-- CTA Button -->
+            <div
+                class="bg-gradient-to-r from-brand-500/20 to-cyan-500/20 rounded-2xl p-6 border border-brand-500/30 text-center mb-8">
+                <p class="text-lg mb-4">GST तुरंत कैलकुलेट करें - 100% फ्री!</p>
+                <a href="../gst-calculator.html"
+                    class="inline-block bg-brand-500 hover:bg-brand-600 text-white font-semibold px-8 py-3 rounded-xl transition shadow-lg">
+                    🧮 जीएसटी कैलकुलेटर इस्तेमाल करें
+                </a>
+            </div>
+
+            <p class="text-lg text-slate-300 leading-relaxed mb-6">
+                क्या आप जानना चाहते हैं कि <strong>भारत में GST (जीएसटी) कैसे कैलकुलेट</strong> करते हैं?
+                चाहे आप बिज़नेस ओनर हों, दुकानदार हों, या ग्राहक - GST की सही गणना करना बहुत जरूरी है।
+                इस complete guide में हम आपको बताएंगे कि कैसे आप हमारे <strong>फ्री जीएसटी कैलकुलेटर</strong>
+                से आसानी से CGST, SGST, और IGST कैलकुलेट कर सकते हैं।
+            </p>
+
+            <h2 class="text-2xl sm:text-3xl font-bold text-white mt-12 mb-6">📋 विषय सूची</h2>
+            <ul class="space-y-2 text-brand-400">
+                <li><a href="#what-is-gst" class="hover:text-brand-300">• जीएसटी क्या है?</a></li>
+                <li><a href="#gst-types" class="hover:text-brand-300">• जीएसटी के प्रकार (CGST, SGST, IGST)</a></li>
+                <li><a href="#gst-rates" class="hover:text-brand-300">• जीएसटी की दरें</a></li>
+                <li><a href="#gst-formula" class="hover:text-brand-300">• जीएसटी कैलकुलेशन फॉर्मूला</a></li>
+                <li><a href="#how-to-use" class="hover:text-brand-300">• कैलकुलेटर का उपयोग कैसे करें</a></li>
+                <li><a href="#examples" class="hover:text-brand-300">• व्यावहारिक उदाहरण</a></li>
+                <li><a href="#tips" class="hover:text-brand-300">• बिज़नेस के लिए टिप्स</a></li>
+                <li><a href="#faq" class="hover:text-brand-300">• अक्सर पूछे जाने वाले सवाल</a></li>
+            </ul>
+
+            <h2 id="what-is-gst" class="text-2xl sm:text-3xl font-bold text-white mt-12 mb-6">💼 जीएसटी क्या है?</h2>
+            <p class="text-slate-300 leading-relaxed mb-4">
+                <strong>GST (Goods and Services Tax)</strong> यानी वस्तु एवं सेवा कर भारत में
+                1 जुलाई 2017 से लागू एक अप्रत्यक्ष कर (Indirect Tax) है। यह "One Nation, One Tax"
+                के सिद्धांत पर आधारित है।
+            </p>
+
+            <div class="info-box">
+                <h4 class="font-bold text-white mb-2">💡 सरल भाषा में:</h4>
+                <p class="text-slate-300">
+                    GST एक ऐसा टैक्स है जो सामान खरीदते या सेवा लेते समय लगता है।
+                    यह पुराने VAT, Service Tax, और Excise Duty की जगह लेता है।
+                    <br><br>
+                    <strong>उदाहरण:</strong> अगर आप ₹1,000 का मोबाइल खरीदते हैं जिस पर 18% GST है,
+                    तो आपको कुल ₹1,180 देने होंगे।
+                </p>
+            </div>
+
+            <h2 id="gst-types" class="text-2xl sm:text-3xl font-bold text-white mt-12 mb-6">🔄 जीएसटी के प्रकार</h2>
+
+            <h3 class="text-xl font-bold text-white mt-8 mb-4">1. CGST (Central GST) - केंद्रीय जीएसटी</h3>
+            <p class="text-slate-300 mb-4">
+                यह केंद्र सरकार को मिलने वाला हिस्सा है। राज्य के अंदर होने वाली बिक्री पर लगता है।
+            </p>
+
+            <h3 class="text-xl font-bold text-white mt-8 mb-4">2. SGST (State GST) - राज्य जीएसटी</h3>
+            <p class="text-slate-300 mb-4">
+                यह राज्य सरकार को मिलने वाला हिस्सा है। राज्य के अंदर होने वाली बिक्री पर लगता है।
+            </p>
+
+            <h3 class="text-xl font-bold text-white mt-8 mb-4">3. IGST (Integrated GST) - एकीकृत जीएसटी</h3>
+            <p class="text-slate-300 mb-4">
+                यह अंतर-राज्य (Inter-state) लेनदेन पर लगता है। जब सामान एक राज्य से दूसरे राज्य में जाता है।
+            </p>
+
+            <div class="overflow-x-auto mb-6 mt-8">
+                <table class="w-full border border-slate-700 rounded-lg">
+                    <thead class="bg-slate-800">
+                        <tr>
+                            <th class="px-4 py-3 text-left">लेनदेन का प्रकार</th>
+                            <th class="px-4 py-3 text-left">GST Type</th>
+                            <th class="px-4 py-3 text-left">उदाहरण</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-300">
+                        <tr class="border-t border-slate-700">
+                            <td class="px-4 py-3">राज्य के अंदर</td>
+                            <td class="px-4 py-3">CGST + SGST</td>
+                            <td class="px-4 py-3">दिल्ली में दिल्ली को बिक्री</td>
+                        </tr>
+                        <tr class="border-t border-slate-700">
+                            <td class="px-4 py-3">राज्यों के बीच</td>
+                            <td class="px-4 py-3">IGST</td>
+                            <td class="px-4 py-3">दिल्ली से मुंबई को बिक्री</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="gst-rates" class="text-2xl sm:text-3xl font-bold text-white mt-12 mb-6">📊 जीएसटी की दरें</h2>
+
+            <p class="text-slate-300 mb-6">भारत में GST की 4 मुख्य दरें (slabs) हैं:</p>
+
+            <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-green-400 text-2xl mb-2">5% GST</h4>
+                    <p class="text-slate-300 text-sm">
+                        <strong>आवश्यक वस्तुएं:</strong><br>
+                        • चाय, कॉफी, चीनी<br>
+                        • खाद्य तेल<br>
+                        • कोयला, दवाइयां
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-blue-400 text-2xl mb-2">12% GST</h4>
+                    <p class="text-slate-300 text-sm">
+                        <strong>प्रोसेस्ड फूड:</strong><br>
+                        • मक्खन, घी, पनीर<br>
+                        • फल जूस<br>
+                        • मोबाइल फोन
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-yellow-400 text-2xl mb-2">18% GST</h4>
+                    <p class="text-slate-300 text-sm">
+                        <strong>अधिकांश सामान:</strong><br>
+                        • बिस्कुट, नमकीन<br>
+                        • साबुन, शैम्पू<br>
+                        • इलेक्ट्रॉनिक्स
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-red-400 text-2xl mb-2">28% GST</h4>
+                    <p class="text-slate-300 text-sm">
+                        <strong>लग्जरी आइटम्स:</strong><br>
+                        • AC, फ्रिज<br>
+                        • कार, बाइक<br>
+                        • सिगरेट, पान मसाला
+                    </p>
+                </div>
+            </div>
+
+            <h2 id="gst-formula" class="text-2xl sm:text-3xl font-bold text-white mt-12 mb-6">🧮 जीएसटी कैलकुलेशन
+                फॉर्मूला</h2>
+
+            <h3 class="text-xl font-bold text-white mt-8 mb-4">1. GST जोड़ना (Add GST)</h3>
+            <div class="formula-box">
+                <h4 class="font-bold text-white mb-3">Formula:</h4>
+                <code>
+                    GST Amount = (Original Price × GST%) / 100<br>
+                    Final Price = Original Price + GST Amount
+                </code>
+            </div>
+
+            <p class="text-slate-300 mb-4"><strong>उदाहरण:</strong></p>
+            <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700 mb-6">
+                <ul class="space-y-2 text-slate-300">
+                    <li>• मूल कीमत = ₹5,000</li>
+                    <li>• GST Rate = 18%</li>
+                    <li>• GST Amount = (5,000 × 18) / 100 = <strong class="text-brand-400">₹900</strong></li>
+                    <li>• अंतिम कीमत = ₹5,000 + ₹900 = <strong class="text-brand-400">₹5,900</strong></li>
+                </ul>
+                <p class="text-brand-400 font-bold text-lg mt-4">
+                    ✅ आपको देना होगा: ₹5,900
+                </p>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mt-8 mb-4">2. GST हटाना (Remove GST)</h3>
+            <div class="formula-box">
+                <h4 class="font-bold text-white mb-3">Formula:</h4>
+                <code>
+                    Original Price = Final Price × 100 / (100 + GST%)<br>
+                    GST Amount = Final Price - Original Price
+                </code>
+            </div>
+
+            <p class="text-slate-300 mb-4"><strong>उदाहरण:</strong></p>
+            <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700 mb-6">
+                <ul class="space-y-2 text-slate-300">
+                    <li>• अंतिम कीमत = ₹11,800</li>
+                    <li>• GST Rate = 18%</li>
+                    <li>• मूल कीमत = 11,800 × 100 / 118 = <strong class="text-brand-400">₹10,000</strong></li>
+                    <li>• GST Amount = ₹11,800 - ₹10,000 = <strong class="text-brand-400">₹1,800</strong></li>
+                </ul>
+                <p class="text-brand-400 font-bold text-lg mt-4">
+                    ✅ मूल कीमत थी: ₹10,000 (GST: ₹1,800)
+                </p>
+            </div>
+
+            <h2 id="how-to-use" class="text-2xl sm:text-3xl font-bold text-white mt-12 mb-6">🎯 कैलकुलेटर का उपयोग कैसे
+                करें</h2>
+
+            <div class="space-y-4">
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-white mb-2">Step 1: कीमत डालें</h4>
+                    <p class="text-slate-300">अपने सामान की मूल कीमत (Original Price) enter करें।</p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-white mb-2">Step 2: GST Rate चुनें</h4>
+                    <p class="text-slate-300">5%, 12%, 18%, या 28% में से select करें।</p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-white mb-2">Step 3: Type चुनें</h4>
+                    <p class="text-slate-300">
+                        • <strong>Exclusive:</strong> GST जोड़ना है<br>
+                        • <strong>Inclusive:</strong> GST हटाना है
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-white mb-2">Step 4: Calculate करें</h4>
+                    <p class="text-slate-300">तुरंत CGST, SGST, और Total Amount देखें!</p>
+                </div>
+            </div>
+
+            <h2 id="examples" class="text-2xl sm:text-3xl font-bold text-white mt-12 mb-6">💡 व्यावहारिक उदाहरण</h2>
+
+            <h3 class="text-xl font-bold text-white mt-8 mb-4">Example 1: मोबाइल खरीदना (18% GST)</h3>
+            <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700 mb-6">
+                <p class="text-slate-300 mb-4"><strong>Scenario:</strong> आप ₹20,000 का मोबाइल खरीद रहे हैं</p>
+                <ul class="space-y-2 text-slate-300">
+                    <li>• मूल कीमत: ₹20,000</li>
+                    <li>• GST Rate: 18%</li>
+                    <li>• GST Amount: ₹3,600</li>
+                    <li>• CGST (9%): ₹1,800</li>
+                    <li>• SGST (9%): ₹1,800</li>
+                </ul>
+                <p class="text-brand-400 font-bold text-xl mt-4">
+                    ✅ आपको देना होगा: ₹23,600
+                </p>
+            </div>
+
+            <h3 class="text-xl font-bold text-white mt-8 mb-4">Example 2: रेस्टोरेंट बिल (5% GST)</h3>
+            <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700 mb-6">
+                <p class="text-slate-300 mb-4"><strong>Scenario:</strong> आपका बिल ₹1,050 आया (GST included)</p>
+                <ul class="space-y-2 text-slate-300">
+                    <li>• बिल Amount: ₹1,050</li>
+                    <li>• GST Rate: 5%</li>
+                    <li>• मूल कीमत: ₹1,000</li>
+                    <li>• GST Amount: ₹50</li>
+                    <li>• CGST (2.5%): ₹25</li>
+                    <li>• SGST (2.5%): ₹25</li>
+                </ul>
+                <p class="text-brand-400 font-bold text-xl mt-4">
+                    ✅ खाने की कीमत: ₹1,000 (GST: ₹50)
+                </p>
+            </div>
+
+            <h2 id="tips" class="text-2xl sm:text-3xl font-bold text-white mt-12 mb-6">💼 बिज़नेस के लिए टिप्स</h2>
+
+            <div class="space-y-4 text-slate-300">
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-white mb-2">1. सही GST Rate जानें</h4>
+                    <p>अपने प्रोडक्ट की सही GST rate पता करें। गलत rate से penalty हो सकती है।</p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-white mb-2">2. Invoice में GST Breakup दें</h4>
+                    <p>CGST, SGST, या IGST अलग-अलग दिखाएं। यह legal requirement है।</p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-white mb-2">3. Input Tax Credit लें</h4>
+                    <p>आपने जो GST दिया है, उसका credit claim करें। यह आपका अधिकार है।</p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700">
+                    <h4 class="font-bold text-white mb-2">4. समय पर Return File करें</h4>
+                    <p>GSTR-1, GSTR-3B समय पर भरें। Late filing पर penalty लगती है।</p>
+                </div>
+            </div>
+
+            <h2 id="faq" class="text-2xl sm:text-3xl font-bold text-white mt-12 mb-6">❓ अक्सर पूछे जाने वाले सवाल</h2>
+
+            <div class="space-y-4">
+                <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+                    <h3 class="font-bold text-white mb-3">Q1. जीएसटी क्या है?</h3>
+                    <p class="text-slate-300">
+                        GST (Goods and Services Tax) भारत में लागू एक अप्रत्यक्ष कर है जो सामान और सेवाओं पर लगता है।
+                        यह 1 जुलाई 2017 से लागू हुआ और इसने पुराने VAT, Service Tax को replace किया।
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+                    <h3 class="font-bold text-white mb-3">Q2. जीएसटी की दरें क्या हैं?</h3>
+                    <p class="text-slate-300">
+                        भारत में GST की 4 मुख्य दरें हैं: 5% (आवश्यक वस्तुएं), 12% (प्रोसेस्ड फूड),
+                        18% (अधिकांश सामान), और 28% (लग्जरी आइटम्स)।
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+                    <h3 class="font-bold text-white mb-3">Q3. CGST और SGST में क्या अंतर है?</h3>
+                    <p class="text-slate-300">
+                        CGST (Central GST) केंद्र सरकार को मिलता है और SGST (State GST) राज्य सरकार को मिलता है।
+                        दोनों मिलकर कुल GST बनता है। उदाहरण: 18% GST = 9% CGST + 9% SGST।
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+                    <h3 class="font-bold text-white mb-3">Q4. IGST कब लगता है?</h3>
+                    <p class="text-slate-300">
+                        IGST (Integrated GST) तब लगता है जब सामान एक राज्य से दूसरे राज्य में भेजा जाता है।
+                        उदाहरण: दिल्ली से मुंबई को बिक्री पर IGST लगेगा।
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+                    <h3 class="font-bold text-white mb-3">Q5. क्या यह कैलकुलेटर फ्री है?</h3>
+                    <p class="text-slate-300">
+                        जी हां! हमारा GST कैलकुलेटर 100% फ्री है। कोई रजिस्ट्रेशन या पेमेंट की जरूरत नहीं है।
+                        आप जितनी बार चाहें उपयोग कर सकते हैं।
+                    </p>
+                </div>
+
+                <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700">
+                    <h3 class="font-bold text-white mb-3">Q6. GST Registration कब जरूरी है?</h3>
+                    <p class="text-slate-300">
+                        अगर आपका सालाना turnover ₹40 लाख से ज्यादा है (services के लिए ₹20 लाख),
+                        तो GST registration अनिवार्य है। कुछ राज्यों में यह limit ₹20 लाख है।
+                    </p>
+                </div>
+            </div>
+
+            <!-- Related Tools -->
+            <div
+                class="mt-12 bg-gradient-to-r from-slate-800/50 to-slate-700/50 rounded-2xl p-8 border border-slate-600">
+                <h2 class="text-2xl font-bold text-white mb-6">🔗 संबंधित टूल्स</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <a href="../salary-calculator.html"
+                        class="bg-slate-800/50 hover:bg-slate-700/50 p-4 rounded-xl border border-slate-600 hover:border-brand-500 transition">
+                        <span class="text-2xl mb-2 block">💰</span>
+                        <h3 class="font-bold text-white mb-1">Salary Calculator</h3>
+                        <p class="text-sm text-slate-400">CTC से In-Hand Salary निकालें</p>
+                    </a>
+                    <a href="../emi-calculator.html"
+                        class="bg-slate-800/50 hover:bg-slate-700/50 p-4 rounded-xl border border-slate-600 hover:border-brand-500 transition">
+                        <span class="text-2xl mb-2 block">🏠</span>
+                        <h3 class="font-bold text-white mb-1">EMI Calculator</h3>
+                        <p class="text-sm text-slate-400">लोन EMI कैलकुलेट करें</p>
+                    </a>
+                    <a href="../sip-calculator.html"
+                        class="bg-slate-800/50 hover:bg-slate-700/50 p-4 rounded-xl border border-slate-600 hover:border-brand-500 transition">
+                        <span class="text-2xl mb-2 block">📈</span>
+                        <h3 class="font-bold text-white mb-1">SIP Calculator</h3>
+                        <p class="text-sm text-slate-400">निवेश रिटर्न कैलकुलेट करें</p>
+                    </a>
+                    <a href="../percentage-calculator.html"
+                        class="bg-slate-800/50 hover:bg-slate-700/50 p-4 rounded-xl border border-slate-600 hover:border-brand-500 transition">
+                        <span class="text-2xl mb-2 block">%</span>
+                        <h3 class="font-bold text-white mb-1">Percentage Calculator</h3>
+                        <p class="text-sm text-slate-400">प्रतिशत कैलकुलेट करें</p>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Final CTA -->
+            <div
+                class="mt-12 bg-gradient-to-r from-brand-500/20 to-cyan-500/20 rounded-2xl p-8 border border-brand-500/30 text-center">
+                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">अभी GST कैलकुलेट करें!</h2>
+                <p class="text-slate-300 mb-6">हमारे फ्री जीएसटी कैलकुलेटर से तुरंत GST की गणना करें।</p>
+                <a href="../gst-calculator.html"
+                    class="inline-block bg-brand-500 hover:bg-brand-600 text-white font-semibold px-8 py-4 rounded-xl transition shadow-lg text-lg">
+                    🧮 जीएसटी कैलकुलेटर खोलें →
+                </a>
+            </div>
+
+        </article>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-8 mt-16 bg-slate-900/40">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-slate-500 text-sm mb-4">&copy; 2024 FreeProducts24. All Rights Reserved.</p>
+            <div class="flex justify-center gap-6 text-xs text-slate-600">
+                <a href="../privacy.html" class="hover:text-brand-500 transition">Privacy Policy</a>
+                <a href="../about.html" class="hover:text-brand-500 transition">About</a>
+                <a href="../index.html" class="hover:text-brand-500 transition">Home</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
