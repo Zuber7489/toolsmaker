@@ -133,6 +133,53 @@
                 </div>
             </div>
         </section>
+
+        <!-- 4. Subscription Savings (New for Blog Users) -->
+        <section class="calc-card rounded-2xl p-6 md:p-8 shadow-lg border border-brand-500/20 bg-brand-500/5"
+            id="savings-calc">
+            <div class="mb-6 flex justify-between items-center">
+                <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                    <span class="bg-brand-500 text-white p-1 rounded">💰</span> Subscription Savings Calculator
+                </h3>
+                <span class="text-xs font-semibold text-brand-400 bg-brand-500/10 px-2 py-1 rounded">Recommended</span>
+            </div>
+
+            <p class="text-slate-400 text-sm mb-6">Compare Monthly vs Yearly plans (Amazon Prime, Netflix, etc.) to see
+                how much you save.</p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <div>
+                        <label class="text-xs text-slate-500 mb-1 block">Monthly Plan Cost</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-slate-500">₹</span>
+                            <input type="number" id="p4-monthly" value="299"
+                                class="w-full bg-slate-900/80 border border-slate-700 rounded-lg p-3 pl-8 text-white font-bold focus:outline-none focus:border-brand-500 transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-xs text-slate-500 mb-1 block">Yearly Plan Cost</label>
+                        <div class="relative">
+                            <span class="absolute left-3 top-3 text-slate-500">₹</span>
+                            <input type="number" id="p4-yearly" value="1499"
+                                class="w-full bg-slate-900/80 border border-slate-700 rounded-lg p-3 pl-8 text-white font-bold focus:outline-none focus:border-brand-500 transition">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900/50 rounded-xl p-5 border border-slate-700 flex flex-col justify-center">
+                    <div class="text-center">
+                        <p class="text-slate-400 text-sm mb-1">You Save (Per Year)</p>
+                        <p class="text-3xl font-bold text-green-400 mb-2" id="p4-savings-amt">₹2089</p>
+                        <div class="inline-block bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-bold mb-4"
+                            id="p4-savings-pct">
+                            58% OFF
+                        </div>
+                        <p class="text-xs text-slate-500" id="p4-verdict">Buying Yearly is Cheaper!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script>
@@ -178,6 +225,50 @@
         }
         p3.v1.addEventListener('input', calc3);
         p3.v2.addEventListener('input', calc3);
+
+        // Calc 4: Subscription Savings
+        const p4 = {
+            monthly: document.getElementById('p4-monthly'),
+            yearly: document.getElementById('p4-yearly'),
+            amt: document.getElementById('p4-savings-amt'),
+            pct: document.getElementById('p4-savings-pct'),
+            verdict: document.getElementById('p4-verdict')
+        };
+
+        function calc4() {
+            const m = parseFloat(p4.monthly.value) || 0;
+            const y = parseFloat(p4.yearly.value) || 0;
+
+            if (m === 0 && y === 0) return;
+
+            const totalMonthlyCost = m * 12;
+            const savings = totalMonthlyCost - y;
+            const savingsPct = (savings / totalMonthlyCost) * 100;
+
+            if (savings > 0) {
+                p4.amt.innerText = "₹" + savings.toFixed(0);
+                p4.pct.innerText = savingsPct.toFixed(0) + "% OFF";
+                p4.pct.className = "inline-block bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-bold mb-4";
+                p4.verdict.innerText = "Buying Yearly is Cheaper!";
+                p4.amt.className = "text-3xl font-bold text-green-400 mb-2";
+            } else if (savings < 0) {
+                p4.amt.innerText = "-₹" + Math.abs(savings).toFixed(0);
+                p4.pct.innerText = "Expensive";
+                p4.pct.className = "inline-block bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-sm font-bold mb-4";
+                p4.verdict.innerText = "Monthly plan is better (if short term)";
+                p4.amt.className = "text-3xl font-bold text-red-400 mb-2";
+            } else {
+                p4.amt.innerText = "₹0";
+                p4.pct.innerText = "0% OFF";
+                p4.verdict.innerText = "Both costs are same";
+            }
+        }
+
+        p4.monthly.addEventListener('input', calc4);
+        p4.yearly.addEventListener('input', calc4);
+
+        // Run once on load
+        calc4();
 
     </script>
 </body>
