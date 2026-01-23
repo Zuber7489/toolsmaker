@@ -32,43 +32,53 @@
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image:
-                radial-gradient(at 100% 0%, hsla(250, 40%, 15%, 1) 0, transparent 50%),
-                radial-gradient(at 0% 100%, hsla(330, 40%, 15%, 1) 0, transparent 50%);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
 
         .glass-panel {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
         }
 
         .font-card:hover {
-            border-color: #14b8a6;
-            background: rgba(30, 41, 59, 0.8);
+            border-color: #000000;
+            background: #ffffff;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased p-4 pl-1 pb-10">
+<body class="text-gray-900 antialiased p-4 pl-1 pb-10">
 
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="max-w-5xl mx-auto space-y-10">
         <div class="text-center">
-            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4">Fancy Font Generator</h1>
-            <p class="text-slate-400 text-lg">Type your text below to generate 𝒸𝑜𝑜𝓁 𝓈𝓉𝓎𝓁𝑒𝓈 for your bio or
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Fancy Font Generator</h1>
+            <p class="text-gray-600 text-lg">Type your text below to generate 𝒸𝑜𝑜𝓁 𝓈𝓉𝓎𝓁𝑒𝓈 for your bio or
                 status.</p>
         </div>
 
-        <div class="sticky top-24 z-40 bg-[#0f172a] pt-4 pb-6 shadow-xl border-b border-slate-800">
+        <div class="sticky top-24 z-40 bg-gray-50/95 backdrop-blur-sm pt-4 pb-6 shadow-sm border-b border-gray-200">
             <div class="max-w-3xl mx-auto relative">
                 <input type="text" id="inputText" placeholder="Type something here..."
-                    class="w-full bg-slate-800 border-2 border-slate-700 text-white text-xl p-4 rounded-xl focus:outline-none focus:border-brand-500 transition shadow-inner"
+                    class="w-full bg-white border-2 border-gray-300 text-gray-900 text-xl p-4 rounded-xl focus:outline-none focus:border-black transition shadow-sm"
                     value="Free Products 24">
-                <div class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 text-sm hidden md:block">
+                <div class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-sm hidden md:block">
                     Start Typing...
                 </div>
             </div>
@@ -79,9 +89,10 @@
         </div>
 
         <!-- SEO Content -->
-        <article class="prose prose-invert max-w-none mt-12 bg-slate-800/30 p-8 rounded-3xl border border-white/5">
-            <h2 class="text-2xl font-bold text-white mb-4">About Fancy Fonts</h2>
-            <p class="text-slate-400">
+        <!-- SEO Content -->
+        <article class="prose prose-gray max-w-none mt-12 bg-white p-8 rounded-3xl border border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">About Fancy Fonts</h2>
+            <p class="text-gray-600">
                 This tool converts normal text into various "fancy" styles using Unicode characters.
                 These are not actual fonts like Arial or Times New Roman, but sets of symbols that look like letters.
                 You can copy and paste them anywhere: Instagram (Bio, Captions, Comments), Twitter, Facebook, TikTok,
@@ -150,15 +161,15 @@
                 }
 
                 const card = document.createElement('div');
-                card.className = "font-card bg-slate-900 border border-slate-700 rounded-xl p-4 flex flex-col gap-2 transition cursor-pointer group";
+                card.className = "font-card bg-white border border-gray-200 rounded-xl p-4 flex flex-col gap-2 transition cursor-pointer group shadow-sm";
                 card.onclick = () => copyToClipboard(result, card);
 
                 card.innerHTML = `
-                    <div class="flex justify-between items-center text-xs text-slate-500 uppercase font-bold tracking-wider">
+                    <div class="flex justify-between items-center text-xs text-gray-500 uppercase font-bold tracking-wider">
                         <span>${style.name}</span>
-                        <span class="opacity-0 group-hover:opacity-100 transition text-brand-500">Click to Copy</span>
+                        <span class="opacity-0 group-hover:opacity-100 transition text-black">Click to Copy</span>
                     </div>
-                    <div class="text-xl md:text-2xl text-white font-medium truncate">${result}</div>
+                    <div class="text-xl md:text-2xl text-gray-900 font-medium truncate">${result}</div>
                 `;
                 grid.appendChild(card);
             });
@@ -170,8 +181,8 @@
 
                 // Flash effect
                 const originalBorder = cardElement.style.borderColor;
-                cardElement.style.borderColor = '#14b8a6';
-                cardElement.style.backgroundColor = 'rgba(20, 184, 166, 0.1)';
+                cardElement.style.borderColor = '#000000';
+                cardElement.style.backgroundColor = '#f3f4f6';
 
                 setTimeout(() => {
                     cardElement.style.borderColor = '';
