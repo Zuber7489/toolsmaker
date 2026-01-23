@@ -1,0 +1,122 @@
+[
+    {
+        "slug": "home-loan",
+        "name": "Home Loan",
+        "loanAmount": "5000000",
+        "interestRate": "8.5",
+        "tenure": "20",
+        "description": "Calculate EMI for your dream home loan",
+        "category": "Property",
+        "eligibility": "Salaried & Self-employed",
+        "maxTenure": "30 years",
+        "processingFee": "0.5-1%"
+    },
+    {
+        "slug": "car-loan",
+        "name": "Car Loan",
+        "loanAmount": "800000",
+        "interestRate": "9.5",
+        "tenure": "5",
+        "description": "Calculate EMI for your new car purchase",
+        "category": "Vehicle",
+        "eligibility": "Salaried & Self-employed",
+        "maxTenure": "7 years",
+        "processingFee": "1-2%"
+    },
+    {
+        "slug": "personal-loan",
+        "name": "Personal Loan",
+        "loanAmount": "500000",
+        "interestRate": "12",
+        "tenure": "3",
+        "description": "Calculate EMI for personal expenses and emergencies",
+        "category": "Personal",
+        "eligibility": "Salaried individuals",
+        "maxTenure": "5 years",
+        "processingFee": "2-3%"
+    },
+    {
+        "slug": "education-loan",
+        "name": "Education Loan",
+        "loanAmount": "1500000",
+        "interestRate": "10",
+        "tenure": "10",
+        "description": "Calculate EMI for higher education in India or abroad",
+        "category": "Education",
+        "eligibility": "Students with admission",
+        "maxTenure": "15 years",
+        "processingFee": "0-1%"
+    },
+    {
+        "slug": "business-loan",
+        "name": "Business Loan",
+        "loanAmount": "2000000",
+        "interestRate": "11",
+        "tenure": "5",
+        "description": "Calculate EMI for business expansion and working capital",
+        "category": "Business",
+        "eligibility": "Self-employed & Business owners",
+        "maxTenure": "10 years",
+        "processingFee": "1-2%"
+    },
+    {
+        "slug": "two-wheeler-loan",
+        "name": "Two Wheeler Loan",
+        "loanAmount": "100000",
+        "interestRate": "10",
+        "tenure": "3",
+        "description": "Calculate EMI for bike or scooter purchase",
+        "category": "Vehicle",
+        "eligibility": "Salaried & Self-employed",
+        "maxTenure": "5 years",
+        "processingFee": "1-2%"
+    },
+    {
+        "slug": "gold-loan",
+        "name": "Gold Loan",
+        "loanAmount": "300000",
+        "interestRate": "9",
+        "tenure": "2",
+        "description": "Calculate EMI for loan against gold jewelry",
+        "category": "Secured",
+        "eligibility": "Anyone with gold",
+        "maxTenure": "3 years",
+        "processingFee": "0.5-1%"
+    },
+    {
+        "slug": "plot-loan",
+        "name": "Plot Loan",
+        "loanAmount": "3000000",
+        "interestRate": "9.5",
+        "tenure": "15",
+        "description": "Calculate EMI for purchasing land or plot",
+        "category": "Property",
+        "eligibility": "Salaried & Self-employed",
+        "maxTenure": "20 years",
+        "processingFee": "1%"
+    },
+    {
+        "slug": "loan-against-property",
+        "name": "Loan Against Property",
+        "loanAmount": "4000000",
+        "interestRate": "10",
+        "tenure": "15",
+        "description": "Calculate EMI for loan secured by property",
+        "category": "Secured",
+        "eligibility": "Property owners",
+        "maxTenure": "20 years",
+        "processingFee": "1-2%"
+    },
+    {
+        "slug": "credit-card-emi",
+        "name": "Credit Card EMI",
+        "loanAmount": "50000",
+        "interestRate": "15",
+        "tenure": "1",
+        "description": "Calculate EMI for credit card purchases",
+        "category": "Personal",
+        "eligibility": "Credit card holders",
+        "maxTenure": "2 years",
+        "processingFee": "0%"
+    }
+]

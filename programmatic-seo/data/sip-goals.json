@@ -1,0 +1,102 @@
+[
+    {
+        "slug": "retirement",
+        "name": "Retirement Planning",
+        "targetAmount": "50000000",
+        "monthlySIP": "10000",
+        "duration": "25",
+        "description": "Build a retirement corpus of ₹5 crore with systematic investments",
+        "ageGroup": "25-40 years",
+        "riskProfile": "Moderate to Aggressive"
+    },
+    {
+        "slug": "child-education",
+        "name": "Child Education",
+        "targetAmount": "5000000",
+        "monthlySIP": "5000",
+        "duration": "15",
+        "description": "Save for your child's higher education with disciplined investing",
+        "ageGroup": "Parents with young children",
+        "riskProfile": "Moderate"
+    },
+    {
+        "slug": "house-purchase",
+        "name": "House Purchase",
+        "targetAmount": "10000000",
+        "monthlySIP": "15000",
+        "duration": "10",
+        "description": "Accumulate down payment for your dream home",
+        "ageGroup": "25-35 years",
+        "riskProfile": "Moderate to Aggressive"
+    },
+    {
+        "slug": "wealth-creation",
+        "name": "Wealth Creation",
+        "targetAmount": "10000000",
+        "monthlySIP": "10000",
+        "duration": "20",
+        "description": "Build long-term wealth through equity mutual funds",
+        "ageGroup": "All age groups",
+        "riskProfile": "Aggressive"
+    },
+    {
+        "slug": "marriage",
+        "name": "Marriage Planning",
+        "targetAmount": "2000000",
+        "monthlySIP": "8000",
+        "duration": "5",
+        "description": "Save for wedding expenses without financial stress",
+        "ageGroup": "20-30 years",
+        "riskProfile": "Moderate"
+    },
+    {
+        "slug": "emergency-fund",
+        "name": "Emergency Fund",
+        "targetAmount": "500000",
+        "monthlySIP": "5000",
+        "duration": "3",
+        "description": "Build a safety net for unexpected expenses",
+        "ageGroup": "All age groups",
+        "riskProfile": "Conservative"
+    },
+    {
+        "slug": "car-purchase",
+        "name": "Car Purchase",
+        "targetAmount": "1000000",
+        "monthlySIP": "10000",
+        "duration": "3",
+        "description": "Save for your dream car without taking a loan",
+        "ageGroup": "25-40 years",
+        "riskProfile": "Moderate"
+    },
+    {
+        "slug": "vacation",
+        "name": "Dream Vacation",
+        "targetAmount": "500000",
+        "monthlySIP": "10000",
+        "duration": "2",
+        "description": "Plan that international trip you've always wanted",
+        "ageGroup": "All age groups",
+        "riskProfile": "Conservative to Moderate"
+    },
+    {
+        "slug": "business-startup",
+        "name": "Business Startup",
+        "targetAmount": "5000000",
+        "monthlySIP": "20000",
+        "duration": "5",
+        "description": "Accumulate capital to start your own business",
+        "ageGroup": "25-40 years",
+        "riskProfile": "Aggressive"
+    },
+    {
+        "slug": "financial-freedom",
+        "name": "Financial Freedom",
+        "targetAmount": "30000000",
+        "monthlySIP": "25000",
+        "duration": "15",
+        "description": "Achieve financial independence and retire early",
+        "ageGroup": "30-45 years",
+        "riskProfile": "Aggressive"
+    }
+]

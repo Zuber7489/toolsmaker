@@ -5,6 +5,8 @@ const path = require('path');
 const cities = JSON.parse(fs.readFileSync('./data/cities.json', 'utf8'));
 const professions = JSON.parse(fs.readFileSync('./data/professions.json', 'utf8'));
 const industries = JSON.parse(fs.readFileSync('./data/industries.json', 'utf8'));
+const sipGoals = JSON.parse(fs.readFileSync('./data/sip-goals.json', 'utf8'));
+const loanTypes = JSON.parse(fs.readFileSync('./data/loan-types.json', 'utf8'));
 
 // Configuration
 const CONFIG = {
@@ -142,6 +144,70 @@ function generateIndustryPages(tool, industries) {
     return count;
 }
 
+// Generate SIP goal-based pages
+function generateSIPGoalPages(sipGoals) {
+    console.log(`\n🎯 Generating SIP goal-based pages...`);
+    const template = readTemplate('sip-calculator-goal');
+    let count = 0;
+
+    sipGoals.forEach(goal => {
+        const data = {
+            GOAL: goal.name,
+            GOAL_SLUG: goal.slug,
+            TARGET_AMOUNT: goal.targetAmount,
+            MONTHLY_SIP: goal.monthlySIP,
+            DURATION: goal.duration,
+            DESCRIPTION: goal.description,
+            AGE_GROUP: goal.ageGroup,
+            RISK_PROFILE: goal.riskProfile,
+            YEAR: new Date().getFullYear()
+        };
+
+        const html = replacePlaceholders(template, data);
+        const filename = `sip-calculator-${goal.slug}.html`;
+        const filepath = path.join(CONFIG.OUTPUT_DIR, filename);
+
+        fs.writeFileSync(filepath, html);
+        count++;
+    });
+
+    console.log(`✅ Generated ${count} SIP goal-based pages`);
+    return count;
+}
+
+// Generate EMI loan-type pages
+function generateEMILoanPages(loanTypes) {
+    console.log(`\n💳 Generating EMI loan-type pages...`);
+    const template = readTemplate('emi-calculator-loan');
+    let count = 0;
+
+    loanTypes.forEach(loan => {
+        const data = {
+            LOAN_TYPE: loan.name,
+            LOAN_TYPE_SLUG: loan.slug,
+            LOAN_AMOUNT: loan.loanAmount,
+            INTEREST_RATE: loan.interestRate,
+            TENURE: loan.tenure,
+            DESCRIPTION: loan.description,
+            CATEGORY: loan.category,
+            ELIGIBILITY: loan.eligibility,
+            MAX_TENURE: loan.maxTenure,
+            PROCESSING_FEE: loan.processingFee,
+            YEAR: new Date().getFullYear()
+        };
+
+        const html = replacePlaceholders(template, data);
+        const filename = `${loan.slug}-emi-calculator.html`;
+        const filepath = path.join(CONFIG.OUTPUT_DIR, filename);
+
+        fs.writeFileSync(filepath, html);
+        count++;
+    });
+
+    console.log(`✅ Generated ${count} EMI loan-type pages`);
+    return count;
+}
+
 // Generate sitemap
 function generateSitemap(baseUrl = 'https://freeproducts24.com') {
     console.log('\n🗺️  Generating sitemap...');
@@ -231,6 +297,12 @@ function main() {
     // Generate GST Calculator pages
     totalPages += generateLocationPages(CONFIG.TOOLS.GST_CALCULATOR, cities);
     totalPages += generateIndustryPages(CONFIG.TOOLS.GST_CALCULATOR, industries);
+
+    // Generate SIP Calculator pages
+    totalPages += generateSIPGoalPages(sipGoals);
+
+    // Generate EMI Calculator pages
+    totalPages += generateEMILoanPages(loanTypes);
 
     // Generate sitemap and index
     generateSitemap();
