@@ -90,15 +90,13 @@
 
     <style>
         body {
-            background-color: #0f172a;
-            background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%), radial-gradient(at 100% 100%, hsla(225, 39%, 30%, 1) 0, transparent 50%);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
 
         .glass-panel {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
         }
 
         .progress-ring-circle {
@@ -109,100 +107,113 @@
     </style>
 </head>
 
-<body class="text-slate-200 antialiased">
+<body class="text-gray-900 antialiased">
     <!-- Navbar -->
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="pt-12 pb-12 px-4 max-w-5xl mx-auto">
         <header class="text-center mb-10">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Social Media Character Counter</h1>
-            <p class="text-slate-400">Write perfectly sized content for Instagram, Twitter, and YouTube.</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Social Media Character Counter</h1>
+            <p class="text-gray-600">Write perfectly sized content for Instagram, Twitter, and YouTube.</p>
         </header>
 
-        <section class="glass-panel rounded-2xl p-6 shadow-2xl">
+        <section class="glass-panel rounded-2xl p-6 shadow-sm">
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Main Input Area -->
                 <div class="md:col-span-2 space-y-4">
                     <div class="flex justify-between items-center">
-                        <label class="text-sm font-medium text-slate-300">Enter your text below</label>
+                        <label class="text-sm font-medium text-gray-600">Enter your text below</label>
                         <div class="space-x-2">
                             <button id="copyBtn"
-                                class="text-xs bg-slate-700 hover:bg-slate-600 px-3 py-1 rounded text-white transition">Copy</button>
+                                class="text-xs bg-gray-200 hover:bg-black hover:text-white text-gray-900 px-3 py-1 rounded transition">Copy</button>
                             <button id="clearBtn"
-                                class="text-xs bg-red-500/10 text-red-400 hover:bg-red-500/20 px-3 py-1 rounded transition">Clear</button>
+                                class="text-xs bg-red-50 text-red-600 hover:bg-red-100 px-3 py-1 rounded transition">Clear</button>
                         </div>
                     </div>
                     <textarea id="textInput" rows="12"
-                        class="w-full bg-slate-900/50 border border-slate-700 rounded-xl p-4 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-brand-500 transition resize-none font-mono text-base"
+                        class="w-full bg-gray-50 border border-gray-300 rounded-xl p-4 text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-black transition resize-none font-mono text-base"
                         placeholder="Start typing or pasting your content here..."></textarea>
 
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-                        <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
-                            <div class="text-2xl font-bold text-white" id="charCount">0</div>
-                            <div class="text-xs text-slate-500 uppercase">Characters</div>
+                        <div class="bg-gray-100 p-3 rounded-lg border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900" id="charCount">0</div>
+                            <div class="text-xs text-gray-500 uppercase">Characters</div>
                         </div>
-                        <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
-                            <div class="text-2xl font-bold text-white" id="wordCount">0</div>
-                            <div class="text-xs text-slate-500 uppercase">Words</div>
+                        <div class="bg-gray-100 p-3 rounded-lg border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900" id="wordCount">0</div>
+                            <div class="text-xs text-gray-500 uppercase">Words</div>
                         </div>
-                        <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
-                            <div class="text-2xl font-bold text-white" id="sentenceCount">0</div>
-                            <div class="text-xs text-slate-500 uppercase">Sentences</div>
+                        <div class="bg-gray-100 p-3 rounded-lg border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900" id="sentenceCount">0</div>
+                            <div class="text-xs text-gray-500 uppercase">Sentences</div>
                         </div>
-                        <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
-                            <div class="text-2xl font-bold text-white" id="paraCount">0</div>
-                            <div class="text-xs text-slate-500 uppercase">Paragraphs</div>
+                        <div class="bg-gray-100 p-3 rounded-lg border border-gray-200">
+                            <div class="text-2xl font-bold text-gray-900" id="paraCount">0</div>
+                            <div class="text-xs text-gray-500 uppercase">Paragraphs</div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Platform Specifics -->
                 <div class="space-y-4">
-                    <h3 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-2">Platform Limits</h3>
+                    <h3 class="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Platform Limits</h3>
 
                     <!-- Twitter -->
-                    <div class="bg-slate-800/30 p-4 rounded-xl border border-slate-700/50">
+                    <div class="bg-white p-4 rounded-xl border border-gray-200">
                         <div class="flex justify-between text-sm mb-1">
-                            <span class="text-blue-400 font-medium">Twitter / X Post</span>
-                            <span class="text-slate-400" id="twitterStats">0 / 280</span>
+                            <span class="text-blue-600 font-medium">Twitter / X Post</span>
+                            <span class="text-gray-500" id="twitterStats">0 / 280</span>
                         </div>
-                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
                             <div id="twitterBar" class="bg-blue-500 h-full rounded-full transition-all duration-300"
                                 style="width: 0%"></div>
                         </div>
                     </div>
 
                     <!-- Instagram Bio -->
-                    <div class="bg-slate-800/30 p-4 rounded-xl border border-slate-700/50">
+                    <div class="bg-white p-4 rounded-xl border border-gray-200">
                         <div class="flex justify-between text-sm mb-1">
-                            <span class="text-pink-400 font-medium">Instagram Bio</span>
-                            <span class="text-slate-400" id="instaBioStats">0 / 150</span>
+                            <span class="text-pink-600 font-medium">Instagram Bio</span>
+                            <span class="text-gray-500" id="instaBioStats">0 / 150</span>
                         </div>
-                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
                             <div id="instaBioBar" class="bg-pink-500 h-full rounded-full transition-all duration-300"
                                 style="width: 0%"></div>
                         </div>
                     </div>
 
                     <!-- YouTube Title -->
-                    <div class="bg-slate-800/30 p-4 rounded-xl border border-slate-700/50">
+                    <div class="bg-white p-4 rounded-xl border border-gray-200">
                         <div class="flex justify-between text-sm mb-1">
-                            <span class="text-red-400 font-medium">YouTube Title</span>
-                            <span class="text-slate-400" id="ytTitleStats">0 / 100</span>
+                            <span class="text-red-600 font-medium">YouTube Title</span>
+                            <span class="text-gray-500" id="ytTitleStats">0 / 100</span>
                         </div>
-                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
                             <div id="ytTitleBar" class="bg-red-500 h-full rounded-full transition-all duration-300"
                                 style="width: 0%"></div>
                         </div>
                     </div>
 
                     <!-- LinkedIn Headline -->
-                    <div class="bg-slate-800/30 p-4 rounded-xl border border-slate-700/50">
+                    <div class="bg-white p-4 rounded-xl border border-gray-200">
                         <div class="flex justify-between text-sm mb-1">
-                            <span class="text-sky-400 font-medium">LinkedIn Headline</span>
-                            <span class="text-slate-400" id="liHeadlineStats">0 / 220</span>
+                            <span class="text-sky-600 font-medium">LinkedIn Headline</span>
+                            <span class="text-gray-500" id="liHeadlineStats">0 / 220</span>
                         </div>
-                        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden">
+                        <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
                             <div id="liHeadlineBar" class="bg-sky-500 h-full rounded-full transition-all duration-300"
                                 style="width: 0%"></div>
                         </div>
@@ -211,71 +222,75 @@
             </div>
         </section>
 
-        <article class="mt-16 prose prose-invert max-w-none">
-            <h2 class="text-2xl font-bold text-white mb-4">Why use a Character Counter?</h2>
-            <p class="text-slate-400">
+        <article class="mt-16 prose prose-gray max-w-none">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Why use a Character Counter?</h2>
+            <p class="text-gray-600">
                 Every social media platform has different limits for their posts, bios, and titles. Exceeding these
                 limits can result in your message being cut off or your post failing to publish.
                 Our **free online character counter** helps you draft your content to fit perfectly within these
                 constraints.
             </p>
             <div class="grid md:grid-cols-2 gap-8 mt-8">
-                <div class="bg-slate-800/50 p-6 rounded-lg">
-                    <h3 class="text-white font-semibold mb-2">Instagram Bio Limit</h3>
-                    <p class="text-sm text-slate-400">Instagram bios are limited to <strong>150 characters</strong>. Use
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-gray-900 font-semibold mb-2">Instagram Bio Limit</h3>
+                    <p class="text-sm text-gray-600">Instagram bios are limited to <strong>150 characters</strong>. Use
                         this space wisely to convey who you are and what you do.</p>
                 </div>
-                <div class="bg-slate-800/50 p-6 rounded-lg">
-                    <h3 class="text-white font-semibold mb-2">Twitter / X Character Limit</h3>
-                    <p class="text-sm text-slate-400">Standard tweets are limited to <strong>280 characters</strong>.
+                <div class="bg-gray-100 p-6 rounded-lg">
+                    <h3 class="text-gray-900 font-semibold mb-2">Twitter / X Character Limit</h3>
+                    <p class="text-sm text-gray-600">Standard tweets are limited to <strong>280 characters</strong>.
                         Blue subscribers may have more, but brevity is key on this platform.</p>
                 </div>
             </div>
         </article>
-        <section class="mt-16 border-t border-white/5 pt-12 text-left">
+        <section class="mt-16 border-t border-gray-200 pt-12 text-left">
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="prose prose-invert max-w-none">
-                    <h2 class="text-2xl font-bold text-white mb-4">How to check Character Limits?</h2>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                <div class="prose prose-gray max-w-none">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">How to check Character Limits?</h2>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
                         Different social platforms have different limits. Twitter allows 280 characters, Instagram
                         captions allow 2200, and LinkedIn posts allow 3000. Our tool tracks these in real-time as you
                         type, ensuring you never go over the limit.
                     </p>
-                    <h3 class="text-xl font-semibold text-white mb-2">Detailed Counts</h3>
-                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-5">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Detailed Counts</h3>
+                    <ul class="text-gray-600 text-sm space-y-2 list-disc pl-5">
                         <li><strong>Characters:</strong> The total number of letters, numbers, and symbols.</li>
                         <li><strong>Words:</strong> Useful for SEO and blog post planning.</li>
                         <li><strong>Sentences & Paragraphs:</strong> For readability analysis.</li>
                     </ul>
                 </div>
 
-                <div class="bg-slate-800/20 p-8 rounded-2xl border border-white/5">
-                    <h3 class="text-lg font-bold text-white mb-6">More Text Tools</h3>
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-900 mb-6">More Text Tools</h3>
                     <div class="grid grid-cols-1 gap-4">
                         <a href="text-formatter.html"
-                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-brand-500/10 transition group">
+                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-black hover:text-white transition group">
                             <div
-                                class="w-10 h-10 bg-brand-500/10 rounded-lg flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition">
+                                class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-black group-hover:bg-white group-hover:text-black transition">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path d="M4 6h16M4 12h16m-7 6h7"></path>
                                 </svg>
                             </div>
                             <div>
-                                <span class="block text-sm font-bold text-slate-200">Text Formatter</span>
-                                <span class="text-xs text-slate-500">Slugify & Case Converter.</span>
+                                <span class="block text-sm font-bold text-gray-900 group-hover:text-white">Text
+                                    Formatter</span>
+                                <span class="text-xs text-gray-500 group-hover:text-gray-300">Slugify & Case
+                                    Converter.</span>
                             </div>
                         </a>
                         <a href="reel-caption-formatter.html"
-                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-emerald-500/10 transition group">
+                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-black hover:text-white transition group">
                             <div
-                                class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition">
+                                class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-black group-hover:bg-white group-hover:text-black transition">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path d="M4 6h16"></path>
                                 </svg>
                             </div>
                             <div>
-                                <span class="block text-sm font-bold text-slate-200">Reel Formatter</span>
-                                <span class="text-xs text-slate-500">Add clean line breaks.</span>
+                                <span class="block text-sm font-bold text-gray-900 group-hover:text-white">Reel
+                                    Formatter</span>
+                                <span class="text-xs text-gray-500 group-hover:text-gray-300">Add clean line
+                                    breaks.</span>
                             </div>
                         </a>
                     </div>
@@ -283,7 +298,7 @@
             </div>
         </section>
 
-        <footer class="mt-20 py-8 border-t border-white/5 text-center text-slate-500 text-xs">
+        <footer class="mt-20 py-8 border-t border-gray-200 text-center text-gray-500 text-xs">
             &copy; 2024 FreeProducts24. Social Media Utilities.
         </footer>
     </main>
