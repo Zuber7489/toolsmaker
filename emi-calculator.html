@@ -88,8 +88,7 @@
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image: linear-gradient(to bottom right, #0f172a, #1e293b);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
 
@@ -98,37 +97,50 @@
             height: 20px;
             width: 20px;
             border-radius: 50%;
-            background: #14b8a6;
+            background: #000000;
             margin-top: -8px;
             cursor: pointer;
-            box-shadow: 0 0 10px rgba(20, 184, 166, 0.5);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         .slider-track::-webkit-slider-runnable-track {
             height: 4px;
-            background: #475569;
+            background: #e5e7eb;
             border-radius: 2px;
         }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased font-sans">
+<body class="text-gray-900 antialiased font-sans">
 
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <div class="max-w-6xl mx-auto px-3 sm:px-4 py-6 sm:py-10 grid lg:grid-cols-2 gap-6 sm:gap-10">
         <!-- Input Section -->
         <div class="space-y-6 sm:space-y-8">
-            <h1 class="text-2xl sm:text-3xl font-bold text-white">EMI Calculator</h1>
+            <h1 class="text-2xl sm:text-3xl font-bold text-gray-900">EMI Calculator</h1>
 
             <!-- Amount -->
-            <div class="bg-slate-800/40 p-4 sm:p-6 rounded-2xl border border-slate-700">
+            <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm">
                 <div class="flex justify-between mb-4 items-end">
-                    <label class="text-xs sm:text-sm font-medium text-slate-300">Loan Amount</label>
+                    <label class="text-xs sm:text-sm font-medium text-gray-700">Loan Amount</label>
                     <div class="relative">
-                        <span class="absolute left-2 sm:left-3 top-2 text-sm sm:text-base text-slate-500">₹</span>
+                        <span class="absolute left-2 sm:left-3 top-2 text-sm sm:text-base text-gray-500">₹</span>
                         <input type="number" id="inp-amount" value="1000000"
-                            class="w-28 sm:w-32 bg-slate-900 border border-slate-600 rounded-lg py-1 pl-5 sm:pl-6 pr-2 text-sm sm:text-base text-right text-white focus:border-brand-500 outline-none">
+                            class="w-28 sm:w-32 bg-gray-50 border border-gray-300 rounded-lg py-1 pl-5 sm:pl-6 pr-2 text-sm sm:text-base text-right text-gray-900 focus:border-black outline-none">
                     </div>
                 </div>
                 <input type="range" id="rng-amount" min="10000" max="10000000" step="10000" value="1000000"
@@ -136,14 +148,14 @@
             </div>
 
             <!-- Rate -->
-            <div class="bg-slate-800/40 p-4 sm:p-6 rounded-2xl border border-slate-700">
+            <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm">
                 <div class="flex justify-between mb-4 items-end">
-                    <label class="text-xs sm:text-sm font-medium text-slate-300">Interest Rate (p.a)</label>
+                    <label class="text-xs sm:text-sm font-medium text-gray-700">Interest Rate (p.a)</label>
                     <div class="relative">
                         <input type="number" id="inp-rate" value="10.5" step="0.1"
-                            class="w-20 sm:w-24 bg-slate-900 border border-slate-600 rounded-lg py-1 pl-2 pr-8 text-sm sm:text-base text-right text-white focus:border-brand-500 outline-none">
+                            class="w-20 sm:w-24 bg-gray-50 border border-gray-300 rounded-lg py-1 pl-2 pr-8 text-sm sm:text-base text-right text-gray-900 focus:border-black outline-none">
                         <span
-                            class="absolute right-3 top-1/2 -translate-y-1/2 text-sm sm:text-base text-slate-500 pointer-events-none">%</span>
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-sm sm:text-base text-gray-500 pointer-events-none">%</span>
                     </div>
                 </div>
                 <input type="range" id="rng-rate" min="1" max="30" step="0.1" value="10.5"
@@ -151,19 +163,19 @@
             </div>
 
             <!-- Tenure -->
-            <div class="bg-slate-800/40 p-4 sm:p-6 rounded-2xl border border-slate-700">
+            <div class="bg-white p-4 sm:p-6 rounded-2xl border border-gray-200 shadow-sm">
                 <div class="flex justify-between mb-4 items-end">
-                    <label class="text-xs sm:text-sm font-medium text-slate-300">Loan Tenure</label>
-                    <div class="flex gap-1 sm:gap-2 bg-slate-900 p-1 rounded-lg">
+                    <label class="text-xs sm:text-sm font-medium text-gray-700">Loan Tenure</label>
+                    <div class="flex gap-1 sm:gap-2 bg-gray-100 p-1 rounded-lg">
                         <button id="btn-yr"
-                            class="px-2 sm:px-3 py-1 rounded text-xs font-bold bg-brand-600 text-white shadow">Yr</button>
+                            class="px-2 sm:px-3 py-1 rounded text-xs font-bold bg-black text-white shadow">Yr</button>
                         <button id="btn-mo"
-                            class="px-2 sm:px-3 py-1 rounded text-xs font-bold text-slate-400 hover:text-white">Mo</button>
+                            class="px-2 sm:px-3 py-1 rounded text-xs font-bold text-gray-500 hover:text-black">Mo</button>
                     </div>
                 </div>
                 <div class="flex justify-between items-center mb-2">
-                    <span class="text-xl sm:text-2xl font-bold text-brand-400" id="disp-tenure">5</span>
-                    <span class="text-xs sm:text-sm text-slate-400" id="disp-unit">Years</span>
+                    <span class="text-xl sm:text-2xl font-bold text-black" id="disp-tenure">5</span>
+                    <span class="text-xs sm:text-sm text-gray-500" id="disp-unit">Years</span>
                 </div>
                 <input type="range" id="rng-tenure" min="1" max="30" step="1" value="5"
                     class="slider-track slider-thumb w-full bg-transparent appearance-none">
@@ -172,29 +184,28 @@
 
         <!-- Result Section -->
         <div class="flex flex-col justify-center">
-            <div
-                class="bg-slate-800/80 p-6 sm:p-8 rounded-3xl border border-slate-700 shadow-2xl backdrop-blur-xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl"></div>
+            <div class="bg-white p-6 sm:p-8 rounded-3xl border border-gray-200 shadow-sm relative overflow-hidden">
 
                 <div class="text-center mb-6 sm:mb-8 relative z-10">
-                    <p class="text-slate-400 text-xs sm:text-sm uppercase tracking-wider mb-2">Monthly EMI</p>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white">₹ <span id="res-emi">0</span></h2>
+                    <p class="text-gray-500 text-xs sm:text-sm uppercase tracking-wider mb-2">Monthly EMI</p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900">₹ <span id="res-emi">0</span>
+                    </h2>
                 </div>
 
                 <div class="space-y-3 sm:space-y-4 relative z-10">
-                    <div class="flex justify-between p-3 sm:p-4 bg-slate-900/50 rounded-xl">
-                        <span class="text-xs sm:text-sm text-slate-400">Principal Amount</span>
-                        <span class="font-semibold text-sm sm:text-base text-white">₹ <span
+                    <div class="flex justify-between p-3 sm:p-4 bg-gray-50 rounded-xl">
+                        <span class="text-xs sm:text-sm text-gray-500">Principal Amount</span>
+                        <span class="font-semibold text-sm sm:text-base text-gray-900">₹ <span
                                 id="res-principal">0</span></span>
                     </div>
-                    <div class="flex justify-between p-3 sm:p-4 bg-slate-900/50 rounded-xl border border-brand-500/10">
-                        <span class="text-xs sm:text-sm text-slate-400">Total Interest</span>
-                        <span class="font-semibold text-sm sm:text-base text-brand-400">₹ <span
+                    <div class="flex justify-between p-3 sm:p-4 bg-gray-50 rounded-xl border border-gray-200">
+                        <span class="text-xs sm:text-sm text-gray-500">Total Interest</span>
+                        <span class="font-semibold text-sm sm:text-base text-gray-900">₹ <span
                                 id="res-interest">0</span></span>
                     </div>
-                    <div class="flex justify-between p-3 sm:p-4 bg-slate-700/30 rounded-xl">
-                        <span class="text-xs sm:text-sm text-slate-300 font-medium">Total Payable</span>
-                        <span class="font-bold text-sm sm:text-base text-white">₹ <span id="res-total">0</span></span>
+                    <div class="flex justify-between p-3 sm:p-4 bg-gray-100 rounded-xl">
+                        <span class="text-xs sm:text-sm text-gray-600 font-medium">Total Payable</span>
+                        <span class="font-bold text-sm sm:text-base text-black">₹ <span id="res-total">0</span></span>
                     </div>
                 </div>
 
@@ -203,17 +214,17 @@
                     <div class="relative w-40 h-40 sm:w-48 sm:h-48">
                         <svg viewBox="0 0 36 36" class="w-full h-full transform -rotate-90">
                             <!-- Background Circle -->
-                            <path class="text-slate-700"
+                            <path class="text-gray-200"
                                 d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                                 fill="none" stroke="currentColor" stroke-width="4" />
                             <!-- Interest Slice -->
-                            <path id="chart-ring" class="text-brand-500 transition-all duration-700 ease-out"
+                            <path id="chart-ring" class="text-black transition-all duration-700 ease-out"
                                 stroke-dasharray="0, 100"
                                 d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
                                 fill="none" stroke="currentColor" stroke-width="4" />
                         </svg>
                         <div
-                            class="absolute inset-0 flex flex-col items-center justify-center text-[10px] sm:text-xs text-slate-400">
+                            class="absolute inset-0 flex flex-col items-center justify-center text-[10px] sm:text-xs text-gray-500">
                             <span>Breakup</span>
                         </div>
                     </div>
@@ -223,18 +234,18 @@
     </div>
 
     <main class="max-w-6xl mx-auto px-4">
-        <section class="mt-16 border-t border-white/5 pt-12 text-left">
+        <section class="mt-16 border-t border-gray-200 pt-12 text-left">
             <div class="grid md:grid-cols-2 gap-12">
-                <div class="prose prose-invert max-w-none text-left">
-                    <h2 class="text-2xl font-bold text-white mb-4">What is an EMI Calculator?</h2>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                <div class="prose prose-gray max-w-none text-left">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">What is an EMI Calculator?</h2>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4">
                         An Equated Monthly Installment (EMI) is a fixed payment amount made by a borrower to a lender at
                         a specified date each calendar month. Our EMI calculator helps you plan your loans better by
                         showing exactly how much you need to pay and how much total interest you'll incur over the loan
                         tenure.
                     </p>
-                    <h3 class="text-xl font-semibold text-white mb-2">How to reduce your EMI?</h3>
-                    <ul class="text-slate-400 text-sm space-y-2 list-disc pl-5">
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">How to reduce your EMI?</h3>
+                    <ul class="text-gray-600 text-sm space-y-2 list-disc pl-5">
                         <li><strong>Lower Interest Rate:</strong> Shop around for the best bank offers.</li>
                         <li><strong>Longer Tenure:</strong> Spreading the loan over more years reduces monthly burden
                             but increases total interest.</li>
@@ -243,26 +254,28 @@
                     </ul>
                 </div>
 
-                <div class="bg-slate-800/20 p-8 rounded-2xl border border-white/5">
-                    <h3 class="text-lg font-bold text-white mb-6">Financial Tools Hub</h3>
+                <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
+                    <h3 class="text-lg font-bold text-gray-900 mb-6">Financial Tools Hub</h3>
                     <div class="grid grid-cols-1 gap-4">
                         <a href="sip-calculator.html"
-                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-brand-500/10 transition group text-left">
+                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-black hover:text-white transition group text-left">
                             <div
-                                class="w-10 h-10 bg-brand-500/10 rounded-lg flex items-center justify-center text-brand-500 group-hover:bg-brand-500 group-hover:text-white transition">
+                                class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-black group-hover:bg-white group-hover:text-black transition">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                                 </svg>
                             </div>
                             <div>
-                                <span class="block text-sm font-bold text-slate-200">SIP Calculator</span>
-                                <span class="text-xs text-slate-500">Estimate Mutual Fund wealth.</span>
+                                <span class="block text-sm font-bold text-gray-900 group-hover:text-white">SIP
+                                    Calculator</span>
+                                <span class="text-xs text-gray-500 group-hover:text-gray-300">Estimate Mutual Fund
+                                    wealth.</span>
                             </div>
                         </a>
                         <a href="percentage-calculator.html"
-                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-emerald-500/10 transition group text-left">
+                            class="flex items-center gap-4 p-3 rounded-xl hover:bg-black hover:text-white transition group text-left">
                             <div
-                                class="w-10 h-10 bg-emerald-500/10 rounded-lg flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition">
+                                class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-black group-hover:bg-white group-hover:text-black transition">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
@@ -270,8 +283,10 @@
                                 </svg>
                             </div>
                             <div>
-                                <span class="block text-sm font-bold text-slate-200">Percentage Calc</span>
-                                <span class="text-xs text-slate-500">Solve math problems.</span>
+                                <span class="block text-sm font-bold text-gray-900 group-hover:text-white">Percentage
+                                    Calc</span>
+                                <span class="text-xs text-gray-500 group-hover:text-gray-300">Solve math
+                                    problems.</span>
                             </div>
                         </a>
                     </div>
@@ -279,7 +294,7 @@
             </div>
         </section>
 
-        <footer class="mt-20 py-8 border-t border-white/5 text-center text-slate-500 text-xs">
+        <footer class="mt-20 py-8 border-t border-gray-200 text-center text-gray-500 text-xs">
             &copy; 2024 FreeProducts24. Smart Loan Planning.
         </footer>
     </main>
@@ -322,14 +337,14 @@
         function setMode(year) {
             isYear = year;
             if (year) {
-                els.btnYr.className = "px-3 py-1 rounded text-xs font-bold bg-brand-600 text-white shadow";
-                els.btnMo.className = "px-3 py-1 rounded text-xs font-bold text-slate-400 hover:text-white";
+                els.btnYr.className = "px-3 py-1 rounded text-xs font-bold bg-black text-white shadow";
+                els.btnMo.className = "px-3 py-1 rounded text-xs font-bold text-gray-500 hover:text-black";
                 els.tenure.rng.max = 30;
                 els.tenure.unit.innerText = "Years";
                 if (parseInt(els.tenure.rng.value) > 30) els.tenure.rng.value = 30; // clamp
             } else {
-                els.btnMo.className = "px-3 py-1 rounded text-xs font-bold bg-brand-600 text-white shadow";
-                els.btnYr.className = "px-3 py-1 rounded text-xs font-bold text-slate-400 hover:text-white";
+                els.btnMo.className = "px-3 py-1 rounded text-xs font-bold bg-black text-white shadow";
+                els.btnYr.className = "px-3 py-1 rounded text-xs font-bold text-gray-500 hover:text-black";
                 els.tenure.rng.max = 360;
                 els.tenure.unit.innerText = "Months";
             }
