@@ -24,49 +24,39 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Outfit', 'sans-serif'] },
-                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                    colors: { brand: { 500: '#000000', 600: '#1a1a1a' } }
                 }
             }
         }
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image: linear-gradient(to bottom right, #0f172a, #1e293b);
+            background-color: #ffffff;
             min-height: 100vh;
         }
 
         .article-card {
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
         }
 
         .article-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -10px rgba(20, 184, 166, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased font-sans">
+<body class="text-gray-900 antialiased font-sans">
 
-    <nav class="w-full bg-slate-900/80 backdrop-blur-md border-b border-white/10 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
-            <a href="../index.html"
-                class="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">FreeProducts24</a>
-            <div class="flex gap-4 sm:gap-6 text-xs sm:text-sm">
-                <a href="../index.html" class="text-slate-400 hover:text-white transition">Tools</a>
-                <a href="index.html" class="text-brand-500 hover:text-brand-400 transition">Blog</a>
-            </div>
-        </div>
-    </nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="../index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="../index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="../about.html" class="text-gray-600 hover:text-black transition">About</a><a href="../privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
 
     <main class="max-w-7xl mx-auto px-3 sm:px-6 py-10 sm:py-16">
         <!-- Header -->
         <header class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-4 sm:mb-6">
-                Tools <span class="text-brand-500">Guides & Tutorials</span>
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-black mb-4 sm:mb-6">
+                Tools <span class="text-black">Guides & Tutorials</span>
             </h1>
-            <p class="text-base sm:text-xl text-slate-400 leading-relaxed">
+            <p class="text-base sm:text-xl text-gray-600 leading-relaxed">
                 Learn how to use free online tools effectively with our expert guides, tips, and tutorials.
             </p>
         </header>
@@ -74,27 +64,27 @@
         <!-- Categories -->
         <div class="flex flex-wrap justify-center gap-3 mb-12">
             <button
-                class="category-filter active px-4 sm:px-6 py-2 rounded-xl text-sm font-medium bg-brand-500 text-white transition"
+                class="category-filter active px-4 sm:px-6 py-2 rounded-lg text-sm font-medium bg-black text-white transition"
                 data-category="all">
                 All Articles
             </button>
             <button
-                class="category-filter px-4 sm:px-6 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                class="category-filter px-4 sm:px-6 py-2 rounded-lg text-sm font-medium bg-white border border-gray-200 text-gray-600 hover:border-black hover:text-black transition"
                 data-category="financial">
                 💰 Financial
             </button>
             <button
-                class="category-filter px-4 sm:px-6 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                class="category-filter px-4 sm:px-6 py-2 rounded-lg text-sm font-medium bg-white border border-gray-200 text-gray-600 hover:border-black hover:text-black transition"
                 data-category="developer">
                 👨‍💻 Developer
             </button>
             <button
-                class="category-filter px-4 sm:px-6 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                class="category-filter px-4 sm:px-6 py-2 rounded-lg text-sm font-medium bg-white border border-gray-200 text-gray-600 hover:border-black hover:text-black transition"
                 data-category="image">
                 🖼️ Image Tools
             </button>
             <button
-                class="category-filter px-4 sm:px-6 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                class="category-filter px-4 sm:px-6 py-2 rounded-lg text-sm font-medium bg-white border border-gray-200 text-gray-600 hover:border-black hover:text-black transition"
                 data-category="social">
                 📱 Social Media
             </button>
@@ -107,59 +97,58 @@
 
             <!-- Article 3: Salary Calculator -->
             <article
-                class="article-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500/50 relative"
+                class="article-card bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-black relative"
                 data-category="financial">
                 <!-- NEW Badge -->
                 <span
-                    class="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">NEW</span>
+                    class="absolute top-4 right-4 bg-black text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">NEW</span>
                 <a href="salary-calculator-guide.html" class="block">
                     <div class="p-6 sm:p-8">
                         <div class="flex items-center gap-2 mb-4">
                             <span
-                                class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-semibold rounded-full">Financial</span>
-                            <span class="px-2 py-0.5 bg-brand-500/20 text-brand-400 text-xs font-semibold rounded">🇮🇳
+                                class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full">Financial</span>
+                            <span class="px-2 py-0.5 bg-black text-white text-xs font-semibold rounded">🇮🇳
                                 हिंदी + English</span>
-                            <span class="text-xs text-slate-500">8 min read</span>
+                            <span class="text-xs text-gray-700">8 min read</span>
                         </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition">
+                        <h2 class="text-xl sm:text-2xl font-bold text-black mb-3 group-hover:text-black transition">
                             सैलरी कैलकुलेटर: CTC से In-Hand Salary कैसे निकालें
                         </h2>
-                        <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-4">
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                             CTC से In-Hand Salary calculate करने की complete guide। Tax, PF, और deductions की पूरी
                             जानकारी।
                             Bilingual guide in Hindi & English.
                         </p>
                         <div class="flex items-center justify-between text-sm">
-                            <span class="text-slate-500">Jan 21, 2024</span>
-                            <span class="text-brand-400 font-medium hover:text-brand-300 transition">Read More →</span>
+                            <span class="text-gray-700">Jan 21, 2024</span>
+                            <span class="text-black font-medium hover:underline transition">Read More →</span>
                         </div>
                     </div>
                 </a>
             </article>
 
             <!-- Article 4: GST Calculator -->
-            <article
-                class="article-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500/50"
+            <article class="article-card bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-black"
                 data-category="financial">
                 <a href="gst-calculator-india-guide.html" class="block">
                     <div class="p-6 sm:p-8">
                         <div class="flex items-center gap-2 mb-4">
                             <span
-                                class="px-3 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full">Financial</span>
-                            <span class="px-2 py-0.5 bg-brand-500/20 text-brand-400 text-xs font-semibold rounded">🇮🇳
+                                class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full">Financial</span>
+                            <span class="px-2 py-0.5 bg-black text-white text-xs font-semibold rounded">🇮🇳
                                 हिंदी</span>
-                            <span class="text-xs text-slate-500">10 min read</span>
+                            <span class="text-xs text-gray-700">10 min read</span>
                         </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition">
+                        <h2 class="text-xl sm:text-2xl font-bold text-black mb-3 group-hover:text-black transition">
                             जीएसटी कैलकुलेटर: भारत में GST कैसे कैलकुलेट करें
                         </h2>
-                        <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-4">
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                             फ्री जीएसटी कैलकुलेटर से CGST, SGST, IGST की आसान गणना। व्यावहारिक उदाहरण और फॉर्मूला के साथ
                             complete guide।
                         </p>
                         <div class="flex items-center justify-between text-sm">
-                            <span class="text-slate-500">Jan 21, 2024</span>
-                            <span class="text-brand-400 font-medium hover:text-brand-300 transition">Read More →</span>
+                            <span class="text-gray-700">Jan 21, 2024</span>
+                            <span class="text-black font-medium hover:underline transition">Read More →</span>
                         </div>
                     </div>
                 </a>
@@ -167,30 +156,30 @@
 
             <!-- Article 5: EMI Calculator -->
             <article
-                class="article-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500/50 relative"
+                class="article-card bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-black relative"
                 data-category="financial">
                 <!-- NEW Badge -->
                 <span
-                    class="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">NEW</span>
+                    class="absolute top-4 right-4 bg-black text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">NEW</span>
                 <a href="emi-calculator-guide.html" class="block">
                     <div class="p-6 sm:p-8">
                         <div class="flex items-center gap-2 mb-4">
                             <span
-                                class="px-3 py-1 bg-orange-500/10 text-orange-400 text-xs font-semibold rounded-full">Financial</span>
-                            <span class="px-2 py-0.5 bg-brand-500/20 text-brand-400 text-xs font-semibold rounded">🇮🇳
+                                class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full">Financial</span>
+                            <span class="px-2 py-0.5 bg-black text-white text-xs font-semibold rounded">🇮🇳
                                 हिंदी</span>
-                            <span class="text-xs text-slate-500">12 min read</span>
+                            <span class="text-xs text-gray-700">12 min read</span>
                         </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition">
+                        <h2 class="text-xl sm:text-2xl font-bold text-black mb-3 group-hover:text-black transition">
                             EMI कैलकुलेटर: होम लोन, कार लोन की EMI कैसे कैलकुलेट करें
                         </h2>
-                        <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-4">
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                             फ्री EMI कैलकुलेटर से होम लोन, कार लोन की EMI calculate करें। Formula, examples, और EMI कम
                             करने के tips।
                         </p>
                         <div class="flex items-center justify-between text-sm">
-                            <span class="text-slate-500">Jan 21, 2024</span>
-                            <span class="text-brand-400 font-medium hover:text-brand-300 transition">Read More →</span>
+                            <span class="text-gray-700">Jan 21, 2024</span>
+                            <span class="text-black font-medium hover:underline transition">Read More →</span>
                         </div>
                     </div>
                 </a>
@@ -198,189 +187,71 @@
 
             <!-- Article 6: SIP Calculator -->
             <article
-                class="article-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500/50 relative"
+                class="article-card bg-white rounded-2xl overflow-hidden border border-gray-200 hover:border-black relative"
                 data-category="financial">
                 <!-- NEW Badge -->
                 <span
-                    class="absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">NEW</span>
+                    class="absolute top-4 right-4 bg-black text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg z-10">NEW</span>
                 <a href="sip-calculator-guide.html" class="block">
                     <div class="p-6 sm:p-8">
                         <div class="flex items-center gap-2 mb-4">
                             <span
-                                class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs font-semibold rounded-full">Financial</span>
-                            <span class="px-2 py-0.5 bg-brand-500/20 text-brand-400 text-xs font-semibold rounded">🇮🇳
+                                class="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-full">Financial</span>
+                            <span class="px-2 py-0.5 bg-black text-white text-xs font-semibold rounded">🇮🇳
                                 हिंदी</span>
-                            <span class="text-xs text-slate-500">10 min read</span>
+                            <span class="text-xs text-gray-700">10 min read</span>
                         </div>
-                        <h2 class="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-brand-400 transition">
+                        <h2 class="text-xl sm:text-2xl font-bold text-black mb-3 group-hover:text-black transition">
                             SIP कैलकुलेटर: म्यूचुअल फंड में निवेश कैसे करें
                         </h2>
-                        <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-4">
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-4">
                             फ्री SIP कैलकुलेटर से म्यूचुअल फंड रिटर्न calculate करें। Power of compounding और investment
                             tips।
                         </p>
                         <div class="flex items-center justify-between text-sm">
-                            <span class="text-slate-500">Jan 21, 2024</span>
-                            <span class="text-brand-400 font-medium hover:text-brand-300 transition">Read More →</span>
+                            <span class="text-gray-700">Jan 21, 2024</span>
+                            <span class="text-black font-medium hover:underline transition">Read More →</span>
                         </div>
                     </div>
                 </a>
             </article>
 
-            <!-- Article 5: Coming Soon - Image Compressor -->
-            <article
-                class="article-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500/50 opacity-60"
-                data-category="image">
-                <div class="p-6 sm:p-8">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="px-3 py-1 bg-red-500/10 text-red-400 text-xs font-semibold rounded-full">Image
-                            Tools</span>
-                        <span class="text-xs text-slate-500">Coming Soon</span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
-                        Best Free Image Compressor Tools Comparison 2024
-                    </h2>
-                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-4">
-                        Compare top image compression tools, learn optimization techniques, and reduce file sizes
-                        without quality loss.
-                    </p>
-                    <div class="flex items-center justify-between text-sm">
-                        <span class="text-slate-500">Coming Soon</span>
-                        <span class="px-3 py-1 bg-slate-700 text-slate-400 text-xs rounded-full">In Progress</span>
-                    </div>
-                </div>
-            </article>
 
-            <!-- Article 7: Coming Soon - Developer Tools -->
-            <article
-                class="article-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500/50 opacity-60"
-                data-category="financial">
-                <div class="p-6 sm:p-8">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span
-                            class="px-3 py-1 bg-purple-500/10 text-purple-400 text-xs font-semibold rounded-full">Financial</span>
-                        <span class="text-xs text-slate-500">Coming Soon</span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
-                        SIP Calculator: How to Plan Your Mutual Fund Investments
-                    </h2>
-                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-4">
-                        Master SIP calculations, understand compound interest, and plan your wealth creation journey
-                        with our detailed guide.
-                    </p>
-                    <div class="flex items-center justify-between text-sm">
-                        <span class="text-slate-500">Coming Soon</span>
-                        <span class="px-3 py-1 bg-slate-700 text-slate-400 text-xs rounded-full">In Progress</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Article 8: Coming Soon - Developer Tools -->
-            <article
-                class="article-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500/50 opacity-60"
-                data-category="developer">
-                <div class="p-6 sm:p-8">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span
-                            class="px-3 py-1 bg-cyan-500/10 text-cyan-400 text-xs font-semibold rounded-full">Developer</span>
-                        <span class="text-xs text-slate-500">Coming Soon</span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
-                        10 Essential Developer Tools Every Programmer Needs
-                    </h2>
-                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-4">
-                        Discover must-have free tools for developers including JSON formatters, UUID generators, and
-                        more.
-                    </p>
-                    <div class="flex items-center justify-between text-sm">
-                        <span class="text-slate-500">Coming Soon</span>
-                        <span class="px-3 py-1 bg-slate-700 text-slate-400 text-xs rounded-full">In Progress</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Article 9: Coming Soon - Instagram -->
-            <article
-                class="article-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500/50 opacity-60"
-                data-category="social">
-                <div class="p-6 sm:p-8">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="px-3 py-1 bg-pink-500/10 text-pink-400 text-xs font-semibold rounded-full">Social
-                            Media</span>
-                        <span class="text-xs text-slate-500">Coming Soon</span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
-                        Instagram Caption Formatting: Tips & Tricks
-                    </h2>
-                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-4">
-                        Learn how to add line breaks, spacing, and formatting to your Instagram captions for better
-                        engagement.
-                    </p>
-                    <div class="flex items-center justify-between text-sm">
-                        <span class="text-slate-500">Coming Soon</span>
-                        <span class="px-3 py-1 bg-slate-700 text-slate-400 text-xs rounded-full">In Progress</span>
-                    </div>
-                </div>
-            </article>
-
-            <!-- Article 10: Coming Soon - More Topics -->
-            <article
-                class="article-card bg-slate-800/50 rounded-2xl overflow-hidden border border-slate-700 hover:border-brand-500/50 opacity-60"
-                data-category="financial">
-                <div class="p-6 sm:p-8">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span
-                            class="px-3 py-1 bg-orange-500/10 text-orange-400 text-xs font-semibold rounded-full">Financial</span>
-                        <span class="text-xs text-slate-500">Coming Soon</span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-bold text-white mb-3">
-                        EMI Calculator: Complete Guide to Loan Calculations
-                    </h2>
-                    <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-4">
-                        Calculate your loan EMI, understand amortization, and make informed borrowing decisions.
-                    </p>
-                    <div class="flex items-center justify-between text-sm">
-                        <span class="text-slate-500">Coming Soon</span>
-                        <span class="px-3 py-1 bg-slate-700 text-slate-400 text-xs rounded-full">In Progress</span>
-                    </div>
-                </div>
-            </article>
 
         </div>
 
         <!-- Newsletter CTA -->
         <section class="mt-16 sm:mt-20 max-w-4xl mx-auto">
-            <div
-                class="bg-gradient-to-r from-brand-500/20 to-cyan-500/20 rounded-3xl p-8 sm:p-12 border border-brand-500/30 text-center">
+            <div class="bg-gray-50 rounded-2xl p-8 sm:p-12 border border-gray-200 text-center">
                 <span class="text-4xl sm:text-5xl mb-4 block">📧</span>
-                <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">Never Miss a New Guide</h2>
-                <p class="text-base sm:text-lg text-slate-300 mb-6 max-w-2xl mx-auto">
+                <h2 class="text-2xl sm:text-3xl font-bold text-black mb-4">Never Miss a New Guide</h2>
+                <p class="text-base sm:text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
                     Get notified when we publish new tutorials and tool guides. Join 5,000+ subscribers.
                 </p>
                 <form action="https://formspree.io/f/xeeegnjd" method="POST" class="max-w-md mx-auto">
                     <div class="flex flex-col sm:flex-row gap-3">
                         <input type="email" name="email" placeholder="your@email.com" required
-                            class="flex-1 bg-slate-900/80 border border-slate-700 rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-slate-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition text-sm sm:text-base">
+                            class="flex-1 bg-white border border-gray-300 rounded-lg px-4 sm:px-6 py-3 text-gray-900 placeholder-gray-400 focus:border-black focus:ring-1 focus:ring-black outline-none transition text-sm sm:text-base">
                         <button type="submit"
-                            class="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition shadow-lg shadow-brand-500/20 text-sm sm:text-base whitespace-nowrap">
-                            Subscribe Free
+                            class="bg-black hover:bg-gray-800 text-white font-semibold px-6 sm:px-8 py-3 rounded-lg transition text-sm sm:text-base whitespace-nowrap">
+                            Subscribe
                         </button>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-4">
-                        ✓ No spam ever &nbsp;•&nbsp; ✓ Unsubscribe anytime
+                    <p class="text-xs sm:text-sm text-gray-500 mt-4">
+                        No spam • Unsubscribe anytime
                     </p>
                 </form>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-white/5 py-8 sm:py-12 mt-16 sm:mt-20 bg-slate-900/40">
+    <footer class="border-t border-gray-200 py-8 sm:py-12 mt-16 sm:mt-20">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-slate-500 text-sm mb-4">&copy; 2024 FreeProducts24. All Rights Reserved.</p>
-            <div class="flex justify-center gap-6 text-xs text-slate-600">
-                <a href="../privacy.html" class="hover:text-brand-500 transition">Privacy Policy</a>
-                <a href="../about.html" class="hover:text-brand-500 transition">About</a>
-                <a href="../index.html" class="hover:text-brand-500 transition">Home</a>
+            <p class="text-gray-500 text-sm mb-4">&copy; 2024 FreeProducts24. All Rights Reserved.</p>
+            <div class="flex justify-center gap-6 text-xs text-gray-500">
+                <a href="../privacy.html" class="hover:text-black transition">Privacy Policy</a>
+                <a href="../about.html" class="hover:text-black transition">About</a>
+                <a href="../index.html" class="hover:text-black transition">Home</a>
             </div>
         </div>
     </footer>
@@ -394,11 +265,11 @@
             btn.addEventListener('click', () => {
                 // Update active state
                 filterBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-brand-500', 'text-white');
-                    b.classList.add('bg-slate-800/50', 'text-slate-400');
+                    b.classList.remove('active', 'bg-black', 'text-white');
+                    b.classList.add('bg-white', 'border', 'border-gray-200', 'text-gray-600');
                 });
-                btn.classList.add('active', 'bg-brand-500', 'text-white');
-                btn.classList.remove('bg-slate-800/50', 'text-slate-400');
+                btn.classList.add('active', 'bg-black', 'text-white');
+                btn.classList.remove('bg-white', 'border', 'border-gray-200', 'text-gray-600');
 
                 // Filter articles
                 const category = btn.getAttribute('data-category');

@@ -56,69 +56,62 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Outfit', 'sans-serif'] },
-                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                    colors: { brand: { 500: '#000000', 600: '#1a1a1a' } }
                 }
             }
         }
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image:
-                radial-gradient(at 0% 0%, hsla(240, 50%, 15%, 1) 0, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(180, 50%, 10%, 1) 0, transparent 50%);
+            background-color: #ffffff;
             min-height: 100vh;
         }
 
         .tool-card {
-            background: rgba(30, 41, 59, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #ffffff;
+            border: 1px solid #e5e5e5;
+            transition: all 0.2s ease;
         }
 
         .tool-card:hover {
-            transform: translateY(-8px);
-            background: rgba(30, 41, 59, 0.7);
-            border-color: rgba(20, 184, 166, 0.4);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+            transform: translateY(-2px);
+            border-color: #000000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
         .glass-nav {
-            background: rgba(15, 23, 42, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
         }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased font-sans">
+<body class="text-gray-900 antialiased font-sans">
 
     <nav class="w-full glass-nav sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <div
-                    class="w-7 h-7 sm:w-8 sm:h-8 bg-brand-500 rounded-lg flex items-center justify-center font-bold text-slate-900 text-sm sm:text-base">
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
                     T
                 </div>
-                <span
-                    class="text-lg sm:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">FreeProducts24</span>
+                <span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
             </div>
             <div class="hidden md:flex gap-8 text-sm font-medium">
-                <a href="index.html" class="text-brand-500 hover:text-brand-400 transition">Explore</a>
-                <a href="blog/index.html" class="text-slate-400 hover:text-white transition">Blog</a>
-                <a href="about.html" class="text-slate-400 hover:text-white transition">About</a>
-                <a href="privacy.html" class="text-slate-400 hover:text-white transition">Privacy</a>
+                <a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a>
+                <a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a>
+                <a href="about.html" class="text-gray-600 hover:text-black transition">About</a>
+                <a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a>
             </div>
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto px-3 sm:px-6 py-10 sm:py-16">
-        <header class="text-center max-w-3xl mx-auto mb-12 sm:mb-20 animate-fade-in">
-            <h1 class="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 tracking-tight">Powerful
-                Tools, <span class="text-brand-500">Zero Friction.</span></h1>
-            <p class="text-base sm:text-xl text-slate-400 leading-relaxed font-light">
-                A premium collection of high-performance utilities for developers, designers, and social media creators.
+        <header class="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-black mb-4 sm:mb-6 tracking-tight">Powerful
+                Tools,<br>Zero Friction.</h1>
+            <p class="text-base sm:text-lg text-gray-600 leading-relaxed">
+                Professional utilities for developers, designers, and creators.
                 Fast. Secure. No installation needed.
             </p>
         </header>
@@ -127,51 +120,51 @@
         <div class="max-w-4xl mx-auto mb-12 space-y-4">
             <!-- Search Bar -->
             <div class="relative">
-                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-500" fill="none"
+                <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" fill="none"
                     stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
-                <input type="text" id="searchInput" placeholder="Search tools... (e.g., calculator, image, json)"
-                    class="w-full bg-slate-800/50 border border-slate-700 rounded-2xl pl-12 pr-4 py-4 text-white placeholder-slate-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition">
+                <input type="text" id="searchInput" placeholder="Search tools..."
+                    class="w-full bg-white border border-gray-300 rounded-lg pl-12 pr-4 py-3 text-gray-900 placeholder-gray-400 focus:border-black focus:ring-1 focus:ring-black outline-none transition">
             </div>
 
             <!-- Category Filter -->
             <div class="flex flex-wrap gap-2">
                 <button
-                    class="category-btn active px-4 py-2 rounded-xl text-sm font-medium bg-brand-500 text-white transition"
+                    class="category-btn active px-4 py-2 rounded-lg text-sm font-medium bg-black text-white transition"
                     data-category="all">
                     All Tools
                 </button>
                 <button
-                    class="category-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                    class="category-btn px-4 py-2 rounded-lg text-sm font-medium bg-white border border-gray-300 text-gray-700 hover:border-black hover:text-black transition"
                     data-category="financial">
-                    💰 Financial
+                    Financial
                 </button>
                 <button
-                    class="category-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                    class="category-btn px-4 py-2 rounded-lg text-sm font-medium bg-white border border-gray-300 text-gray-700 hover:border-black hover:text-black transition"
                     data-category="developer">
-                    👨‍💻 Developer
+                    Developer
                 </button>
                 <button
-                    class="category-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                    class="category-btn px-4 py-2 rounded-lg text-sm font-medium bg-white border border-gray-300 text-gray-700 hover:border-black hover:text-black transition"
                     data-category="image">
-                    🖼️ Image
+                    Image
                 </button>
                 <button
-                    class="category-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                    class="category-btn px-4 py-2 rounded-lg text-sm font-medium bg-white border border-gray-300 text-gray-700 hover:border-black hover:text-black transition"
                     data-category="text">
-                    📝 Text
+                    Text
                 </button>
                 <button
-                    class="category-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                    class="category-btn px-4 py-2 rounded-lg text-sm font-medium bg-white border border-gray-300 text-gray-700 hover:border-black hover:text-black transition"
                     data-category="social">
-                    📱 Social
+                    Social
                 </button>
                 <button
-                    class="category-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-800/50 text-slate-400 hover:text-white hover:bg-slate-700 transition"
+                    class="category-btn px-4 py-2 rounded-lg text-sm font-medium bg-white border border-gray-300 text-gray-700 hover:border-black hover:text-black transition"
                     data-category="seo">
-                    🔍 SEO
+                    SEO
                 </button>
             </div>
         </div>
@@ -182,105 +175,112 @@
             <!-- Salary Calculator -->
             <a href="salary-calculator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 mb-5 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-blue-500 transition">Salary Calculator
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-black transition">Salary Calculator
                 </h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Calculate CTC to in-hand salary with tax breakdown
+                <p class="text-gray-600 text-sm leading-relaxed">Calculate CTC to in-hand salary with tax breakdown
                     and deductions.</p>
             </a>
 
             <!-- GST Calculator -->
             <a href="gst-calculator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-emerald-500/10 rounded-2xl flex items-center justify-center text-emerald-500 mb-5 group-hover:bg-emerald-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-500 transition">GST Calculator
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-black transition">GST Calculator
                 </h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Fast GST calculations for India with Net/Gross and
+                <p class="text-gray-700 text-sm leading-relaxed">Fast GST calculations for India with Net/Gross and
                     various tax slabs.</p>
             </a>
 
             <!-- SIP Calculator -->
             <a href="sip-calculator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-purple-500/10 rounded-2xl flex items-center justify-center text-purple-500 mb-5 group-hover:bg-purple-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-purple-500 transition">SIP Calculator</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Estimate the future value of your monthly mutual fund
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-black transition">SIP Calculator
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Estimate the future value of your monthly mutual
+                    fund
                     investments.</p>
             </a>
 
             <!-- EMI Calculator -->
             <a href="emi-calculator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-orange-500/10 rounded-2xl flex items-center justify-center text-orange-500 mb-5 group-hover:bg-orange-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-orange-500 transition">EMI Calculator</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Calculate monthly loan installments with detailed
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-black transition">EMI Calculator
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Calculate monthly loan installments with detailed
                     breakup and chart.</p>
             </a>
 
             <!-- Percentage Calculator -->
             <a href="percentage-calculator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-yellow-500/10 rounded-2xl flex items-center justify-center text-yellow-500 mb-5 group-hover:bg-yellow-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-yellow-500 transition">Percentage Calc
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-black transition">Percentage Calc
                 </h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Calculate percentage change, difference, and what % X
+                <p class="text-gray-700 text-sm leading-relaxed">Calculate percentage change, difference, and what
+                    % X
                     is of Y.</p>
             </a>
 
             <!-- Health Calculator -->
             <a href="health-calculator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-lime-400/10 rounded-2xl flex items-center justify-center text-lime-400 mb-5 group-hover:bg-lime-400 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-lime-400 transition">BMI & BMR Calc</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Track your body metrics including BMI and daily
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">BMI & BMR Calc
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Track your body metrics including BMI and daily
                     calorie needs.</p>
             </a>
 
             <!-- Rent Receipt Generator -->
             <a href="rent-receipt-generator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-pink-500/10 rounded-2xl flex items-center justify-center text-pink-500 mb-5 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-pink-500 transition">Rent Receipt Maker
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Rent Receipt
+                    Maker
                 </h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Generate rent receipts with PDF download for HRA tax
+                <p class="text-gray-700 text-sm leading-relaxed">Generate rent receipts with PDF download for HRA
+                    tax
                     proofs.</p>
             </a>
 
@@ -288,30 +288,32 @@
             <!-- Image Compressor -->
             <a href="image-compressor.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-red-500/10 rounded-2xl flex items-center justify-center text-red-500 mb-5 group-hover:bg-red-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-red-500 transition">Image Compressor</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Compress PNGs and JPEGs locally to specific KB/MB
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Image Compressor
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Compress PNGs and JPEGs locally to specific KB/MB
                     sizes.</p>
             </a>
 
             <!-- Image Converter -->
             <a href="image-converter.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-amber-500/10 rounded-2xl flex items-center justify-center text-amber-500 mb-5 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-amber-500 transition">Image Converter</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Convert HEIC, WebP, and JPG images to PNG or JPG
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Image Converter
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Convert HEIC, WebP, and JPG images to PNG or JPG
                     format instantly.</p>
             </a>
 
@@ -321,56 +323,59 @@
                     class="absolute top-2 right-2 bg-brand-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full z-10">
                     AI</div>
                 <div
-                    class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-500 mb-5 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-indigo-500 transition">BG Remover</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Remove image backgrounds automatically with 100%
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">BG Remover</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Remove image backgrounds automatically with 100%
                     privacy.</p>
             </a>
 
             <!-- Dimension Checker -->
             <a href="dimension-checker.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-emerald-400/10 rounded-2xl flex items-center justify-center text-emerald-400 mb-5 group-hover:bg-emerald-400 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path d="M4 16l8-8 8 8"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition">Dimension Check
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Dimension
+                    Check
                 </h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Quickly find dimensions, aspect ratio, and size of any
+                <p class="text-gray-700 text-sm leading-relaxed">Quickly find dimensions, aspect ratio, and size of
+                    any
                     image.</p>
             </a>
 
             <!-- Blur Image -->
             <a href="blur-image.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-sky-500/10 rounded-2xl flex items-center justify-center text-sky-500 mb-5 group-hover:bg-sky-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path d="M12 4v16"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-sky-500 transition">Blur Image Tool</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Add Gaussian blur to your images directly in your
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Blur Image Tool
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Add Gaussian blur to your images directly in your
                     browser.</p>
             </a>
 
             <!-- YouTube Thumbnail -->
             <a href="yt-thumbnail.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-red-600/10 rounded-2xl flex items-center justify-center text-red-600 mb-5 group-hover:bg-red-600 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-red-600 transition">YT Thumbnail</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Download high-quality thumbnails from any YouTube
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">YT Thumbnail</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Download high-quality thumbnails from any YouTube
                     video instantly.</p>
             </a>
 
@@ -378,30 +383,32 @@
             <!-- PDF Unlocker -->
             <a href="pdf-unlocker.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-red-500/10 rounded-2xl flex items-center justify-center text-red-500 mb-5 group-hover:bg-red-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-red-500 transition">PDF Unlocker</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Remove passwords from protected PDFs securely in your
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">PDF Unlocker</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Remove passwords from protected PDFs securely in
+                    your
                     browser.</p>
             </a>
 
             <!-- PDF Merger -->
             <a href="pdf-merger.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-red-500/10 rounded-2xl flex items-center justify-center text-red-500 mb-5 group-hover:bg-red-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-red-500 transition">Merge PDF</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Combine multiple PDF files into one document securely.
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Merge PDF</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Combine multiple PDF files into one document
+                    securely.
                 </p>
             </a>
 
@@ -415,51 +422,57 @@
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-blue-500 transition">Character Counter
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-blue-500 transition">Character Counter
                 </h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Check character limits for X (Twitter), Instagram, and
+                <p class="text-gray-700 text-sm leading-relaxed">Check character limits for X (Twitter), Instagram,
+                    and
                     LinkedIn.</p>
             </a>
 
             <!-- Text Formatter -->
             <a href="text-formatter.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-pink-500/10 rounded-2xl flex items-center justify-center text-pink-500 mb-5 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-pink-500 transition">Text Formatter</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Change text case, generate URL slugs, and remove extra
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Text Formatter
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Change text case, generate URL slugs, and remove
+                    extra
                     spaces.</p>
             </a>
 
             <!-- Lorem Ipsum -->
             <a href="lorem-ipsum.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-green-500/10 rounded-2xl flex items-center justify-center text-green-500 mb-5 group-hover:bg-green-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path d="M4 6h16M4 12h16m-7 6h7"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-green-500 transition">Lorem Ipsum</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Generate placeholder text for your mockups and landing
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Lorem Ipsum</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Generate placeholder text for your mockups and
+                    landing
                     pages.</p>
             </a>
 
             <!-- Fancy Fonts -->
             <a href="fancy-fonts.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-fuchsia-500/10 rounded-2xl flex items-center justify-center text-fuchsia-500 mb-5 group-hover:bg-fuchsia-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-fuchsia-500 transition">Fancy Fonts</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Generate stylish Unicode text for your Instagram Bio.
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Fancy Fonts
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Generate stylish Unicode text for your Instagram
+                    Bio.
                 </p>
             </a>
 
@@ -467,72 +480,81 @@
             <!-- JSON Formatter -->
             <a href="json-formatter.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-cyan-500/10 rounded-2xl flex items-center justify-center text-cyan-500 mb-5 group-hover:bg-cyan-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-500 transition">JSON Formatter</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Beautify, minify, and validate JSON code with syntax
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">JSON Formatter
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Beautify, minify, and validate JSON code with
+                    syntax
                     highlighting.</p>
             </a>
 
             <!-- UUID Generator -->
             <a href="uuid-generator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-500 mb-5 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-indigo-500 transition">UUID Generator</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Generate random v4 UUIDs in bulk for development and
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">UUID Generator
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Generate random v4 UUIDs in bulk for development
+                    and
                     testing.</p>
             </a>
 
             <!-- Epoch Converter -->
             <a href="timestamp-converter.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-teal-500/10 rounded-2xl flex items-center justify-center text-teal-500 mb-5 group-hover:bg-teal-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-teal-500 transition">Epoch Converter</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Convert Unix timestamps to human-readable dates and
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Epoch Converter
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Convert Unix timestamps to human-readable dates
+                    and
                     vice versa.</p>
             </a>
 
             <!-- HTML Minifier -->
             <a href="html-minifier.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-lime-600/10 rounded-2xl flex items-center justify-center text-lime-500 mb-5 group-hover:bg-lime-600 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-lime-500 transition">HTML Minifier</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Minify HTML by removing white-spaces, comments and new
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">HTML Minifier
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Minify HTML by removing white-spaces, comments and
+                    new
                     lines.</p>
             </a>
 
             <!-- CSS Minifier -->
             <a href="css-minifier.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-blue-600/10 rounded-2xl flex items-center justify-center text-blue-500 mb-5 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-blue-500 transition">CSS Minifier</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Compress your style sheets for faster loading times.
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-black transition">CSS Minifier</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Compress your style sheets for faster loading
+                    times.
                 </p>
             </a>
 
@@ -544,8 +566,9 @@
                         <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-gray-400 transition">Image to Base64</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Convert images to Base64 data strings for inline
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-400 transition">Image to Base64
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Convert images to Base64 data strings for inline
                     usage.</p>
             </a>
 
@@ -557,15 +580,16 @@
                 <span
                     class="new-badge absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">NEW</span>
                 <div
-                    class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-500 mb-5 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-indigo-500 transition">JWT Decoder</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Parse and validate JSON Web Tokens instantly.</p>
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">JWT Decoder
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Parse and validate JSON Web Tokens instantly.</p>
             </a>
 
             <!-- MIME Type Checker -->
@@ -574,75 +598,81 @@
                 data-category="developer" data-added="2026-01-20T11:53:00">
                 <!-- NEW Badge -->
                 <span
-                    class="new-badge absolute top-4 right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">NEW</span>
+                    class="new-badge absolute top-4 right-4 bg-black text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">NEW</span>
                 <div
-                    class="w-12 h-12 bg-teal-500/10 rounded-2xl flex items-center justify-center text-teal-500 mb-5 group-hover:bg-teal-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-teal-500 transition">MIME Checker</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Identify file types by analyzing magic numbers.</p>
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">MIME Checker</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Identify file types by analyzing magic numbers.
+                </p>
             </a>
 
             <!-- SEO TOOLS -->
             <!-- Meta Tag Generator -->
             <a href="meta-tag-generator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 mb-5 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-blue-500 transition">Meta Tag Gen</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Create SEO & Social Media tags with live preview.</p>
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-black transition">Meta Tag Gen</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Create SEO & Social Media tags with live preview.
+                </p>
             </a>
 
             <!-- Robots.txt Generator -->
             <a href="robots-txt-generator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-emerald-600/10 rounded-2xl flex items-center justify-center text-emerald-600 mb-5 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-600 transition">Robots.txt Gen
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Robots.txt Gen
                 </h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Generate allows/disallows for search engine bots.</p>
+                <p class="text-gray-700 text-sm leading-relaxed">Generate allows/disallows for search engine bots.
+                </p>
             </a>
 
             <!-- SOCIAL & PRODUCTIVITY -->
             <!-- Marriage Biodata Maker -->
             <a href="marriage-biodata-maker.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-rose-500/10 rounded-2xl flex items-center justify-center text-rose-500 mb-5 group-hover:bg-rose-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-rose-500 transition">Biodata Maker</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Create professional marriage biodata with PDF
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Biodata Maker
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Create professional marriage biodata with PDF
                     download.</p>
             </a>
 
             <!-- Link Cloaker -->
             <a href="link-cloaker.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-indigo-500/10 rounded-2xl flex items-center justify-center text-indigo-500 mb-5 group-hover:bg-indigo-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-indigo-500 transition">Link Cloaker</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Shorten and cloak affiliate links professionally.</p>
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Link Cloaker
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Shorten and cloak affiliate links professionally.
+                </p>
             </a>
 
             <!-- Reel Caption Formatter -->
@@ -653,8 +683,10 @@
                         <path d="M4 6h16"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-orange-600 transition">Reel Formatter</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Add clean line breaks and spacing to your Instagram
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-orange-600 transition">Reel Formatter
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Add clean line breaks and spacing to your
+                    Instagram
                     captions.</p>
             </a>
 
@@ -667,92 +699,100 @@
                             d="M4 4h6v6H4zm10 0h6v6h-6zM4 14h6v6H4zm10 3h6m-3-3v6"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-purple-500 transition">QR Generator</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Create free custom QR codes for URLs, text, and
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-purple-500 transition">QR Generator
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Create free custom QR codes for URLs, text, and
                     emails.</p>
             </a>
 
             <!-- Email Signature Generator -->
             <a href="email-signature-generator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-pink-500/10 rounded-2xl flex items-center justify-center text-pink-500 mb-5 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-pink-500 transition">Signature Gen</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Professional email signatures for Gmail & Outlook.</p>
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Signature Gen
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Professional email signatures for Gmail & Outlook.
+                </p>
             </a>
 
             <!-- Markdown Editor -->
             <a href="markdown-editor.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-slate-500/10 rounded-2xl flex items-center justify-center text-slate-400 mb-5 group-hover:bg-slate-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-slate-400 transition">Markdown Editor</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Write Markdown with real-time HTML preview.</p>
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Markdown Editor
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Write Markdown with real-time HTML preview.</p>
             </a>
 
             <!-- Password Generator -->
             <a href="password-generator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-violet-500/10 rounded-2xl flex items-center justify-center text-violet-500 mb-5 group-hover:bg-violet-500 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-violet-500 transition">Password Gen</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Create strong, secure, and random passwords for your
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Password Gen
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Create strong, secure, and random passwords for
+                    your
                     security.</p>
             </a>
 
             <!-- URL Encoder/Decoder -->
             <a href="url-encoder-decoder.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-sky-400/10 rounded-2xl flex items-center justify-center text-sky-400 mb-5 group-hover:bg-sky-400 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path d="M10 20l4-16"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-sky-400 transition">URL Encoder</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Safely encode or decode URL components for web
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">URL Encoder</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Safely encode or decode URL components for web
                     development.</p>
             </a>
 
             <!-- Hex to RGB Converter -->
             <a href="hex-rgb-converter.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-rose-400/10 rounded-2xl flex items-center justify-center text-rose-400 mb-5 group-hover:bg-rose-400 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path d="M7 20l4-16"></path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-rose-400 transition">Hex to RGB</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Convert HEX color codes to RGB/RGBA for your CSS
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Hex to RGB</h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Convert HEX color codes to RGB/RGBA for your CSS
                     designs.</p>
             </a>
 
             <!-- Age Calculator -->
             <a href="age-calculator.html" class="tool-card p-6 rounded-3xl flex flex-col group">
                 <div
-                    class="w-12 h-12 bg-cyan-400/10 rounded-2xl flex items-center justify-center text-cyan-400 mb-5 group-hover:bg-cyan-400 group-hover:text-white transition-all duration-300">
+                    class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-700 mb-5 group-hover:bg-black group-hover:text-white transition-all duration-300">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
                         </path>
                     </svg>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-400 transition">Age Calculator</h3>
-                <p class="text-slate-500 text-sm leading-relaxed">Calculate your exact age in years, months, and days
+                <h3 class="text-lg font-bold text-black mb-2 group-hover:text-gray-700 transition">Age Calculator
+                </h3>
+                <p class="text-gray-700 text-sm leading-relaxed">Calculate your exact age in years, months, and
+                    days
                     instantly.</p>
             </a>
 
@@ -762,15 +802,11 @@
 
         <!-- Newsletter Section -->
         <section class="mt-20 max-w-4xl mx-auto">
-            <div
-                class="bg-gradient-to-r from-brand-500/20 to-cyan-500/20 rounded-3xl p-8 sm:p-12 border border-brand-500/30 text-center">
+            <div class="bg-gray-50 rounded-2xl p-8 sm:p-12 border border-gray-200 text-center">
                 <div class="mb-6">
-                    <span class="text-4xl sm:text-5xl mb-4 block">📧</span>
-                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">Get Weekly Tool Tips &
-                        Updates</h2>
-                    <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto">
-                        Join 5,000+ users who receive exclusive tips, new tools, and productivity hacks directly in
-                        their inbox.
+                    <h2 class="text-2xl sm:text-3xl font-bold text-black mb-4">Get Weekly Updates</h2>
+                    <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+                        Join 5,000+ users receiving exclusive tips and new tools.
                     </p>
                 </div>
 
@@ -779,32 +815,32 @@
                     id="newsletterForm">
                     <div class="flex flex-col sm:flex-row gap-3">
                         <input type="email" name="email" placeholder="your@email.com" required
-                            class="flex-1 bg-slate-900/80 border border-slate-700 rounded-xl px-4 sm:px-6 py-3 sm:py-4 text-white placeholder-slate-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition text-sm sm:text-base">
+                            class="flex-1 bg-white border border-gray-300 rounded-lg px-4 sm:px-6 py-3 text-gray-900 placeholder-gray-400 focus:border-black focus:ring-1 focus:ring-black outline-none transition text-sm sm:text-base">
                         <button type="submit"
-                            class="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition shadow-lg shadow-brand-500/20 text-sm sm:text-base whitespace-nowrap">
-                            Subscribe Free
+                            class="bg-black hover:bg-gray-800 text-white font-semibold px-6 sm:px-8 py-3 rounded-lg transition text-sm sm:text-base whitespace-nowrap">
+                            Subscribe
                         </button>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-4">
-                        ✓ No spam ever &nbsp;•&nbsp; ✓ Unsubscribe anytime &nbsp;•&nbsp; ✓ 100% Free
+                    <p class="text-xs sm:text-sm text-gray-500 mt-4">
+                        No spam • Unsubscribe anytime
                     </p>
                 </form>
 
                 <!-- Success Message (hidden by default) -->
-                <div id="successMessage" class="hidden mt-6 p-4 bg-green-500/20 border border-green-500/30 rounded-xl">
-                    <p class="text-green-400 font-medium">🎉 Thanks for subscribing! Check your email to confirm.</p>
+                <div id="successMessage" class="hidden mt-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                    <p class="text-green-700 font-medium">Thanks for subscribing! Check your email to confirm.</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="border-t border-white/5 py-12 mt-20 bg-slate-900/40">
+    <footer class="border-t border-gray-200 py-12 mt-20">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-slate-500 text-sm mb-4 font-medium">&copy; 2024 FreeProducts24. All Rights Reserved.</p>
-            <div class="flex justify-center gap-6 text-xs text-slate-600">
-                <a href="privacy.html" class="hover:text-brand-500 transition">Privacy Policy</a>
-                <a href="about.html" class="hover:text-brand-500 transition">Terms & About</a>
-                <a href="index.html" class="hover:text-brand-500 transition">Home</a>
+            <p class="text-gray-500 text-sm mb-4">&copy; 2024 FreeProducts24. All Rights Reserved.</p>
+            <div class="flex justify-center gap-6 text-xs text-gray-500">
+                <a href="privacy.html" class="hover:text-black transition">Privacy Policy</a>
+                <a href="about.html" class="hover:text-black transition">Terms & About</a>
+                <a href="index.html" class="hover:text-black transition">Home</a>
             </div>
         </div>
     </footer>
@@ -880,11 +916,11 @@
             btn.addEventListener('click', () => {
                 // Update active state
                 categoryBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-brand-500', 'text-white');
-                    b.classList.add('bg-slate-800/50', 'text-slate-400');
+                    b.classList.remove('active', 'bg-black', 'text-white');
+                    b.classList.add('bg-white', 'border', 'border-gray-300', 'text-gray-700');
                 });
-                btn.classList.add('active', 'bg-brand-500', 'text-white');
-                btn.classList.remove('bg-slate-800/50', 'text-slate-400');
+                btn.classList.add('active', 'bg-black', 'text-white');
+                btn.classList.remove('bg-white', 'border', 'border-gray-300', 'text-gray-700');
 
                 currentCategory = btn.getAttribute('data-category');
                 filterTools();
@@ -919,7 +955,7 @@
                     noResults = document.createElement('div');
                     noResults.className = 'no-results col-span-full text-center py-20';
                     noResults.innerHTML = `
-                        <div class="text-slate-500">
+                        <div class="text-gray-700">
                             <svg class="w-16 h-16 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>

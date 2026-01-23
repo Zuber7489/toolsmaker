@@ -43,17 +43,14 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Outfit', 'sans-serif'] },
-                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                    colors: { brand: { 500: '#000000', 600: '#1a1a1a' } }
                 }
             }
         }
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image:
-                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2314b8a6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-color: #f9fafb;
             min-height: 100vh;
         }
 
@@ -66,8 +63,8 @@
         }
 
         .result-card {
-            background: linear-gradient(135deg, rgba(20, 184, 166, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
-            border: 1px solid rgba(20, 184, 166, 0.3);
+            background: #000000;
+            color: white;
         }
 
         .breakdown-item {
@@ -75,57 +72,64 @@
         }
 
         .breakdown-item:hover {
-            background: rgba(20, 184, 166, 0.05);
+            background: #f3f4f6;
             transform: translateX(4px);
         }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased font-sans">
+<body class="text-gray-900 antialiased font-sans">
 
-    <nav class="w-full bg-slate-900/80 border-b border-white/10 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex justify-between items-center">
-            <a href="index.html"
-                class="text-lg sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-500 to-cyan-400">FreeProducts24</a>
-            <a href="index.html" class="text-xs sm:text-sm hover:text-white transition">More Tools</a>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
         </div>
     </nav>
 
     <main class="max-w-7xl mx-auto px-3 sm:px-4 py-6 sm:py-10">
         <!-- Header -->
         <div class="text-center mb-8 sm:mb-12">
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
-                Salary Calculator <span class="text-brand-500">India 2026</span>
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4">
+                Salary Calculator <span class="text-black">India 2026</span>
             </h1>
-            <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto">
+            <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
                 Calculate accurate in-hand salary with <strong>updated FY 2025-26 Tax Slabs</strong>.
-                <span class="text-green-400 font-medium">✨ Updated Jan 2026</span>
+                <span class="text-green-600 font-medium">✨ Updated Jan 2026</span>
             </p>
         </div>
 
         <div class="grid lg:grid-cols-3 gap-6 sm:gap-8">
             <!-- Input Section -->
             <div class="lg:col-span-1 space-y-4 sm:space-y-6">
-                <div class="bg-slate-800/50 rounded-2xl p-4 sm:p-6 border border-slate-700">
-                    <h2 class="text-lg sm:text-xl font-bold text-white mb-4 sm:mb-6">Salary Details</h2>
+                <div class="bg-white rounded-2xl p-4 sm:p-6 border border-gray-200 shadow-sm">
+                    <h2 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 sm:mb-6">Salary Details</h2>
 
                     <!-- CTC Input -->
                     <div class="input-group mb-4 sm:mb-6">
-                        <label class="block text-xs sm:text-sm font-medium text-slate-300 mb-2">Annual CTC (₹)</label>
+                        <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Annual CTC (₹)</label>
                         <input type="number" id="ctc" value="1200000" placeholder="e.g., 12,00,000"
-                            class="w-full bg-slate-900 text-lg sm:text-xl font-semibold text-white p-3 sm:p-4 rounded-xl border border-slate-700 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition">
+                            class="w-full bg-gray-50 text-lg sm:text-xl font-semibold text-gray-900 p-3 sm:p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition">
                     </div>
 
                     <!-- Tax Regime -->
                     <div class="mb-4 sm:mb-6">
-                        <label class="block text-xs sm:text-sm font-medium text-slate-300 mb-3">Tax Regime</label>
-                        <div class="flex gap-2 bg-slate-900 p-1 rounded-lg">
+                        <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-3">Tax Regime</label>
+                        <div class="flex gap-2 bg-gray-100 p-1 rounded-lg">
                             <button id="oldRegime"
-                                class="flex-1 py-2 px-2 sm:px-3 rounded-md text-xs sm:text-sm font-medium bg-brand-500 text-white transition">
+                                class="flex-1 py-2 px-2 sm:px-3 rounded-md text-xs sm:text-sm font-medium bg-black text-white transition">
                                 Old Regime
                             </button>
                             <button id="newRegime"
-                                class="flex-1 py-2 px-2 sm:px-3 rounded-md text-xs sm:text-sm font-medium text-slate-400 hover:text-white transition">
+                                class="flex-1 py-2 px-2 sm:px-3 rounded-md text-xs sm:text-sm font-medium text-gray-600 hover:text-black transition">
                                 New Regime
                             </button>
                         </div>
@@ -133,9 +137,9 @@
 
                     <!-- Age Group -->
                     <div class="mb-4 sm:mb-6">
-                        <label class="block text-xs sm:text-sm font-medium text-slate-300 mb-2">Age Group</label>
+                        <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Age Group</label>
                         <select id="ageGroup"
-                            class="w-full bg-slate-900 text-white p-2 sm:p-3 rounded-xl border border-slate-700 focus:ring-2 focus:ring-brand-500 outline-none text-sm sm:text-base">
+                            class="w-full bg-gray-50 text-gray-900 p-2 sm:p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-black outline-none text-sm sm:text-base">
                             <option value="below60">Below 60 years</option>
                             <option value="60to80">60 to 80 years (Senior Citizen)</option>
                             <option value="above80">Above 80 years (Super Senior)</option>
@@ -143,31 +147,31 @@
                     </div>
 
                     <!-- Additional Deductions -->
-                    <div class="border-t border-slate-700 pt-4 sm:pt-6">
-                        <h3 class="text-sm sm:text-base font-semibold text-white mb-3 sm:mb-4">Additional Deductions
+                    <div class="border-t border-gray-200 pt-4 sm:pt-6">
+                        <h3 class="text-sm sm:text-base font-semibold text-gray-900 mb-3 sm:mb-4">Additional Deductions
                             (Optional)</h3>
 
                         <div class="space-y-3 sm:space-y-4">
                             <div>
-                                <label class="block text-xs text-slate-400 mb-1">80C (PPF, ELSS, etc.)</label>
+                                <label class="block text-xs text-gray-500 mb-1">80C (PPF, ELSS, etc.)</label>
                                 <input type="number" id="deduction80C" value="150000" placeholder="Max 1,50,000"
-                                    class="w-full bg-slate-900 text-white p-2 rounded-lg border border-slate-700 focus:border-brand-500 outline-none text-sm">
+                                    class="w-full bg-gray-50 text-gray-900 p-2 rounded-lg border border-gray-200 focus:border-black outline-none text-sm">
                             </div>
                             <div>
-                                <label class="block text-xs text-slate-400 mb-1">80D (Health Insurance)</label>
+                                <label class="block text-xs text-gray-500 mb-1">80D (Health Insurance)</label>
                                 <input type="number" id="deduction80D" value="25000" placeholder="Max 25,000/50,000"
-                                    class="w-full bg-slate-900 text-white p-2 rounded-lg border border-slate-700 focus:border-brand-500 outline-none text-sm">
+                                    class="w-full bg-gray-50 text-gray-900 p-2 rounded-lg border border-gray-200 focus:border-black outline-none text-sm">
                             </div>
                             <div>
-                                <label class="block text-xs text-slate-400 mb-1">HRA Exemption</label>
+                                <label class="block text-xs text-gray-500 mb-1">HRA Exemption</label>
                                 <input type="number" id="hraExemption" value="0" placeholder="Enter amount"
-                                    class="w-full bg-slate-900 text-white p-2 rounded-lg border border-slate-700 focus:border-brand-500 outline-none text-sm">
+                                    class="w-full bg-gray-50 text-gray-900 p-2 rounded-lg border border-gray-200 focus:border-black outline-none text-sm">
                             </div>
                         </div>
                     </div>
 
                     <button onclick="calculate()"
-                        class="w-full mt-6 bg-brand-500 hover:bg-brand-600 text-white font-semibold py-3 sm:py-4 rounded-xl transition shadow-lg shadow-brand-500/20 text-sm sm:text-base">
+                        class="w-full mt-6 bg-black hover:bg-gray-800 text-white font-semibold py-3 sm:py-4 rounded-xl transition shadow-lg shadow-gray-200 text-sm sm:text-base">
                         Calculate Salary
                     </button>
                 </div>
@@ -176,40 +180,40 @@
             <!-- Results Section -->
             <div class="lg:col-span-2 space-y-4 sm:space-y-6">
                 <!-- Main Result -->
-                <div class="result-card rounded-3xl p-6 sm:p-8 text-center">
-                    <p class="text-xs sm:text-sm text-slate-400 uppercase tracking-wider mb-2">Monthly In-Hand Salary
+                <div class="result-card rounded-3xl p-6 sm:p-8 text-center text-white">
+                    <p class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider mb-2">Monthly In-Hand Salary
                     </p>
                     <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-2">
                         ₹ <span id="monthlyInHand">0</span>
                     </h2>
-                    <p class="text-xs sm:text-sm text-slate-400">
+                    <p class="text-xs sm:text-sm text-gray-400">
                         Annual: ₹<span id="annualInHand">0</span>
                     </p>
                 </div>
 
                 <!-- Quick Stats -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-                    <div class="bg-slate-800/50 rounded-xl p-3 sm:p-4 border border-slate-700">
-                        <p class="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">Annual CTC</p>
-                        <p class="text-base sm:text-xl font-bold text-white">₹<span id="displayCTC">0</span></p>
+                    <div class="bg-white rounded-xl p-3 sm:p-4 border border-gray-200">
+                        <p class="text-[10px] sm:text-xs text-gray-500 uppercase mb-1">Annual CTC</p>
+                        <p class="text-base sm:text-xl font-bold text-gray-900">₹<span id="displayCTC">0</span></p>
                     </div>
-                    <div class="bg-slate-800/50 rounded-xl p-3 sm:p-4 border border-slate-700">
-                        <p class="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">Total Tax</p>
-                        <p class="text-base sm:text-xl font-bold text-red-400">₹<span id="totalTax">0</span></p>
+                    <div class="bg-white rounded-xl p-3 sm:p-4 border border-gray-200">
+                        <p class="text-[10px] sm:text-xs text-gray-500 uppercase mb-1">Total Tax</p>
+                        <p class="text-base sm:text-xl font-bold text-red-600">₹<span id="totalTax">0</span></p>
                     </div>
-                    <div class="bg-slate-800/50 rounded-xl p-3 sm:p-4 border border-slate-700">
-                        <p class="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">PF Deduction</p>
-                        <p class="text-base sm:text-xl font-bold text-orange-400">₹<span id="pfAmount">0</span></p>
+                    <div class="bg-white rounded-xl p-3 sm:p-4 border border-gray-200">
+                        <p class="text-[10px] sm:text-xs text-gray-500 uppercase mb-1">PF Deduction</p>
+                        <p class="text-base sm:text-xl font-bold text-orange-600">₹<span id="pfAmount">0</span></p>
                     </div>
-                    <div class="bg-slate-800/50 rounded-xl p-3 sm:p-4 border border-slate-700">
-                        <p class="text-[10px] sm:text-xs text-slate-500 uppercase mb-1">Effective Tax</p>
-                        <p class="text-base sm:text-xl font-bold text-yellow-400"><span id="effectiveTax">0</span>%</p>
+                    <div class="bg-white rounded-xl p-3 sm:p-4 border border-gray-200">
+                        <p class="text-[10px] sm:text-xs text-gray-500 uppercase mb-1">Effective Tax</p>
+                        <p class="text-base sm:text-xl font-bold text-yellow-600"><span id="effectiveTax">0</span>%</p>
                     </div>
                 </div>
 
                 <!-- Detailed Breakdown -->
-                <div class="bg-slate-800/50 rounded-2xl p-4 sm:p-6 border border-slate-700">
-                    <h3 class="text-base sm:text-lg font-bold text-white mb-4">Detailed Breakdown</h3>
+                <div class="bg-white rounded-2xl p-4 sm:p-6 border border-gray-200">
+                    <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-4">Detailed Breakdown</h3>
 
                     <div class="space-y-2 sm:space-y-3" id="breakdownList">
                         <!-- Dynamically populated -->
@@ -217,30 +221,29 @@
                 </div>
 
                 <!-- Tax Breakdown -->
-                <div class="bg-slate-800/50 rounded-2xl p-4 sm:p-6 border border-slate-700">
-                    <h3 class="text-base sm:text-lg font-bold text-white mb-4">Tax Calculation</h3>
+                <div class="bg-white rounded-2xl p-4 sm:p-6 border border-gray-200">
+                    <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-4">Tax Calculation</h3>
                     <div class="space-y-2 sm:space-y-3" id="taxBreakdown">
                         <!-- Dynamically populated -->
                     </div>
                 </div>
 
                 <!-- Comparison -->
-                <div
-                    class="bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-2xl p-4 sm:p-6 border border-purple-500/30">
-                    <h3 class="text-base sm:text-lg font-bold text-white mb-4">💡 Tax Regime Comparison</h3>
+                <div class="bg-gray-50 rounded-2xl p-4 sm:p-6 border border-gray-200">
+                    <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-4">💡 Tax Regime Comparison</h3>
                     <div class="grid sm:grid-cols-2 gap-4">
-                        <div class="bg-slate-900/50 rounded-xl p-4">
-                            <p class="text-xs text-slate-400 mb-2">Old Regime</p>
-                            <p class="text-xl sm:text-2xl font-bold text-white">₹<span id="oldRegimeTax">0</span></p>
-                            <p class="text-xs text-slate-500 mt-1">With deductions</p>
+                        <div class="bg-white rounded-xl p-4 border border-gray-100">
+                            <p class="text-xs text-gray-400 mb-2">Old Regime</p>
+                            <p class="text-xl sm:text-2xl font-bold text-gray-900">₹<span id="oldRegimeTax">0</span></p>
+                            <p class="text-xs text-gray-400 mt-1">With deductions</p>
                         </div>
-                        <div class="bg-slate-900/50 rounded-xl p-4">
-                            <p class="text-xs text-slate-400 mb-2">New Regime</p>
-                            <p class="text-xl sm:text-2xl font-bold text-white">₹<span id="newRegimeTax">0</span></p>
-                            <p class="text-xs text-slate-500 mt-1">No deductions</p>
+                        <div class="bg-white rounded-xl p-4 border border-gray-100">
+                            <p class="text-xs text-gray-400 mb-2">New Regime</p>
+                            <p class="text-xl sm:text-2xl font-bold text-gray-900">₹<span id="newRegimeTax">0</span></p>
+                            <p class="text-xs text-gray-400 mt-1">No deductions</p>
                         </div>
                     </div>
-                    <p class="text-xs sm:text-sm text-center mt-4 text-brand-400 font-medium" id="recommendation"></p>
+                    <p class="text-xs sm:text-sm text-center mt-4 text-green-600 font-medium" id="recommendation"></p>
                 </div>
             </div>
         </div>
@@ -248,22 +251,22 @@
 
         <!-- Cross Promotion -->
         <div
-            class="mt-8 bg-slate-800/50 rounded-2xl p-6 border border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-6">
+            class="mt-8 bg-white rounded-2xl p-6 border border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-sm">
             <div>
-                <h3 class="text-xl font-bold text-white mb-2">Claiming HRA?</h3>
-                <p class="text-slate-400 text-sm">Generate valid rent receipts with our free tool to submit HRA proof to
+                <h3 class="text-xl font-bold text-gray-900 mb-2">Claiming HRA?</h3>
+                <p class="text-gray-600 text-sm">Generate valid rent receipts with our free tool to submit HRA proof to
                     your employer.</p>
             </div>
             <a href="rent-receipt-generator.html"
-                class="whitespace-nowrap bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-6 rounded-xl transition shadow-lg shadow-pink-500/20">
+                class="whitespace-nowrap bg-black hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-xl transition shadow-lg shadow-gray-200">
                 Create Rent Receipt →
             </a>
         </div>
     </main>
 
-    <footer class="border-t border-white/5 py-6 sm:py-8 mt-12 sm:mt-16 bg-slate-900/40">
+    <footer class="border-t border-gray-200 py-6 sm:py-8 mt-12 sm:mt-16 bg-white">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-slate-500 text-xs sm:text-sm">&copy; 2024 FreeProducts24. All Rights Reserved.</p>
+            <p class="text-gray-500 text-xs sm:text-sm">&copy; 2024 FreeProducts24. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -281,19 +284,19 @@
         // Toggle tax regime
         oldRegimeBtn.addEventListener('click', () => {
             isOldRegime = true;
-            oldRegimeBtn.classList.add('bg-brand-500', 'text-white');
-            oldRegimeBtn.classList.remove('text-slate-400');
-            newRegimeBtn.classList.remove('bg-brand-500', 'text-white');
-            newRegimeBtn.classList.add('text-slate-400');
+            oldRegimeBtn.classList.add('bg-black', 'text-white');
+            oldRegimeBtn.classList.remove('text-gray-600');
+            newRegimeBtn.classList.remove('bg-black', 'text-white');
+            newRegimeBtn.classList.add('text-gray-600');
             calculate();
         });
 
         newRegimeBtn.addEventListener('click', () => {
             isOldRegime = false;
-            newRegimeBtn.classList.add('bg-brand-500', 'text-white');
-            newRegimeBtn.classList.remove('text-slate-400');
-            oldRegimeBtn.classList.remove('bg-brand-500', 'text-white');
-            oldRegimeBtn.classList.add('text-slate-400');
+            newRegimeBtn.classList.add('bg-black', 'text-white');
+            newRegimeBtn.classList.remove('text-gray-600');
+            oldRegimeBtn.classList.remove('bg-black', 'text-white');
+            oldRegimeBtn.classList.add('text-gray-600');
             calculate();
         });
 
@@ -453,10 +456,10 @@
                 const isNegative = amount < 0;
                 const isTotal = label === 'Net In-Hand';
                 const div = document.createElement('div');
-                div.className = `breakdown-item flex justify-between items-center p-3 rounded-lg ${isTotal ? 'bg-brand-500/10 border border-brand-500/30' : ''}`;
+                div.className = `breakdown-item flex justify-between items-center p-3 rounded-lg ${isTotal ? 'bg-black text-white' : 'text-gray-600'}`;
                 div.innerHTML = `
-                    <span class="text-xs sm:text-sm ${isTotal ? 'font-bold text-white' : 'text-slate-300'}">${label}</span>
-                    <span class="text-sm sm:text-base font-semibold ${isNegative ? 'text-red-400' : isTotal ? 'text-brand-400' : 'text-green-400'}">
+                    <span class="text-xs sm:text-sm ${isTotal ? 'font-bold text-white' : 'text-gray-600'}">${label}</span>
+                    <span class="text-sm sm:text-base font-semibold ${isNegative ? 'text-red-600' : isTotal ? 'text-white' : 'text-green-600'}">
                         ${isNegative ? '-' : ''}₹${formatNumber(Math.abs(Math.round(amount)))}
                     </span>
                 `;
@@ -493,10 +496,10 @@
                     const taxAmount = taxableInSlab * (slab.rate / 100);
 
                     const div = document.createElement('div');
-                    div.className = 'flex justify-between items-center p-2 sm:p-3 rounded-lg bg-slate-900/30';
+                    div.className = 'flex justify-between items-center p-2 sm:p-3 rounded-lg bg-gray-50';
                     div.innerHTML = `
-                        <span class="text-xs sm:text-sm text-slate-400">${slab.label} @ ${slab.rate}%</span>
-                        <span class="text-xs sm:text-sm font-semibold text-white">₹${formatNumber(Math.round(taxAmount))}</span>
+                        <span class="text-xs sm:text-sm text-gray-500">${slab.label} @ ${slab.rate}%</span>
+                        <span class="text-xs sm:text-sm font-semibold text-gray-900">₹${formatNumber(Math.round(taxAmount))}</span>
                     `;
                     list.appendChild(div);
 
