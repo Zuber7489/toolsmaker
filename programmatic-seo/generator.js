@@ -279,8 +279,9 @@ function generateIndexPage() {
 </body>
 </html>`;
 
-    fs.writeFileSync(path.join(CONFIG.OUTPUT_DIR, 'index.html'), html);
-    console.log('✅ Index page generated');
+    // Save as programmatic-index.html to avoid overwriting main index.html
+    fs.writeFileSync(path.join(CONFIG.OUTPUT_DIR, 'programmatic-index.html'), html);
+    console.log('✅ Index page generated as programmatic-index.html');
 }
 
 // Main execution
