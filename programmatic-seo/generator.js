@@ -209,7 +209,7 @@ function generateEMILoanPages(loanTypes) {
 }
 
 // Generate sitemap
-function generateSitemap(baseUrl = 'https://freeproducts24.com') {
+function generateSitemap(baseUrl = 'https://freeproducts24.site') {
     console.log('\n🗺️  Generating sitemap...');
 
     const files = fs.readdirSync(CONFIG.OUTPUT_DIR).filter(f => f.endsWith('.html'));
