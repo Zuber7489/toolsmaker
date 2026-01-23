@@ -96,83 +96,92 @@
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image:
-                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
-                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2314b8a6' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-color: #f9fafb;
             min-height: 100vh;
         }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased flex flex-col min-h-screen">
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+<body class="text-gray-900 antialiased flex flex-col min-h-screen">
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="flex-grow flex flex-col">
         <!-- Calculator Section -->
         <div class="flex items-center justify-center p-3 sm:p-4 py-8 sm:py-12">
-            <div
-                class="w-full max-w-2xl bg-slate-800/60 border border-slate-700/50 p-4 sm:p-6 md:p-8 rounded-2xl shadow-2xl backdrop-blur-sm">
+            <div class="w-full max-w-2xl bg-white border border-gray-200 p-4 sm:p-6 md:p-8 rounded-2xl shadow-sm">
                 <div class="text-center mb-6 sm:mb-8">
-                    <h1 class="text-2xl sm:text-3xl font-bold text-white mb-2">GST Calculator <span
-                            class="text-brand-500">India</span>
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">GST Calculator <span
+                            class="text-black">India</span>
                     </h1>
-                    <p class="text-xs sm:text-sm text-slate-400">Calculate inclusive or exclusive GST amounts instantly.
+                    <p class="text-xs sm:text-sm text-gray-600">Calculate inclusive or exclusive GST amounts instantly.
                     </p>
                 </div>
 
                 <div class="space-y-4 sm:space-y-6">
                     <!-- Amount Input -->
                     <div>
-                        <label class="block text-xs sm:text-sm font-medium text-slate-300 mb-2">Initial Amount
+                        <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">Initial Amount
                             (₹)</label>
                         <input type="number" id="amount" placeholder="e.g. 10000"
-                            class="w-full bg-slate-900 text-xl sm:text-2xl font-semibold text-white p-3 sm:p-4 rounded-xl border border-slate-700 focus:ring-2 focus:ring-brand-500 focus:border-transparent outline-none transition">
+                            class="w-full bg-gray-50 text-xl sm:text-2xl font-semibold text-gray-900 p-3 sm:p-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-black focus:border-transparent outline-none transition">
                     </div>
 
                     <!-- Rate Selection -->
                     <div>
-                        <label class="block text-xs sm:text-sm font-medium text-slate-300 mb-2">GST Rate (%)</label>
+                        <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">GST Rate (%)</label>
                         <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
                             <button
-                                class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 text-sm sm:text-base rounded-lg transition"
+                                class="rate-btn bg-gray-100 hover:bg-gray-200 text-gray-900 py-2 text-sm sm:text-base rounded-lg transition"
                                 data-rate="5">5%</button>
                             <button
-                                class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 text-sm sm:text-base rounded-lg transition"
+                                class="rate-btn bg-gray-100 hover:bg-gray-200 text-gray-900 py-2 text-sm sm:text-base rounded-lg transition"
                                 data-rate="12">12%</button>
                             <button
-                                class="rate-btn bg-brand-600 text-white py-2 text-sm sm:text-base rounded-lg transition ring-2 ring-brand-400"
+                                class="rate-btn bg-black text-white py-2 text-sm sm:text-base rounded-lg transition ring-2 ring-gray-900"
                                 data-rate="18">18%</button>
                             <button
-                                class="rate-btn bg-slate-700 hover:bg-slate-600 text-white py-2 text-sm sm:text-base rounded-lg transition"
+                                class="rate-btn bg-gray-100 hover:bg-gray-200 text-gray-900 py-2 text-sm sm:text-base rounded-lg transition"
                                 data-rate="28">28%</button>
                             <input type="number" id="customRate" placeholder="Other"
-                                class="bg-slate-900 text-white text-sm sm:text-base text-center rounded-lg border border-slate-700 focus:border-brand-500 outline-none col-span-3 sm:col-span-1">
+                                class="bg-gray-50 text-gray-900 text-sm sm:text-base text-center rounded-lg border border-gray-200 focus:border-black outline-none col-span-3 sm:col-span-1">
                         </div>
                     </div>
 
                     <!-- Mode Selection -->
-                    <div class="flex p-1 bg-slate-900 rounded-lg gap-1">
+                    <div class="flex p-1 bg-gray-100 rounded-lg gap-1">
                         <button id="modeEx"
-                            class="flex-1 py-2 px-1 rounded-md text-[10px] sm:text-sm font-medium bg-slate-700 text-white shadow-sm transition">GST
+                            class="flex-1 py-2 px-1 rounded-md text-[10px] sm:text-sm font-medium bg-white text-black shadow-sm transition">GST
                             Exclusive (Add GST)</button>
                         <button id="modeIn"
-                            class="flex-1 py-2 px-1 rounded-md text-[10px] sm:text-sm font-medium text-slate-400 hover:text-white transition">GST
+                            class="flex-1 py-2 px-1 rounded-md text-[10px] sm:text-sm font-medium text-gray-500 hover:text-black transition">GST
                             Inclusive (Remove GST)</button>
                     </div>
 
                     <!-- Results -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-slate-700">
-                        <div class="bg-slate-900/50 p-3 sm:p-4 rounded-xl border border-slate-700/50">
-                            <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider mb-1">GST Amount
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-gray-200">
+                        <div class="bg-gray-50 p-3 sm:p-4 rounded-xl border border-gray-200">
+                            <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-1">GST Amount
                             </div>
-                            <div class="text-xl sm:text-2xl font-bold text-brand-400">₹ <span id="gstAmount">0.00</span>
+                            <div class="text-xl sm:text-2xl font-bold text-black">₹ <span id="gstAmount">0.00</span>
                             </div>
                         </div>
-                        <div class="bg-slate-900/50 p-3 sm:p-4 rounded-xl border border-slate-700/50">
-                            <div class="text-[10px] sm:text-xs text-slate-500 uppercase tracking-wider mb-1">Net / Gross
+                        <div class="bg-gray-50 p-3 sm:p-4 rounded-xl border border-gray-200">
+                            <div class="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-1">Net / Gross
                                 Total</div>
-                            <div class="text-xl sm:text-2xl font-bold text-white">₹ <span id="totalAmount">0.00</span>
+                            <div class="text-xl sm:text-2xl font-bold text-black">₹ <span id="totalAmount">0.00</span>
                             </div>
                         </div>
                     </div>
@@ -182,11 +191,11 @@
 
         <!-- Information Section -->
         <div class="w-full max-w-7xl mx-auto px-3 sm:px-4">
-            <section class="hidden lg:block border-t border-white/5 pt-12 pb-8">
+            <section class="hidden lg:block border-t border-gray-200 pt-12 pb-8">
                 <div class="grid md:grid-cols-2 gap-12">
-                    <div class="prose prose-invert max-w-none">
-                        <h2 class="text-2xl font-bold text-white mb-4">GST Calculation for India (2024)</h2>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    <div class="prose prose-gray max-w-none">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">GST Calculation for India (2024)</h2>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">
                             The Goods and Services Tax (GST) is an indirect tax used in India on the supply of goods and
                             services. Our online GST calculator helps you find the Net Price, GST Amount, and Gross
                             Price
@@ -194,8 +203,8 @@
                             tax
                             planning.
                         </p>
-                        <h3 class="text-xl font-semibold text-white mb-2">GST Components: CGST, SGST, IGST</h3>
-                        <ul class="text-slate-400 text-sm space-y-2 list-disc pl-5">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">GST Components: CGST, SGST, IGST</h3>
+                        <ul class="text-gray-600 text-sm space-y-2 list-disc pl-5">
                             <li><strong>CGST & SGST:</strong> Applicable for intra-state (within the same state)
                                 transactions. Each tier takes half of the total GST rate.</li>
                             <li><strong>IGST:</strong> Applicable for inter-state (between two different states)
@@ -203,33 +212,33 @@
                         </ul>
                     </div>
 
-                    <div class="bg-slate-800/20 p-8 rounded-2xl border border-white/5">
-                        <h3 class="text-lg font-bold text-white mb-6">Popular Financial Tools</h3>
+                    <div class="bg-gray-50 p-8 rounded-2xl border border-gray-200">
+                        <h3 class="text-lg font-bold text-gray-900 mb-6">Popular Financial Tools</h3>
                         <div class="grid grid-cols-1 gap-4">
                             <a href="sip-calculator.html"
-                                class="flex items-center gap-4 p-3 rounded-xl hover:bg-purple-500/10 transition group">
+                                class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-200 transition group">
                                 <div
-                                    class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition">
+                                    class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
                                     </svg>
                                 </div>
                                 <div>
-                                    <span class="block text-sm font-bold text-slate-200 text-left">SIP Calculator</span>
-                                    <span class="text-xs text-slate-500 text-left">Mutual Fund Returns Estimator.</span>
+                                    <span class="block text-sm font-bold text-gray-900 text-left">SIP Calculator</span>
+                                    <span class="text-xs text-gray-500 text-left">Mutual Fund Returns Estimator.</span>
                                 </div>
                             </a>
                             <a href="emi-calculator.html"
-                                class="flex items-center gap-4 p-3 rounded-xl hover:bg-orange-500/10 transition group">
+                                class="flex items-center gap-4 p-3 rounded-xl hover:bg-gray-200 transition group">
                                 <div
-                                    class="w-10 h-10 bg-orange-500/10 rounded-lg flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition">
+                                    class="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-black group-hover:bg-black group-hover:text-white transition">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3"></path>
                                     </svg>
                                 </div>
                                 <div>
-                                    <span class="block text-sm font-bold text-slate-200 text-left">EMI Calculator</span>
-                                    <span class="text-xs text-slate-500 text-left">Home/Car Loan Installments.</span>
+                                    <span class="block text-sm font-bold text-gray-900 text-left">EMI Calculator</span>
+                                    <span class="text-xs text-gray-500 text-left">Home/Car Loan Installments.</span>
                                 </div>
                             </a>
                         </div>
@@ -237,13 +246,13 @@
                 </div>
             </section>
 
-            <footer class="py-8 border-t border-white/5 text-center text-slate-500 text-xs">
+            <footer class="py-8 border-t border-gray-200 text-center text-gray-500 text-xs">
                 &copy; 2024 FreeProducts24. Professional Finance Utilities.
             </footer>
         </div>
     </main>
 
-    <footer class="py-6 text-center text-slate-600 text-sm">
+    <footer class="py-6 text-center text-gray-500 text-sm">
         &copy; ToolsMaker. Made for Indian Businesses & Freelancers.
     </footer>
 
@@ -263,12 +272,16 @@
         rateBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 // Reset styles
-                rateBtns.forEach(b => b.classList.replace('bg-brand-600', 'bg-slate-700'));
-                rateBtns.forEach(b => b.classList.remove('ring-2', 'ring-brand-400'));
+                rateBtns.forEach(b => b.classList.replace('bg-black', 'bg-gray-100'));
+                rateBtns.forEach(b => b.classList.remove('ring-2', 'ring-gray-900', 'text-white'));
+
+                // Add text-gray-900 back to non-active buttons
+                rateBtns.forEach(b => b.classList.add('text-gray-900'));
 
                 // Set active
-                btn.classList.replace('bg-slate-700', 'bg-brand-600');
-                btn.classList.add('ring-2', 'ring-brand-400');
+                btn.classList.replace('bg-gray-100', 'bg-black');
+                btn.classList.remove('text-gray-900');
+                btn.classList.add('ring-2', 'ring-gray-900', 'text-white');
 
                 currentRate = parseFloat(btn.dataset.rate);
                 customRateInput.value = ''; // clear custom
@@ -277,8 +290,9 @@
         });
 
         customRateInput.addEventListener('input', () => {
-            rateBtns.forEach(b => b.classList.replace('bg-brand-600', 'bg-slate-700'));
-            rateBtns.forEach(b => b.classList.remove('ring-2', 'ring-brand-400'));
+            rateBtns.forEach(b => b.classList.replace('bg-black', 'bg-gray-100'));
+            rateBtns.forEach(b => b.classList.remove('ring-2', 'ring-gray-900', 'text-white'));
+            rateBtns.forEach(b => b.classList.add('text-gray-900'));
             currentRate = parseFloat(customRateInput.value) || 0;
             calculate();
         });
@@ -290,15 +304,15 @@
         function setMode(exclusive) {
             isExclusive = exclusive;
             if (exclusive) {
-                modeEx.classList.add('bg-slate-700', 'text-white', 'shadow-sm');
-                modeEx.classList.remove('text-slate-400');
-                modeIn.classList.remove('bg-slate-700', 'text-white', 'shadow-sm');
-                modeIn.classList.add('text-slate-400');
+                modeEx.classList.add('bg-black', 'text-white', 'shadow-sm');
+                modeEx.classList.remove('text-gray-500', 'bg-white');
+                modeIn.classList.remove('bg-black', 'text-white', 'shadow-sm');
+                modeIn.classList.add('text-gray-500');
             } else {
-                modeIn.classList.add('bg-slate-700', 'text-white', 'shadow-sm');
-                modeIn.classList.remove('text-slate-400');
-                modeEx.classList.remove('bg-slate-700', 'text-white', 'shadow-sm');
-                modeEx.classList.add('text-slate-400');
+                modeIn.classList.add('bg-black', 'text-white', 'shadow-sm');
+                modeIn.classList.remove('text-gray-500');
+                modeEx.classList.remove('bg-black', 'text-white', 'shadow-sm');
+                modeEx.classList.add('text-gray-500', 'bg-white');
             }
             calculate();
         }
