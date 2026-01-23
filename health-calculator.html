@@ -37,17 +37,13 @@
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image:
-                radial-gradient(at 0% 0%, hsla(150, 40%, 10%, 1) 0, transparent 50%),
-                radial-gradient(at 100% 100%, hsla(200, 40%, 10%, 1) 0, transparent 50%);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
 
         .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
         }
 
         .bmi-pointer {
@@ -112,63 +108,76 @@
     </script>
 </head>
 
-<body class="text-slate-200 antialiased p-4">
+<body class="text-gray-900 antialiased p-4">
 
     <!-- Header / Nav -->
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-8">
         <!-- Left Column: Inputs -->
         <div class="lg:col-span-5 space-y-6">
-            <div class="glass-card rounded-3xl p-8 shadow-2xl">
+            <div class="glass-card rounded-3xl p-8 shadow-sm">
                 <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-brand-500/20 rounded-2xl flex items-center justify-center text-brand-500">
+                    <div class="w-12 h-12 bg-black rounded-2xl flex items-center justify-center text-white">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                         </svg>
                     </div>
                     <div>
-                        <h1 class="text-2xl font-bold text-white leading-tight">Body Metrics</h1>
-                        <p class="text-slate-400 text-sm">Enter your details for a complete analysis</p>
+                        <h1 class="text-2xl font-bold text-gray-900 leading-tight">Body Metrics</h1>
+                        <p class="text-gray-600 text-sm">Enter your details for a complete analysis</p>
                     </div>
                 </div>
 
                 <!-- Gender Toggle -->
-                <div class="flex p-1 bg-slate-900 rounded-2xl mb-6">
+                <div class="flex p-1 bg-gray-100 rounded-2xl mb-6">
                     <button onclick="setGender('male')" id="btnMale"
-                        class="flex-1 py-3 rounded-xl font-bold transition-all duration-300 bg-brand-500 text-white shadow-lg shadow-brand-500/20">Male</button>
+                        class="flex-1 py-3 rounded-xl font-bold transition-all duration-300 bg-black text-white shadow-sm">Male</button>
                     <button onclick="setGender('female')" id="btnFemale"
-                        class="flex-1 py-3 rounded-xl font-bold transition-all duration-300 text-slate-500 hover:text-white">Female</button>
+                        class="flex-1 py-3 rounded-xl font-bold transition-all duration-300 text-gray-500 hover:text-black">Female</button>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4 mb-6">
                     <div>
-                        <label class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-2">Age
+                        <label class="text-xs text-gray-500 font-bold uppercase tracking-wider block mb-2">Age
                             (years)</label>
                         <input type="number" id="age" value="25"
-                            class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-brand-500 transition">
+                            class="w-full bg-white border border-gray-300 rounded-xl p-4 text-gray-900 outline-none focus:border-black transition">
                     </div>
                     <div>
-                        <label class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-2">Weight
+                        <label class="text-xs text-gray-500 font-bold uppercase tracking-wider block mb-2">Weight
                             (kg)</label>
                         <input type="number" id="weight" value="70"
-                            class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-brand-500 transition">
+                            class="w-full bg-white border border-gray-300 rounded-xl p-4 text-gray-900 outline-none focus:border-black transition">
                     </div>
                 </div>
 
                 <div class="mb-6">
-                    <label class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-2">Height
+                    <label class="text-xs text-gray-500 font-bold uppercase tracking-wider block mb-2">Height
                         (cm)</label>
                     <input type="number" id="height" value="175"
-                        class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-brand-500 transition">
+                        class="w-full bg-white border border-gray-300 rounded-xl p-4 text-gray-900 outline-none focus:border-black transition">
                 </div>
 
                 <div class="mb-8">
-                    <label class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-2">Activity
+                    <label class="text-xs text-gray-500 font-bold uppercase tracking-wider block mb-2">Activity
                         Level</label>
                     <select id="activity" onchange="calculate()"
-                        class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-brand-500 transition appearance-none">
+                        class="w-full bg-white border border-gray-300 rounded-xl p-4 text-gray-900 outline-none focus:border-black transition appearance-none">
                         <option value="1.2">Sedentary (Little/No Exercise)</option>
                         <option value="1.375">Lightly Active (1-3 days/week)</option>
                         <option value="1.55" selected>Moderately Active (3-5 days/week)</option>
@@ -178,7 +187,7 @@
                 </div>
 
                 <button onclick="calculate()"
-                    class="w-full bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 text-white font-bold py-5 rounded-2xl shadow-xl shadow-brand-500/20 transition active:scale-[0.98]">
+                    class="w-full bg-black hover:bg-gray-800 text-white font-bold py-5 rounded-2xl shadow-sm transition active:scale-[0.98]">
                     Calculate Analysis
                 </button>
             </div>
@@ -187,26 +196,26 @@
         <!-- Right Column: Results -->
         <div class="lg:col-span-7 space-y-8">
             <!-- BMI Section -->
-            <div class="glass-card rounded-3xl p-8 shadow-2xl relative overflow-hidden">
+            <div class="glass-card rounded-3xl p-8 shadow-sm relative overflow-hidden">
                 <div class="flex justify-between items-start mb-10">
                     <div>
-                        <h2 class="text-slate-400 text-xs font-bold uppercase tracking-[0.2em] mb-2">Body Mass Index
+                        <h2 class="text-gray-500 text-xs font-bold uppercase tracking-[0.2em] mb-2">Body Mass Index
                         </h2>
                         <div class="flex items-baseline gap-3">
-                            <span id="resBmi" class="text-6xl font-black text-white">0.0</span>
+                            <span id="resBmi" class="text-6xl font-black text-gray-900">0.0</span>
                             <span id="resBmiCat"
-                                class="text-brand-400 font-bold text-xl uppercase tracking-wider">Normal</span>
+                                class="text-black font-bold text-xl uppercase tracking-wider">Normal</span>
                         </div>
                     </div>
                     <div id="idealWeight" class="text-right hidden sm:block">
-                        <span class="block text-slate-500 text-xs font-bold uppercase mb-1">Ideal Weight</span>
-                        <span id="resIdeal" class="text-white font-bold">--- kg</span>
+                        <span class="block text-gray-500 text-xs font-bold uppercase mb-1">Ideal Weight</span>
+                        <span id="resIdeal" class="text-gray-900 font-bold">--- kg</span>
                     </div>
                 </div>
 
                 <!-- BMI Visual Scale -->
                 <div class="relative pt-6">
-                    <div class="h-4 bg-slate-950 rounded-full flex overflow-hidden border border-white/5">
+                    <div class="h-4 bg-gray-100 rounded-full flex overflow-hidden border border-gray-200">
                         <div class="h-full bg-blue-500" style="width: 20%"></div>
                         <div class="h-full bg-green-500" style="width: 20%"></div>
                         <div class="h-full bg-yellow-500" style="width: 20%"></div>
@@ -215,7 +224,7 @@
                     </div>
                     <!-- Pointer -->
                     <div id="bmiPointer"
-                        class="bmi-pointer absolute top-4' w-4 h-4 bg-white rounded-full border-4 border-brand-500 shadow-lg shadow-brand-500/50 -ml-2"
+                        class="bmi-pointer absolute top-4' w-4 h-4 bg-white rounded-full border-4 border-black shadow-lg -ml-2"
                         style="left: 50%"></div>
 
                     <div class="flex justify-between mt-4 text-[10px] text-slate-500 font-bold font-mono">
@@ -232,52 +241,51 @@
             <!-- Calorie Needs Grid -->
             <div class="grid sm:grid-cols-2 gap-6">
                 <!-- BMR -->
-                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-brand-500">
-                    <h3 class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2">Basal Metabolic
+                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-black">
+                    <h3 class="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-2">Basal Metabolic
                         Rate (BMR)</h3>
                     <div class="flex items-baseline gap-2">
-                        <span id="resBmr" class="text-3xl font-bold text-white">0000</span>
-                        <span class="text-slate-600 text-sm font-medium">cal/day</span>
+                        <span id="resBmr" class="text-3xl font-bold text-gray-900">0000</span>
+                        <span class="text-gray-600 text-sm font-medium">cal/day</span>
                     </div>
-                    <p class="text-slate-500 text-[10px] mt-4 leading-relaxed italic">Calories needed to keep your body
+                    <p class="text-gray-500 text-[10px] mt-4 leading-relaxed italic">Calories needed to keep your body
                         functioning at rest.</p>
                 </div>
 
                 <!-- TDEE -->
-                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-cyan-500">
-                    <h3 class="text-slate-500 text-[10px] font-black uppercase tracking-widest mb-2">Daily Needs (TDEE)
+                <div class="glass-card rounded-3xl p-6 border-l-4 border-l-gray-600">
+                    <h3 class="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-2">Daily Needs (TDEE)
                     </h3>
                     <div class="flex items-baseline gap-2">
-                        <span id="resTdee" class="text-3xl font-bold text-white">0000</span>
-                        <span class="text-slate-600 text-sm font-medium">cal/day</span>
+                        <span id="resTdee" class="text-3xl font-bold text-gray-900">0000</span>
+                        <span class="text-gray-600 text-sm font-medium">cal/day</span>
                     </div>
-                    <p class="text-slate-500 text-[10px] mt-4 leading-relaxed italic">Real calories burned based on your
+                    <p class="text-gray-500 text-[10px] mt-4 leading-relaxed italic">Real calories burned based on your
                         activity level.</p>
                 </div>
             </div>
 
             <!-- Calorie Recommendations -->
             <div class="glass-card rounded-3xl p-8">
-                <h3 class="text-white font-bold mb-6 flex items-center gap-2">
-                    <span class="w-2 h-2 bg-brand-500 rounded-full"></span>
+                <h3 class="text-gray-900 font-bold mb-6 flex items-center gap-2">
+                    <span class="w-2 h-2 bg-black rounded-full"></span>
                     Personalized Diet Recommendations
                 </h3>
                 <div class="grid sm:grid-cols-3 gap-6">
-                    <div class="p-4 bg-slate-950 rounded-2xl border border-white/5 text-center">
-                        <span class="block text-slate-500 text-xs font-bold uppercase mb-2">Weight Loss</span>
-                        <span id="kcalLoss" class="text-xl font-bold text-emerald-400">0000</span>
-                        <span class="block text-[10px] text-slate-600 mt-1">kcal/day</span>
+                    <div class="p-4 bg-gray-50 rounded-2xl border border-gray-200 text-center">
+                        <span class="block text-gray-500 text-xs font-bold uppercase mb-2">Weight Loss</span>
+                        <span id="kcalLoss" class="text-xl font-bold text-emerald-600">0000</span>
+                        <span class="block text-[10px] text-gray-600 mt-1">kcal/day</span>
                     </div>
-                    <div
-                        class="p-4 bg-slate-950 rounded-2xl border border-white/5 text-center ring-2 ring-brand-500/20">
-                        <span class="block text-slate-500 text-xs font-bold uppercase mb-2">Maintenance</span>
-                        <span id="kcalMaintain" class="text-xl font-bold text-white">0000</span>
-                        <span class="block text-[10px] text-slate-600 mt-1">kcal/day</span>
+                    <div class="p-4 bg-gray-50 rounded-2xl border border-gray-200 text-center ring-2 ring-black/10">
+                        <span class="block text-gray-500 text-xs font-bold uppercase mb-2">Maintenance</span>
+                        <span id="kcalMaintain" class="text-xl font-bold text-gray-900">0000</span>
+                        <span class="block text-[10px] text-gray-600 mt-1">kcal/day</span>
                     </div>
-                    <div class="p-4 bg-slate-950 rounded-2xl border border-white/5 text-center">
-                        <span class="block text-slate-500 text-xs font-bold uppercase mb-2">Weight Gain</span>
-                        <span id="kcalGain" class="text-xl font-bold text-orange-400">0000</span>
-                        <span class="block text-[10px] text-slate-600 mt-1">kcal/day</span>
+                    <div class="p-4 bg-gray-50 rounded-2xl border border-gray-200 text-center">
+                        <span class="block text-gray-500 text-xs font-bold uppercase mb-2">Weight Gain</span>
+                        <span id="kcalGain" class="text-xl font-bold text-orange-500">0000</span>
+                        <span class="block text-[10px] text-gray-600 mt-1">kcal/day</span>
                     </div>
                 </div>
             </div>
@@ -285,53 +293,53 @@
     </main>
 
     <!-- Info Section -->
-    <section class="max-w-6xl mx-auto mt-20 grid md:grid-cols-2 gap-12 border-t border-white/5 pt-12">
-        <div class="prose prose-invert max-w-none">
-            <h2 class="text-2xl font-bold text-white mb-6">Medical Definitions</h2>
+    <section class="max-w-6xl mx-auto mt-20 grid md:grid-cols-2 gap-12 border-t border-gray-200 pt-12">
+        <div class="prose prose-gray max-w-none">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Medical Definitions</h2>
             <div class="space-y-6">
                 <div>
-                    <h4 class="text-brand-500 font-bold mb-1">Body Mass Index (BMI)</h4>
-                    <p class="text-sm text-slate-400 leading-relaxed">A screening tool used to identify individuals who
+                    <h4 class="text-black font-bold mb-1">Body Mass Index (BMI)</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">A screening tool used to identify individuals who
                         are underweight, overweight, or obese. It is not a diagnostic of body fat percentage but a
                         useful general indicator.</p>
                 </div>
                 <div>
-                    <h4 class="text-brand-500 font-bold mb-1">Basal Metabolic Rate (BMR)</h4>
-                    <p class="text-sm text-slate-400 leading-relaxed">The minimum amount of energy required to keep your
+                    <h4 class="text-black font-bold mb-1">Basal Metabolic Rate (BMR)</h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">The minimum amount of energy required to keep your
                         body functioning at rest (breathing, heart beating, cell production).</p>
                 </div>
             </div>
         </div>
-        <div class="bg-slate-900/50 p-8 rounded-3xl border border-white/5 self-start">
-            <h3 class="text-lg font-bold text-white mb-6">Frequently Asked Questions</h3>
+        <div class="bg-gray-50/50 p-8 rounded-3xl border border-gray-200 self-start">
+            <h3 class="text-lg font-bold text-gray-900 mb-6">Frequently Asked Questions</h3>
             <div class="space-y-4">
                 <details class="group">
                     <summary
-                        class="list-none flex justify-between items-center cursor-pointer text-sm font-medium text-slate-300 hover:text-white transition">
+                        class="list-none flex justify-between items-center cursor-pointer text-sm font-medium text-gray-700 hover:text-black transition">
                         How accurate is this BMR calculation?
                         <span
-                            class="w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center group-open:rotate-180 transition-transform">↓</span>
+                            class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center group-open:rotate-180 transition-transform">↓</span>
                     </summary>
-                    <p class="text-xs text-slate-500 mt-3 pl-2">We use the Mifflin-St Jeor Equation, which is currently
+                    <p class="text-xs text-gray-500 mt-3 pl-2">We use the Mifflin-St Jeor Equation, which is currently
                         considered the most accurate predictor for healthy adults without specialized medical equipment.
                     </p>
                 </details>
-                <details class="group border-t border-white/5 pt-4">
+                <details class="group border-t border-gray-200 pt-4">
                     <summary
-                        class="list-none flex justify-between items-center cursor-pointer text-sm font-medium text-slate-300 hover:text-white transition">
+                        class="list-none flex justify-between items-center cursor-pointer text-sm font-medium text-gray-700 hover:text-black transition">
                         Does BMI apply to athletes?
                         <span
-                            class="w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center group-open:rotate-180 transition-transform">↓</span>
+                            class="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center group-open:rotate-180 transition-transform">↓</span>
                     </summary>
-                    <p class="text-xs text-slate-500 mt-3 pl-2">Athletes often have higher muscle mass, which is denser
+                    <p class="text-xs text-gray-500 mt-3 pl-2">Athletes often have higher muscle mass, which is denser
                         than fat. This may result in a 'High BMI' even if their body fat percentage is very low.</p>
                 </details>
             </div>
         </div>
     </section>
 
-    <footer class="max-w-6xl mx-auto mt-24 py-12 border-t border-white/5 text-center">
-        <p class="text-slate-600 text-xs font-medium tracking-widest uppercase">&copy; 2024 FreeProducts24. Health &
+    <footer class="max-w-6xl mx-auto mt-24 py-12 border-t border-gray-200 text-center">
+        <p class="text-gray-500 text-xs font-medium tracking-widest uppercase">&copy; 2024 FreeProducts24. Health &
             Fitness Division.</p>
     </footer>
 
@@ -344,15 +352,15 @@
             const btnF = document.getElementById('btnFemale');
 
             if (g === 'male') {
-                btnM.classList.add('bg-brand-500', 'text-white', 'shadow-lg', 'shadow-brand-500/20');
-                btnM.classList.remove('text-slate-500');
-                btnF.classList.remove('bg-brand-500', 'text-white', 'shadow-lg', 'shadow-brand-500/20');
-                btnF.classList.add('text-slate-500');
+                btnM.classList.add('bg-black', 'text-white', 'shadow-sm');
+                btnM.classList.remove('text-gray-500');
+                btnF.classList.remove('bg-black', 'text-white', 'shadow-sm');
+                btnF.classList.add('text-gray-500');
             } else {
-                btnF.classList.add('bg-brand-500', 'text-white', 'shadow-lg', 'shadow-brand-500/20');
-                btnF.classList.remove('text-slate-500');
-                btnM.classList.remove('bg-brand-500', 'text-white', 'shadow-lg', 'shadow-brand-500/20');
-                btnM.classList.add('text-slate-500');
+                btnF.classList.add('bg-black', 'text-white', 'shadow-sm');
+                btnF.classList.remove('text-gray-500');
+                btnM.classList.remove('bg-black', 'text-white', 'shadow-sm');
+                btnM.classList.add('text-gray-500');
             }
             calculate();
         }
