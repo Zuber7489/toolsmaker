@@ -36,21 +36,18 @@
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image:
-                radial-gradient(at 0% 0%, hsla(260, 40%, 15%, 1) 0, transparent 50%),
-                radial-gradient(at 100% 100%, hsla(320, 40%, 15%, 1) 0, transparent 50%);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
 
         .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
         }
 
         .glow-text {
-            text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+            /* No glow in minimal theme */
         }
     </style>
 
@@ -111,45 +108,58 @@
     </script>
 </head>
 
-<body class="text-slate-200 antialiased p-4">
+<body class="text-gray-900 antialiased p-4">
 
     <!-- Nav -->
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="max-w-5xl mx-auto grid lg:grid-cols-12 gap-8">
         <!-- Input Panel -->
         <div class="lg:col-span-5 space-y-6">
-            <div class="glass-card rounded-3xl p-8 shadow-2xl">
+            <div class="glass-card rounded-3xl p-8 shadow-sm">
                 <div class="flex items-center gap-4 mb-8">
-                    <div class="w-12 h-12 bg-brand-500/20 rounded-2xl flex items-center justify-center text-brand-500">
+                    <div class="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center text-black">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                     </div>
                     <div>
-                        <h1 class="text-2xl font-bold text-white leading-tight">Age Calculator</h1>
-                        <p class="text-slate-400 text-sm">Find your exact time on Earth</p>
+                        <h1 class="text-2xl font-bold text-gray-900 leading-tight">Age Calculator</h1>
+                        <p class="text-gray-500 text-sm">Find your exact time on Earth</p>
                     </div>
                 </div>
 
                 <div class="space-y-6">
                     <div>
-                        <label class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-2">Date of
+                        <label class="text-xs text-gray-500 font-bold uppercase tracking-wider block mb-2">Date of
                             Birth</label>
                         <input type="date" id="birthDate" value="1995-01-01"
-                            class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-brand-500 transition shadow-inner">
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-900 outline-none focus:border-black transition">
                     </div>
 
                     <div>
-                        <label class="text-xs text-slate-500 font-bold uppercase tracking-wider block mb-2">Calculate At
+                        <label class="text-xs text-gray-500 font-bold uppercase tracking-wider block mb-2">Calculate At
                             (Optional)</label>
                         <input type="date" id="targetDate"
-                            class="w-full bg-slate-950 border border-slate-700 rounded-xl p-4 text-white outline-none focus:border-brand-500 transition shadow-inner">
+                            class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-900 outline-none focus:border-black transition">
                     </div>
 
                     <button onclick="calculate()"
-                        class="w-full bg-gradient-to-r from-brand-600 to-brand-500 hover:from-brand-500 hover:to-brand-400 text-white font-bold py-5 rounded-2xl shadow-xl shadow-brand-500/20 transition active:scale-[0.98]">
+                        class="w-full bg-black hover:bg-gray-800 text-white font-bold py-5 rounded-2xl shadow-sm transition active:scale-[0.98]">
                         Show My Age
                     </button>
                 </div>
@@ -157,44 +167,44 @@
 
             <!-- Zodiac Card -->
             <div id="zodiacCard"
-                class="hidden glass-card rounded-3xl p-6 flex items-center gap-6 group hover:border-brand-500/50 transition">
+                class="hidden glass-card rounded-3xl p-6 flex items-center gap-6 group hover:border-black transition">
                 <div id="zodiacIcon" class="text-5xl">♈</div>
                 <div>
-                    <h3 id="zodiacName" class="text-white font-bold text-lg">Aries</h3>
-                    <p id="zodiacDate" class="text-slate-500 text-xs">Mar 21 - Apr 19</p>
+                    <h3 id="zodiacName" class="text-gray-900 font-bold text-lg">Aries</h3>
+                    <p id="zodiacDate" class="text-gray-500 text-xs">Mar 21 - Apr 19</p>
                     <p id="zodiacTraits"
-                        class="text-brand-400 text-[10px] mt-1 font-medium uppercase tracking-widest hidden sm:block">
+                        class="text-gray-600 text-[10px] mt-1 font-medium uppercase tracking-widest hidden sm:block">
                         Bold, Ambitious, Leader</p>
                 </div>
             </div>
         </div>
 
         <!-- Result Panel -->
+        <!-- Result Panel -->
         <div class="lg:col-span-7 space-y-8">
             <!-- Major Result -->
-            <div class="glass-card rounded-3xl p-8 shadow-2xl relative overflow-hidden text-center">
-                <div class="absolute -left-10 -top-10 w-40 h-40 bg-brand-500/10 rounded-full blur-3xl"></div>
+            <div class="glass-card rounded-3xl p-8 shadow-sm relative overflow-hidden text-center">
 
-                <h2 class="text-slate-500 text-[10px] font-black uppercase tracking-[0.3em] mb-6">Current Age</h2>
+                <h2 class="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em] mb-6">Current Age</h2>
                 <div class="flex flex-col items-center">
                     <div class="flex items-baseline gap-2 mb-2">
-                        <span id="resYears" class="text-7xl font-black text-white glow-text">00</span>
-                        <span class="text-xl text-slate-500 font-bold">years</span>
+                        <span id="resYears" class="text-7xl font-black text-gray-900 glow-text">00</span>
+                        <span class="text-xl text-gray-500 font-bold">years</span>
                     </div>
-                    <div class="flex gap-6 text-slate-400 font-medium">
-                        <div><span id="resMonths" class="text-white font-bold text-2xl">0</span> months</div>
-                        <div><span id="resDays" class="text-white font-bold text-2xl">0</span> days</div>
+                    <div class="flex gap-6 text-gray-500 font-medium">
+                        <div><span id="resMonths" class="text-gray-900 font-bold text-2xl">0</span> months</div>
+                        <div><span id="resDays" class="text-gray-900 font-bold text-2xl">0</span> days</div>
                     </div>
                 </div>
 
-                <div class="mt-8 pt-8 border-t border-white/5 grid grid-cols-2 gap-4">
+                <div class="mt-8 pt-8 border-t border-gray-200 grid grid-cols-2 gap-4">
                     <div class="text-center">
-                        <span class="block text-slate-500 text-[10px] font-bold uppercase mb-1">Day of Birth</span>
-                        <span id="resBirthDay" class="text-brand-400 font-bold uppercase tracking-widest">---</span>
+                        <span class="block text-gray-500 text-[10px] font-bold uppercase mb-1">Day of Birth</span>
+                        <span id="resBirthDay" class="text-black font-bold uppercase tracking-widest">---</span>
                     </div>
                     <div class="text-center">
-                        <span class="block text-slate-500 text-[10px] font-bold uppercase mb-1">Next Birthday</span>
-                        <span id="resNextDay" class="text-white font-bold uppercase tracking-widest">---</span>
+                        <span class="block text-gray-500 text-[10px] font-bold uppercase mb-1">Next Birthday</span>
+                        <span id="resNextDay" class="text-gray-900 font-bold uppercase tracking-widest">---</span>
                     </div>
                 </div>
             </div>
@@ -202,45 +212,45 @@
             <!-- Detailed Stats -->
             <div class="grid sm:grid-cols-3 gap-6">
                 <div class="glass-card rounded-2xl p-5 text-center">
-                    <span class="block text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1">Total
+                    <span class="block text-gray-500 text-[9px] font-black uppercase tracking-widest mb-1">Total
                         Months</span>
-                    <span id="totalMonths" class="text-xl font-bold text-white">0</span>
+                    <span id="totalMonths" class="text-xl font-bold text-gray-900">0</span>
                 </div>
                 <div class="glass-card rounded-2xl p-5 text-center">
-                    <span class="block text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1">Total
+                    <span class="block text-gray-500 text-[9px] font-black uppercase tracking-widest mb-1">Total
                         Weeks</span>
-                    <span id="totalWeeks" class="text-xl font-bold text-white">0</span>
+                    <span id="totalWeeks" class="text-xl font-bold text-gray-900">0</span>
                 </div>
                 <div class="glass-card rounded-2xl p-5 text-center">
-                    <span class="block text-slate-500 text-[9px] font-black uppercase tracking-widest mb-1">Total
+                    <span class="block text-gray-500 text-[9px] font-black uppercase tracking-widest mb-1">Total
                         Days</span>
-                    <span id="totalDays" class="text-xl font-bold text-white">0</span>
+                    <span id="totalDays" class="text-xl font-bold text-gray-900">0</span>
                 </div>
             </div>
 
             <!-- Funny Stats / Seconds -->
-            <div class="glass-card rounded-3xl p-8 bg-slate-900/50">
-                <h3 class="text-slate-500 text-[10px] font-black uppercase tracking-[0.2em] mb-6 text-center">Life in
+            <div class="glass-card rounded-3xl p-8 bg-gray-50">
+                <h3 class="text-gray-500 text-[10px] font-black uppercase tracking-[0.2em] mb-6 text-center">Life in
                     Pixels</h3>
                 <div class="grid grid-cols-2 gap-8">
                     <div class="space-y-4">
                         <div class="flex justify-between items-center text-xs">
-                            <span class="text-slate-500">Hours lived</span>
-                            <span id="totalHours" class="text-white font-bold">0</span>
+                            <span class="text-gray-500">Hours lived</span>
+                            <span id="totalHours" class="text-gray-900 font-bold">0</span>
                         </div>
                         <div class="flex justify-between items-center text-xs">
-                            <span class="text-slate-500">Minutes lived</span>
-                            <span id="totalMinutes" class="text-white font-bold">0</span>
+                            <span class="text-gray-500">Minutes lived</span>
+                            <span id="totalMinutes" class="text-gray-900 font-bold">0</span>
                         </div>
                     </div>
                     <div class="space-y-4">
                         <div class="flex justify-between items-center text-xs">
-                            <span class="text-slate-500">Sleep (approx)</span>
-                            <span id="totalSleep" class="text-white font-bold">0 hrs</span>
+                            <span class="text-gray-500">Sleep (approx)</span>
+                            <span id="totalSleep" class="text-gray-900 font-bold">0 hrs</span>
                         </div>
                         <div class="flex justify-between items-center text-xs">
-                            <span class="text-slate-500">Next Big Era</span>
-                            <span id="nextEra" class="text-brand-400 font-bold">00s</span>
+                            <span class="text-gray-500">Next Big Era</span>
+                            <span id="nextEra" class="text-black font-bold">00s</span>
                         </div>
                     </div>
                 </div>
@@ -249,36 +259,36 @@
     </main>
 
     <!-- Info Section -->
-    <section class="max-w-5xl mx-auto mt-20 border-t border-white/5 pt-12 grid md:grid-cols-2 gap-12">
-        <div class="prose prose-invert max-w-none">
-            <h2 class="text-2xl font-bold text-white mb-6">How Age is Calculated</h2>
-            <p class="text-sm text-slate-400 leading-relaxed">Age calculation is based on the Gregorian calendar. Our
+    <section class="max-w-5xl mx-auto mt-20 border-t border-gray-200 pt-12 grid md:grid-cols-2 gap-12">
+        <div class="prose prose-gray max-w-none">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">How Age is Calculated</h2>
+            <p class="text-sm text-gray-600 leading-relaxed">Age calculation is based on the Gregorian calendar. Our
                 tool precisely accounts for <strong>leap years</strong> (years divisible by 4) and the varying day
                 counts (28-31) across months. We use the 'Birthday' method where your age increments only on the
                 specific day of your birth.</p>
-            <h3 class="text-lg font-bold text-white mt-8 mb-4">Why use this tool?</h3>
-            <ul class="text-sm text-slate-500 space-y-2 list-none p-0">
+            <h3 class="text-lg font-bold text-gray-900 mt-8 mb-4">Why use this tool?</h3>
+            <ul class="text-sm text-gray-500 space-y-2 list-none p-0">
                 <li class="flex items-center gap-2">
-                    <div class="w-1.5 h-1.5 bg-brand-500 rounded-full"></div> Precise years/months/days breakdown
+                    <div class="w-1.5 h-1.5 bg-black rounded-full"></div> Precise years/months/days breakdown
                 </li>
                 <li class="flex items-center gap-2">
-                    <div class="w-1.5 h-1.5 bg-brand-500 rounded-full"></div> Find your Zodiac & Birth Day
+                    <div class="w-1.5 h-1.5 bg-black rounded-full"></div> Find your Zodiac & Birth Day
                 </li>
                 <li class="flex items-center gap-2">
-                    <div class="w-1.5 h-1.5 bg-brand-500 rounded-full"></div> Next birthday countdown
+                    <div class="w-1.5 h-1.5 bg-black rounded-full"></div> Next birthday countdown
                 </li>
             </ul>
         </div>
-        <div class="bg-brand-500/5 rounded-3xl p-8 border border-brand-500/10">
-            <h3 class="text-white font-bold mb-4">Fun Fact</h3>
-            <p class="text-sm text-slate-400 leading-relaxed italic">"Did you know? If you are 31.7 years old, you have
+        <div class="bg-gray-50 rounded-3xl p-8 border border-gray-200">
+            <h3 class="text-gray-900 font-bold mb-4">Fun Fact</h3>
+            <p class="text-sm text-gray-600 leading-relaxed italic">"Did you know? If you are 31.7 years old, you have
                 lived for exactly 1 Billion seconds! Most people celebrate their billionth second around their 32nd
                 birthday."</p>
         </div>
     </section>
 
-    <footer class="max-w-5xl mx-auto mt-24 py-12 border-t border-white/5 text-center">
-        <p class="text-slate-600 text-[10px] font-bold tracking-widest uppercase">&copy; 2024 FreeProducts24. Time &
+    <footer class="max-w-5xl mx-auto mt-24 py-12 border-t border-gray-200 text-center">
+        <p class="text-gray-500 text-[10px] font-bold tracking-widest uppercase">&copy; 2024 FreeProducts24. Time &
             Life Utilities.</p>
     </footer>
 
