@@ -1,0 +1,542 @@
+[
+    {
+        "slug": "software-engineer",
+        "name": "Software Engineer",
+        "category": "IT",
+        "avgSalary": "75000",
+        "salaryRange": "40000-150000",
+        "description": "Software engineers design, develop, and maintain software applications and systems.",
+        "commonDeductions": [
+            "Professional Development",
+            "Home Office",
+            "Internet"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "Programming",
+            "Problem Solving",
+            "Algorithms",
+            "Databases"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "data-scientist",
+        "name": "Data Scientist",
+        "category": "IT",
+        "avgSalary": "95000",
+        "salaryRange": "60000-200000",
+        "description": "Data scientists analyze complex data to help companies make better decisions.",
+        "commonDeductions": [
+            "Courses & Certifications",
+            "Computing Equipment",
+            "Research Tools"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "Python",
+            "Machine Learning",
+            "Statistics",
+            "Data Visualization"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "teacher",
+        "name": "Teacher",
+        "category": "Education",
+        "avgSalary": "35000",
+        "salaryRange": "20000-80000",
+        "description": "Teachers educate students in schools, colleges, and coaching institutes.",
+        "commonDeductions": [
+            "Books & Materials",
+            "Professional Development",
+            "Transport"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA",
+            "Professional Tax"
+        ],
+        "skills": [
+            "Communication",
+            "Subject Expertise",
+            "Patience",
+            "Classroom Management"
+        ],
+        "gstApplicable": false,
+        "gstRate": "0"
+    },
+    {
+        "slug": "doctor",
+        "name": "Doctor",
+        "category": "Healthcare",
+        "avgSalary": "85000",
+        "salaryRange": "50000-250000",
+        "description": "Doctors diagnose and treat patients in hospitals, clinics, and private practice.",
+        "commonDeductions": [
+            "Medical Equipment",
+            "Clinic Rent",
+            "Professional Insurance",
+            "CME"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA",
+            "Professional Expenses"
+        ],
+        "skills": [
+            "Medical Knowledge",
+            "Diagnosis",
+            "Patient Care",
+            "Decision Making"
+        ],
+        "gstApplicable": false,
+        "gstRate": "0"
+    },
+    {
+        "slug": "chartered-accountant",
+        "name": "Chartered Accountant",
+        "category": "Finance",
+        "avgSalary": "70000",
+        "salaryRange": "40000-200000",
+        "description": "CAs handle accounting, taxation, auditing, and financial advisory services.",
+        "commonDeductions": [
+            "Professional Fees",
+            "Office Expenses",
+            "Books & Journals",
+            "Travel"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA",
+            "Professional Tax"
+        ],
+        "skills": [
+            "Accounting",
+            "Taxation",
+            "Auditing",
+            "Financial Analysis"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "civil-engineer",
+        "name": "Civil Engineer",
+        "category": "Engineering",
+        "avgSalary": "45000",
+        "salaryRange": "30000-100000",
+        "description": "Civil engineers design and oversee construction of infrastructure projects.",
+        "commonDeductions": [
+            "Site Visits",
+            "Equipment",
+            "Professional Membership",
+            "Safety Gear"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "Design",
+            "Project Management",
+            "AutoCAD",
+            "Structural Analysis"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "digital-marketer",
+        "name": "Digital Marketer",
+        "category": "Marketing",
+        "avgSalary": "50000",
+        "salaryRange": "25000-120000",
+        "description": "Digital marketers promote products and services through online channels.",
+        "commonDeductions": [
+            "Ad Spend",
+            "Tools & Software",
+            "Courses",
+            "Internet"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "SEO",
+            "Social Media",
+            "Analytics",
+            "Content Marketing"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "graphic-designer",
+        "name": "Graphic Designer",
+        "category": "Creative",
+        "avgSalary": "38000",
+        "salaryRange": "20000-90000",
+        "description": "Graphic designers create visual content for brands, websites, and marketing.",
+        "commonDeductions": [
+            "Software Subscriptions",
+            "Stock Images",
+            "Equipment",
+            "Courses"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "Adobe Creative Suite",
+            "Typography",
+            "Branding",
+            "UI/UX"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "sales-manager",
+        "name": "Sales Manager",
+        "category": "Sales",
+        "avgSalary": "55000",
+        "salaryRange": "35000-150000",
+        "description": "Sales managers lead sales teams and drive revenue growth for companies.",
+        "commonDeductions": [
+            "Travel",
+            "Client Entertainment",
+            "Phone & Internet",
+            "Vehicle"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA",
+            "Conveyance"
+        ],
+        "skills": [
+            "Negotiation",
+            "Leadership",
+            "Communication",
+            "CRM"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "hr-manager",
+        "name": "HR Manager",
+        "category": "Human Resources",
+        "avgSalary": "52000",
+        "salaryRange": "30000-110000",
+        "description": "HR managers handle recruitment, employee relations, and organizational development.",
+        "commonDeductions": [
+            "Professional Development",
+            "HR Software",
+            "Travel",
+            "Certifications"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "Recruitment",
+            "Employee Relations",
+            "Compliance",
+            "Training"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "content-writer",
+        "name": "Content Writer",
+        "category": "Creative",
+        "avgSalary": "32000",
+        "salaryRange": "18000-75000",
+        "description": "Content writers create written content for websites, blogs, and marketing materials.",
+        "commonDeductions": [
+            "Internet",
+            "Research Tools",
+            "Courses",
+            "Home Office"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "Writing",
+            "SEO",
+            "Research",
+            "Editing"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "business-analyst",
+        "name": "Business Analyst",
+        "category": "IT",
+        "avgSalary": "65000",
+        "salaryRange": "40000-140000",
+        "description": "Business analysts bridge the gap between IT and business to improve processes.",
+        "commonDeductions": [
+            "Certifications",
+            "Tools & Software",
+            "Training",
+            "Travel"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "Analysis",
+            "SQL",
+            "Documentation",
+            "Stakeholder Management"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "mechanical-engineer",
+        "name": "Mechanical Engineer",
+        "category": "Engineering",
+        "avgSalary": "42000",
+        "salaryRange": "28000-95000",
+        "description": "Mechanical engineers design and develop mechanical systems and products.",
+        "commonDeductions": [
+            "Tools",
+            "Software Licenses",
+            "Professional Membership",
+            "Safety Equipment"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "CAD",
+            "Thermodynamics",
+            "Manufacturing",
+            "Design"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "pharmacist",
+        "name": "Pharmacist",
+        "category": "Healthcare",
+        "avgSalary": "30000",
+        "salaryRange": "20000-60000",
+        "description": "Pharmacists dispense medications and provide healthcare advice to patients.",
+        "commonDeductions": [
+            "License Renewal",
+            "Professional Development",
+            "Uniform",
+            "Insurance"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "Pharmaceutical Knowledge",
+            "Patient Counseling",
+            "Inventory Management"
+        ],
+        "gstApplicable": false,
+        "gstRate": "0"
+    },
+    {
+        "slug": "lawyer",
+        "name": "Lawyer",
+        "category": "Legal",
+        "avgSalary": "60000",
+        "salaryRange": "30000-200000",
+        "description": "Lawyers provide legal advice and represent clients in legal matters.",
+        "commonDeductions": [
+            "Bar Council Fees",
+            "Law Books",
+            "Office Rent",
+            "Professional Insurance"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA",
+            "Professional Expenses"
+        ],
+        "skills": [
+            "Legal Research",
+            "Argumentation",
+            "Documentation",
+            "Client Management"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "architect",
+        "name": "Architect",
+        "category": "Design",
+        "avgSalary": "48000",
+        "salaryRange": "30000-120000",
+        "description": "Architects design buildings and oversee construction projects.",
+        "commonDeductions": [
+            "Software",
+            "Site Visits",
+            "Professional Membership",
+            "Materials"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "AutoCAD",
+            "3D Modeling",
+            "Design",
+            "Project Management"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "chef",
+        "name": "Chef",
+        "category": "Hospitality",
+        "avgSalary": "35000",
+        "salaryRange": "20000-80000",
+        "description": "Chefs prepare food and manage kitchen operations in restaurants and hotels.",
+        "commonDeductions": [
+            "Uniforms",
+            "Knives & Tools",
+            "Training",
+            "Food Safety Certification"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "Cooking",
+            "Menu Planning",
+            "Kitchen Management",
+            "Food Safety"
+        ],
+        "gstApplicable": true,
+        "gstRate": "5"
+    },
+    {
+        "slug": "photographer",
+        "name": "Photographer",
+        "category": "Creative",
+        "avgSalary": "40000",
+        "salaryRange": "20000-100000",
+        "description": "Photographers capture images for events, commercial projects, and artistic purposes.",
+        "commonDeductions": [
+            "Camera Equipment",
+            "Software",
+            "Travel",
+            "Studio Rent"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "Photography",
+            "Editing",
+            "Lighting",
+            "Client Management"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "financial-advisor",
+        "name": "Financial Advisor",
+        "category": "Finance",
+        "avgSalary": "58000",
+        "salaryRange": "30000-150000",
+        "description": "Financial advisors help clients with investment planning and wealth management.",
+        "commonDeductions": [
+            "Certifications",
+            "Office Expenses",
+            "Marketing",
+            "Professional Insurance"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D",
+            "HRA"
+        ],
+        "skills": [
+            "Financial Planning",
+            "Investment Analysis",
+            "Client Relations",
+            "Market Knowledge"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    },
+    {
+        "slug": "electrician",
+        "name": "Electrician",
+        "category": "Skilled Trade",
+        "avgSalary": "28000",
+        "salaryRange": "18000-60000",
+        "description": "Electricians install and maintain electrical systems in buildings and facilities.",
+        "commonDeductions": [
+            "Tools",
+            "Vehicle",
+            "Safety Equipment",
+            "License Renewal"
+        ],
+        "taxBenefits": [
+            "80C",
+            "80D"
+        ],
+        "skills": [
+            "Electrical Systems",
+            "Troubleshooting",
+            "Safety Protocols",
+            "Wiring"
+        ],
+        "gstApplicable": true,
+        "gstRate": "18"
+    }
+]

@@ -1,0 +1,441 @@
+[
+    {
+        "slug": "mumbai",
+        "name": "Mumbai",
+        "state": "Maharashtra",
+        "avgSalary": "65000",
+        "costOfLiving": "high",
+        "population": "20 million",
+        "description": "Mumbai, the financial capital of India, offers high salaries but also has a high cost of living.",
+        "keyIndustries": [
+            "Finance",
+            "Entertainment",
+            "IT",
+            "Manufacturing"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Software Engineer",
+            "Financial Analyst",
+            "Actor",
+            "Business Manager"
+        ]
+    },
+    {
+        "slug": "delhi",
+        "name": "Delhi",
+        "state": "Delhi",
+        "avgSalary": "55000",
+        "costOfLiving": "high",
+        "population": "19 million",
+        "description": "Delhi, the capital of India, is a major hub for government jobs, IT, and business services.",
+        "keyIndustries": [
+            "Government",
+            "IT",
+            "Retail",
+            "Hospitality"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Civil Servant",
+            "Software Developer",
+            "Marketing Manager",
+            "Consultant"
+        ]
+    },
+    {
+        "slug": "bangalore",
+        "name": "Bangalore",
+        "state": "Karnataka",
+        "avgSalary": "60000",
+        "costOfLiving": "medium-high",
+        "population": "12 million",
+        "description": "Bangalore, India's Silicon Valley, is the top destination for tech professionals and startups.",
+        "keyIndustries": [
+            "IT",
+            "Startups",
+            "Aerospace",
+            "Biotechnology"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Software Engineer",
+            "Data Scientist",
+            "Product Manager",
+            "DevOps Engineer"
+        ]
+    },
+    {
+        "slug": "hyderabad",
+        "name": "Hyderabad",
+        "state": "Telangana",
+        "avgSalary": "52000",
+        "costOfLiving": "medium",
+        "population": "10 million",
+        "description": "Hyderabad is a rapidly growing IT hub with a lower cost of living compared to other metros.",
+        "keyIndustries": [
+            "IT",
+            "Pharmaceuticals",
+            "Biotechnology",
+            "Manufacturing"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Software Developer",
+            "Pharmacist",
+            "Business Analyst",
+            "Quality Analyst"
+        ]
+    },
+    {
+        "slug": "pune",
+        "name": "Pune",
+        "state": "Maharashtra",
+        "avgSalary": "50000",
+        "costOfLiving": "medium",
+        "population": "7 million",
+        "description": "Pune is known for its IT sector, educational institutions, and automotive industry.",
+        "keyIndustries": [
+            "IT",
+            "Automotive",
+            "Education",
+            "Manufacturing"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Software Engineer",
+            "Mechanical Engineer",
+            "Teacher",
+            "Project Manager"
+        ]
+    },
+    {
+        "slug": "chennai",
+        "name": "Chennai",
+        "state": "Tamil Nadu",
+        "avgSalary": "48000",
+        "costOfLiving": "medium",
+        "population": "11 million",
+        "description": "Chennai is a major hub for automotive, IT, and healthcare industries.",
+        "keyIndustries": [
+            "Automotive",
+            "IT",
+            "Healthcare",
+            "Manufacturing"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Automotive Engineer",
+            "Software Developer",
+            "Doctor",
+            "Manufacturing Manager"
+        ]
+    },
+    {
+        "slug": "kolkata",
+        "name": "Kolkata",
+        "state": "West Bengal",
+        "avgSalary": "45000",
+        "costOfLiving": "low-medium",
+        "population": "15 million",
+        "description": "Kolkata offers a lower cost of living with opportunities in IT, education, and traditional industries.",
+        "keyIndustries": [
+            "IT",
+            "Education",
+            "Jute",
+            "Steel"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Teacher",
+            "Software Developer",
+            "Accountant",
+            "Sales Manager"
+        ]
+    },
+    {
+        "slug": "ahmedabad",
+        "name": "Ahmedabad",
+        "state": "Gujarat",
+        "avgSalary": "46000",
+        "costOfLiving": "low-medium",
+        "population": "8 million",
+        "description": "Ahmedabad is a major commercial and industrial hub with a growing startup ecosystem.",
+        "keyIndustries": [
+            "Textiles",
+            "Chemicals",
+            "Pharmaceuticals",
+            "IT"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Business Owner",
+            "Textile Manager",
+            "Chemical Engineer",
+            "Accountant"
+        ]
+    },
+    {
+        "slug": "surat",
+        "name": "Surat",
+        "state": "Gujarat",
+        "avgSalary": "42000",
+        "costOfLiving": "low",
+        "population": "6 million",
+        "description": "Surat is known for its diamond and textile industries with affordable living costs.",
+        "keyIndustries": [
+            "Diamonds",
+            "Textiles",
+            "Petrochemicals"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Diamond Merchant",
+            "Textile Designer",
+            "Business Manager",
+            "Quality Controller"
+        ]
+    },
+    {
+        "slug": "jaipur",
+        "name": "Jaipur",
+        "state": "Rajasthan",
+        "avgSalary": "40000",
+        "costOfLiving": "low-medium",
+        "population": "4 million",
+        "description": "Jaipur combines tourism, handicrafts, and a growing IT sector.",
+        "keyIndustries": [
+            "Tourism",
+            "Handicrafts",
+            "IT",
+            "Gems & Jewelry"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Tour Guide",
+            "Software Developer",
+            "Jewelry Designer",
+            "Hotel Manager"
+        ]
+    },
+    {
+        "slug": "lucknow",
+        "name": "Lucknow",
+        "state": "Uttar Pradesh",
+        "avgSalary": "38000",
+        "costOfLiving": "low",
+        "population": "3.5 million",
+        "description": "Lucknow offers government jobs and a growing IT sector with low living costs.",
+        "keyIndustries": [
+            "Government",
+            "IT",
+            "Handicrafts",
+            "Education"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Civil Servant",
+            "Teacher",
+            "Software Developer",
+            "Administrator"
+        ]
+    },
+    {
+        "slug": "chandigarh",
+        "name": "Chandigarh",
+        "state": "Chandigarh",
+        "avgSalary": "47000",
+        "costOfLiving": "medium",
+        "population": "1.2 million",
+        "description": "Chandigarh is a planned city with good infrastructure and quality of life.",
+        "keyIndustries": [
+            "IT",
+            "Government",
+            "Education",
+            "Healthcare"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Software Engineer",
+            "Civil Servant",
+            "Doctor",
+            "Professor"
+        ]
+    },
+    {
+        "slug": "indore",
+        "name": "Indore",
+        "state": "Madhya Pradesh",
+        "avgSalary": "39000",
+        "costOfLiving": "low",
+        "population": "3 million",
+        "description": "Indore is known for its cleanliness and growing business opportunities.",
+        "keyIndustries": [
+            "Pharmaceuticals",
+            "IT",
+            "Textiles",
+            "Food Processing"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Pharmacist",
+            "Business Owner",
+            "Software Developer",
+            "Sales Manager"
+        ]
+    },
+    {
+        "slug": "kochi",
+        "name": "Kochi",
+        "state": "Kerala",
+        "avgSalary": "44000",
+        "costOfLiving": "medium",
+        "population": "2.5 million",
+        "description": "Kochi is a major port city with opportunities in IT, tourism, and shipping.",
+        "keyIndustries": [
+            "IT",
+            "Shipping",
+            "Tourism",
+            "Spices"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Software Developer",
+            "Shipping Manager",
+            "Tour Operator",
+            "Export Manager"
+        ]
+    },
+    {
+        "slug": "coimbatore",
+        "name": "Coimbatore",
+        "state": "Tamil Nadu",
+        "avgSalary": "41000",
+        "costOfLiving": "low-medium",
+        "population": "2.2 million",
+        "description": "Coimbatore is known for its textile industry and engineering colleges.",
+        "keyIndustries": [
+            "Textiles",
+            "Manufacturing",
+            "IT",
+            "Education"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Textile Engineer",
+            "Mechanical Engineer",
+            "Software Developer",
+            "Production Manager"
+        ]
+    },
+    {
+        "slug": "visakhapatnam",
+        "name": "Visakhapatnam",
+        "state": "Andhra Pradesh",
+        "avgSalary": "43000",
+        "costOfLiving": "low-medium",
+        "population": "2.2 million",
+        "description": "Visakhapatnam is a port city with steel, shipping, and IT industries.",
+        "keyIndustries": [
+            "Steel",
+            "Shipping",
+            "IT",
+            "Pharmaceuticals"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Metallurgical Engineer",
+            "Shipping Officer",
+            "Software Developer",
+            "Port Manager"
+        ]
+    },
+    {
+        "slug": "nagpur",
+        "name": "Nagpur",
+        "state": "Maharashtra",
+        "avgSalary": "37000",
+        "costOfLiving": "low",
+        "population": "2.5 million",
+        "description": "Nagpur is centrally located with opportunities in government and mining sectors.",
+        "keyIndustries": [
+            "Mining",
+            "Government",
+            "IT",
+            "Agriculture"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Mining Engineer",
+            "Civil Servant",
+            "Farmer",
+            "Software Developer"
+        ]
+    },
+    {
+        "slug": "bhopal",
+        "name": "Bhopal",
+        "state": "Madhya Pradesh",
+        "avgSalary": "36000",
+        "costOfLiving": "low",
+        "population": "2 million",
+        "description": "Bhopal offers government jobs and a growing IT sector with affordable living.",
+        "keyIndustries": [
+            "Government",
+            "IT",
+            "Education",
+            "Pharmaceuticals"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Civil Servant",
+            "Teacher",
+            "Software Developer",
+            "Pharmacist"
+        ]
+    },
+    {
+        "slug": "patna",
+        "name": "Patna",
+        "state": "Bihar",
+        "avgSalary": "35000",
+        "costOfLiving": "low",
+        "population": "2.5 million",
+        "description": "Patna is the capital of Bihar with opportunities in government and education.",
+        "keyIndustries": [
+            "Government",
+            "Education",
+            "Agriculture",
+            "Healthcare"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Civil Servant",
+            "Teacher",
+            "Doctor",
+            "Administrator"
+        ]
+    },
+    {
+        "slug": "vadodara",
+        "name": "Vadodara",
+        "state": "Gujarat",
+        "avgSalary": "44000",
+        "costOfLiving": "low-medium",
+        "population": "2.1 million",
+        "description": "Vadodara is an industrial city with petrochemicals and engineering industries.",
+        "keyIndustries": [
+            "Petrochemicals",
+            "Engineering",
+            "Pharmaceuticals",
+            "IT"
+        ],
+        "gstRate": "18",
+        "popularProfessions": [
+            "Chemical Engineer",
+            "Mechanical Engineer",
+            "Pharmacist",
+            "Software Developer"
+        ]
+    }
+]

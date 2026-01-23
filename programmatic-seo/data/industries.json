@@ -1,0 +1,396 @@
+[
+    {
+        "slug": "restaurant",
+        "name": "Restaurant",
+        "category": "Food & Beverage",
+        "gstRate": "5",
+        "description": "Restaurants and food service establishments serving meals to customers.",
+        "commonExpenses": [
+            "Food Ingredients",
+            "Staff Salaries",
+            "Rent",
+            "Utilities"
+        ],
+        "gstInputs": [
+            "Raw Materials",
+            "Kitchen Equipment",
+            "Furniture"
+        ],
+        "averageRevenue": "500000",
+        "profitMargin": "10-15"
+    },
+    {
+        "slug": "ecommerce",
+        "name": "E-commerce",
+        "category": "Retail",
+        "gstRate": "18",
+        "description": "Online retail businesses selling products through digital platforms.",
+        "commonExpenses": [
+            "Inventory",
+            "Shipping",
+            "Platform Fees",
+            "Marketing"
+        ],
+        "gstInputs": [
+            "Products",
+            "Packaging",
+            "Shipping Services"
+        ],
+        "averageRevenue": "1000000",
+        "profitMargin": "15-25"
+    },
+    {
+        "slug": "software-development",
+        "name": "Software Development",
+        "category": "IT Services",
+        "gstRate": "18",
+        "description": "Companies providing software development and IT consulting services.",
+        "commonExpenses": [
+            "Salaries",
+            "Software Licenses",
+            "Office Rent",
+            "Cloud Services"
+        ],
+        "gstInputs": [
+            "Software Tools",
+            "Cloud Infrastructure",
+            "Office Equipment"
+        ],
+        "averageRevenue": "2000000",
+        "profitMargin": "20-30"
+    },
+    {
+        "slug": "retail-store",
+        "name": "Retail Store",
+        "category": "Retail",
+        "gstRate": "18",
+        "description": "Physical stores selling consumer goods and products.",
+        "commonExpenses": [
+            "Inventory",
+            "Rent",
+            "Staff",
+            "Utilities"
+        ],
+        "gstInputs": [
+            "Products",
+            "Store Fixtures",
+            "POS Systems"
+        ],
+        "averageRevenue": "800000",
+        "profitMargin": "12-20"
+    },
+    {
+        "slug": "consulting",
+        "name": "Consulting",
+        "category": "Professional Services",
+        "gstRate": "18",
+        "description": "Professional consulting services across various domains.",
+        "commonExpenses": [
+            "Salaries",
+            "Office Rent",
+            "Travel",
+            "Marketing"
+        ],
+        "gstInputs": [
+            "Office Supplies",
+            "Software",
+            "Professional Development"
+        ],
+        "averageRevenue": "1500000",
+        "profitMargin": "25-40"
+    },
+    {
+        "slug": "manufacturing",
+        "name": "Manufacturing",
+        "category": "Production",
+        "gstRate": "18",
+        "description": "Companies engaged in production and manufacturing of goods.",
+        "commonExpenses": [
+            "Raw Materials",
+            "Labor",
+            "Machinery",
+            "Utilities"
+        ],
+        "gstInputs": [
+            "Raw Materials",
+            "Machinery",
+            "Factory Equipment"
+        ],
+        "averageRevenue": "5000000",
+        "profitMargin": "8-15"
+    },
+    {
+        "slug": "real-estate",
+        "name": "Real Estate",
+        "category": "Property",
+        "gstRate": "18",
+        "description": "Real estate development and property management services.",
+        "commonExpenses": [
+            "Construction",
+            "Land",
+            "Marketing",
+            "Legal Fees"
+        ],
+        "gstInputs": [
+            "Construction Materials",
+            "Professional Services"
+        ],
+        "averageRevenue": "10000000",
+        "profitMargin": "15-25"
+    },
+    {
+        "slug": "healthcare",
+        "name": "Healthcare",
+        "category": "Medical Services",
+        "gstRate": "0",
+        "description": "Hospitals, clinics, and healthcare service providers.",
+        "commonExpenses": [
+            "Medical Staff",
+            "Equipment",
+            "Medicines",
+            "Rent"
+        ],
+        "gstInputs": [
+            "Medical Equipment",
+            "Supplies"
+        ],
+        "averageRevenue": "3000000",
+        "profitMargin": "10-20"
+    },
+    {
+        "slug": "education",
+        "name": "Education",
+        "category": "Educational Services",
+        "gstRate": "0",
+        "description": "Schools, colleges, and educational institutions.",
+        "commonExpenses": [
+            "Teachers",
+            "Infrastructure",
+            "Books",
+            "Utilities"
+        ],
+        "gstInputs": [
+            "Educational Materials",
+            "Equipment"
+        ],
+        "averageRevenue": "2000000",
+        "profitMargin": "15-25"
+    },
+    {
+        "slug": "digital-marketing",
+        "name": "Digital Marketing",
+        "category": "Marketing Services",
+        "gstRate": "18",
+        "description": "Agencies providing digital marketing and advertising services.",
+        "commonExpenses": [
+            "Salaries",
+            "Ad Spend",
+            "Tools",
+            "Office Rent"
+        ],
+        "gstInputs": [
+            "Software Subscriptions",
+            "Office Equipment"
+        ],
+        "averageRevenue": "1200000",
+        "profitMargin": "20-35"
+    },
+    {
+        "slug": "construction",
+        "name": "Construction",
+        "category": "Building",
+        "gstRate": "18",
+        "description": "Construction companies building residential and commercial projects.",
+        "commonExpenses": [
+            "Materials",
+            "Labor",
+            "Equipment",
+            "Permits"
+        ],
+        "gstInputs": [
+            "Construction Materials",
+            "Machinery",
+            "Tools"
+        ],
+        "averageRevenue": "8000000",
+        "profitMargin": "10-18"
+    },
+    {
+        "slug": "logistics",
+        "name": "Logistics",
+        "category": "Transportation",
+        "gstRate": "18",
+        "description": "Companies providing transportation and logistics services.",
+        "commonExpenses": [
+            "Fuel",
+            "Vehicle Maintenance",
+            "Drivers",
+            "Insurance"
+        ],
+        "gstInputs": [
+            "Vehicles",
+            "Fuel",
+            "Maintenance"
+        ],
+        "averageRevenue": "3000000",
+        "profitMargin": "8-12"
+    },
+    {
+        "slug": "salon",
+        "name": "Salon & Spa",
+        "category": "Personal Care",
+        "gstRate": "18",
+        "description": "Beauty salons and spa services.",
+        "commonExpenses": [
+            "Products",
+            "Staff",
+            "Rent",
+            "Equipment"
+        ],
+        "gstInputs": [
+            "Beauty Products",
+            "Equipment",
+            "Furniture"
+        ],
+        "averageRevenue": "400000",
+        "profitMargin": "15-25"
+    },
+    {
+        "slug": "hotel",
+        "name": "Hotel",
+        "category": "Hospitality",
+        "gstRate": "18",
+        "description": "Hotels and accommodation services.",
+        "commonExpenses": [
+            "Staff",
+            "Maintenance",
+            "Utilities",
+            "Supplies"
+        ],
+        "gstInputs": [
+            "Furniture",
+            "Linens",
+            "Kitchen Equipment"
+        ],
+        "averageRevenue": "2500000",
+        "profitMargin": "12-20"
+    },
+    {
+        "slug": "gym",
+        "name": "Gym & Fitness",
+        "category": "Health & Fitness",
+        "gstRate": "18",
+        "description": "Fitness centers and gyms.",
+        "commonExpenses": [
+            "Equipment",
+            "Trainers",
+            "Rent",
+            "Utilities"
+        ],
+        "gstInputs": [
+            "Gym Equipment",
+            "Supplements"
+        ],
+        "averageRevenue": "600000",
+        "profitMargin": "20-30"
+    },
+    {
+        "slug": "cafe",
+        "name": "Cafe",
+        "category": "Food & Beverage",
+        "gstRate": "5",
+        "description": "Coffee shops and cafes.",
+        "commonExpenses": [
+            "Coffee Beans",
+            "Milk",
+            "Staff",
+            "Rent"
+        ],
+        "gstInputs": [
+            "Coffee Machines",
+            "Furniture",
+            "Ingredients"
+        ],
+        "averageRevenue": "350000",
+        "profitMargin": "15-25"
+    },
+    {
+        "slug": "pharmacy",
+        "name": "Pharmacy",
+        "category": "Healthcare",
+        "gstRate": "12",
+        "description": "Retail pharmacies selling medicines and healthcare products.",
+        "commonExpenses": [
+            "Medicines",
+            "Staff",
+            "Rent",
+            "Licenses"
+        ],
+        "gstInputs": [
+            "Medicines",
+            "Medical Supplies"
+        ],
+        "averageRevenue": "700000",
+        "profitMargin": "10-15"
+    },
+    {
+        "slug": "event-management",
+        "name": "Event Management",
+        "category": "Services",
+        "gstRate": "18",
+        "description": "Companies organizing events, weddings, and conferences.",
+        "commonExpenses": [
+            "Venue",
+            "Catering",
+            "Decorations",
+            "Staff"
+        ],
+        "gstInputs": [
+            "Equipment",
+            "Decorations",
+            "Services"
+        ],
+        "averageRevenue": "1500000",
+        "profitMargin": "15-25"
+    },
+    {
+        "slug": "printing",
+        "name": "Printing Services",
+        "category": "Production",
+        "gstRate": "18",
+        "description": "Printing and publishing services.",
+        "commonExpenses": [
+            "Paper",
+            "Ink",
+            "Machinery",
+            "Labor"
+        ],
+        "gstInputs": [
+            "Printing Machines",
+            "Paper",
+            "Ink"
+        ],
+        "averageRevenue": "900000",
+        "profitMargin": "12-18"
+    },
+    {
+        "slug": "automobile",
+        "name": "Automobile Service",
+        "category": "Automotive",
+        "gstRate": "18",
+        "description": "Car repair and maintenance services.",
+        "commonExpenses": [
+            "Parts",
+            "Mechanics",
+            "Tools",
+            "Rent"
+        ],
+        "gstInputs": [
+            "Spare Parts",
+            "Tools",
+            "Equipment"
+        ],
+        "averageRevenue": "800000",
+        "profitMargin": "15-22"
+    }
+]
