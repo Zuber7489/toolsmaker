@@ -17,7 +17,7 @@ const CONFIG = {
         SIP_CALCULATOR: 'sip-calculator',
         BMI_CALCULATOR: 'health-calculator'
     },
-    OUTPUT_DIR: '../generated-pages',
+    OUTPUT_DIR: '..',  // Output directly to root directory
     TEMPLATE_DIR: './templates'
 };
 
