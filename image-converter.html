@@ -144,52 +144,60 @@
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image:
-                radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
 
         .glass-panel {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
         }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased p-4">
+<body class="text-gray-900 antialiased p-4">
 
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="max-w-4xl mx-auto space-y-10">
         <div class="text-center mb-6">
             <div
-                class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-brand-500 uppercase bg-brand-500/10 rounded-full">
+                class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-black uppercase bg-gray-200 rounded-full">
                 Universal Converter
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Image Converter</h1>
-            <p class="text-slate-400 text-lg max-w-2xl mx-auto">
-                Convert <span class="text-white font-medium">HEIC, WebP, JPG</span> to high-quality <span
-                    class="text-white font-medium">PNG or JPG</span> format.
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Image Converter</h1>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                Convert <span class="text-black font-medium">HEIC, WebP, JPG</span> to high-quality <span
+                    class="text-black font-medium">PNG or JPG</span> format.
                 <br>Run entirely in your browser. 100% Private.
             </p>
         </div>
 
-        <section class="glass-panel rounded-3xl p-8 shadow-2xl transition-all duration-300 hover:shadow-brand-500/10">
+        <section class="glass-panel rounded-3xl p-8 shadow-sm transition-all duration-300">
 
             <!-- Format Selection -->
             <div class="mb-8 flex justify-center">
-                <div class="bg-slate-900/80 p-1.5 rounded-xl inline-flex border border-slate-700">
+                <div class="bg-gray-100 p-1.5 rounded-xl inline-flex border border-gray-200">
                     <button id="btnPng"
-                        class="px-6 py-2 rounded-lg text-sm font-bold bg-brand-600 text-white shadow-lg transition-all"
+                        class="px-6 py-2 rounded-lg text-sm font-bold bg-black text-white shadow-sm transition-all"
                         onclick="setFormat('png')">
                         Convert to PNG
                     </button>
                     <button id="btnJpg"
-                        class="px-6 py-2 rounded-lg text-sm font-bold text-slate-400 hover:text-white transition-all hover:bg-slate-800"
+                        class="px-6 py-2 rounded-lg text-sm font-bold text-gray-500 hover:text-black transition-all hover:bg-white"
                         onclick="setFormat('jpg')">
                         Convert to JPG
                     </button>
@@ -198,27 +206,27 @@
 
             <div class="w-full">
                 <label for="imageInput" id="dropZone"
-                    class="group relative flex flex-col items-center justify-center w-full h-72 border-2 border-slate-600 border-dashed rounded-2xl cursor-pointer bg-slate-900/50 hover:bg-slate-800/50 hover:border-brand-500 transition-all duration-300 overflow-hidden">
+                    class="group relative flex flex-col items-center justify-center w-full h-72 border-2 border-gray-300 border-dashed rounded-2xl cursor-pointer bg-gray-50 hover:bg-gray-100 hover:border-black transition-all duration-300 overflow-hidden">
 
                     <!-- Drag Active Overlay -->
                     <div id="dragOverlay"
-                        class="absolute inset-0 bg-brand-500/10 hidden items-center justify-center z-10 transition-opacity">
-                        <p class="text-brand-400 font-bold text-xl scale-110">Drop image here!</p>
+                        class="absolute inset-0 bg-black/5 hidden items-center justify-center z-10 transition-opacity">
+                        <p class="text-black font-bold text-xl scale-110">Drop image here!</p>
                     </div>
 
                     <div
                         class="flex flex-col items-center justify-center pt-5 pb-6 z-0 group-hover:scale-105 transition-transform duration-300">
                         <div
-                            class="w-16 h-16 bg-slate-800 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-500/20 group-hover:text-brand-500 transition-colors">
-                            <svg class="w-8 h-8 text-slate-400 group-hover:text-brand-500 transition-colors" fill="none"
+                            class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 group-hover:bg-black group-hover:text-white transition-colors shadow-sm border border-gray-100">
+                            <svg class="w-8 h-8 text-gray-400 group-hover:text-white transition-colors" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
                                 </path>
                             </svg>
                         </div>
-                        <p class="mb-2 text-lg text-slate-300 font-medium">Click to upload or drag & drop</p>
-                        <p class="text-sm text-slate-500">Supports HEIC, WebP, JPG, PNG</p>
+                        <p class="mb-2 text-lg text-gray-900 font-medium">Click to upload or drag & drop</p>
+                        <p class="text-sm text-gray-500">Supports HEIC, WebP, JPG, PNG</p>
                     </div>
                     <input id="imageInput" type="file" class="hidden"
                         accept="image/png, image/jpeg, image/webp, image/heic, image/heif" />
@@ -227,26 +235,26 @@
 
             <!-- Loading State -->
             <div id="loader" class="hidden flex flex-col items-center justify-center py-12">
-                <div class="w-12 h-12 border-4 border-brand-500/30 border-t-brand-500 rounded-full animate-spin mb-4">
+                <div class="w-12 h-12 border-4 border-black/30 border-t-black rounded-full animate-spin mb-4">
                 </div>
-                <p class="text-brand-400 animate-pulse">Processing Image...</p>
-                <p class="text-xs text-slate-500 mt-2" id="loaderText">Converting format</p>
+                <p class="text-gray-900 animate-pulse">Processing Image...</p>
+                <p class="text-xs text-gray-500 mt-2" id="loaderText">Converting format</p>
             </div>
 
             <!-- Result Area -->
             <div id="resultArea" class="hidden w-full mt-8 animate-fade-in">
                 <div
-                    class="bg-slate-900 border border-slate-700 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                    class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-sm">
 
                     <!-- Background Glow -->
                     <div
-                        class="absolute top-0 right-0 w-32 h-32 bg-brand-500/10 blur-[50px] rounded-full pointer-events-none">
+                        class="absolute top-0 right-0 w-32 h-32 bg-gray-100 blur-[50px] rounded-full pointer-events-none">
                     </div>
 
                     <div class="flex items-center gap-6 w-full md:w-auto">
                         <div class="relative group">
                             <img id="thumb"
-                                class="w-24 h-24 object-cover rounded-xl shadow-lg border border-slate-700 bg-slate-800"
+                                class="w-24 h-24 object-cover rounded-xl shadow-lg border border-gray-200 bg-gray-50"
                                 src="">
                             <div
                                 class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
@@ -259,13 +267,12 @@
                             </div>
                         </div>
                         <div class="text-left">
-                            <p class="text-white font-bold text-lg mb-1" id="fileName">image.png</p>
+                            <p class="text-gray-900 font-bold text-lg mb-1" id="fileName">image.png</p>
                             <div class="flex items-center gap-2">
-                                <span class="text-xs font-bold px-2 py-0.5 rounded bg-slate-700 text-slate-300"
+                                <span class="text-xs font-bold px-2 py-0.5 rounded bg-gray-100 text-gray-500"
                                     id="fileSize">0 KB</span>
-                                <span class="text-slate-500 text-xs">&rarr;</span>
-                                <span
-                                    class="text-xs font-bold px-2 py-0.5 rounded bg-brand-500/20 text-brand-400 uppercase"
+                                <span class="text-gray-400 text-xs">&rarr;</span>
+                                <span class="text-xs font-bold px-2 py-0.5 rounded bg-black text-white uppercase"
                                     id="targetFormatBadge">PNG</span>
                             </div>
                         </div>
@@ -273,7 +280,7 @@
 
                     <div class="flex flex-col gap-3 w-full md:w-auto">
                         <a id="downloadLink" download
-                            class="flex items-center justify-center gap-2 bg-brand-600 hover:bg-brand-500 text-white px-8 py-3 rounded-xl text-sm font-bold transition shadow-lg shadow-brand-500/20 transform hover:translate-y-[-2px]">
+                            class="flex items-center justify-center gap-2 bg-black hover:bg-gray-800 text-white px-8 py-3 rounded-xl text-sm font-bold transition shadow-sm transform hover:translate-y-[-2px]">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
@@ -281,7 +288,7 @@
                             Download Image
                         </a>
                         <button onclick="resetUI()"
-                            class="text-xs text-slate-500 hover:text-white underline decoration-slate-600 hover:decoration-white transition">Convert
+                            class="text-xs text-gray-500 hover:text-black underline decoration-gray-300 hover:decoration-black transition">Convert
                             another</button>
                     </div>
                 </div>
@@ -299,9 +306,9 @@
         </section>
 
         <!-- SEO Content -->
-        <article class="prose prose-invert max-w-none mt-12 bg-slate-800/30 p-8 rounded-3xl border border-white/5">
-            <h2 class="text-2xl font-bold text-white mb-4">Ultimate Image Converter Tool</h2>
-            <p class="text-slate-400 leading-relaxed">
+        <article class="prose prose-gray max-w-none mt-12 bg-white p-8 rounded-3xl border border-gray-200 shadow-sm">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Ultimate Image Converter Tool</h2>
+            <p class="text-gray-600 leading-relaxed">
                 Welcome to the most versatile image converter on the web. Whether you are an iPhone user struggling with
                 <b>HEIC</b> files or a web developer needing <b>WebP</b> or <b>JPG</b> conversions, our tool handles it
                 all instantly.
@@ -309,48 +316,48 @@
 
             <div class="grid md:grid-cols-2 gap-8 my-8">
                 <div>
-                    <h3 class="text-xl font-bold text-brand-400 mb-2">Capabilities</h3>
-                    <ul class="list-none space-y-2 text-slate-400 pl-0">
+                    <h3 class="text-xl font-bold text-black mb-2">Capabilities</h3>
+                    <ul class="list-none space-y-2 text-gray-600 pl-0">
                         <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span> Convert <b>HEIC to JPG/PNG</b> (Perfect for iPhone
+                            <span class="text-green-600">✓</span> Convert <b>HEIC to JPG/PNG</b> (Perfect for iPhone
                             photos)
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span> Convert <b>WebP to PNG/JPG</b> (Fix compatibility
+                            <span class="text-green-600">✓</span> Convert <b>WebP to PNG/JPG</b> (Fix compatibility
                             issues)
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-green-400">✓</span> Convert <b>JPG to PNG</b> or <b>PNG to JPG</b>
+                            <span class="text-green-600">✓</span> Convert <b>JPG to PNG</b> or <b>PNG to JPG</b>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-xl font-bold text-brand-400 mb-2">Why use this tool?</h3>
-                    <ul class="list-none space-y-2 text-slate-400 pl-0">
+                    <h3 class="text-xl font-bold text-black mb-2">Why use this tool?</h3>
+                    <ul class="list-none space-y-2 text-gray-600 pl-0">
                         <li class="flex items-start gap-2">
-                            <span class="text-blue-400">🛡️</span> <b>100% Private:</b> No server uploads.
+                            <span class="text-blue-600">🛡️</span> <b>100% Private:</b> No server uploads.
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-blue-400">⚡</span> <b>Instant:</b> Uses your browser power.
+                            <span class="text-blue-600">⚡</span> <b>Instant:</b> Uses your browser power.
                         </li>
                         <li class="flex items-start gap-2">
-                            <span class="text-blue-400">✨</span> <b>High Quality:</b> Maintains image clarity.
+                            <span class="text-blue-600">✨</span> <b>High Quality:</b> Maintains image clarity.
                         </li>
                     </ul>
                 </div>
             </div>
 
-            <h3 class="text-xl font-bold text-white mt-8 mb-4">Frequently Asked Questions</h3>
+            <h3 class="text-xl font-bold text-gray-900 mt-8 mb-4">Frequently Asked Questions</h3>
             <div class="space-y-4">
-                <div class="bg-slate-900/50 p-4 rounded-xl border border-white/5">
-                    <h4 class="font-bold text-slate-200">How do I convert HEIC to JPG on Windows?</h4>
-                    <p class="text-sm text-slate-400 mt-1">Windows doesn't natively support HEIC easily. Simply drag
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                    <h4 class="font-bold text-gray-900">How do I convert HEIC to JPG on Windows?</h4>
+                    <p class="text-sm text-gray-600 mt-1">Windows doesn't natively support HEIC easily. Simply drag
                         your HEIC file onto this page, select "Convert to JPG", and download. It works instantly without
                         installing software.</p>
                 </div>
-                <div class="bg-slate-900/50 p-4 rounded-xl border border-white/5">
-                    <h4 class="font-bold text-slate-200">Is conversion quality lost?</h4>
-                    <p class="text-sm text-slate-400 mt-1">When converting to PNG, the quality is lossless. When
+                <div class="bg-gray-50 p-4 rounded-xl border border-gray-200">
+                    <h4 class="font-bold text-gray-900">Is conversion quality lost?</h4>
+                    <p class="text-sm text-gray-600 mt-1">When converting to PNG, the quality is lossless. When
                         converting to JPG, we use high-quality settings (0.92) to ensure your images look crisp while
                         reducing file size.</p>
                 </div>
@@ -359,7 +366,7 @@
         </article>
     </main>
 
-    <footer class="mt-20 py-8 border-t border-white/5 text-center text-slate-500 text-xs">
+    <footer class="mt-20 py-8 border-t border-gray-200 text-center text-gray-500 text-xs">
         <div class="max-w-4xl mx-auto px-6">
             <p>&copy; 2024 FreeProducts24. Built for creators.</p>
         </div>
@@ -386,11 +393,11 @@
 
             // Update UI buttons
             if (fmt === 'png') {
-                btnPng.className = "px-6 py-2 rounded-lg text-sm font-bold bg-brand-600 text-white shadow-lg transition-all";
-                btnJpg.className = "px-6 py-2 rounded-lg text-sm font-bold text-slate-400 hover:text-white transition-all hover:bg-slate-800";
+                btnPng.className = "px-6 py-2 rounded-lg text-sm font-bold bg-black text-white shadow-sm transition-all";
+                btnJpg.className = "px-6 py-2 rounded-lg text-sm font-bold text-gray-500 hover:text-black transition-all hover:bg-white";
             } else {
-                btnJpg.className = "px-6 py-2 rounded-lg text-sm font-bold bg-brand-600 text-white shadow-lg transition-all";
-                btnPng.className = "px-6 py-2 rounded-lg text-sm font-bold text-slate-400 hover:text-white transition-all hover:bg-slate-800";
+                btnJpg.className = "px-6 py-2 rounded-lg text-sm font-bold bg-black text-white shadow-sm transition-all";
+                btnPng.className = "px-6 py-2 rounded-lg text-sm font-bold text-gray-500 hover:text-black transition-all hover:bg-white";
             }
             targetFormatBadge.innerText = fmt.toUpperCase();
 
