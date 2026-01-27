@@ -122,39 +122,50 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Outfit', 'sans-serif'] },
-                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                    colors: { brand: { 500: '#000000', 600: '#1a1a1a' } }
                 }
             }
         }
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image: radial-gradient(at 0% 100%, hsla(240, 50%, 15%, 1) 0, transparent 70%);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased p-4">
+<body class="text-gray-900 antialiased font-sans">
 
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="max-w-4xl mx-auto space-y-8">
-        <div class="text-center mb-10">
-            <h1 class="text-3xl font-bold text-white mb-2">Epoch Timestamp Converter</h1>
-            <p class="text-slate-400">Convert between Unix Timestamps and Human Readable Dates.</p>
-            <div
-                class="mt-4 inline-flex items-center gap-2 bg-slate-800 px-4 py-2 rounded-full border border-slate-700">
-                <span class="text-xs text-slate-500 uppercase tracking-wider">Current Epoch</span>
-                <span id="currentEpoch" class="text-brand-400 font-mono font-bold">...</span>
+        <div class="text-center mb-10 mt-10">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">Epoch Timestamp Converter</h1>
+            <p class="text-gray-600">Convert between Unix Timestamps and Human Readable Dates.</p>
+            <div class="mt-4 inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full border border-gray-200">
+                <span class="text-xs text-gray-500 uppercase tracking-wider">Current Epoch</span>
+                <span id="currentEpoch" class="text-black font-mono font-bold">...</span>
             </div>
         </div>
 
         <!-- 1. Timestamp to Date -->
-        <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 md:p-8">
-            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <section class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
+            <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
@@ -162,34 +173,34 @@
             </h2>
             <div class="flex flex-col md:flex-row gap-4 mb-4">
                 <input type="number" id="tsInput"
-                    class="flex-grow bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:outline-none focus:border-brand-500 font-mono"
+                    class="flex-grow bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent font-mono"
                     placeholder="1672531200 or 1672531200000">
                 <button onclick="convertTS()"
-                    class="bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded-lg font-medium transition">Convert</button>
+                    class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-xl font-medium transition shadow-lg shadow-gray-200">Convert</button>
             </div>
 
-            <div id="tsResult" class="hidden space-y-2 bg-slate-900 p-4 rounded-xl border border-slate-700/50">
+            <div id="tsResult" class="hidden space-y-2 bg-gray-50 p-4 rounded-xl border border-gray-200">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <span class="text-xs text-slate-500 uppercase">GMT / UTC</span>
-                        <div id="res-utc" class="text-white font-mono"></div>
+                        <span class="text-xs text-gray-500 uppercase">GMT / UTC</span>
+                        <div id="res-utc" class="text-gray-900 font-mono"></div>
                     </div>
                     <div>
-                        <span class="text-xs text-slate-500 uppercase">Your Local Time</span>
-                        <div id="res-local" class="text-brand-400 font-bold font-mono"></div>
+                        <span class="text-xs text-gray-500 uppercase">Your Local Time</span>
+                        <div id="res-local" class="text-black font-bold font-mono"></div>
                     </div>
                     <div>
-                        <span class="text-xs text-slate-500 uppercase">Relative</span>
-                        <div id="res-relative" class="text-slate-300"></div>
+                        <span class="text-xs text-gray-500 uppercase">Relative</span>
+                        <div id="res-relative" class="text-gray-600"></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 2. Date to Timestamp -->
-        <section class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 md:p-8">
-            <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <section class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm">
+            <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
                     </path>
@@ -199,26 +210,26 @@
             <div class="flex flex-col md:flex-row gap-4 mb-4">
                 <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input type="date" id="dateDate"
-                        class="bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:outline-none focus:border-brand-500">
+                        class="bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-black">
                     <input type="time" id="dateTime" step="1"
-                        class="bg-slate-900 border border-slate-600 rounded-lg p-3 text-white focus:outline-none focus:border-brand-500">
+                        class="bg-gray-50 border border-gray-200 rounded-xl p-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-black">
                 </div>
                 <button onclick="convertDate()"
-                    class="bg-brand-600 hover:bg-brand-500 text-white px-6 py-3 rounded-lg font-medium transition">Get
+                    class="bg-black hover:bg-gray-800 text-white px-6 py-3 rounded-xl font-medium transition shadow-lg shadow-gray-200">Get
                     Timestamp</button>
             </div>
 
-            <div id="dateResult" class="hidden bg-slate-900 p-4 rounded-xl border border-slate-700/50">
+            <div id="dateResult" class="hidden bg-gray-50 p-4 rounded-xl border border-gray-200">
                 <div class="flex flex-wrap items-center gap-4">
                     <div>
-                        <span class="text-xs text-slate-500 uppercase">Epoch (Seconds)</span>
-                        <div id="res-sec" class="text-white font-mono text-lg font-bold select-all cursor-pointer">
+                        <span class="text-xs text-gray-500 uppercase">Epoch (Seconds)</span>
+                        <div id="res-sec" class="text-gray-900 font-mono text-lg font-bold select-all cursor-pointer">
                         </div>
                     </div>
-                    <div class="w-px h-10 bg-slate-700 hidden md:block"></div>
+                    <div class="w-px h-10 bg-gray-300 hidden md:block"></div>
                     <div>
-                        <span class="text-xs text-slate-500 uppercase">Epoch (Millis)</span>
-                        <div id="res-ms" class="text-slate-300 font-mono text-lg select-all cursor-pointer"></div>
+                        <span class="text-xs text-gray-500 uppercase">Epoch (Millis)</span>
+                        <div id="res-ms" class="text-gray-600 font-mono text-lg select-all cursor-pointer"></div>
                     </div>
                 </div>
             </div>
