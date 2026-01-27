@@ -122,7 +122,6 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Outfit', 'sans-serif'] },
-                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } },
                     animation: {
                         'bounce-slight': 'bounceSlight 2s infinite',
                     },
@@ -139,8 +138,8 @@
     <style>
         body {
             background-color: #f8fafc;
-            background-image: radial-gradient(at 0% 0%, rgba(20, 184, 166, 0.05) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(13, 148, 136, 0.05) 0px, transparent 50%);
+            background-image: radial-gradient(at 0% 0%, rgba(0, 0, 0, 0.03) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 0, 0, 0.03) 0px, transparent 50%);
             min-height: 100vh;
         }
 
@@ -205,7 +204,7 @@
                                 Type</label>
                             <div class="relative">
                                 <select id="qrType"
-                                    class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition appearance-none font-medium">
+                                    class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-900 focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 outline-none transition appearance-none font-medium">
                                     <option value="url">Website URL</option>
                                     <option value="text">Plain Text</option>
                                     <option value="email">Email Address</option>
@@ -224,7 +223,7 @@
                             <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Data /
                                 URL</label>
                             <input type="text" id="qrText" placeholder="https://example.com"
-                                class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition shadow-inner font-medium">
+                                class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-900 focus:border-gray-900 focus:ring-2 focus:ring-gray-900/20 outline-none transition shadow-inner font-medium">
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">
@@ -249,7 +248,7 @@
                         </div>
 
                         <button onclick="generateQR()"
-                            class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-brand-500/25 active:scale-[0.98] mt-2">
+                            class="w-full bg-gray-900 hover:bg-gray-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-gray-900/25 active:scale-[0.98] mt-2">
                             Generate QR Code
                         </button>
                     </div>
@@ -262,10 +261,10 @@
                     class="glass-panel rounded-3xl p-6 sm:p-8 md:p-12 flex flex-col items-center justify-center shadow-md relative overflow-hidden min-h-[350px] sm:min-h-[400px]">
                     <!-- Decorative blobs -->
                     <div
-                        class="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none">
+                        class="absolute top-0 right-0 w-64 h-64 bg-gray-900/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none">
                     </div>
                     <div
-                        class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none">
+                        class="absolute bottom-0 left-0 w-64 h-64 bg-gray-900/5 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none">
                     </div>
 
                     <div id="qrcode"
@@ -273,7 +272,7 @@
                     </div>
 
                     <button onclick="downloadQR()"
-                        class="flex items-center gap-2 text-gray-700 hover:text-brand-600 transition bg-white/80 hover:bg-white border border-gray-200 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-sm hover:shadow-md z-10 font-bold text-xs sm:text-sm backdrop-blur-sm">
+                        class="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition bg-white/80 hover:bg-white border border-gray-200 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-sm hover:shadow-md z-10 font-bold text-xs sm:text-sm backdrop-blur-sm">
                         <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
@@ -303,7 +302,7 @@
                     <h3 class="text-lg font-bold text-gray-900 mt-6 mb-3">Why use our generator?</h3>
                     <ul class="space-y-2 list-none pl-0">
                         <li class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M5 13l4 4L19 7"></path>
                             </svg>
@@ -325,10 +324,10 @@
                         </li>
                     </ul>
                 </div>
-                <div class="bg-brand-50 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-brand-100">
+                <div class="bg-gray-50 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-gray-200">
                     <h3 class="text-gray-900 font-bold text-xl mb-4">Pro Tip</h3>
                     <p class="text-sm leading-relaxed mb-4">
-                        When choosing colors, always ensure there is a <span class="font-bold text-brand-700">high
+                        When choosing colors, always ensure there is a <span class="font-bold text-gray-900">high
                             contrast</span> between your background (light) and foreground (dark). If the contrast is
                         too low, some cameras might struggle to scan the code.
                     </p>
