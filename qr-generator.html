@@ -177,68 +177,62 @@
         </div>
     </nav>
 
-    <main class="max-w-5xl mx-auto py-8 px-4 py-8">
+    <main class="max-w-5xl mx-auto px-4 py-8 lg:py-16">
         <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-gray-900 mb-4">Free QR Code Generator</h1>
-            <p class="text-gray-600">Create scalable QR codes for links, text, or contacts instantly.</p>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">Free QR Code Generator
+            </h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Create beautiful, scalable QR codes for links, text, or
+                contacts instantly. No sign-up required.</p>
         </header>
 
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid md:grid-cols-12 gap-8 lg:gap-12 items-start">
             <!-- Controls -->
-            <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-sm font-bold text-gray-600 mb-2">CONTENT TYPE</label>
-                        <select id="qrType"
-                            class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-gray-900 focus:border-black outline-none transition">
-                            <option value="url">Website URL</option>
-                            <option value="text">Plain Text</option>
-                            <option value="email">Email Address</option>
-                        </select>
-                    </div>
+            <option value="text">Plain Text</option>
+            <option value="email">Email Address</option>
+            </select>
+        </div>
 
-                    <div>
-                        <label class="block text-sm font-bold text-gray-600 mb-2">DATA</label>
-                        <input type="text" id="qrText" placeholder="https://example.com"
-                            class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-gray-900 focus:border-black outline-none transition">
-                    </div>
+        <div>
+            <label class="block text-sm font-bold text-gray-600 mb-2">DATA</label>
+            <input type="text" id="qrText" placeholder="https://example.com"
+                class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-gray-900 focus:border-black outline-none transition">
+        </div>
 
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-sm font-bold text-gray-600 mb-2">COLOR (Light)</label>
-                            <input type="color" id="colorLight" value="#ffffff"
-                                class="w-full h-10 bg-gray-50 rounded cursor-pointer border border-gray-300">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-600 mb-2">COLOR (Dark)</label>
-                            <input type="color" id="colorDark" value="#000000"
-                                class="w-full h-10 bg-gray-50 rounded cursor-pointer border border-gray-300">
-                        </div>
-                    </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-sm font-bold text-gray-600 mb-2">COLOR (Light)</label>
+                <input type="color" id="colorLight" value="#ffffff"
+                    class="w-full h-10 bg-gray-50 rounded cursor-pointer border border-gray-300">
+            </div>
+            <div>
+                <label class="block text-sm font-bold text-gray-600 mb-2">COLOR (Dark)</label>
+                <input type="color" id="colorDark" value="#000000"
+                    class="w-full h-10 bg-gray-50 rounded cursor-pointer border border-gray-300">
+            </div>
+        </div>
 
-                    <button onclick="generateQR()"
-                        class="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 rounded-xl transition shadow-sm hover:shadow-md">Generate
-                        QR Code</button>
-                </div>
+        <button onclick="generateQR()"
+            class="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 rounded-xl transition shadow-sm hover:shadow-md">Generate
+            QR Code</button>
+        </div>
+        </div>
+
+        <!-- Preview -->
+        <div
+            class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col items-center justify-center shadow-sm relative">
+            <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl pointer-events-none">
             </div>
 
-            <!-- Preview -->
-            <div
-                class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col items-center justify-center shadow-sm relative">
-                <div
-                    class="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl pointer-events-none">
-                </div>
+            <div id="qrcode" class="bg-white p-4 rounded-xl shadow-lg mb-6 z-10 border border-gray-100"></div>
 
-                <div id="qrcode" class="bg-white p-4 rounded-xl shadow-lg mb-6 z-10 border border-gray-100"></div>
-
-                <button onclick="downloadQR()"
-                    class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition group bg-gray-100 px-4 py-2 rounded-lg hover:bg-gray-200 z-10 font-medium">
-                    <svg class="w-5 h-5 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                    </svg>
-                    <span>Download PNG</span>
-                </button>
-            </div>
+            <button onclick="downloadQR()"
+                class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition group bg-gray-100 px-4 py-2 rounded-lg hover:bg-gray-200 z-10 font-medium">
+                <svg class="w-5 h-5 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                </svg>
+                <span>Download PNG</span>
+            </button>
+        </div>
         </div>
 
         <!-- SEO Content -->
