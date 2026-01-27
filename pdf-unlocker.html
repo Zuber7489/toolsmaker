@@ -33,17 +33,14 @@
 
     <style>
         body {
-            background-color: #0f172a;
-            background-image:
-                radial-gradient(at 0% 0%, rgba(239, 68, 68, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 0%, rgba(220, 38, 38, 0.1) 0px, transparent 50%);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
 
         .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
         .drop-zone {
@@ -131,25 +128,37 @@
     </script>
 </head>
 
-<body class="text-slate-200 antialiased">
-
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+<body class="text-gray-900 antialiased">
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="max-w-4xl mx-auto px-4 py-12">
         <!-- Header -->
         <div class="text-center mb-12">
             <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-500 text-xs font-bold uppercase tracking-widest mb-4 border border-brand-500/20">
+                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-200 text-black text-xs font-bold uppercase tracking-widest mb-4 border border-gray-300">
                 <span class="relative flex h-2 w-2">
                     <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-black"></span>
                 </span>
                 100% Private & Secure
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">PDF Password <span
-                    class="text-brand-500">Remover</span></h1>
-            <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">PDF Password <span
+                    class="text-black">Remover</span></h1>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
                 Remove security from protected PDFs instantly. Your files are processed <strong>locally</strong> in your
                 browser and never uploaded to our server. Safe for bank statements & salary slips.
             </p>
@@ -161,25 +170,25 @@
             <!-- Step 1: Upload -->
             <div id="uploadStep" class="space-y-6">
                 <label for="fileInput" id="dropZone"
-                    class="drop-zone block rounded-2xl p-12 text-center cursor-pointer hover:bg-white/5 transition-all group">
+                    class="drop-zone block rounded-2xl p-12 text-center cursor-pointer hover:bg-gray-50 transition-all group">
                     <input type="file" id="fileInput" class="hidden" accept=".pdf">
                     <div
-                        class="w-20 h-20 bg-brand-500/10 rounded-2xl flex items-center justify-center text-brand-500 mx-auto mb-6 group-hover:scale-110 transition-transform">
+                        class="w-20 h-20 bg-black/5 rounded-2xl flex items-center justify-center text-black mx-auto mb-6 group-hover:scale-110 transition-transform">
                         <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M9 13h6m-3-3v6m5 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414-5.414a1 1 0 01.707.707V19a2 2 0 01-2 2z">
                             </path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-2">Drop protected PDF here</h3>
-                    <p class="text-slate-400">or click to browse from your device</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Drop protected PDF here</h3>
+                    <p class="text-gray-500">or click to browse from your device</p>
                 </label>
             </div>
 
             <!-- Step 2: Password Input (Hidden) -->
             <div id="passwordStep" class="hidden space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
                 <div
-                    class="flex items-center gap-4 p-4 bg-brand-500/10 rounded-2xl border border-brand-500/20 text-brand-500 mb-6">
+                    class="flex items-center gap-4 p-4 bg-gray-100 rounded-2xl border border-gray-200 text-gray-900 mb-6">
                     <svg class="w-6 h-6 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z">
@@ -190,13 +199,13 @@
                 </div>
 
                 <div class="space-y-2">
-                    <label class="text-sm font-semibold text-slate-400 ml-1">Enter PDF Password</label>
+                    <label class="text-sm font-semibold text-gray-500 ml-1">Enter PDF Password</label>
                     <input type="password" id="pdfPassword" placeholder="Enter current password"
-                        class="w-full bg-slate-800/50 border border-slate-700 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-brand-500 transition shadow-inner">
+                        class="w-full bg-gray-50 border border-gray-300 rounded-2xl px-6 py-4 text-gray-900 focus:outline-none focus:border-black transition shadow-inner">
                 </div>
 
                 <button id="unlockBtn"
-                    class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-2xl transition-all transform hover:scale-[1.02] active:scale-95 shadow-lg shadow-brand-500/20 flex items-center justify-center gap-2">
+                    class="w-full bg-black hover:bg-gray-800 text-white font-bold py-4 rounded-2xl transition-all transform hover:scale-[1.02] active:scale-95 shadow-sm flex items-center justify-center gap-2">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z">
@@ -206,67 +215,67 @@
                 </button>
 
                 <button onclick="location.reload()"
-                    class="w-full text-slate-500 text-sm hover:text-slate-300 transition-colors">Choose different
+                    class="w-full text-gray-500 text-sm hover:text-gray-700 transition-colors">Choose different
                     file</button>
             </div>
 
             <!-- Processing / Success -->
-            <div id="status" class="hidden mt-8 text-center p-6 rounded-2xl bg-slate-800/50">
-                <p id="statusMsg" class="text-brand-400"></p>
+            <div id="status" class="hidden mt-8 text-center p-6 rounded-2xl bg-gray-50">
+                <p id="statusMsg" class="text-gray-900"></p>
             </div>
         </div>
 
         <!-- Info Section -->
         <div class="mt-16 grid md:grid-cols-3 gap-8">
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                <h3 class="font-bold text-white mb-2 flex items-center gap-2">
-                    <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="p-6 rounded-2xl bg-white border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
                         </path>
                     </svg>
                     Client-Side Processing
                 </h3>
-                <p class="text-slate-400 text-sm">Your files are never uploaded to any server. All processing happens
+                <p class="text-gray-600 text-sm">Your files are never uploaded to any server. All processing happens
                     within your browser's memory using JavaScript.</p>
             </div>
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                <h3 class="font-bold text-white mb-2 flex items-center gap-2">
-                    <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="p-6 rounded-2xl bg-white border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     Zero Waiting Time
                 </h3>
-                <p class="text-slate-400 text-sm">Since no upload is required, the password removal process is
+                <p class="text-gray-600 text-sm">Since no upload is required, the password removal process is
                     near-instant, regardless of your file size or internet speed.</p>
             </div>
-            <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-                <h3 class="font-bold text-white mb-2 flex items-center gap-2">
-                    <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="p-6 rounded-2xl bg-white border border-gray-200 shadow-sm">
+                <h3 class="font-bold text-gray-900 mb-2 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     Legal & Safe
                 </h3>
-                <p class="text-slate-400 text-sm">Perfect for decrypting bank statements, salary slips, or utility bills
+                <p class="text-gray-600 text-sm">Perfect for decrypting bank statements, salary slips, or utility bills
                     for your personal archives and easier access.</p>
             </div>
         </div>
 
         <!-- FAQ Section -->
         <section class="mt-20">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">Frequently Asked Questions</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
             <div class="grid md:grid-cols-2 gap-6">
-                <div class="glass-card p-6 rounded-2xl">
-                    <h4 class="font-bold text-white mb-2">Can you unlock a PDF without a password?</h4>
-                    <p class="text-slate-400 text-sm">No. This tool is designed to remove the "User Password" from a PDF
+                <div class="glass-card p-6 rounded-2xl shadow-sm">
+                    <h4 class="font-bold text-gray-900 mb-2">Can you unlock a PDF without a password?</h4>
+                    <p class="text-gray-600 text-sm">No. This tool is designed to remove the "User Password" from a PDF
                         so you don't have to enter it every time. You MUST know the current password to unlock the file
                         initially.</p>
                 </div>
-                <div class="glass-card p-6 rounded-2xl">
-                    <h4 class="font-bold text-white mb-2">Is my data safe?</h4>
-                    <p class="text-slate-400 text-sm">Absolutely. We use `pdf-lib` which runs entire logic on your CPU.
+                <div class="glass-card p-6 rounded-2xl shadow-sm">
+                    <h4 class="font-bold text-gray-900 mb-2">Is my data safe?</h4>
+                    <p class="text-gray-600 text-sm">Absolutely. We use `pdf-lib` which runs entire logic on your CPU.
                         We don't have a backend server that stores files. Open DevTools (F12) and check the network tab
                         to verify!</p>
                 </div>
@@ -274,8 +283,8 @@
         </section>
     </main>
 
-    <footer class="mt-20 py-10 border-t border-white/10 text-center">
-        <p class="text-slate-500 text-sm">&copy; 2026 FreeProducts24 Tools. Standard PDF Security Protocols Applied.</p>
+    <footer class="mt-20 py-10 border-t border-gray-200 text-center">
+        <p class="text-gray-500 text-sm">&copy; 2026 FreeProducts24 Tools. Standard PDF Security Protocols Applied.</p>
     </footer>
 
     <script>
@@ -360,7 +369,7 @@
         function showStatus(msg, isError) {
             status.classList.remove('hidden');
             statusMsg.textContent = msg;
-            statusMsg.className = isError ? 'text-red-400 font-bold' : 'text-brand-400 font-bold';
+            statusMsg.className = isError ? 'text-red-500 font-bold' : 'text-green-600 font-bold';
         }
     </script>
 </body>
