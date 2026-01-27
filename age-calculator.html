@@ -196,14 +196,6 @@
                             class="w-full bg-gray-50/50 border border-gray-200 rounded-xl p-4 text-gray-900 outline-none focus:bg-white transition shadow-inner font-medium">
                     </div>
 
-                    <div class="input-focus-ring rounded-xl transition-all duration-200">
-                        <label
-                            class="text-xs text-gray-500 font-bold uppercase tracking-wider block mb-2 px-1">Calculate
-                            At
-                            (Optional)</label>
-                        <input type="date" id="targetDate"
-                            class="w-full bg-gray-50/50 border border-gray-200 rounded-xl p-4 text-gray-900 outline-none focus:bg-white transition shadow-inner font-medium">
-                    </div>
 
                     <button onclick="calculate()"
                         class="w-full bg-gray-900 hover:bg-black text-white font-bold py-5 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 active:scale-[0.98] transform hover:-translate-y-1">
@@ -212,23 +204,7 @@
                 </div>
             </div>
 
-            <!-- Zodiac Card -->
-            <div id="zodiacCard"
-                class="hidden glass-card rounded-3xl p-4 sm:p-6 flex items-center gap-4 sm:gap-6 group hover:border-gray-300 transition-all duration-500 animate-slide-up cursor-default">
-                <div id="zodiacIcon"
-                    class="text-5xl sm:text-6xl filter drop-shadow-md transform group-hover:scale-110 transition-transform duration-300">
-                    ♈</div>
-                <div>
-                    <h3 id="zodiacName"
-                        class="text-gray-900 font-bold text-lg sm:text-xl mb-1 group-hover:text-gray-700 transition-colors">
-                        Aries
-                    </h3>
-                    <p id="zodiacDate" class="text-gray-500 text-sm font-medium">Mar 21 - Apr 19</p>
-                    <p id="zodiacTraits"
-                        class="text-gray-900 text-[10px] mt-2 font-bold uppercase tracking-widest hidden sm:block bg-gray-100 rounded-full px-2 py-1 inline-block">
-                        Bold, Ambitious, Leader</p>
-                </div>
-            </div>
+
         </div>
 
         <!-- Result Panel -->
@@ -377,51 +353,14 @@
     </footer>
 
     <script>
-        const zodiacSigns = [
-            { name: "Capricorn", icon: "♑", start: "01-01", end: "01-19", traits: "Disciplined, Ambitious, Traditional" },
-            { name: "Aquarius", icon: "♒", start: "01-20", end: "02-18", traits: "Creative, Independent, Humanitarian" },
-            { name: "Pisces", icon: "♓", start: "02-19", end: "03-20", traits: "Empathetic, Artistic, Dreamer" },
-            { name: "Aries", icon: "♈", start: "03-21", end: "04-19", traits: "Bold, Eager, Energetic" },
-            { name: "Taurus", icon: "♉", start: "04-20", end: "05-20", traits: "Steady, Reliable, Determined" },
-            { name: "Gemini", icon: "♊", start: "05-21", end: "06-20", traits: "Curious, Adaptable, Social" },
-            { name: "Cancer", icon: "♋", start: "06-21", end: "07-22", traits: "Intuitive, Sentimental, Caring" },
-            { name: "Leo", icon: "♌", start: "07-23", end: "08-22", traits: "Proud, Confident, Leader" },
-            { name: "Virgo", icon: "♍", start: "08-23", end: "09-22", traits: "Practical, Analytical, Loyal" },
-            { name: "Libra", icon: "♎", start: "09-23", end: "10-22", traits: "Gracious, Social, Diplomatic" },
-            { name: "Scorpio", icon: "♏", start: "10-23", end: "11-21", traits: "Passionate, Brave, Resourceful" },
-            { name: "Sagittarius", icon: "♐", start: "11-22", end: "12-21", traits: "Generous, Idealistic, Funny" },
-            { name: "Capricorn", icon: "♑", start: "12-22", end: "12-31", traits: "Disciplined, Ambitious, Traditional" }
-        ];
-
-        function getZodiac(date) {
-            const m = date.getMonth() + 1;
-            const d = date.getDate();
-            const mmdd = m * 100 + d;
-
-            if (mmdd <= 119) return zodiacSigns[0];
-            if (mmdd <= 218) return zodiacSigns[1];
-            if (mmdd <= 320) return zodiacSigns[2];
-            if (mmdd <= 419) return zodiacSigns[3];
-            if (mmdd <= 520) return zodiacSigns[4];
-            if (mmdd <= 620) return zodiacSigns[5];
-            if (mmdd <= 722) return zodiacSigns[6];
-            if (mmdd <= 822) return zodiacSigns[7];
-            if (mmdd <= 922) return zodiacSigns[8];
-            if (mmdd <= 1022) return zodiacSigns[9];
-            if (mmdd <= 1121) return zodiacSigns[10];
-            if (mmdd <= 1221) return zodiacSigns[11];
-            return zodiacSigns[12];
-        }
 
         function calculate() {
             const birthVal = document.getElementById('birthDate').value;
-            let targetVal = document.getElementById('targetDate').value;
 
             if (!birthVal) return;
-            if (!targetVal) targetVal = new Date().toISOString().split('T')[0];
 
             const birth = new Date(birthVal);
-            const target = new Date(targetVal);
+            const target = new Date();
 
             if (birth > target) {
                 alert("Birth date cannot be in the future!");
@@ -461,12 +400,6 @@
             document.getElementById('totalMinutes').innerText = Math.floor(diff / (1000 * 60)).toLocaleString();
             document.getElementById('totalSleep').innerText = Math.floor(totalDays * 8).toLocaleString() + " hrs";
 
-            // Zodiac
-            const zodiac = getZodiac(birth);
-            document.getElementById('zodiacCard').classList.remove('hidden');
-            document.getElementById('zodiacIcon').innerText = zodiac.icon;
-            document.getElementById('zodiacName').innerText = zodiac.name;
-            document.getElementById('zodiacTraits').innerText = zodiac.traits;
 
             // Next Birthday
             let next = new Date(birth);
