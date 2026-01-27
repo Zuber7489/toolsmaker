@@ -30,53 +30,63 @@
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image: radial-gradient(at 100% 0%, hsla(120, 50%, 15%, 1) 0, transparent 70%);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased p-4">
+<body class="text-gray-900 antialiased p-4">
 
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="max-w-4xl mx-auto space-y-8">
         <div class="text-center mb-10">
-            <h1 class="text-3xl font-bold text-white mb-2">Lorem Ipsum Generator</h1>
-            <p class="text-slate-400">Quickly generate professional placeholder text for your next project.</p>
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Lorem Ipsum Generator</h1>
+            <p class="text-gray-600">Quickly generate professional placeholder text for your next project.</p>
         </div>
 
         <section class="max-w-3xl mx-auto space-y-6">
             <div
-                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 md:p-8 shadow-xl flex flex-wrap gap-6 items-center justify-between">
+                class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm flex flex-wrap gap-6 items-center justify-between">
                 <div class="flex items-center gap-4">
-                    <label class="text-sm font-medium text-slate-400">Type:</label>
+                    <label class="text-sm font-medium text-gray-600">Type:</label>
                     <select id="type"
-                        class="bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white outline-none focus:border-brand-500">
+                        class="bg-gray-50 border border-gray-300 rounded-lg px-4 py-2 text-gray-900 outline-none focus:border-black">
                         <option value="p">Paragraphs</option>
                         <option value="w">Words</option>
                     </select>
                 </div>
                 <div class="flex items-center gap-4">
-                    <label class="text-sm font-medium text-slate-400">Count:</label>
+                    <label class="text-sm font-medium text-gray-600">Count:</label>
                     <input type="number" id="count" value="3" min="1" max="50"
-                        class="w-20 bg-slate-900 border border-slate-700 rounded-lg px-4 py-2 text-white outline-none focus:border-brand-500">
+                        class="w-20 bg-gray-50 border border-gray-300 rounded-lg px-4 py-2 text-gray-900 outline-none focus:border-black">
                 </div>
                 <button onclick="generate()"
-                    class="flex-grow md:flex-none bg-brand-600 hover:bg-brand-500 text-white font-bold px-8 py-2 rounded-lg transition active:scale-95">Generate</button>
+                    class="flex-grow md:flex-none bg-black hover:bg-gray-800 text-white font-bold px-8 py-2 rounded-lg transition active:scale-95">Generate</button>
             </div>
 
-            <div
-                class="bg-slate-800/80 border border-slate-700 rounded-2xl p-6 md:p-8 shadow-2xl relative min-h-[300px]">
+            <div class="bg-white border border-gray-200 rounded-2xl p-6 md:p-8 shadow-sm relative min-h-[300px]">
                 <div class="flex justify-between items-center mb-4">
-                    <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Text Preview</span>
+                    <span class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Text Preview</span>
                     <button onclick="copyText()"
-                        class="text-xs bg-slate-700 hover:bg-slate-600 text-white px-4 py-1.5 rounded-full transition">Copy
+                        class="text-xs bg-gray-100 hover:bg-gray-200 text-gray-900 px-4 py-1.5 rounded-full transition font-medium">Copy
                         Text</button>
                 </div>
-                <div id="output"
-                    class="text-slate-300 leading-relaxed text-sm md:text-base prose prose-invert max-w-none">
+                <div id="output" class="text-gray-900 leading-relaxed text-sm md:text-base prose prose-gray max-w-none">
                     <!-- Text goes here -->
                 </div>
             </div>

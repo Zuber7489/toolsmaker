@@ -24,40 +24,37 @@
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image: radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 50%),
-                radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 50%);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
 
         .glass-panel {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
         }
 
         .form-input {
             width: 100%;
-            background-color: rgba(15, 23, 42, 0.5);
-            border: 1px solid #334155;
+            background-color: #f9fafb;
+            border: 1px solid #d1d5db;
             border-radius: 0.5rem;
             padding: 0.75rem;
-            color: white;
+            color: #111827;
             transition: all 0.2s;
         }
 
         .form-input:focus {
             outline: none;
-            border-color: #14b8a6;
-            box-shadow: 0 0 0 2px rgba(20, 184, 166, 0.2);
+            border-color: #000000;
+            box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
         }
 
         .form-label {
             display: block;
             font-size: 0.875rem;
             font-weight: 500;
-            color: #94a3b8;
+            color: #374151;
             margin-bottom: 0.5rem;
         }
 
@@ -103,28 +100,41 @@
     </style>
 </head>
 
-<body class="text-slate-200 antialiased p-4">
+<body class="text-gray-900 antialiased p-4">
 
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="max-w-7xl mx-auto mt-24 mb-10 grid grid-cols-1 lg:grid-cols-2 gap-8">
 
         <!-- LEFT COLUMN - FORM -->
         <div class="space-y-6">
             <div class="glass-panel p-6 rounded-2xl">
-                <h1 class="text-2xl font-bold text-white mb-1">Meta Tag Generator</h1>
-                <p class="text-slate-400 text-sm mb-6">Create SEO-friendly tags for Google, Facebook, and Twitter.</p>
+                <h1 class="text-2xl font-bold text-gray-900 mb-1">Meta Tag Generator</h1>
+                <p class="text-gray-600 text-sm mb-6">Create SEO-friendly tags for Google, Facebook, and Twitter.</p>
 
                 <!-- TABS -->
-                <div class="flex gap-2 mb-6 border-b border-slate-700 pb-2">
+                <div class="flex gap-2 mb-6 border-b border-gray-200 pb-2">
                     <button onclick="switchTab('general')" id="tab-general"
-                        class="tab-btn active text-brand-500 font-medium text-sm pb-2 border-b-2 border-brand-500 px-2 transition-all">General
+                        class="tab-btn active text-black font-medium text-sm pb-2 border-b-2 border-black px-2 transition-all">General
                         SEO</button>
                     <button onclick="switchTab('og')" id="tab-og"
-                        class="tab-btn text-slate-400 hover:text-white font-medium text-sm pb-2 border-b-2 border-transparent px-2 transition-all">Open
+                        class="tab-btn text-gray-500 hover:text-black font-medium text-sm pb-2 border-b-2 border-transparent px-2 transition-all">Open
                         Graph (FB)</button>
                     <button onclick="switchTab('twitter')" id="tab-twitter"
-                        class="tab-btn text-slate-400 hover:text-white font-medium text-sm pb-2 border-b-2 border-transparent px-2 transition-all">Twitter
+                        class="tab-btn text-gray-500 hover:text-black font-medium text-sm pb-2 border-b-2 border-transparent px-2 transition-all">Twitter
                         Card</button>
                 </div>
 
@@ -134,14 +144,14 @@
                         <label class="form-label">Site Title (Max 60 chars)</label>
                         <input type="text" id="siteTitle" class="form-input" placeholder="e.g. Best Pizza in New York"
                             oninput="updatePreview()">
-                        <div class="text-right text-xs text-slate-500 mt-1"><span id="titleCount">0</span>/60</div>
+                        <div class="text-right text-xs text-gray-500 mt-1"><span id="titleCount">0</span>/60</div>
                     </div>
                     <div>
                         <label class="form-label">Meta Description (Max 160 chars)</label>
                         <textarea id="siteDesc" rows="3" class="form-input"
                             placeholder="e.g. Order the best authentic Italian pizza online..."
                             oninput="updatePreview()"></textarea>
-                        <div class="text-right text-xs text-slate-500 mt-1"><span id="descCount">0</span>/160</div>
+                        <div class="text-right text-xs text-gray-500 mt-1"><span id="descCount">0</span>/160</div>
                     </div>
                     <div>
                         <label class="form-label">Keywords (Comma separated)</label>
@@ -156,15 +166,15 @@
                     <div class="flex gap-4">
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="checkbox" id="checkViewport" checked
-                                class="w-4 h-4 rounded border-gray-600 text-brand-500 focus:ring-brand-500 bg-slate-800"
+                                class="w-4 h-4 rounded border-gray-300 text-black focus:ring-black bg-white"
                                 onchange="generateCode()">
-                            <span class="text-sm text-slate-300">Responsive Viewport</span>
+                            <span class="text-sm text-gray-700">Responsive Viewport</span>
                         </label>
                         <label class="flex items-center gap-2 cursor-pointer">
                             <input type="checkbox" id="checkCharset" checked
-                                class="w-4 h-4 rounded border-gray-600 text-brand-500 focus:ring-brand-500 bg-slate-800"
+                                class="w-4 h-4 rounded border-gray-300 text-black focus:ring-black bg-white"
                                 onchange="generateCode()">
-                            <span class="text-sm text-slate-300">UTF-8 Charset</span>
+                            <span class="text-sm text-gray-700">UTF-8 Charset</span>
                         </label>
                     </div>
                 </div>
@@ -237,8 +247,8 @@
 
             <!-- GOOGLE PREVIEW -->
             <div class="glass-panel p-6 rounded-2xl">
-                <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Google Search Preview</h2>
-                <div class="google-preview">
+                <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Google Search Preview</h2>
+                <div class="google-preview border border-gray-200 shadow-sm">
                     <div class="google-title" id="prevGoogleTitle">Page Title Goes Here</div>
                     <div class="google-url"><span id="prevGoogleUrlRoot">example.com</span> <span
                             style="color:#5f6368">› ...</span></div>
@@ -249,16 +259,16 @@
 
             <!-- SOCIAL PREVIEW -->
             <div class="glass-panel p-6 rounded-2xl">
-                <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Social Share Preview</h2>
-                <div class="social-preview max-w-sm mx-auto">
-                    <div class="h-48 bg-slate-200 border-b border-slate-200 bg-cover bg-center" id="prevSocialImage"
+                <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-4">Social Share Preview</h2>
+                <div class="social-preview max-w-sm mx-auto shadow-sm">
+                    <div class="h-48 bg-gray-100 border-b border-gray-200 bg-cover bg-center" id="prevSocialImage"
                         style="background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22200%22%20height%3D%22200%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20200%20200%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_1%20text%20%7B%20fill%3A%23AAAAAA%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_1%22%3E%3Crect%20width%3D%22200%22%20height%3D%22200%22%20fill%3D%22%23EEEEEE%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2274.4296875%22%20y%3D%22104.5%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E');">
                     </div>
-                    <div class="p-3 bg-[#f0f2f5]">
-                        <div class="text-[10px] text-slate-500 uppercase mb-1" id="prevSocialUrl">EXAMPLE.COM</div>
-                        <div class="text-slate-900 font-bold text-sm mb-1 leading-tight line-clamp-2"
+                    <div class="p-3 bg-white">
+                        <div class="text-[10px] text-gray-500 uppercase mb-1" id="prevSocialUrl">EXAMPLE.COM</div>
+                        <div class="text-gray-900 font-bold text-sm mb-1 leading-tight line-clamp-2"
                             id="prevSocialTitle">Your Page Title</div>
-                        <div class="text-slate-600 text-xs line-clamp-2" id="prevSocialDesc">Your page description shows
+                        <div class="text-gray-600 text-xs line-clamp-2" id="prevSocialDesc">Your page description shows
                             here...</div>
                     </div>
                 </div>
@@ -267,13 +277,13 @@
             <!-- CODE OUTPUT -->
             <div class="glass-panel p-6 rounded-2xl relative">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-sm font-bold text-slate-400 uppercase tracking-widest">Generated HTML</h2>
+                    <h2 class="text-sm font-bold text-gray-500 uppercase tracking-widest">Generated HTML</h2>
                     <button onclick="copyCode()"
-                        class="bg-brand-600 hover:bg-brand-500 text-white text-xs px-3 py-1.5 rounded-lg transition">Copy
+                        class="bg-black hover:bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg transition">Copy
                         Code</button>
                 </div>
                 <textarea id="outputCode" readonly
-                    class="w-full bg-slate-900/80 border border-slate-700 rounded-lg p-3 text-brand-500 font-mono text-xs focus:outline-none h-64"></textarea>
+                    class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-gray-900 font-mono text-xs focus:outline-none h-64"></textarea>
             </div>
 
         </div>
@@ -315,12 +325,12 @@
         function switchTab(tab) {
             ['general', 'og', 'twitter'].forEach(t => {
                 document.getElementById('form-' + t).classList.add('hidden');
-                document.getElementById('tab-' + t).classList.remove('text-brand-500', 'border-brand-500');
-                document.getElementById('tab-' + t).classList.add('text-slate-400', 'border-transparent');
+                document.getElementById('tab-' + t).classList.remove('text-black', 'border-black');
+                document.getElementById('tab-' + t).classList.add('text-gray-500', 'border-transparent');
             });
             document.getElementById('form-' + tab).classList.remove('hidden');
-            document.getElementById('tab-' + tab).classList.remove('text-slate-400', 'border-transparent');
-            document.getElementById('tab-' + tab).classList.add('text-brand-500', 'border-brand-500');
+            document.getElementById('tab-' + tab).classList.remove('text-gray-500', 'border-transparent');
+            document.getElementById('tab-' + tab).classList.add('text-black', 'border-black');
         }
 
         function updatePreview() {

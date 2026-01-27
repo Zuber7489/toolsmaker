@@ -32,17 +32,13 @@
 
     <style>
         body {
-            background-color: #0f172a;
-            background-image:
-                radial-gradient(at 0% 100%, rgba(139, 92, 246, 0.1) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.05) 0px, transparent 50%);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
 
         .glass-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
         }
 
         .code-block {
@@ -108,27 +104,39 @@
     </script>
 </head>
 
-<body class="text-slate-200 antialiased">
-
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+<body class="text-gray-900 antialiased">
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="max-w-4xl mx-auto px-4 py-12">
         <!-- Header -->
         <div class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Affiliate Link <span
-                    class="text-brand-500">Cloaker</span></h1>
-            <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Affiliate Link <span
+                    class="text-black">Cloaker</span></h1>
+            <p class="text-gray-600 text-lg max-w-2xl mx-auto">
                 Transform ugly affiliate links like <span
-                    class="text-red-400 text-sm italic">amazon.com/gp/product/B08...?aff_id=99</span> into professional,
+                    class="text-red-500 text-sm italic">amazon.com/gp/product/B08...?aff_id=99</span> into professional,
                 branded URLs on your own domain.
             </p>
         </div>
 
         <div class="grid lg:grid-cols-2 gap-8">
             <!-- Input Form -->
-            <div class="glass-card rounded-3xl p-8 shadow-xl space-y-6">
-                <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                    <svg class="w-6 h-6 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="glass-card rounded-3xl p-8 shadow-sm space-y-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
                         </path>
@@ -138,35 +146,35 @@
 
                 <div class="space-y-4">
                     <div class="space-y-1">
-                        <label class="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Original
+                        <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Original
                             Affiliate Link</label>
                         <input type="url" id="targetUrl" placeholder="https://amazon.com/..."
-                            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition">
+                            class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-black transition">
                     </div>
 
                     <div class="space-y-1">
-                        <label class="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Redirect Slug
+                        <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Redirect Slug
                             (Folder Name)</label>
-                        <div class="flex items-center bg-slate-800 border border-slate-700 rounded-xl px-4 py-3">
-                            <span class="text-slate-500 text-sm">/go/</span>
+                        <div class="flex items-center bg-gray-50 border border-gray-300 rounded-xl px-4 py-3">
+                            <span class="text-gray-500 text-sm">/go/</span>
                             <input type="text" id="slug" placeholder="best-laptop"
-                                class="w-full bg-transparent border-none text-white focus:outline-none ml-1">
+                                class="w-full bg-transparent border-none text-gray-900 focus:outline-none ml-1">
                         </div>
-                        <p class="text-[10px] text-slate-500 italic mt-1 font-medium">This will be your folder name on
+                        <p class="text-[10px] text-gray-500 italic mt-1 font-medium">This will be your folder name on
                             your server.</p>
                     </div>
 
                     <div class="space-y-1">
-                        <label class="text-xs font-bold text-slate-500 uppercase tracking-widest ml-1">Loading Message
+                        <label class="text-xs font-bold text-gray-500 uppercase tracking-widest ml-1">Loading Message
                             (Optional)</label>
                         <input type="text" id="brandText" placeholder="Redirecting to Amazon..."
-                            class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-500 transition">
+                            class="w-full bg-gray-50 border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-black transition">
                     </div>
                 </div>
 
                 <div class="pt-4">
                     <button id="generateBtn"
-                        class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold py-4 rounded-xl transition-all transform active:scale-95 shadow-lg shadow-brand-500/20">
+                        class="w-full bg-black hover:bg-gray-800 text-white font-bold py-4 rounded-xl transition-all transform active:scale-95 shadow-sm">
                         Generate Redirect Page
                     </button>
                 </div>
@@ -174,36 +182,36 @@
 
             <!-- Preview/Instructions -->
             <div class="space-y-6">
-                <div class="glass-card rounded-3xl p-8 border-brand-500/20">
-                    <h3 class="font-bold text-white mb-4 flex items-center gap-2">
-                        <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <div class="glass-card rounded-3xl p-8 border-gray-200">
+                    <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         How to use this?
                     </h3>
-                    <ul class="space-y-4 text-sm text-slate-400">
+                    <ul class="space-y-4 text-sm text-gray-600">
                         <li class="flex gap-3">
                             <span
-                                class="w-6 h-6 rounded-full bg-brand-500/20 text-brand-500 flex items-center justify-center font-bold text-xs shrink-0">1</span>
+                                class="w-6 h-6 rounded-full bg-black/10 text-black flex items-center justify-center font-bold text-xs shrink-0">1</span>
                             <span>Enter your long and messy affiliate link in the target URL field.</span>
                         </li>
                         <li class="flex gap-3">
                             <span
-                                class="w-6 h-6 rounded-full bg-brand-500/20 text-brand-500 flex items-center justify-center font-bold text-xs shrink-0">2</span>
+                                class="w-6 h-6 rounded-full bg-black/10 text-black flex items-center justify-center font-bold text-xs shrink-0">2</span>
                             <span>Click Generate. This tool will create a custom <code>index.html</code> redirect
                                 file.</span>
                         </li>
                         <li class="flex gap-3">
                             <span
-                                class="w-6 h-6 rounded-full bg-brand-500/20 text-brand-500 flex items-center justify-center font-bold text-xs shrink-0">3</span>
+                                class="w-6 h-6 rounded-full bg-black/10 text-black flex items-center justify-center font-bold text-xs shrink-0">3</span>
                             <span>Create a folder on your server (e.g., <code>/go/best-laptop/</code>) and upload the
                                 generated file there.</span>
                         </li>
-                        <li class="flex gap-3 border-t border-white/5 pt-4">
+                        <li class="flex gap-3 border-t border-gray-200 pt-4">
                             <span
-                                class="w-6 h-6 rounded-full bg-green-500/20 text-green-500 flex items-center justify-center font-bold text-xs shrink-0">✓</span>
-                            <span class="text-white font-medium italic">Result: yoursite.com/go/best-laptop will now
+                                class="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold text-xs shrink-0">✓</span>
+                            <span class="text-gray-900 font-medium italic">Result: yoursite.com/go/best-laptop will now
                                 redirect safely!</span>
                         </li>
                     </ul>
@@ -212,7 +220,7 @@
                 <!-- Generated Output (Hidden Initially) -->
                 <div id="outputArea" class="hidden animate-in fade-in slide-in-from-right-4">
                     <div class="flex justify-between items-center mb-2 px-1">
-                        <span class="text-xs font-bold text-brand-500 uppercase">Redirect File Generated</span>
+                        <span class="text-xs font-bold text-black uppercase">Redirect File Generated</span>
                     </div>
                     <button id="downloadBtn"
                         class="w-full bg-slate-100 hover:bg-white text-slate-900 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2">
@@ -229,31 +237,31 @@
         </div>
 
         <!-- SEO Content -->
-        <article class="mt-20 prose prose-invert max-w-none">
-            <h2 class="text-2xl font-bold text-white border-b border-white/10 pb-2 mb-6 text-center">Why Cloak Your
+        <article class="mt-20 prose prose-gray max-w-none">
+            <h2 class="text-2xl font-bold text-gray-900 border-b border-gray-200 pb-2 mb-6 text-center">Why Cloak Your
                 Affiliate Links?</h2>
             <div class="grid md:grid-cols-2 gap-10">
                 <div>
-                    <h3 class="text-brand-400 font-bold text-lg mb-2">1. Build Trust & Branding</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Users are 3x more likely to click on a link that
+                    <h3 class="text-black font-bold text-lg mb-2">1. Build Trust & Branding</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Users are 3x more likely to click on a link that
                         looks like your brand (e.g., <code>yoursite.com/recommends/product</code>) than a random messy
                         URL full of tracking IDs.</p>
                 </div>
                 <div>
-                    <h3 class="text-brand-400 font-bold text-lg mb-2">2. Avoid Link Hijacking</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Some malicious browser extensions can swap your
+                    <h3 class="text-black font-bold text-lg mb-2">2. Avoid Link Hijacking</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Some malicious browser extensions can swap your
                         affiliate IDs with their own if the link is recognizable. Cloaked links hide the final
                         destination until the user clicks.</p>
                 </div>
                 <div>
-                    <h3 class="text-brand-400 font-bold text-lg mb-2">3. Easier Link Management</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">If an affiliate program changes its links, you
+                    <h3 class="text-black font-bold text-lg mb-2">3. Easier Link Management</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">If an affiliate program changes its links, you
                         only need to update the redirect file once. You don't have to edit 100 different blog posts or
                         social captions.</p>
                 </div>
                 <div>
-                    <h3 class="text-brand-400 font-bold text-lg mb-2">4. Better CTR on Social Media</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed">Short, readable links perform significantly better
+                    <h3 class="text-black font-bold text-lg mb-2">4. Better CTR on Social Media</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Short, readable links perform significantly better
                         on platforms like Twitter, Instagram, and YouTube where space is limited and aesthetics matter.
                     </p>
                 </div>
