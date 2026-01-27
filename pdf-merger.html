@@ -26,24 +26,15 @@
             theme: {
                 extend: {
                     fontFamily: { sans: ['Outfit', 'sans-serif'] },
-                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                    colors: { brand: { 500: '#000000', 600: '#1a1a1a' } }
                 }
             }
         }
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image:
-                radial-gradient(at 0% 100%, hsla(300, 40%, 15%, 1) 0, transparent 50%),
-                radial-gradient(at 100% 0%, hsla(180, 40%, 15%, 1) 0, transparent 50%);
+            background-color: #f9fafb;
             min-height: 100vh;
-        }
-
-        .glass-panel {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .file-item {
@@ -64,60 +55,64 @@
     </style>
 </head>
 
-<body class="text-slate-200 antialiased p-4 pl-1 pb-10">
+<body class="text-gray-900 antialiased p-4 pl-1 pb-10">
 
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
-    <main class="max-w-4xl mx-auto space-y-10">
+    <main class="max-w-4xl mx-auto space-y-10 mt-10">
         <div class="text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Merge PDF Files</h1>
-            <p class="text-slate-400 text-lg">Combine multiple PDFs into a single document. 100% Client-side & Secure.
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Merge PDF Files</h1>
+            <p class="text-gray-600 text-lg">Combine multiple PDFs into a single document. 100% Client-side & Secure.
             </p>
         </div>
 
-        <div class="glass-panel rounded-3xl p-8 shadow-2xl">
+        <div class="bg-white rounded-3xl p-8 shadow-sm border border-gray-200">
 
             <!-- Drop Zone -->
             <label for="pdfInput"
-                class="flex flex-col items-center justify-center w-full h-48 border-2 border-slate-600 border-dashed rounded-2xl cursor-pointer bg-slate-900/50 hover:bg-slate-800 transition group mb-8">
+                class="flex flex-col items-center justify-center w-full h-48 border-2 border-gray-300 border-dashed rounded-2xl cursor-pointer bg-gray-50 hover:bg-gray-100 transition group mb-8">
                 <div class="flex flex-col items-center justify-center pt-5 pb-6">
                     <div
-                        class="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center mb-3 group-hover:bg-brand-500/20 group-hover:text-brand-500 transition-colors">
-                        <svg class="w-6 h-6 text-slate-400 group-hover:text-brand-500" fill="none" stroke="currentColor"
+                        class="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center mb-3 group-hover:bg-black group-hover:text-white transition-colors">
+                        <svg class="w-6 h-6 text-gray-400 group-hover:text-white" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4">
                             </path>
                         </svg>
                     </div>
-                    <p class="mb-1 text-sm text-slate-300"><span class="font-bold">Click to add PDFs</span> or drag and
+                    <p class="mb-1 text-sm text-gray-600"><span class="font-bold">Click to add PDFs</span> or drag and
                         drop</p>
-                    <p class="text-xs text-slate-500">Supported format: .pdf</p>
+                    <p class="text-xs text-gray-500">Supported format: .pdf</p>
                 </div>
                 <input id="pdfInput" type="file" class="hidden" accept=".pdf" multiple />
             </label>
 
             <!-- File List -->
             <div id="fileList" class="space-y-3 mb-8 min-h-[50px]">
-                <!-- Example Item (Template) -->
-                <!-- 
-                <div class="bg-slate-800 rounded-lg p-4 flex justify-between items-center file-item">
-                    <span class="text-sm text-white truncate max-w-[200px]">document-1.pdf</span>
-                    <button class="text-red-400 hover:text-red-300">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
-                    </button>
-                </div> 
-                -->
-                <p id="emptyMsg" class="text-center text-slate-600 italic text-sm py-4">No files selected</p>
+                <p id="emptyMsg" class="text-center text-gray-500 italic text-sm py-4">No files selected</p>
             </div>
 
             <!-- Action Buttons -->
             <div class="flex justify-center gap-4">
                 <button onclick="mergePDFs()" id="mergeBtn" disabled
-                    class="bg-brand-600 hover:bg-brand-500 disabled:opacity-50 disabled:cursor-not-allowed text-white px-8 py-3 rounded-xl text-lg font-bold transition shadow-lg shadow-brand-500/20 w-full md:w-auto">
+                    class="bg-black hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed text-white px-8 py-3 rounded-xl text-lg font-bold transition shadow-lg shadow-gray-200 w-full md:w-auto">
                     Merge PDF Files
                 </button>
                 <button onclick="clearAll()" id="clearBtn" disabled
-                    class="bg-slate-700 hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed text-white px-6 py-3 rounded-xl text-lg font-bold transition w-full md:w-auto">
+                    class="bg-gray-100 hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-gray-900 px-6 py-3 rounded-xl text-lg font-bold transition w-full md:w-auto">
                     Clear
                 </button>
             </div>
@@ -125,14 +120,14 @@
         </div>
 
         <!-- SEO Content -->
-        <article class="prose prose-invert max-w-none mt-12 bg-slate-800/30 p-8 rounded-3xl border border-white/5">
-            <h2 class="text-2xl font-bold text-white mb-4">Fastest Online PDF Merger</h2>
-            <p class="text-slate-400">
+        <article class="prose prose-zinc max-w-none mt-12 bg-white p-8 rounded-3xl border border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Fastest Online PDF Merger</h2>
+            <p class="text-gray-600">
                 Our PDF Combiner tool allows you to join multiple PDF documents into one for free.
                 Whether you need to combine reports, invoices, or ebooks, we make it simple.
             </p>
-            <h3 class="text-xl font-bold text-white mt-6 mb-2">Why is it secure?</h3>
-            <p class="text-slate-400">
+            <h3 class="text-xl font-bold text-gray-900 mt-6 mb-2">Why is it secure?</h3>
+            <p class="text-gray-600">
                 Unlike other tools, <b>we do not upload your files to any server</b>.
                 The merging process happens entirely within your browser using JavaScript.
                 This means your sensitive documents never leave your device.
@@ -141,7 +136,7 @@
 
     </main>
 
-    <footer class="mt-20 py-8 border-t border-white/5 text-center text-slate-500 text-xs">
+    <footer class="mt-20 py-8 border-t border-gray-200 text-center text-gray-500 text-xs">
         <p>&copy; 2024 FreeProducts24. Built for productivity.</p>
     </footer>
 
@@ -183,20 +178,20 @@
 
             filesArray.forEach((file, index) => {
                 const el = document.createElement('div');
-                el.className = 'bg-slate-900 border border-slate-700 rounded-lg p-3 flex justify-between items-center file-item mb-2';
+                el.className = 'bg-gray-50 border border-gray-200 rounded-lg p-3 flex justify-between items-center file-item mb-2';
 
                 // File info
                 const info = document.createElement('div');
                 info.className = 'flex items-center gap-3 overflow-hidden';
                 info.innerHTML = `
-                    <div class="px-2 py-1 bg-red-500/10 text-red-500 rounded text-xs font-bold">PDF</div>
-                    <span class="text-sm text-slate-200 truncate">${file.name}</span>
-                    <span class="text-xs text-slate-500">(${Math.round(file.size / 1024)} KB)</span>
+                    <div class="px-2 py-1 bg-red-100 text-red-600 rounded text-xs font-bold">PDF</div>
+                    <span class="text-sm text-gray-900 truncate">${file.name}</span>
+                    <span class="text-xs text-gray-500">(${Math.round(file.size / 1024)} KB)</span>
                 `;
 
                 // Delete button
                 const delBtn = document.createElement('button');
-                delBtn.className = 'text-slate-500 hover:text-red-400 transition p-1';
+                delBtn.className = 'text-gray-400 hover:text-red-600 transition p-1';
                 delBtn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
                 delBtn.onclick = () => removeFile(index);
 
@@ -248,18 +243,18 @@
         const dropZone = document.querySelector('label[for="pdfInput"]');
         dropZone.addEventListener('dragover', (e) => {
             e.preventDefault();
-            dropZone.classList.add('border-brand-500');
-            dropZone.classList.add('bg-slate-800');
+            dropZone.classList.add('border-black');
+            dropZone.classList.add('bg-gray-100');
         });
         dropZone.addEventListener('dragleave', (e) => {
             e.preventDefault();
-            dropZone.classList.remove('border-brand-500');
-            dropZone.classList.remove('bg-slate-800');
+            dropZone.classList.remove('border-black');
+            dropZone.classList.remove('bg-gray-100');
         });
         dropZone.addEventListener('drop', (e) => {
             e.preventDefault();
-            dropZone.classList.remove('border-brand-500');
-            dropZone.classList.remove('bg-slate-800');
+            dropZone.classList.remove('border-black');
+            dropZone.classList.remove('bg-gray-100');
 
             if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
                 const newFiles = Array.from(e.dataTransfer.files).filter(f => f.type === 'application/pdf');
