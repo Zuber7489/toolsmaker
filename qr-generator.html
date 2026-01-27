@@ -186,10 +186,12 @@
     </nav>
 
     <main class="max-w-5xl mx-auto px-4 py-8 lg:py-16">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">Free QR Code Generator
+        <header class="text-center mb-8 md:mb-12">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 md:mb-4 tracking-tight">Free
+                QR Code Generator
             </h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">Create beautiful, scalable QR codes for links, text, or
+            <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">Create beautiful, scalable QR codes for
+                links, text, or
                 contacts instantly. No sign-up required.</p>
         </header>
 
@@ -255,9 +257,9 @@
             </div>
 
             <!-- Preview -->
-            <div class="md:col-span-6 lg:col-span-7 sticky top-24">
+            <div class="md:col-span-6 lg:col-span-7 md:sticky md:top-24">
                 <div
-                    class="glass-panel rounded-3xl p-8 sm:p-12 flex flex-col items-center justify-center shadow-md relative overflow-hidden min-h-[400px]">
+                    class="glass-panel rounded-3xl p-6 sm:p-8 md:p-12 flex flex-col items-center justify-center shadow-md relative overflow-hidden min-h-[350px] sm:min-h-[400px]">
                     <!-- Decorative blobs -->
                     <div
                         class="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none">
@@ -267,16 +269,17 @@
                     </div>
 
                     <div id="qrcode"
-                        class="bg-white p-6 rounded-2xl shadow-xl mb-8 z-10 border border-gray-100 transition-transform hover:scale-105 duration-300">
+                        class="bg-white p-4 sm:p-6 rounded-2xl shadow-xl mb-6 sm:mb-8 z-10 border border-gray-100 transition-transform hover:scale-105 duration-300">
                     </div>
 
                     <button onclick="downloadQR()"
-                        class="flex items-center gap-2 text-gray-700 hover:text-brand-600 transition bg-white/80 hover:bg-white border border-gray-200 px-6 py-3 rounded-full shadow-sm hover:shadow-md z-10 font-bold text-sm backdrop-blur-sm">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        class="flex items-center gap-2 text-gray-700 hover:text-brand-600 transition bg-white/80 hover:bg-white border border-gray-200 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full shadow-sm hover:shadow-md z-10 font-bold text-xs sm:text-sm backdrop-blur-sm">
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                         </svg>
-                        <span>Download High-Res PNG</span>
+                        <span class="hidden xs:inline">Download High-Res PNG</span>
+                        <span class="xs:hidden">Download PNG</span>
                     </button>
 
                     <p class="mt-6 text-gray-400 text-xs font-medium text-center max-w-xs">
@@ -287,9 +290,10 @@
         </div>
 
         <!-- SEO Content -->
-        <section class="mt-20 border-t border-gray-200 pt-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8">Everything you need to know about QR Codes</h2>
-            <div class="grid md:grid-cols-2 gap-12 text-gray-600">
+        <section class="mt-12 md:mt-20 border-t border-gray-200 pt-8 md:pt-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-gray-900 mb-6 md:mb-8">Everything you need to know about QR
+                Codes</h2>
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 text-gray-600">
                 <div class="prose prose-brand">
                     <p class="leading-relaxed">
                         QR (Quick Response) codes are everywhere. From restaurant menus to digital business cards, they
@@ -321,7 +325,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="bg-brand-50 rounded-3xl p-8 border border-brand-100">
+                <div class="bg-brand-50 rounded-2xl md:rounded-3xl p-6 md:p-8 border border-brand-100">
                     <h3 class="text-gray-900 font-bold text-xl mb-4">Pro Tip</h3>
                     <p class="text-sm leading-relaxed mb-4">
                         When choosing colors, always ensure there is a <span class="font-bold text-brand-700">high
