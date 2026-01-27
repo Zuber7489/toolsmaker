@@ -84,31 +84,43 @@
     </script>
     <style>
         body {
-            background-color: #0f172a;
-            background-image: radial-gradient(at 0% 100%, hsla(220, 40%, 15%, 1) 0, transparent 50%);
+            background-color: #f9fafb;
             min-height: 100vh;
         }
     </style>
 </head>
 
-<body class="text-slate-200 antialiased p-4">
+<body class="text-gray-900 antialiased p-4">
 
-    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50"><div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html" class="flex items-center gap-2"><div class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span></a><div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html" class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html" class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html" class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html" class="text-gray-600 hover:text-black transition">Privacy</a></div></div></nav>
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
 
     <main class="max-w-5xl mx-auto py-8">
         <header class="text-center mb-12">
-            <h1 class="text-4xl font-bold text-white mb-4">Free QR Code Generator</h1>
-            <p class="text-slate-400">Create scalable QR codes for links, text, or contacts instantly.</p>
+            <h1 class="text-4xl font-bold text-gray-900 mb-4">Free QR Code Generator</h1>
+            <p class="text-gray-600">Create scalable QR codes for links, text, or contacts instantly.</p>
         </header>
 
         <div class="grid md:grid-cols-2 gap-8">
             <!-- Controls -->
-            <div class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 shadow-xl">
+            <div class="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
                 <div class="space-y-6">
                     <div>
-                        <label class="block text-sm font-bold text-slate-400 mb-2">CONTENT TYPE</label>
+                        <label class="block text-sm font-bold text-gray-600 mb-2">CONTENT TYPE</label>
                         <select id="qrType"
-                            class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:border-brand-500 outline-none transition">
+                            class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-gray-900 focus:border-black outline-none transition">
                             <option value="url">Website URL</option>
                             <option value="text">Plain Text</option>
                             <option value="email">Email Address</option>
@@ -116,43 +128,42 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-bold text-slate-400 mb-2">DATA</label>
+                        <label class="block text-sm font-bold text-gray-600 mb-2">DATA</label>
                         <input type="text" id="qrText" placeholder="https://example.com"
-                            class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-white focus:border-brand-500 outline-none transition">
+                            class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-gray-900 focus:border-black outline-none transition">
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-bold text-slate-400 mb-2">COLOR (Light)</label>
+                            <label class="block text-sm font-bold text-gray-600 mb-2">COLOR (Light)</label>
                             <input type="color" id="colorLight" value="#ffffff"
-                                class="w-full h-10 bg-slate-900 rounded cursor-pointer border border-slate-700">
+                                class="w-full h-10 bg-gray-50 rounded cursor-pointer border border-gray-300">
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-slate-400 mb-2">COLOR (Dark)</label>
+                            <label class="block text-sm font-bold text-gray-600 mb-2">COLOR (Dark)</label>
                             <input type="color" id="colorDark" value="#000000"
-                                class="w-full h-10 bg-slate-900 rounded cursor-pointer border border-slate-700">
+                                class="w-full h-10 bg-gray-50 rounded cursor-pointer border border-gray-300">
                         </div>
                     </div>
 
                     <button onclick="generateQR()"
-                        class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-brand-500/20">Generate
+                        class="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 rounded-xl transition shadow-sm hover:shadow-md">Generate
                         QR Code</button>
                 </div>
             </div>
 
             <!-- Preview -->
             <div
-                class="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 flex flex-col items-center justify-center shadow-xl relative">
+                class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col items-center justify-center shadow-sm relative">
                 <div
-                    class="absolute inset-0 bg-gradient-to-br from-brand-500/5 to-purple-500/5 rounded-2xl pointer-events-none">
+                    class="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl pointer-events-none">
                 </div>
 
-                <div id="qrcode" class="bg-white p-4 rounded-xl shadow-2xl mb-6"></div>
+                <div id="qrcode" class="bg-white p-4 rounded-xl shadow-lg mb-6 z-10 border border-gray-100"></div>
 
                 <button onclick="downloadQR()"
-                    class="flex items-center gap-2 text-slate-300 hover:text-white transition group bg-slate-700/50 px-4 py-2 rounded-lg hover:bg-slate-700">
-                    <svg class="w-5 h-5 group-hover:text-brand-400" fill="none" stroke="currentColor"
-                        viewBox="0 0 24 24">
+                    class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition group bg-gray-100 px-4 py-2 rounded-lg hover:bg-gray-200 z-10 font-medium">
+                    <svg class="w-5 h-5 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                     </svg>
                     <span>Download PNG</span>
@@ -161,9 +172,9 @@
         </div>
 
         <!-- SEO Content -->
-        <section class="mt-20 border-t border-white/5 pt-12">
-            <h2 class="text-2xl font-bold text-white mb-6">About QR Code Generator</h2>
-            <div class="prose prose-invert max-w-none text-slate-400">
+        <section class="mt-20 border-t border-gray-200 pt-12">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">About QR Code Generator</h2>
+            <div class="prose prose-gray max-w-none text-gray-600">
                 <p>QR (Quick Response) codes are everywhere. From restaurant menus to digital business cards, they
                     provide a quick way to share information. Our tool lets you generate fully custom QR codes for free.
                 </p>
@@ -177,7 +188,7 @@
         </section>
     </main>
 
-    <footer class="mt-20 py-8 border-t border-white/5 text-center text-slate-500 text-xs">
+    <footer class="mt-20 py-8 border-t border-gray-200 text-center text-gray-500 text-xs">
         &copy; 2024 FreeProducts24. All Rights Reserved.
     </footer>
 
