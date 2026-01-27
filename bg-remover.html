@@ -285,11 +285,11 @@
         };
 
         // Drag and drop support
-        dropZone.ondragover = (e) => { e.preventDefault(); dropZone.classList.add('border-brand-500'); };
-        dropZone.ondragleave = (e) => { e.preventDefault(); dropZone.classList.remove('border-brand-500'); };
+        dropZone.ondragover = (e) => { e.preventDefault(); dropZone.classList.add('border-black'); };
+        dropZone.ondragleave = (e) => { e.preventDefault(); dropZone.classList.remove('border-black'); };
         dropZone.ondrop = (e) => {
             e.preventDefault();
-            dropZone.classList.remove('border-brand-500');
+            dropZone.classList.remove('border-black');
             if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
         };
 
