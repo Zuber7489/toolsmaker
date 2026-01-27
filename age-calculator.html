@@ -38,7 +38,6 @@
                 extend: {
                     fontFamily: { sans: ['Outfit', 'sans-serif'] },
                     colors: {
-                        brand: { 500: '#8b5cf6', 600: '#7c3aed' },
                         slate: { 850: '#1e293b', 950: '#0f172a' }
                     },
                     animation: {
@@ -62,8 +61,8 @@
     <style>
         body {
             background-color: #f8fafc;
-            background-image: radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.05) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.05) 0px, transparent 50%);
+            background-image: radial-gradient(at 0% 0%, rgba(0, 0, 0, 0.03) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 0, 0, 0.03) 0px, transparent 50%);
             min-height: 100vh;
         }
 
@@ -78,12 +77,12 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            background-image: linear-gradient(to right, #7c3aed, #4f46e5);
+            background-image: linear-gradient(to right, #1f2937, #374151);
         }
 
         .input-focus-ring:focus-within {
-            ring: 2px solid #8b5cf6;
-            border-color: #8b5cf6;
+            border-color: #1f2937;
+            box-shadow: 0 0 0 2px rgba(31, 41, 55, 0.2);
         }
     </style>
 
@@ -169,22 +168,23 @@
         </div>
     </nav>
 
-    <main class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-6 lg:gap-10 px-4 py-8 lg:py-12 animate-fade-in">
+    <main class="max-w-6xl mx-auto grid lg:grid-cols-12 gap-6 lg:gap-10 px-4 py-6 sm:py-8 lg:py-12 animate-fade-in">
         <!-- Input Panel -->
         <div class="lg:col-span-5 space-y-6">
             <div class="glass-card rounded-3xl p-6 sm:p-8 shadow-sm transition hover:shadow-md">
-                <div class="flex items-center gap-4 mb-8">
+                <div class="flex items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
                     <div
-                        class="w-14 h-14 bg-gradient-to-br from-brand-500 to-indigo-600 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-brand-500/30">
-                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        class="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-gray-900 to-gray-700 rounded-2xl flex items-center justify-center text-white shadow-lg shadow-gray-900/30">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
                     </div>
                     <div>
-                        <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">Age Calculator
+                        <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight leading-tight">Age
+                            Calculator
                         </h1>
-                        <p class="text-gray-500 font-medium">Find your exact time on Earth</p>
+                        <p class="text-sm sm:text-base text-gray-500 font-medium">Find your exact time on Earth</p>
                     </div>
                 </div>
 
@@ -214,17 +214,18 @@
 
             <!-- Zodiac Card -->
             <div id="zodiacCard"
-                class="hidden glass-card rounded-3xl p-6 flex items-center gap-6 group hover:border-brand-500/30 transition-all duration-500 animate-slide-up cursor-default">
+                class="hidden glass-card rounded-3xl p-4 sm:p-6 flex items-center gap-4 sm:gap-6 group hover:border-gray-300 transition-all duration-500 animate-slide-up cursor-default">
                 <div id="zodiacIcon"
-                    class="text-6xl filter drop-shadow-md transform group-hover:scale-110 transition-transform duration-300">
+                    class="text-5xl sm:text-6xl filter drop-shadow-md transform group-hover:scale-110 transition-transform duration-300">
                     ♈</div>
                 <div>
                     <h3 id="zodiacName"
-                        class="text-gray-900 font-bold text-xl mb-1 group-hover:text-brand-600 transition-colors">Aries
+                        class="text-gray-900 font-bold text-lg sm:text-xl mb-1 group-hover:text-gray-700 transition-colors">
+                        Aries
                     </h3>
                     <p id="zodiacDate" class="text-gray-500 text-sm font-medium">Mar 21 - Apr 19</p>
                     <p id="zodiacTraits"
-                        class="text-brand-600 text-[10px] mt-2 font-bold uppercase tracking-widest hidden sm:block bg-brand-50 rounded-full px-2 py-1 inline-block">
+                        class="text-gray-900 text-[10px] mt-2 font-bold uppercase tracking-widest hidden sm:block bg-gray-100 rounded-full px-2 py-1 inline-block">
                         Bold, Ambitious, Leader</p>
                 </div>
             </div>
@@ -234,40 +235,42 @@
         <div class="lg:col-span-7 space-y-6 lg:space-y-8">
             <!-- Major Result -->
             <div
-                class="glass-card rounded-3xl p-8 shadow-md relative overflow-hidden text-center border-t-4 border-brand-500">
+                class="glass-card rounded-3xl p-6 sm:p-8 shadow-md relative overflow-hidden text-center border-t-4 border-gray-900">
                 <!-- Background decoration -->
-                <div class="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-brand-500/10 rounded-full blur-2xl"></div>
-                <div class="absolute bottom-0 left-0 -mb-8 -ml-8 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl"></div>
+                <div class="absolute top-0 right-0 -mt-8 -mr-8 w-32 h-32 bg-gray-900/5 rounded-full blur-2xl"></div>
+                <div class="absolute bottom-0 left-0 -mb-8 -ml-8 w-32 h-32 bg-gray-900/5 rounded-full blur-2xl"></div>
 
-                <h2 class="text-gray-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6 relative z-10">Current
+                <h2 class="text-gray-400 text-[10px] font-black uppercase tracking-[0.3em] mb-4 sm:mb-6 relative z-10">
+                    Current
                     Age</h2>
                 <div class="flex flex-col items-center relative z-10">
                     <div class="flex items-baseline gap-2 mb-2 flex-wrap justify-center">
                         <span id="resYears"
-                            class="text-7xl sm:text-8xl font-black text-gray-900 leading-none tracking-tight gradient-text">00</span>
-                        <span class="text-2xl sm:text-3xl text-gray-400 font-bold">years</span>
+                            class="text-6xl sm:text-7xl md:text-8xl font-black text-gray-900 leading-none tracking-tight gradient-text">00</span>
+                        <span class="text-xl sm:text-2xl md:text-3xl text-gray-400 font-bold">years</span>
                     </div>
-                    <div class="flex gap-4 sm:gap-8 text-gray-500 font-medium mt-2">
-                        <div class="bg-gray-50 px-4 py-2 rounded-lg border border-gray-100"><span id="resMonths"
-                                class="text-gray-900 font-bold text-xl sm:text-2xl">0</span> <span
+                    <div class="flex gap-3 sm:gap-4 md:gap-8 text-gray-500 font-medium mt-2 flex-wrap justify-center">
+                        <div class="bg-gray-50 px-3 sm:px-4 py-2 rounded-lg border border-gray-100"><span id="resMonths"
+                                class="text-gray-900 font-bold text-lg sm:text-xl md:text-2xl">0</span> <span
                                 class="text-xs uppercase font-bold tracking-wider">months</span></div>
-                        <div class="bg-gray-50 px-4 py-2 rounded-lg border border-gray-100"><span id="resDays"
-                                class="text-gray-900 font-bold text-xl sm:text-2xl">0</span> <span
+                        <div class="bg-gray-50 px-3 sm:px-4 py-2 rounded-lg border border-gray-100"><span id="resDays"
+                                class="text-gray-900 font-bold text-lg sm:text-xl md:text-2xl">0</span> <span
                                 class="text-xs uppercase font-bold tracking-wider">days</span></div>
                     </div>
                 </div>
 
-                <div class="mt-8 pt-8 border-t border-gray-100 grid grid-cols-2 gap-4 relative z-10">
+                <div
+                    class="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-100 grid grid-cols-2 gap-3 sm:gap-4 relative z-10">
                     <div class="text-center group cursor-default">
                         <span
-                            class="block text-gray-400 text-[10px] font-bold uppercase mb-2 tracking-widest group-hover:text-brand-600 transition-colors">Day
+                            class="block text-gray-400 text-[10px] font-bold uppercase mb-2 tracking-widest group-hover:text-gray-900 transition-colors">Day
                             of Birth</span>
                         <span id="resBirthDay"
                             class="text-gray-900 font-bold uppercase tracking-widest text-sm sm:text-base">---</span>
                     </div>
                     <div class="text-center group cursor-default">
                         <span
-                            class="block text-gray-400 text-[10px] font-bold uppercase mb-2 tracking-widest group-hover:text-brand-600 transition-colors">Next
+                            class="block text-gray-400 text-[10px] font-bold uppercase mb-2 tracking-widest group-hover:text-gray-900 transition-colors">Next
                             Birthday</span>
                         <span id="resNextDay"
                             class="text-gray-900 font-bold uppercase tracking-widest text-sm sm:text-base">---</span>
@@ -276,27 +279,27 @@
             </div>
 
             <!-- Detailed Stats -->
-            <div class="grid grid-cols-3 gap-3 sm:gap-6">
+            <div class="grid grid-cols-3 gap-2 sm:gap-3 md:gap-6">
                 <div
-                    class="glass-card rounded-2xl p-4 sm:p-5 text-center hover:scale-105 transition-transform duration-300">
+                    class="glass-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 text-center hover:scale-105 transition-transform duration-300">
                     <span
                         class="block text-gray-400 text-[9px] font-black uppercase tracking-widest mb-1 truncate">Total
                         Months</span>
-                    <span id="totalMonths" class="text-base sm:text-xl font-bold text-gray-900">0</span>
+                    <span id="totalMonths" class="text-sm sm:text-base md:text-xl font-bold text-gray-900">0</span>
                 </div>
                 <div
-                    class="glass-card rounded-2xl p-4 sm:p-5 text-center hover:scale-105 transition-transform duration-300 delay-75">
+                    class="glass-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 text-center hover:scale-105 transition-transform duration-300 delay-75">
                     <span
                         class="block text-gray-400 text-[9px] font-black uppercase tracking-widest mb-1 truncate">Total
                         Weeks</span>
-                    <span id="totalWeeks" class="text-base sm:text-xl font-bold text-gray-900">0</span>
+                    <span id="totalWeeks" class="text-sm sm:text-base md:text-xl font-bold text-gray-900">0</span>
                 </div>
                 <div
-                    class="glass-card rounded-2xl p-4 sm:p-5 text-center hover:scale-105 transition-transform duration-300 delay-100">
+                    class="glass-card rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-5 text-center hover:scale-105 transition-transform duration-300 delay-100">
                     <span
                         class="block text-gray-400 text-[9px] font-black uppercase tracking-widest mb-1 truncate">Total
                         Days</span>
-                    <span id="totalDays" class="text-base sm:text-xl font-bold text-gray-900">0</span>
+                    <span id="totalDays" class="text-sm sm:text-base md:text-xl font-bold text-gray-900">0</span>
                 </div>
             </div>
 
@@ -310,24 +313,27 @@
                         <div
                             class="flex justify-between items-center text-sm p-3 rounded-lg hover:bg-gray-50 transition-colors">
                             <span class="text-gray-500 font-medium">Hours lived</span>
-                            <span id="totalHours" class="text-gray-900 font-mono font-bold text-base">0</span>
+                            <span id="totalHours"
+                                class="text-gray-900 font-mono font-bold text-sm sm:text-base">0</span>
                         </div>
                         <div
                             class="flex justify-between items-center text-sm p-3 rounded-lg hover:bg-gray-50 transition-colors">
                             <span class="text-gray-500 font-medium">Minutes lived</span>
-                            <span id="totalMinutes" class="text-gray-900 font-mono font-bold text-base">0</span>
+                            <span id="totalMinutes"
+                                class="text-gray-900 font-mono font-bold text-sm sm:text-base">0</span>
                         </div>
                     </div>
                     <div class="space-y-4">
                         <div
                             class="flex justify-between items-center text-sm p-3 rounded-lg hover:bg-gray-50 transition-colors">
                             <span class="text-gray-500 font-medium">Sleep (approx)</span>
-                            <span id="totalSleep" class="text-gray-900 font-mono font-bold text-base">0 hrs</span>
+                            <span id="totalSleep" class="text-gray-900 font-mono font-bold text-sm sm:text-base">0
+                                hrs</span>
                         </div>
                         <div
                             class="flex justify-between items-center text-sm p-3 rounded-lg hover:bg-gray-50 transition-colors">
                             <span class="text-gray-500 font-medium">Next Big Era</span>
-                            <span id="nextEra" class="text-brand-600 font-mono font-bold text-base">00s</span>
+                            <span id="nextEra" class="text-gray-900 font-mono font-bold text-sm sm:text-base">00s</span>
                         </div>
                     </div>
                 </div>
@@ -336,14 +342,15 @@
     </main>
 
     <!-- Info Section -->
-    <section class="max-w-6xl mx-auto mt-20 border-t border-gray-200 pt-12 grid md:grid-cols-2 gap-12 px-4 pb-12">
+    <section
+        class="max-w-6xl mx-auto mt-12 sm:mt-16 md:mt-20 border-t border-gray-200 pt-8 sm:pt-10 md:pt-12 grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 px-4 pb-8 sm:pb-10 md:pb-12">
         <div class="prose prose-gray max-w-none">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6 font-display">How Age is Calculated</h2>
+            <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6 font-display">How Age is Calculated</h2>
             <p class="text-sm text-gray-600 leading-relaxed">Age calculation is based on the Gregorian calendar. Our
                 tool precisely accounts for <strong>leap years</strong> (years divisible by 4) and the varying day
                 counts (28-31) across months. We use the 'Birthday' method where your age increments only on the
                 specific day of your birth.</p>
-            <h3 class="text-lg font-bold text-gray-900 mt-8 mb-4">Why use this tool?</h3>
+            <h3 class="text-base sm:text-lg font-bold text-gray-900 mt-6 sm:mt-8 mb-3 sm:mb-4">Why use this tool?</h3>
             <ul class="text-sm text-gray-500 space-y-2 list-none p-0">
                 <li class="flex items-center gap-2">
                     <div class="w-1.5 h-1.5 bg-black rounded-full"></div> Precise years/months/days breakdown
@@ -356,7 +363,7 @@
                 </li>
             </ul>
         </div>
-        <div class="bg-gray-50 rounded-3xl p-8 border border-gray-200">
+        <div class="bg-gray-50 rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-gray-200">
             <h3 class="text-gray-900 font-bold mb-4">Fun Fact</h3>
             <p class="text-sm text-gray-600 leading-relaxed italic">"Did you know? If you are 31.7 years old, you have
                 lived for exactly 1 Billion seconds! Most people celebrate their billionth second around their 32nd
