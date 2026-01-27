@@ -4,19 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free QR Code Generator | Create Custom QR Codes | FreeProducts24</title>
+    <title>Free QR Code Generator | Create Custom QR Codes Instantly | FreeProducts24</title>
     <meta name="description"
-        content="Generate free, custom QR codes for URLs, text, Wi-Fi, and emails. High-quality PNG download. No sign-up required.">
+        content="Generate free, custom QR codes for URLs, text, Wi-Fi, and emails. High-quality PNG download. No sign-up required. 100% Free and Private.">
     <meta name="keywords"
-        content="qr code generator, free qr code, create qr code, custom qr code, qr maker online, freeproducts24">
+        content="qr code generator, free qr code maker, create qr code online, custom qr code, qr code for wifi, url to qr code, freeproducts24">
     <link rel="canonical" href="https://freeproducts24.site/qr-generator.html" />
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Free QR Code Generator - Create & Download">
-    <meta property="og:description" content="Generate infinite QR codes for free. High resolution PNG downloads.">
+    <!-- Social Media Tags -->
+    <meta property="og:title" content="Free QR Code Generator - Create & Download Instantly">
+    <meta property="og:description"
+        content="Generate infinite QR codes for free. High resolution PNG downloads. No signup needed.">
     <meta property="og:url" content="https://freeproducts24.site/qr-generator.html">
-    <meta property="og:type" content="article">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://freeproducts24.site/assets/qr-generator-og.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free QR Code Generator - Create & Download Instantly">
+    <meta name="twitter:description"
+        content="Generate infinite QR codes for free. High resolution PNG downloads. No signup needed.">
+    <meta name="twitter:image" content="https://freeproducts24.site/assets/qr-generator-og.jpg">
+
+    <!-- Software Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Free QR Code Generator",
+      "url": "https://freeproducts24.site/qr-generator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web",
+      "description": "A free online tool to create custom QR codes for URLs, text, email, and more. Download as high-quality PNG.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <!-- FAQ Schema -->
     <script type="application/ld+json">
@@ -46,13 +73,6 @@
         }
       }, {
         "@type": "Question",
-        "name": "What can I encode in a QR code?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can encode various types of data: Website URLs, plain text messages, email addresses, phone numbers, WiFi credentials, and more. Our generator supports all standard QR code content types."
-        }
-      }, {
-        "@type": "Question",
         "name": "What format is the downloaded QR code?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -63,29 +83,79 @@
         "name": "Is it safe to use this QR code generator?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Absolutely! All QR code generation happens locally in your browser using JavaScript.  Your data is never uploaded to our servers or stored anywhere, ensuring 100% privacy and security."
+          "text": "Absolutely! All QR code generation happens locally in your browser using JavaScript. Your data is never uploaded to our servers or stored anywhere, ensuring 100% privacy and security."
         }
+      }]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://freeproducts24.site/index.html"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "QR Code Generator",
+        "item": "https://freeproducts24.site/qr-generator.html"
       }]
     }
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: { sans: ['Outfit', 'sans-serif'] },
-                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } }
+                    colors: { brand: { 500: '#14b8a6', 600: '#0d9488' } },
+                    animation: {
+                        'bounce-slight': 'bounceSlight 2s infinite',
+                    },
+                    keyframes: {
+                        bounceSlight: {
+                            '0%, 100%': { transform: 'translateY(-2%)' },
+                            '50%': { transform: 'translateY(0)' },
+                        }
+                    }
                 }
             }
         }
     </script>
     <style>
         body {
-            background-color: #f9fafb;
+            background-color: #f8fafc;
+            background-image: radial-gradient(at 0% 0%, rgba(20, 184, 166, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(13, 148, 136, 0.05) 0px, transparent 50%);
             min-height: 100vh;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .color-input-wrapper input[type="color"] {
+            -webkit-appearance: none;
+            border: none;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .color-input-wrapper input[type="color"]::-webkit-color-swatch-wrapper {
+            padding: 0;
+        }
+
+        .color-input-wrapper input[type="color"]::-webkit-color-swatch {
+            border: none;
         }
     </style>
 </head>
