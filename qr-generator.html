@@ -73,6 +73,13 @@
         }
       }, {
         "@type": "Question",
+        "name": "What can I encode in a QR code?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can encode various types of data: Website URLs, plain text messages, email addresses, phone numbers, WiFi credentials, and more. Our generator supports all standard QR code content types."
+        }
+      }, {
+        "@type": "Question",
         "name": "What format is the downloaded QR code?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -188,67 +195,146 @@
 
         <div class="grid md:grid-cols-12 gap-8 lg:gap-12 items-start">
             <!-- Controls -->
-            <option value="text">Plain Text</option>
-            <option value="email">Email Address</option>
-            </select>
-        </div>
+            <div class="md:col-span-6 lg:col-span-5 space-y-6">
+                <div class="glass-panel rounded-3xl p-6 sm:p-8 shadow-sm">
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Content
+                                Type</label>
+                            <div class="relative">
+                                <select id="qrType"
+                                    class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition appearance-none font-medium">
+                                    <option value="url">Website URL</option>
+                                    <option value="text">Plain Text</option>
+                                    <option value="email">Email Address</option>
+                                </select>
+                                <div
+                                    class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-gray-500">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
 
-        <div>
-            <label class="block text-sm font-bold text-gray-600 mb-2">DATA</label>
-            <input type="text" id="qrText" placeholder="https://example.com"
-                class="w-full bg-gray-50 border border-gray-300 rounded-lg p-3 text-gray-900 focus:border-black outline-none transition">
-        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Data /
+                                URL</label>
+                            <input type="text" id="qrText" placeholder="https://example.com"
+                                class="w-full bg-gray-50 border border-gray-200 rounded-xl p-4 text-gray-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 outline-none transition shadow-inner font-medium">
+                        </div>
 
-        <div class="grid grid-cols-2 gap-4">
-            <div>
-                <label class="block text-sm font-bold text-gray-600 mb-2">COLOR (Light)</label>
-                <input type="color" id="colorLight" value="#ffffff"
-                    class="w-full h-10 bg-gray-50 rounded cursor-pointer border border-gray-300">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="color-input-wrapper">
+                                <label
+                                    class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Background</label>
+                                <div
+                                    class="relative h-12 w-full rounded-xl overflow-hidden shadow-sm border border-gray-200">
+                                    <input type="color" id="colorLight" value="#ffffff"
+                                        class="absolute inset-0 w-[150%] h-[150%] -top-1/4 -left-1/4 cursor-pointer">
+                                </div>
+                            </div>
+                            <div class="color-input-wrapper">
+                                <label
+                                    class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Foreground</label>
+                                <div
+                                    class="relative h-12 w-full rounded-xl overflow-hidden shadow-sm border border-gray-200">
+                                    <input type="color" id="colorDark" value="#000000"
+                                        class="absolute inset-0 w-[150%] h-[150%] -top-1/4 -left-1/4 cursor-pointer">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button onclick="generateQR()"
+                            class="w-full bg-brand-600 hover:bg-brand-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-brand-500/25 active:scale-[0.98] mt-2">
+                            Generate QR Code
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div>
-                <label class="block text-sm font-bold text-gray-600 mb-2">COLOR (Dark)</label>
-                <input type="color" id="colorDark" value="#000000"
-                    class="w-full h-10 bg-gray-50 rounded cursor-pointer border border-gray-300">
+
+            <!-- Preview -->
+            <div class="md:col-span-6 lg:col-span-7 sticky top-24">
+                <div
+                    class="glass-panel rounded-3xl p-8 sm:p-12 flex flex-col items-center justify-center shadow-md relative overflow-hidden min-h-[400px]">
+                    <!-- Decorative blobs -->
+                    <div
+                        class="absolute top-0 right-0 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none">
+                    </div>
+                    <div
+                        class="absolute bottom-0 left-0 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl -ml-16 -mb-16 pointer-events-none">
+                    </div>
+
+                    <div id="qrcode"
+                        class="bg-white p-6 rounded-2xl shadow-xl mb-8 z-10 border border-gray-100 transition-transform hover:scale-105 duration-300">
+                    </div>
+
+                    <button onclick="downloadQR()"
+                        class="flex items-center gap-2 text-gray-700 hover:text-brand-600 transition bg-white/80 hover:bg-white border border-gray-200 px-6 py-3 rounded-full shadow-sm hover:shadow-md z-10 font-bold text-sm backdrop-blur-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        <span>Download High-Res PNG</span>
+                    </button>
+
+                    <p class="mt-6 text-gray-400 text-xs font-medium text-center max-w-xs">
+                        Your QR code is generated locally. No data leaves your device.
+                    </p>
+                </div>
             </div>
-        </div>
-
-        <button onclick="generateQR()"
-            class="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 rounded-xl transition shadow-sm hover:shadow-md">Generate
-            QR Code</button>
-        </div>
-        </div>
-
-        <!-- Preview -->
-        <div
-            class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col items-center justify-center shadow-sm relative">
-            <div class="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl pointer-events-none">
-            </div>
-
-            <div id="qrcode" class="bg-white p-4 rounded-xl shadow-lg mb-6 z-10 border border-gray-100"></div>
-
-            <button onclick="downloadQR()"
-                class="flex items-center gap-2 text-gray-600 hover:text-gray-900 transition group bg-gray-100 px-4 py-2 rounded-lg hover:bg-gray-200 z-10 font-medium">
-                <svg class="w-5 h-5 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
-                </svg>
-                <span>Download PNG</span>
-            </button>
-        </div>
         </div>
 
         <!-- SEO Content -->
-        <section class="mt-20 border-t border-gray-200 pt-12">
-            <h2 class="text-2xl font-bold text-gray-900 mb-6">About QR Code Generator</h2>
-            <div class="prose prose-gray max-w-none text-gray-600">
-                <p>QR (Quick Response) codes are everywhere. From restaurant menus to digital business cards, they
-                    provide a quick way to share information. Our tool lets you generate fully custom QR codes for free.
-                </p>
-                <ul class="list-disc pl-5 mt-4 space-y-2">
-                    <li><strong>No Expiry:</strong> Since these are static QR codes, they will work forever.</li>
-                    <li><strong>High Quality:</strong> Download cleanly rendered PNG images perfect for printing.</li>
-                    <li><strong>Privacy Focused:</strong> The QR code is generated in your browser using JavaScript. No
-                        data is sent to our servers.</li>
-                </ul>
+        <section class="mt-20 border-t border-gray-200 pt-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">Everything you need to know about QR Codes</h2>
+            <div class="grid md:grid-cols-2 gap-12 text-gray-600">
+                <div class="prose prose-brand">
+                    <p class="leading-relaxed">
+                        QR (Quick Response) codes are everywhere. From restaurant menus to digital business cards, they
+                        provide a quick, scannable way to share information. Our tool lets you generate fully custom QR
+                        codes for free without any limitations.
+                    </p>
+                    <h3 class="text-lg font-bold text-gray-900 mt-6 mb-3">Why use our generator?</h3>
+                    <ul class="space-y-2 list-none pl-0">
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span><strong>No Expiry:</strong> Static codes work forever.</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span><strong>High Quality:</strong> Crisp PNG output.</span>
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            <span><strong>Privacy:</strong> 100% Client-side generation.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-brand-50 rounded-3xl p-8 border border-brand-100">
+                    <h3 class="text-gray-900 font-bold text-xl mb-4">Pro Tip</h3>
+                    <p class="text-sm leading-relaxed mb-4">
+                        When choosing colors, always ensure there is a <span class="font-bold text-brand-700">high
+                            contrast</span> between your background (light) and foreground (dark). If the contrast is
+                        too low, some cameras might struggle to scan the code.
+                    </p>
+                    <div class="flex gap-2">
+                        <div class="w-8 h-8 rounded bg-white border border-gray-200"></div>
+                        <div class="w-8 h-8 rounded bg-black"></div>
+                        <span class="text-xs text-gray-500 self-center ml-2">Recommended: B&W or similar high
+                            contrast.</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
