@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images to PDF Converter | Merge Multiple Images into One PDF Free</title>
+    <meta name="description"
+        content="Convert multiple images to PDF online for free. Upload JPG, PNG, WEBP images and merge them into a single PDF file. Drag & drop to reorder. 100% client-side processing - your images never leave your device.">
+    <meta name="keywords"
+        content="images to pdf, jpg to pdf, png to pdf, convert images to pdf, merge images to pdf, multiple images to pdf, image to pdf converter, free pdf converter, online pdf maker">
+    <link rel="canonical" href="https://freeproducts24.site/images-to-pdf.html" />
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Images to PDF Converter | Merge Multiple Images into One PDF Free">
+    <meta property="og:description"
+        content="Convert and merge multiple images (JPG, PNG, WEBP) into a single PDF file. Free, fast, and secure - all processing happens in your browser.">
+    <meta property="og:url" content="https://freeproducts24.site/images-to-pdf.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Images to PDF Converter | Merge Multiple Images Free">
+    <meta name="twitter:description"
+        content="Convert multiple images to PDF instantly. Drag, drop, reorder, and download. 100% free and private.">
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Images to PDF Converter",
+      "url": "https://freeproducts24.site/images-to-pdf.html",
+      "description": "Convert multiple images to PDF online for free. Upload JPG, PNG, WEBP images and merge them into a single PDF file. Drag & drop to reorder. 100% client-side processing.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Convert multiple images to single PDF",
+        "Support for JPG, PNG, WEBP, GIF formats",
+        "Drag and drop to reorder images",
+        "Adjust image orientation (portrait/landscape)",
+        "Custom page size selection (A4, Letter, Legal)",
+        "100% client-side processing",
+        "No file size limits",
+        "No watermarks",
+        "Instant download",
+        "Privacy-focused - images never uploaded"
+      ]
+    }
+    </script>
+
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I convert multiple images to PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Converting multiple images to PDF is simple: 1) Click 'Select Images' or drag and drop your images into the upload area. 2) Arrange the images in your desired order by dragging them. 3) Choose your preferred page size (A4, Letter, or Legal). 4) Click 'Generate PDF' to create your PDF file. 5) Download the generated PDF to your device. All processing happens in your browser, so your images remain private."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What image formats are supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our Images to PDF converter supports all common image formats including JPG/JPEG, PNG, WEBP, GIF, BMP, and SVG. You can mix different formats in the same PDF - for example, combine JPG and PNG images together. The tool automatically handles format conversion during the PDF generation process."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a limit on the number of images I can convert?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no hard limit on the number of images you can convert to PDF. However, performance depends on your device's memory and processing power. For best results, we recommend converting up to 100 images at a time. If you have more images, you can create multiple PDFs and merge them later using a PDF merger tool."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are my images uploaded to a server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No! All image processing and PDF generation happens entirely in your browser using JavaScript. Your images are never uploaded to any server, ensuring complete privacy and security. This also means the conversion works offline once the page is loaded, and there are no file size restrictions imposed by server limitations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I change the order of images in the PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Our tool features an intuitive drag-and-drop interface. After uploading your images, simply click and drag any image thumbnail to reorder them. The images will appear in the PDF in the exact order you arrange them. You can also remove individual images by clicking the delete button on each thumbnail."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What page sizes are available for the PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can choose from three standard page sizes: A4 (210 x 297 mm) - the most common international standard, Letter (8.5 x 11 inches) - US standard, and Legal (8.5 x 14 inches) - US legal documents. Each image will be fitted to the selected page size while maintaining its aspect ratio to prevent distortion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will the PDF have watermarks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No watermarks! The PDFs generated by our tool are completely clean and professional. There are no watermarks, branding, or advertisements added to your PDF. You get a pure, high-quality PDF file ready for printing, sharing, or archiving."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is image quality maintained in the PDF?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our converter maintains the original image quality during PDF conversion. Images are embedded in the PDF at their original resolution without compression or quality loss. The aspect ratio is preserved to prevent distortion, and images are automatically scaled to fit the selected page size while maintaining clarity."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#000000', 600: '#1a1a1a' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f9fafb;
+            min-height: 100vh;
+        }
+
+        .drag-over {
+            border-color: #000000 !important;
+            background-color: #f3f4f6 !important;
+        }
+
+        .image-preview {
+            position: relative;
+            cursor: move;
+            transition: all 0.2s;
+        }
+
+        .image-preview:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-preview.dragging {
+            opacity: 0.5;
+        }
+
+        .delete-btn {
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .image-preview:hover .delete-btn {
+            opacity: 1;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFQCWF71SG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KFQCWF71SG');
+    </script>
+</head>
+
+<body class="text-gray-900 antialiased font-sans">
+
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto mt-16 sm:mt-24 px-3 sm:px-4 pb-16">
+        <div class="text-center mb-6 sm:mb-10">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Images to PDF Converter</h1>
+            <p class="text-sm sm:text-base text-gray-600">Upload multiple images and convert them into a single PDF
+                file.
+                Drag to reorder.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-sm">
+            <!-- Upload Area -->
+            <div id="uploadArea"
+                class="border-2 border-dashed border-gray-300 rounded-xl p-8 sm:p-12 text-center cursor-pointer hover:border-gray-400 transition mb-6">
+                <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                    </path>
+                </svg>
+                <p class="text-base sm:text-lg font-medium text-gray-900 mb-2">Drop images here or click to upload</p>
+                <p class="text-xs sm:text-sm text-gray-500">Supports JPG, PNG, WEBP, GIF (Max recommended: 100 images)
+                </p>
+                <input type="file" id="fileInput" accept="image/*" multiple class="hidden">
+            </div>
+
+            <!-- Settings -->
+            <div
+                class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6 pb-6 border-b border-gray-200">
+                <div class="flex items-center gap-3">
+                    <label class="text-sm font-medium text-gray-700">Page Size:</label>
+                    <select id="pageSize"
+                        class="bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:border-black outline-none">
+                        <option value="a4">A4 (210 x 297 mm)</option>
+                        <option value="letter">Letter (8.5 x 11 in)</option>
+                        <option value="legal">Legal (8.5 x 14 in)</option>
+                    </select>
+                </div>
+
+                <div class="flex gap-2">
+                    <button id="generateBtn" disabled
+                        class="bg-black hover:bg-gray-800 text-white px-6 py-2 rounded-lg text-sm font-medium transition shadow-lg shadow-gray-200 disabled:bg-gray-300 disabled:cursor-not-allowed">
+                        Generate PDF
+                    </button>
+                    <button id="clearBtn" disabled
+                        class="bg-gray-100 hover:bg-gray-200 text-gray-900 px-4 py-2 rounded-lg text-sm font-medium transition disabled:bg-gray-50 disabled:cursor-not-allowed disabled:text-gray-400">
+                        Clear All
+                    </button>
+                </div>
+            </div>
+
+            <!-- Image Preview Grid -->
+            <div id="previewGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 min-h-[100px]">
+                <div id="emptyState" class="col-span-full text-center py-8 text-gray-400 text-sm">
+                    No images uploaded yet
+                </div>
+            </div>
+
+            <!-- Status Message -->
+            <div id="statusMsg" class="mt-4 text-center text-sm opacity-0 transition"></div>
+        </div>
+
+        <!-- How It Works -->
+        <article class="mt-12 prose prose-zinc text-gray-600 text-sm max-w-none">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Convert Images to PDF</h2>
+            <ol class="list-decimal pl-6 space-y-2 mb-6">
+                <li><strong>Upload Images:</strong> Click the upload area or drag and drop multiple images (JPG, PNG,
+                    WEBP,
+                    GIF).</li>
+                <li><strong>Reorder:</strong> Drag and drop image thumbnails to arrange them in your desired order.</li>
+                <li><strong>Choose Page Size:</strong> Select A4, Letter, or Legal format based on your needs.</li>
+                <li><strong>Generate PDF:</strong> Click "Generate PDF" to create your document.</li>
+                <li><strong>Download:</strong> Your PDF will be automatically downloaded to your device.</li>
+            </ol>
+
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Why Use Our Images to PDF Converter?</h2>
+            <ul class="list-disc pl-6 space-y-2 mb-6">
+                <li><strong>100% Private:</strong> All processing happens in your browser. Images never leave your
+                    device.</li>
+                <li><strong>No Watermarks:</strong> Get clean, professional PDFs without any branding or watermarks.
+                </li>
+                <li><strong>Unlimited Conversions:</strong> Convert as many images as you need, completely free.</li>
+                <li><strong>High Quality:</strong> Original image quality is preserved in the PDF output.</li>
+                <li><strong>Easy Reordering:</strong> Intuitive drag-and-drop interface to arrange images.</li>
+                <li><strong>Multiple Formats:</strong> Support for all common image formats in one PDF.</li>
+            </ul>
+
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Common Use Cases</h2>
+            <p class="mb-4">Our Images to PDF converter is perfect for:</p>
+            <ul class="list-disc pl-6 space-y-2">
+                <li><strong>Document Scanning:</strong> Combine scanned pages into a single PDF document.</li>
+                <li><strong>Photo Albums:</strong> Create PDF photo books from your digital images.</li>
+                <li><strong>Receipts & Invoices:</strong> Organize multiple receipt images into one PDF for accounting.
+                </li>
+                <li><strong>Presentations:</strong> Convert presentation slides (exported as images) to PDF format.</li>
+                <li><strong>Comics & Manga:</strong> Combine comic book pages into a readable PDF.</li>
+                <li><strong>Reports:</strong> Merge charts, graphs, and screenshots into professional reports.</li>
+                <li><strong>Portfolios:</strong> Create design or photography portfolios from image collections.</li>
+            </ul>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-200 py-8 mt-20 text-center text-gray-500 text-sm">
+        &copy; 2024 FreeProducts24. All Rights Reserved.
+    </footer>
+
+    <script>
+        const CONSTANTS = {
+            STATUS_TYPES: {
+                SUCCESS: 'success',
+                ERROR: 'error',
+                INFO: 'info'
+            },
+            PAGE_SIZES: {
+                A4: 'a4',
+                LETTER: 'letter',
+                LEGAL: 'legal'
+            },
+            MAX_FILE_SIZE: 50 * 1024 * 1024, // 50MB per image
+            ACCEPTED_FORMATS: ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif', 'image/bmp']
+        };
+
+        let images = [];
+        let draggedIndex = null;
+
+        const elements = {
+            uploadArea: document.getElementById('uploadArea'),
+            fileInput: document.getElementById('fileInput'),
+            previewGrid: document.getElementById('previewGrid'),
+            emptyState: document.getElementById('emptyState'),
+            generateBtn: document.getElementById('generateBtn'),
+            clearBtn: document.getElementById('clearBtn'),
+            pageSize: document.getElementById('pageSize'),
+            statusMsg: document.getElementById('statusMsg')
+        };
+
+        // Upload Area Events
+        elements.uploadArea.addEventListener('click', () => elements.fileInput.click());
+        elements.fileInput.addEventListener('change', handleFileSelect);
+
+        elements.uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            elements.uploadArea.classList.add('drag-over');
+        });
+
+        elements.uploadArea.addEventListener('dragleave', () => {
+            elements.uploadArea.classList.remove('drag-over');
+        });
+
+        elements.uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            elements.uploadArea.classList.remove('drag-over');
+            handleFileSelect({ target: { files: e.dataTransfer.files } });
+        });
+
+        // Button Events
+        elements.generateBtn.addEventListener('click', generatePDF);
+        elements.clearBtn.addEventListener('click', clearAll);
+
+        function handleFileSelect(e) {
+            const files = Array.from(e.target.files);
+
+            if (files.length === 0) return;
+
+            // Validate files
+            const validFiles = files.filter(file => {
+                if (!CONSTANTS.ACCEPTED_FORMATS.includes(file.type)) {
+                    showStatus(`${file.name} is not a supported image format`, CONSTANTS.STATUS_TYPES.ERROR);
+                    return false;
+                }
+                if (file.size > CONSTANTS.MAX_FILE_SIZE) {
+                    showStatus(`${file.name} exceeds 50MB limit`, CONSTANTS.STATUS_TYPES.ERROR);
+                    return false;
+                }
+                return true;
+            });
+
+            if (validFiles.length === 0) return;
+
+            // Read and add images
+            validFiles.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    images.push({
+                        id: Date.now() + Math.random(),
+                        src: event.target.result,
+                        name: file.name
+                    });
+                    renderPreviews();
+                };
+                reader.readAsDataURL(file);
+            });
+
+            // Reset input
+            elements.fileInput.value = '';
+        }
+
+        function renderPreviews() {
+            if (images.length === 0) {
+                elements.emptyState.style.display = 'block';
+                elements.generateBtn.disabled = true;
+                elements.clearBtn.disabled = true;
+                elements.previewGrid.innerHTML = '<div id="emptyState" class="col-span-full text-center py-8 text-gray-400 text-sm">No images uploaded yet</div>';
+                return;
+            }
+
+            elements.emptyState.style.display = 'none';
+            elements.generateBtn.disabled = false;
+            elements.clearBtn.disabled = false;
+
+            elements.previewGrid.innerHTML = images.map((img, index) => `
+        <div class="image-preview bg-gray-50 border border-gray-200 rounded-lg p-2 relative" 
+             draggable="true" 
+             data-index="${index}">
+          <img src="${img.src}" alt="${img.name}" class="w-full h-32 object-cover rounded">
+          <div class="mt-2 text-xs text-gray-600 truncate">${img.name}</div>
+          <div class="absolute top-1 right-1 flex gap-1">
+            <button onclick="removeImage(${index})" 
+                    class="delete-btn bg-red-500 hover:bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">
+              ×
+            </button>
+          </div>
+          <div class="absolute top-1 left-1 bg-black text-white text-xs px-2 py-1 rounded">${index + 1}</div>
+        </div>
+      `).join('');
+
+            // Add drag events
+            document.querySelectorAll('.image-preview').forEach(preview => {
+                preview.addEventListener('dragstart', handleDragStart);
+                preview.addEventListener('dragover', handleDragOver);
+                preview.addEventListener('drop', handleDrop);
+                preview.addEventListener('dragend', handleDragEnd);
+            });
+        }
+
+        function handleDragStart(e) {
+            draggedIndex = parseInt(e.target.closest('.image-preview').dataset.index);
+            e.target.closest('.image-preview').classList.add('dragging');
+        }
+
+        function handleDragOver(e) {
+            e.preventDefault();
+        }
+
+        function handleDrop(e) {
+            e.preventDefault();
+            const dropIndex = parseInt(e.target.closest('.image-preview').dataset.index);
+
+            if (draggedIndex !== null && draggedIndex !== dropIndex) {
+                const draggedItem = images[draggedIndex];
+                images.splice(draggedIndex, 1);
+                images.splice(dropIndex, 0, draggedItem);
+                renderPreviews();
+            }
+        }
+
+        function handleDragEnd(e) {
+            e.target.closest('.image-preview').classList.remove('dragging');
+            draggedIndex = null;
+        }
+
+        function removeImage(index) {
+            images.splice(index, 1);
+            renderPreviews();
+            showStatus('Image removed', CONSTANTS.STATUS_TYPES.INFO);
+        }
+
+        function clearAll() {
+            if (confirm('Are you sure you want to remove all images?')) {
+                images = [];
+                renderPreviews();
+                showStatus('All images cleared', CONSTANTS.STATUS_TYPES.INFO);
+            }
+        }
+
+        async function generatePDF() {
+            if (images.length === 0) return;
+
+            elements.generateBtn.disabled = true;
+            elements.generateBtn.textContent = 'Generating...';
+            showStatus('Creating PDF...', CONSTANTS.STATUS_TYPES.INFO);
+
+            try {
+                const { jsPDF } = window.jspdf;
+                const pageSize = elements.pageSize.value;
+
+                // Page dimensions in mm
+                const pageDimensions = {
+                    [CONSTANTS.PAGE_SIZES.A4]: { width: 210, height: 297 },
+                    [CONSTANTS.PAGE_SIZES.LETTER]: { width: 215.9, height: 279.4 },
+                    [CONSTANTS.PAGE_SIZES.LEGAL]: { width: 215.9, height: 355.6 }
+                };
+
+                const { width: pageWidth, height: pageHeight } = pageDimensions[pageSize];
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: [pageWidth, pageHeight]
+                });
+
+                for (let i = 0; i < images.length; i++) {
+                    if (i > 0) {
+                        pdf.addPage();
+                    }
+
+                    const img = images[i];
+
+                    // Load image to get dimensions
+                    const imgElement = new Image();
+                    imgElement.src = img.src;
+                    await new Promise(resolve => {
+                        imgElement.onload = resolve;
+                    });
+
+                    const imgWidth = imgElement.width;
+                    const imgHeight = imgElement.height;
+                    const imgRatio = imgWidth / imgHeight;
+                    const pageRatio = pageWidth / pageHeight;
+
+                    let finalWidth, finalHeight, x, y;
+
+                    if (imgRatio > pageRatio) {
+                        // Image is wider
+                        finalWidth = pageWidth;
+                        finalHeight = pageWidth / imgRatio;
+                        x = 0;
+                        y = (pageHeight - finalHeight) / 2;
+                    } else {
+                        // Image is taller
+                        finalHeight = pageHeight;
+                        finalWidth = pageHeight * imgRatio;
+                        x = (pageWidth - finalWidth) / 2;
+                        y = 0;
+                    }
+
+                    pdf.addImage(img.src, 'JPEG', x, y, finalWidth, finalHeight);
+
+                    // Update progress
+                    showStatus(`Processing image ${i + 1} of ${images.length}...`, CONSTANTS.STATUS_TYPES.INFO);
+                }
+
+                // Save PDF
+                const timestamp = new Date().toISOString().slice(0, 10);
+                pdf.save(`images-to-pdf-${timestamp}.pdf`);
+
+                showStatus('PDF generated successfully!', CONSTANTS.STATUS_TYPES.SUCCESS);
+            } catch (error) {
+                console.error('PDF generation error:', error);
+                showStatus('Error generating PDF. Please try again.', CONSTANTS.STATUS_TYPES.ERROR);
+            } finally {
+                elements.generateBtn.disabled = false;
+                elements.generateBtn.textContent = 'Generate PDF';
+            }
+        }
+
+        function showStatus(message, type) {
+            const colors = {
+                [CONSTANTS.STATUS_TYPES.SUCCESS]: 'text-green-600',
+                [CONSTANTS.STATUS_TYPES.ERROR]: 'text-red-600',
+                [CONSTANTS.STATUS_TYPES.INFO]: 'text-blue-600'
+            };
+
+            elements.statusMsg.textContent = message;
+            elements.statusMsg.className = `mt-4 text-center text-sm transition ${colors[type]}`;
+            elements.statusMsg.style.opacity = '1';
+
+            setTimeout(() => {
+                elements.statusMsg.style.opacity = '0';
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>
