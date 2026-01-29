@@ -323,12 +323,12 @@
                         const { jsPDF } = window.jspdf;
 
                         // Create PDF
+                        // jsPDF creates one page by default. We'll leave it for now and delete it later.
                         const newPdf = new jsPDF({
                             orientation: 'p',
                             unit: 'px',
                             hotfixes: ["px_scaling"]
                         });
-                        newPdf.deletePage(1); // Remove default page
 
                         const totalPages = pdfDoc.numPages;
 
@@ -353,8 +353,15 @@
                                 const pdfWidth = newPdf.internal.pageSize.getWidth();
                                 const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
+                                // Add NEW page for this image
                                 newPdf.addPage([pdfWidth, pdfHeight]);
                                 newPdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                            }
+
+                            // Now delete the initial blank page (Page 1)
+                            // Our new pages start at index 2 (1-based: 1=Blank, 2=Img1, 3=Img2...)
+                            if (newPdf.getNumberOfPages() > 1) {
+                                newPdf.deletePage(1);
                             }
 
                             newPdf.save(`compressed_${currentFile.name}`);
@@ -363,9 +370,10 @@
                             if (els.resultArea) els.resultArea.classList.remove('hidden');
 
                         } catch (err) {
-                            console.error(err);
-                            alert('An error occurred during compression.');
-                            location.reload();
+                            console.error("Compression Error:", err);
+                            alert(`An error occurred: ${err.message}`);
+                            // Do NOT reload, let user try again
+                            if (els.statusArea) els.statusArea.classList.add('hidden');
                         } finally {
                             if (els.compressBtn) {
                                 els.compressBtn.disabled = false;
