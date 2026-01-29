@@ -174,10 +174,10 @@
 
     <main class="max-w-4xl mx-auto mt-16 sm:mt-24 px-3 sm:px-4 pb-16">
         <div class="text-center mb-6 sm:mb-10">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Images to PDF Converter</h1>
-            <p class="text-sm sm:text-base text-gray-600">Upload multiple images and convert them into a single PDF
-                file.
-                Drag to reorder.</p>
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">JPG to PDF Converter - Free & Online
+            </h1>
+            <p class="text-sm sm:text-base text-gray-600">Merge JPG, PNG images into a single PDF file. Optimize for
+                file sizes like 100KB or 200KB.</p>
         </div>
 
         <div class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-sm">
@@ -190,9 +190,8 @@
                         d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
                     </path>
                 </svg>
-                <p class="text-base sm:text-lg font-medium text-gray-900 mb-2">Drop images here or click to upload</p>
-                <p class="text-xs sm:text-sm text-gray-500">Supports JPG, PNG, WEBP, GIF (Max recommended: 100 images)
-                </p>
+                <p class="text-base sm:text-lg font-medium text-gray-900 mb-2">Drop JPG/PNG images here</p>
+                <p class="text-xs sm:text-sm text-gray-500">Combine multiple photos into one PDF (Max 100 images)</p>
                 <input type="file" id="fileInput" accept="image/*" multiple class="hidden">
             </div>
 
@@ -203,9 +202,9 @@
                     <label class="text-sm font-medium text-gray-700">Page Size:</label>
                     <select id="pageSize"
                         class="bg-gray-50 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:border-black outline-none">
-                        <option value="a4">A4 (210 x 297 mm)</option>
-                        <option value="letter">Letter (8.5 x 11 in)</option>
-                        <option value="legal">Legal (8.5 x 14 in)</option>
+                        <option value="a4">A4 (Standard)</option>
+                        <option value="letter">Letter (US)</option>
+                        <option value="legal">Legal (US)</option>
                     </select>
                 </div>
 
@@ -232,43 +231,45 @@
             <div id="statusMsg" class="mt-4 text-center text-sm opacity-0 transition"></div>
         </div>
 
-        <!-- How It Works -->
+        <!-- How It Works & SEO Content -->
         <article class="mt-12 prose prose-zinc text-gray-600 text-sm max-w-none">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Convert Images to PDF</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Convert JPG to PDF (Less than 200KB?)</h2>
             <ol class="list-decimal pl-6 space-y-2 mb-6">
-                <li><strong>Upload Images:</strong> Click the upload area or drag and drop multiple images (JPG, PNG,
-                    WEBP,
-                    GIF).</li>
-                <li><strong>Reorder:</strong> Drag and drop image thumbnails to arrange them in your desired order.</li>
-                <li><strong>Choose Page Size:</strong> Select A4, Letter, or Legal format based on your needs.</li>
-                <li><strong>Generate PDF:</strong> Click "Generate PDF" to create your document.</li>
-                <li><strong>Download:</strong> Your PDF will be automatically downloaded to your device.</li>
+                <li><strong>Select Images:</strong> Upload your JPG, PNG, or WEBP files.</li>
+                <li><strong>Optimize Order:</strong> Drag thumbnails to rearrange the sequence.</li>
+                <li><strong>Generate:</strong> Click "Generate PDF" to merge them instantly.</li>
+                <li><strong>Size Tip:</strong> To get a PDF file size <strong>less than 100KB or 200KB</strong>, we
+                    recommend using compressed JPGs. You can use our <a href="image-compressor.html"
+                        class="text-blue-600 underline">Image Compressor</a> first for strict size limits.</li>
             </ol>
 
-            <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Why Use Our Images to PDF Converter?</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Why Use This JPG to PDF Converter?</h2>
             <ul class="list-disc pl-6 space-y-2 mb-6">
-                <li><strong>100% Private:</strong> All processing happens in your browser. Images never leave your
-                    device.</li>
-                <li><strong>No Watermarks:</strong> Get clean, professional PDFs without any branding or watermarks.
-                </li>
-                <li><strong>Unlimited Conversions:</strong> Convert as many images as you need, completely free.</li>
-                <li><strong>High Quality:</strong> Original image quality is preserved in the PDF output.</li>
-                <li><strong>Easy Reordering:</strong> Intuitive drag-and-drop interface to arrange images.</li>
-                <li><strong>Multiple Formats:</strong> Support for all common image formats in one PDF.</li>
+                <li><strong>Free & Online:</strong> No software installation required. Convert unrestricted images for
+                    free.</li>
+                <li><strong>Small File Sizes:</strong> Efficient encoding helps keep your PDF size low (perfect for
+                    uploads requiring < 200KB or < 500KB).</li>
+                <li><strong>Secure:</strong> 100% client-side. Your photos for PAN cards, Aadhaar, or personal docs stay
+                    private.</li>
+                <li><strong>High Quality:</strong> Retains readability for documents while optimizing structure.</li>
             </ul>
 
-            <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Common Use Cases</h2>
-            <p class="mb-4">Our Images to PDF converter is perfect for:</p>
-            <ul class="list-disc pl-6 space-y-2">
-                <li><strong>Document Scanning:</strong> Combine scanned pages into a single PDF document.</li>
-                <li><strong>Photo Albums:</strong> Create PDF photo books from your digital images.</li>
-                <li><strong>Receipts & Invoices:</strong> Organize multiple receipt images into one PDF for accounting.
-                </li>
-                <li><strong>Presentations:</strong> Convert presentation slides (exported as images) to PDF format.</li>
-                <li><strong>Comics & Manga:</strong> Combine comic book pages into a readable PDF.</li>
-                <li><strong>Reports:</strong> Merge charts, graphs, and screenshots into professional reports.</li>
-                <li><strong>Portfolios:</strong> Create design or photography portfolios from image collections.</li>
-            </ul>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div>
+                    <h3 class="font-bold text-gray-900">How to reduce PDF size below 200KB?</h3>
+                    <p>To ensure your final PDF is under 200KB, use optimized JPG images. If your output is too large,
+                        use a PDF compressor after generation.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">Is this tool free for life?</h3>
+                    <p>Yes, our JPG to PDF converter is completely free with no daily limits.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">Can I convert PNG to PDF?</h3>
+                    <p>Yes, we support PNG, JPG, JPEG, WEBP, and GIF formats.</p>
+                </div>
+            </div>
         </article>
     </main>
 
