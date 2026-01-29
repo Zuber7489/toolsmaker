@@ -21,9 +21,14 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- jsPDF -->
+    <!-- jspdf -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <!-- PDF.js - Loaded via module in script below -->
+    <!-- pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        // Set worker globally
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -127,182 +132,250 @@
                 </label>
             </div>
 
-            <!-- ... -->
+            <!-- Step 2: Controls & Preview -->
+            <div id="controlsStep" class="hidden mt-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Preview Section -->
+                    <div
+                        class="bg-gray-100 rounded-xl p-4 flex items-center justify-center border border-gray-200 min-h-[300px]">
+                        <div class="relative w-full text-center">
+                            <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide font-semibold">First Page
+                                Preview</p>
+                            <canvas id="previewCanvas"
+                                class="mx-auto bg-white shadow-lg mx-auto max-h-[400px]"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Settings Section -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-4">Compression Level</label>
+                            <input type="range" id="qualitySlider" min="10" max="100" value="50"
+                                class="range-slider mb-2">
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>High Compression (Smaller Size)</span>
+                                <span id="qualityValue" class="font-bold text-black text-sm">50%</span>
+                                <span>High Quality (Larger Size)</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 border border-blue-100 rounded-lg p-4">
+                            <h4 class="text-sm font-bold text-blue-900 mb-1">Note</h4>
+                            <p class="text-xs text-blue-700">Compression works by rasterizing pages. Text will become
+                                part of the image and may not be selectable in the output PDF.</p>
+                        </div>
+
+                        <div class="pt-4">
+                            <button id="compressBtn"
+                                class="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                                Compress PDF
+                            </button>
+                            <button id="resetBtn"
+                                class="w-full mt-3 text-gray-500 hover:text-black py-2 text-sm font-medium underline">Upload
+                                Different File</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status -->
+            <div id="statusArea" class="hidden mt-6 text-center">
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2 max-w-md mx-auto">
+                    <div id="progressBar" class="bg-black h-2.5 rounded-full transition-all duration-300"
+                        style="width: 0%"></div>
+                </div>
+                <p id="statusText" class="text-sm text-gray-600">Processing page 1...</p>
+            </div>
+
+            <div id="resultArea" class="hidden mt-8 text-center p-6 bg-green-50 rounded-xl border border-green-100">
+                <div
+                    class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold text-green-900 mb-1">Compression Complete!</h3>
+                <p class="text-green-700 text-sm mb-4">Your file has been downloaded.</p>
+                <button onclick="location.reload()"
+                    class="text-sm font-medium text-green-700 underline hover:text-green-900">Compress Another</button>
+            </div>
 
             <script type="module">
-                // ... imports ...
+                const pdfjsLib = window.pdfjsLib;
 
-                const els = {
-                    uploadArea: document.getElementById('uploadArea'),
-                    fileInput: document.getElementById('fileInput'),
-                    // ...
-                };
-
-                // ...
-
-                // UI Event Listeners
-                // Removed click listener as label handles it natively
-                els.fileInput.addEventListener('change', handleFile);
-
-                els.uploadArea.addEventListener('dragover', (e) => {
-                    // ...
-                    e.preventDefault();
-                    els.uploadArea.classList.add('bg-gray-50', 'border-gray-400');
-                });
-
-                els.uploadArea.addEventListener('dragleave', (e) => {
-                    els.uploadArea.classList.remove('bg-gray-50', 'border-gray-400');
-                });
-
-                els.uploadArea.addEventListener('drop', (e) => {
-                    e.preventDefault();
-                    els.uploadArea.classList.remove('bg-gray-50', 'border-gray-400');
-                    if (e.dataTransfer.files.length) {
-                        els.fileInput.files = e.dataTransfer.files;
-                        handleFile({ target: els.fileInput });
-                    }
-                });
-
-                els.qualitySlider.addEventListener('input', (e) => {
-                    els.qualityValue.textContent = `${e.target.value}%`;
-                    // Optional: Debounced preview update could go here, but might be heavy
-                });
-
-                els.compressBtn.addEventListener('click', startCompression);
-                els.resetBtn.addEventListener('click', () => location.reload());
-
-                async function handleFile(e) {
-                    const file = e.target.files[0];
-                    if (!file || file.type !== 'application/pdf') {
-                        alert('Please upload a valid PDF file.');
-                        return;
-                    }
-
-                    currentFile = file;
-                    els.fileName.textContent = file.name;
-                    els.fileName.classList.remove('hidden');
-
-                    // Switch view
-                    els.uploadStep.classList.add('hidden');
-                    els.controlsStep.classList.remove('hidden');
-
-                    try {
-                        const arrayBuffer = await file.arrayBuffer();
-                        pdfDoc = await pdfjsLib.getDocument(arrayBuffer).promise;
-                        renderPreview(1); // Render page 1
-                    } catch (err) {
-                        console.error(err);
-                        alert('Error loading PDF.');
-                        location.reload();
-                    }
-                }
-
-                async function renderPreview(pageNum) {
-                    const page = await pdfDoc.getPage(pageNum);
-                    const viewport = page.getViewport({ scale: 1.0 });
-
-                    // Adjust scale to fit the preview container
-                    const containerWidth = els.previewCanvas.parentElement.clientWidth;
-                    const scale = Math.min(1.0, containerWidth / viewport.width);
-                    const scaledViewport = page.getViewport({ scale: scale });
-
-                    els.previewCanvas.height = scaledViewport.height;
-                    els.previewCanvas.width = scaledViewport.width;
-
-                    const renderContext = {
-                        canvasContext: els.previewCanvas.getContext('2d'),
-                        viewport: scaledViewport
+                document.addEventListener('DOMContentLoaded', () => {
+                    const els = {
+                        uploadArea: document.getElementById('uploadArea'),
+                        fileInput: document.getElementById('fileInput'),
+                        uploadStep: document.getElementById('uploadStep'),
+                        controlsStep: document.getElementById('controlsStep'),
+                        fileName: document.getElementById('fileName'),
+                        previewCanvas: document.getElementById('previewCanvas'),
+                        qualitySlider: document.getElementById('qualitySlider'),
+                        qualityValue: document.getElementById('qualityValue'),
+                        compressBtn: document.getElementById('compressBtn'),
+                        statusArea: document.getElementById('statusArea'),
+                        progressBar: document.getElementById('progressBar'),
+                        statusText: document.getElementById('statusText'),
+                        resultArea: document.getElementById('resultArea'),
+                        resetBtn: document.getElementById('resetBtn')
                     };
-                    await page.render(renderContext).promise;
-                }
 
-                async function startCompression() {
-                    if (!pdfDoc) return;
+                    let currentFile = null;
+                    let pdfDoc = null;
 
-                    els.compressBtn.disabled = true;
-                    els.compressBtn.classList.add('opacity-50');
-                    els.statusArea.classList.remove('hidden');
-                    els.resultArea.classList.add('hidden');
+                    // Event Listeners with safety checks
+                    if (els.fileInput) els.fileInput.addEventListener('change', (e) => handleFile(e, els));
 
-                    // Wait a bit to let UI update
-                    await new Promise(r => setTimeout(r, 100));
+                    if (els.uploadArea) {
+                        els.uploadArea.addEventListener('dragover', (e) => {
+                            e.preventDefault();
+                            els.uploadArea.classList.add('bg-gray-50', 'border-gray-400');
+                        });
+                        els.uploadArea.addEventListener('dragleave', () => {
+                            els.uploadArea.classList.remove('bg-gray-50', 'border-gray-400');
+                        });
+                        els.uploadArea.addEventListener('drop', (e) => {
+                            e.preventDefault();
+                            els.uploadArea.classList.remove('bg-gray-50', 'border-gray-400');
+                            if (e.dataTransfer.files.length) {
+                                els.fileInput.files = e.dataTransfer.files;
+                                handleFile({ target: els.fileInput }, els);
+                            }
+                        });
+                    }
 
-                    try {
+                    if (els.qualitySlider) els.qualitySlider.addEventListener('input', (e) => {
+                        if (els.qualityValue) els.qualityValue.textContent = `${e.target.value}%`;
+                    });
+
+                    if (els.compressBtn) els.compressBtn.addEventListener('click', () => startCompression(els, pdfDoc, currentFile));
+                    if (els.resetBtn) els.resetBtn.addEventListener('click', () => location.reload());
+
+                    // Functions defined inside to access local variables easily, 
+                    // or passed 'els' to keep them pure.
+
+                    async function handleFile(e, els) {
+                        const file = e.target.files[0];
+                        if (!file || file.type !== 'application/pdf') return;
+
+                        currentFile = file;
+                        if (els.fileName) {
+                            els.fileName.textContent = file.name;
+                            els.fileName.classList.remove('hidden');
+                        }
+
+                        try {
+                            if (!pdfjsLib || !pdfjsLib.getDocument) {
+                                throw new Error("PDF.js library not verified locally.");
+                            }
+
+                            const arrayBuffer = await file.arrayBuffer();
+                            const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(arrayBuffer) });
+                            pdfDoc = await loadingTask.promise;
+
+                            // Show controls
+                            if (els.uploadStep) els.uploadStep.classList.add('hidden');
+                            if (els.controlsStep) els.controlsStep.classList.remove('hidden');
+
+                            renderFirstPagePreview(els, pdfDoc);
+                        } catch (err) {
+                            console.error(err);
+                            alert(`Error loading PDF: ${err.message}`);
+                            if (els.fileInput) els.fileInput.value = '';
+                        }
+                    }
+
+                    async function renderFirstPagePreview(els, pdfDoc) {
+                        if (!pdfDoc) return;
+                        const page = await pdfDoc.getPage(1);
+                        const viewport = page.getViewport({ scale: 1 });
+                        const canvas = els.previewCanvas;
+                        const context = canvas.getContext('2d');
+
+                        // Scale canvas for retina
+                        const scale = window.devicePixelRatio || 1;
+                        canvas.width = viewport.width * scale;
+                        canvas.height = viewport.height * scale;
+                        canvas.style.width = viewport.width + 'px';
+                        canvas.style.height = viewport.height + 'px';
+
+                        context.scale(scale, scale);
+
+                        await page.render({ canvasContext: context, viewport }).promise;
+                    }
+
+                    async function startCompression(els, pdfDoc, currentFile) {
+                        if (!pdfDoc) return;
+
+                        if (els.compressBtn) {
+                            els.compressBtn.disabled = true;
+                            els.compressBtn.classList.add('opacity-50');
+                        }
+                        if (els.statusArea) els.statusArea.classList.remove('hidden');
+                        if (els.resultArea) els.resultArea.classList.add('hidden');
+
                         const quality = parseInt(els.qualitySlider.value) / 100;
-
-                        // Ensure jsPDF is available
-                        if (!window.jspdf) throw new Error("jsPDF library not loaded");
                         const { jsPDF } = window.jspdf;
 
-                        // Create PDF with default settings. We will adjust per page.
-                        // Note: jsPDF starts with 1 blank page. We will remove it at the end.
+                        // Create PDF
                         const newPdf = new jsPDF({
                             orientation: 'p',
                             unit: 'px',
                             hotfixes: ["px_scaling"]
                         });
+                        newPdf.deletePage(1); // Remove default page
 
                         const totalPages = pdfDoc.numPages;
 
-                        for (let i = 1; i <= totalPages; i++) {
-                            els.statusText.textContent = `Processing page ${i} of ${totalPages}...`;
-                            els.progressBar.style.width = `${(i / totalPages) * 100}%`;
+                        try {
+                            for (let i = 1; i <= totalPages; i++) {
+                                if (els.statusText) els.statusText.textContent = `Processing page ${i} of ${totalPages}...`;
+                                if (els.progressBar) els.progressBar.style.width = `${(i / totalPages) * 100}%`;
 
-                            const page = await pdfDoc.getPage(i);
-                            // Use scale 1.5 for balance between quality and memory usage. 
-                            // 2.0 can crash on large files/mobile.
-                            const viewport = page.getViewport({ scale: 1.5 });
+                                const page = await pdfDoc.getPage(i);
+                                const viewport = page.getViewport({ scale: 1.5 }); // 1.5x scale for balance
 
-                            const canvas = document.createElement('canvas');
-                            canvas.width = viewport.width;
-                            canvas.height = viewport.height;
-                            const ctx = canvas.getContext('2d');
+                                const canvas = document.createElement('canvas');
+                                canvas.width = viewport.width;
+                                canvas.height = viewport.height;
+                                const ctx = canvas.getContext('2d');
 
-                            await page.render({
-                                canvasContext: ctx,
-                                viewport: viewport
-                            }).promise;
+                                await page.render({ canvasContext: ctx, viewport }).promise;
 
-                            // Compress
-                            const imgData = canvas.toDataURL('image/jpeg', quality);
+                                const imgData = canvas.toDataURL('image/jpeg', quality);
+                                const imgProps = newPdf.getImageProperties(imgData);
 
-                            // Add new page with correct dimensions and orientation
-                            // jsPDF addPage(format, orientation)
-                            const orientation = viewport.width > viewport.height ? 'landscape' : 'portrait';
-                            newPdf.addPage([viewport.width, viewport.height], orientation);
+                                const pdfWidth = newPdf.internal.pageSize.getWidth();
+                                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-                            // Add the image to the CURRENT page (the one we just added)
-                            // Note: addPage moves the cursor to the new page
-                            newPdf.addImage(imgData, 'JPEG', 0, 0, viewport.width, viewport.height);
+                                newPdf.addPage([pdfWidth, pdfHeight]);
+                                newPdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+                            }
 
-                            // Yield to UI to prevent freezing
-                            await new Promise(r => setTimeout(r, 10));
+                            newPdf.save(`compressed_${currentFile.name}`);
+
+                            if (els.statusArea) els.statusArea.classList.add('hidden');
+                            if (els.resultArea) els.resultArea.classList.remove('hidden');
+
+                        } catch (err) {
+                            console.error(err);
+                            alert('An error occurred during compression.');
+                            location.reload();
+                        } finally {
+                            if (els.compressBtn) {
+                                els.compressBtn.disabled = false;
+                                els.compressBtn.classList.remove('opacity-50');
+                            }
                         }
-
-                        // Delete the initial blank page (Page 1)
-                        // We added pages starting from index 2 essentially (because of the initial 1)
-                        // So now we have [Blank, Page1, Page2...]
-                        if (newPdf.getNumberOfPages() > 1) {
-                            newPdf.deletePage(1);
-                        }
-
-                        // Finish
-                        els.statusText.textContent = 'Saving PDF...';
-                        await new Promise(r => setTimeout(r, 100)); // UI update
-                        newPdf.save(`compressed_${currentFile.name}`);
-
-                        els.statusArea.classList.add('hidden');
-                        els.resultArea.classList.remove('hidden');
-
-                    } catch (err) {
-                        console.error("Compression Failed:", err);
-                        alert("An error occurred during compression. \n\nDetails: " + err.message);
-                        els.statusArea.classList.add('hidden');
-                    } finally {
-                        els.compressBtn.disabled = false;
-                        els.compressBtn.classList.remove('opacity-50');
                     }
-                }
+                });
+
+
             </script>
 </body>
 
