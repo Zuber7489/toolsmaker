@@ -23,6 +23,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- pdf-lib -->
     <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script>
+        // Set worker globally
+        window.pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    </script>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -110,8 +115,8 @@
 
             <!-- Step 1: Upload -->
             <div id="uploadStep" class="block">
-                <div id="uploadArea"
-                    class="border-2 border-dashed border-gray-300 rounded-xl p-8 sm:p-12 text-center cursor-pointer hover:border-gray-400 transition hover:bg-gray-50 h-[300px] flex flex-col items-center justify-center">
+                <label for="fileInput" id="uploadArea"
+                    class="block border-2 border-dashed border-gray-300 rounded-xl p-8 sm:p-12 text-center cursor-pointer hover:border-gray-400 transition hover:bg-gray-50 h-[300px] flex flex-col items-center justify-center w-full">
                     <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -122,7 +127,7 @@
                     <p class="text-xs sm:text-sm text-gray-500">Supports .pdf documents</p>
                     <input type="file" id="fileInput" accept="application/pdf" class="hidden">
                     <div id="loadingText" class="hidden mt-4 text-blue-600 font-medium">Loading pages...</div>
-                </div>
+                </label>
             </div>
 
             <!-- Step 2: Selection -->
@@ -151,193 +156,205 @@
                 </div>
             </div>
 
-        </div>
+            <script type="module">
+                const pdfjsLib = window.pdfjsLib;
 
-        <article class="mt-12 prose prose-zinc text-gray-600 text-sm max-w-none">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Delete Pages from PDF</h2>
-            <ol class="list-decimal pl-6 space-y-2 mb-6">
-                <li><strong>Upload PDF:</strong> Select the PDF file you want to edit.</li>
-                <li><strong>Select Pages:</strong> Click on the pages you want to REMOVE. They will be marked with a red
-                    overlay.</li>
-                <li><strong>Download:</strong> Click "Download PDF" to save a new file with only the remaining pages.
-                </li>
-            </ol>
-            <p><strong>Note:</strong> All processing is done locally on your device.</p>
-        </article>
-    </main>
+                const els = {
+                    uploadArea: document.getElementById('uploadArea'),
+                    fileInput: document.getElementById('fileInput'),
+                    uploadStep: document.getElementById('uploadStep'),
+                    selectionStep: document.getElementById('selectionStep'),
+                    pagesGrid: document.getElementById('pagesGrid'),
+                    downloadBtn: document.getElementById('downloadBtn'),
+                    pageCount: document.getElementById('pageCount'),
+                    loadingText: document.getElementById('loadingText'),
+                    resetBtn: document.getElementById('resetSelection')
+                };
 
-    <footer class="border-t border-gray-200 py-8 mt-20 text-center text-gray-500 text-sm">
-        &copy; 2024 FreeProducts24. All Rights Reserved.
-    </footer>
+                let currentFile = null;
+                let pdfDoc = null; // pdf.js document
+                let pagesToDelete = new Set(); // Stores 1-based page numbers
 
-    <script type="module">
-        import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.mjs';
-        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.mjs';
+                // Wait for DOM to be ready
+                document.addEventListener('DOMContentLoaded', () => {
+                    // Re-fetch elements to be sure
+                    const els = {
+                        uploadArea: document.getElementById('uploadArea'),
+                        fileInput: document.getElementById('fileInput'),
+                        uploadStep: document.getElementById('uploadStep'),
+                        selectionStep: document.getElementById('selectionStep'),
+                        pagesGrid: document.getElementById('pagesGrid'),
+                        downloadBtn: document.getElementById('downloadBtn'),
+                        pageCount: document.getElementById('pageCount'),
+                        loadingText: document.getElementById('loadingText'),
+                        resetBtn: document.getElementById('resetSelection')
+                    };
 
-        const els = {
-            uploadArea: document.getElementById('uploadArea'),
-            fileInput: document.getElementById('fileInput'),
-            uploadStep: document.getElementById('uploadStep'),
-            selectionStep: document.getElementById('selectionStep'),
-            pagesGrid: document.getElementById('pagesGrid'),
-            downloadBtn: document.getElementById('downloadBtn'),
-            pageCount: document.getElementById('pageCount'),
-            loadingText: document.getElementById('loadingText'),
-            resetBtn: document.getElementById('resetSelection')
-        };
+                    if (els.fileInput) els.fileInput.addEventListener('change', (e) => handleFile(e, els));
 
-        let currentFile = null;
-        let pdfDoc = null; // pdf.js document
-        let pagesToDelete = new Set(); // Stores 1-based page numbers
+                    if (els.resetBtn) els.resetBtn.addEventListener('click', () => {
+                        pagesToDelete.clear();
+                        updateUI(els);
+                    });
 
-        els.uploadArea.addEventListener('click', () => els.fileInput.click());
-        els.fileInput.addEventListener('change', handleFile);
+                    if (els.downloadBtn) els.downloadBtn.addEventListener('click', () => generatePDF(els));
+                });
 
-        els.resetBtn.addEventListener('click', () => {
-            pagesToDelete.clear();
-            updateUI();
-        });
+                async function handleFile(e, els) {
+                    const file = e.target.files[0];
+                    if (!file || file.type !== 'application/pdf') return;
 
-        els.downloadBtn.addEventListener('click', generatePDF);
+                    currentFile = file;
+                    if (els.loadingText) els.loadingText.classList.remove('hidden');
 
-        async function handleFile(e) {
-            const file = e.target.files[0];
-            if (!file || file.type !== 'application/pdf') return;
+                    try {
+                        if (!pdfjsLib || !pdfjsLib.getDocument) {
+                            throw new Error("PDF.js library not verified locally.");
+                        }
 
-            currentFile = file;
-            els.loadingText.classList.remove('hidden');
+                        const arrayBuffer = await file.arrayBuffer();
+                        // Use { data: ... } for more reliable TypedArray handling
+                        const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(arrayBuffer) });
+                        pdfDoc = await loadingTask.promise;
 
-            try {
-                const arrayBuffer = await file.arrayBuffer();
-                pdfDoc = await pdfjsLib.getDocument(arrayBuffer).promise;
-                renderThumbnails();
-            } catch (err) {
-                console.error(err);
-                if (err.name === 'PasswordException') {
-                    alert('This PDF is password protected. Please unlock it first.');
-                } else {
-                    alert('Error loading PDF. format might be unsupported.');
-                }
-                els.loadingText.classList.add('hidden');
-            }
-        }
-
-        async function renderThumbnails() {
-            els.uploadStep.classList.add('hidden');
-            els.selectionStep.classList.remove('hidden');
-
-            const numPages = pdfDoc.numPages;
-
-            for (let i = 1; i <= numPages; i++) {
-                const page = await pdfDoc.getPage(i);
-                const viewport = page.getViewport({ scale: 0.3 }); // Small thumb
-
-                const canvas = document.createElement('canvas');
-                canvas.width = viewport.width;
-                canvas.height = viewport.height;
-                canvas.className = 'w-full h-auto rounded shadow-sm bg-white';
-
-                // Wrapper
-                const div = document.createElement('div');
-                div.className = 'page-thumb relative rounded-lg border-2 border-transparent p-1';
-                div.dataset.pageNum = i;
-                div.onclick = () => togglePage(i, div);
-
-                // Overlay
-                const overlay = document.createElement('div');
-                overlay.className = 'overlay absolute inset-0 rounded pointer-events-none';
-                overlay.innerHTML = '<svg class="w-12 h-12 text-red-600 bg-white rounded-full p-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>';
-
-                // Render
-                await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
-
-                // Page Number
-                const num = document.createElement('div');
-                num.className = 'text-center text-xs text-gray-500 mt-1 font-medium';
-                num.innerText = `Page ${i}`;
-
-                div.appendChild(canvas);
-                div.appendChild(overlay);
-                div.appendChild(num);
-                els.pagesGrid.appendChild(div);
-            }
-        }
-
-        function togglePage(pageNum, div) {
-            if (pagesToDelete.has(pageNum)) {
-                pagesToDelete.delete(pageNum);
-                div.classList.remove('selected');
-            } else {
-                pagesToDelete.add(pageNum);
-                div.classList.add('selected');
-            }
-            updateUI();
-        }
-
-        function updateUI() {
-            els.pageCount.innerText = pagesToDelete.size;
-
-            // Sync all divs (in case of reset)
-            document.querySelectorAll('.page-thumb').forEach(div => {
-                const num = parseInt(div.dataset.pageNum);
-                if (pagesToDelete.has(num)) {
-                    div.classList.add('selected');
-                } else {
-                    div.classList.remove('selected');
-                }
-            });
-        }
-
-        async function generatePDF() {
-            if (pagesToDelete.size === 0) {
-                if (!confirm("You haven't selected any pages to delete. Download original PDF?")) return;
-            }
-
-            const originalText = els.downloadBtn.innerHTML;
-            els.downloadBtn.innerText = 'Processing...';
-            els.downloadBtn.disabled = true;
-
-            try {
-                // Ensure PDFLib is loaded
-                if (!window.PDFLib) throw new Error("PDFLib not loaded");
-                const { PDFDocument } = window.PDFLib;
-
-                const arrayBuffer = await currentFile.arrayBuffer();
-                const srcPdf = await PDFDocument.load(arrayBuffer);
-                const newPdf = await PDFDocument.create();
-
-                const totalPages = srcPdf.getPageCount();
-                const pagesToKeep = []; // 0-based indices
-
-                for (let i = 0; i < totalPages; i++) {
-                    if (!pagesToDelete.has(i + 1)) { // pagesToDelete is 1-based
-                        pagesToKeep.push(i);
+                        renderThumbnails(els);
+                    } catch (err) {
+                        console.error(err);
+                        if (err.name === 'PasswordException') {
+                            alert('This PDF is password protected. Please unlock it first.');
+                        } else {
+                            alert(`Error loading PDF: ${err.message}`);
+                        }
+                        if (els.loadingText) els.loadingText.classList.add('hidden');
+                        // Clear input so user can try again
+                        if (els.fileInput) els.fileInput.value = '';
                     }
                 }
 
-                if (pagesToKeep.length > 0) {
-                    const copiedPages = await newPdf.copyPages(srcPdf, pagesToKeep);
-                    copiedPages.forEach(page => newPdf.addPage(page));
+                async function renderThumbnails(els) {
+                    if (!els.pagesGrid) {
+                        console.error("Pages grid element not found");
+                        return;
+                    }
+                    if (els.uploadStep) els.uploadStep.classList.add('hidden');
+                    if (els.selectionStep) els.selectionStep.classList.remove('hidden');
 
-                    const pdfBytes = await newPdf.save();
-                    const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-                    const link = document.createElement('a');
-                    link.href = URL.createObjectURL(blob);
-                    link.download = `edited_${currentFile.name}`;
-                    link.click();
-                } else {
-                    alert("You can't delete all pages!");
+                    const numPages = pdfDoc.numPages;
+
+                    for (let i = 1; i <= numPages; i++) {
+                        const page = await pdfDoc.getPage(i);
+                        const viewport = page.getViewport({ scale: 0.3 }); // Small thumb
+
+                        const canvas = document.createElement('canvas');
+                        canvas.width = viewport.width;
+                        canvas.height = viewport.height;
+                        canvas.className = 'w-full h-auto rounded shadow-sm bg-white';
+
+                        // Wrapper
+                        const div = document.createElement('div');
+                        div.className = 'page-thumb relative rounded-lg border-2 border-transparent p-1';
+                        div.dataset.pageNum = i;
+                        div.onclick = () => togglePage(i, div, els);
+
+                        // Overlay
+                        const overlay = document.createElement('div');
+                        overlay.className = 'overlay absolute inset-0 rounded pointer-events-none';
+                        overlay.innerHTML = '<svg class="w-12 h-12 text-red-600 bg-white rounded-full p-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>';
+
+                        // Render
+                        await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+
+                        // Page Number
+                        const num = document.createElement('div');
+                        num.className = 'text-center text-xs text-gray-500 mt-1 font-medium';
+                        num.innerText = `Page ${i}`;
+
+                        div.appendChild(canvas);
+                        div.appendChild(overlay);
+                        div.appendChild(num);
+                        els.pagesGrid.appendChild(div);
+                    }
                 }
 
-            } catch (err) {
-                console.error(err);
-                alert("Error creating PDF");
-            }
+                function togglePage(pageNum, div, els) {
+                    if (pagesToDelete.has(pageNum)) {
+                        pagesToDelete.delete(pageNum);
+                        div.classList.remove('selected');
+                    } else {
+                        pagesToDelete.add(pageNum);
+                        div.classList.add('selected');
+                    }
+                    updateUI(els);
+                }
 
-            els.downloadBtn.innerHTML = originalText;
-            els.downloadBtn.disabled = false;
-        }
-    </script>
+                function updateUI(els) {
+                    if (els.pageCount) els.pageCount.innerText = pagesToDelete.size;
+
+                    // Sync all divs (in case of reset)
+                    document.querySelectorAll('.page-thumb').forEach(div => {
+                        const num = parseInt(div.dataset.pageNum);
+                        if (pagesToDelete.has(num)) {
+                            div.classList.add('selected');
+                        } else {
+                            div.classList.remove('selected');
+                        }
+                    });
+                }
+
+                async function generatePDF(els) {
+                    if (pagesToDelete.size === 0) {
+                        if (!confirm("You haven't selected any pages to delete. Download original PDF?")) return;
+                    }
+
+                    const originalText = els.downloadBtn ? els.downloadBtn.innerHTML : 'Download';
+                    if (els.downloadBtn) {
+                        els.downloadBtn.innerText = 'Processing...';
+                        els.downloadBtn.disabled = true;
+                    }
+
+                    try {
+                        // Ensure PDFLib is loaded
+                        if (!window.PDFLib) throw new Error("PDFLib not loaded");
+                        const { PDFDocument } = window.PDFLib;
+
+                        const arrayBuffer = await currentFile.arrayBuffer();
+                        const srcPdf = await PDFDocument.load(arrayBuffer);
+                        const newPdf = await PDFDocument.create();
+
+                        const totalPages = srcPdf.getPageCount();
+                        const pagesToKeep = []; // 0-based indices
+
+                        for (let i = 0; i < totalPages; i++) {
+                            if (!pagesToDelete.has(i + 1)) { // pagesToDelete is 1-based
+                                pagesToKeep.push(i);
+                            }
+                        }
+
+                        if (pagesToKeep.length > 0) {
+                            const copiedPages = await newPdf.copyPages(srcPdf, pagesToKeep);
+                            copiedPages.forEach(page => newPdf.addPage(page));
+
+                            const pdfBytes = await newPdf.save();
+                            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                            const link = document.createElement('a');
+                            link.href = URL.createObjectURL(blob);
+                            link.download = `edited_${currentFile.name}`;
+                            link.click();
+                        } else {
+                            alert("You can't delete all pages!");
+                        }
+
+                    } catch (err) {
+                        console.error(err);
+                        alert("Error creating PDF");
+                    }
+
+                    if (els.downloadBtn) {
+                        els.downloadBtn.innerHTML = originalText;
+                        els.downloadBtn.disabled = false;
+                    }
+                }
+            </script>
 </body>
 
 </html>
