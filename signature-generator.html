@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Meta Tags -->
+    <title>Free Online Signature Generator | Create e-Signatures | FreeProducts24</title>
+    <meta name="description"
+        content="Draw and download your digital signature for free. Save as transparent PNG. Ideal for signing PDFs, Word documents, and emails. No signup required.">
+    <meta name="keywords"
+        content="online signature generator, digital signature maker, draw signature online, electronic signature free, transparent background signature, esign tool">
+    <link rel="canonical" href="https://freeproducts24.site/signature-generator.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Create Your Digital Signature Online - Free & Secure">
+    <meta property="og:description"
+        content="Draw, smooth, and download your e-signature as a transparent PNG instantly.">
+    <meta property="og:url" content="https://freeproducts24.site/signature-generator.html">
+    <meta property="og:type" content="website">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif']
+                    },
+                    colors: { brand: { 500: '#4f46e5', 600: '#4338ca' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        canvas {
+            cursor: crosshair;
+            touch-action: none;
+        }
+
+        .color-btn.active {
+            box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #4f46e5;
+            transform: scale(1.1);
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFQCWF71SG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KFQCWF71SG');
+    </script>
+</head>
+
+<body class="text-gray-900 antialiased font-sans flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-4xl mx-auto px-4 py-12 w-full">
+        <div class="text-center mb-10">
+            <span
+                class="text-brand-600 font-bold tracking-widest uppercase text-xs mb-3 block bg-indigo-50 inline-block px-3 py-1 rounded-full border border-indigo-100">Draw
+                & Download</span>
+            <h1 class="text-4xl md:text-6xl font-black text-gray-900 mb-4">
+                Signature <span class="text-brand-600">Generator</span>
+            </h1>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                Create a professional digital signature in seconds. Smoothened strokes, transparent background, and
+                ready for documents.
+            </p>
+        </div>
+
+        <div class="glass-card rounded-3xl p-1 md:p-2 border-2 border-dashed border-gray-200 bg-gray-50 shadow-inner">
+            <div class="bg-white rounded-2xl relative overflow-hidden h-[300px] md:h-[400px] w-full touch-none"
+                id="canvasContainer">
+                <canvas id="sigCanvas" class="w-full h-full block"></canvas>
+
+                <div
+                    class="absolute inset-0 pointer-events-none flex items-center justify-center text-gray-200 opacity-50 select-none">
+                    <span class="text-4xl font-bold uppercase tracking-widest rotate-12">Sign Here</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toolbar -->
+        <div class="glass-card rounded-2xl p-4 mt-6 flex flex-wrap items-center justify-between gap-4">
+
+            <!-- Colors -->
+            <div class="flex items-center gap-3">
+                <span class="text-sm font-bold text-gray-500 uppercase tracking-wider mr-2">Ink Color</span>
+                <button class="color-btn w-8 h-8 rounded-full bg-black active" data-color="#000000"
+                    title="Black"></button>
+                <button class="color-btn w-8 h-8 rounded-full bg-blue-700 hover:ring-2 hover:ring-blue-300"
+                    data-color="#1d4ed8" title="Blue"></button>
+                <button class="color-btn w-8 h-8 rounded-full bg-red-600 hover:ring-2 hover:ring-red-300"
+                    data-color="#dc2626" title="Red"></button>
+                <button class="color-btn w-8 h-8 rounded-full bg-green-600 hover:ring-2 hover:ring-green-300"
+                    data-color="#16a34a" title="Green"></button>
+            </div>
+
+            <!-- Pen Size -->
+            <div class="flex items-center gap-3">
+                <span class="text-sm font-bold text-gray-500 uppercase tracking-wider mr-2">Thickness</span>
+                <input type="range" id="penSize" min="1" max="5" step="0.5" value="2.5"
+                    class="w-24 accent-brand-600 cursor-pointer">
+            </div>
+
+            <!-- Actions -->
+            <div class="flex items-center gap-3 w-full md:w-auto mt-2 md:mt-0">
+                <button id="clearBtn"
+                    class="px-5 py-2.5 text-gray-600 font-bold hover:bg-gray-100 rounded-xl transition">
+                    Clear
+                </button>
+                <button id="downloadBtn"
+                    class="flex-1 md:flex-none px-6 py-2.5 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-200 transition-all flex items-center gap-2 justify-center">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                    Download PNG
+                </button>
+            </div>
+        </div>
+
+        <!-- Tips -->
+        <div class="grid md:grid-cols-2 gap-6 mt-12">
+            <div class="p-6 bg-blue-50 rounded-2xl border border-blue-100">
+                <h3 class="font-bold text-blue-900 mb-2">Transparent Background</h3>
+                <p class="text-sm text-blue-700 leading-relaxed">The downloaded image uses a transparent background,
+                    making it perfect for dragging and dropping directly into Word docs, PDFs, or email footers without
+                    blocking text.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-2xl border border-gray-100">
+                <h3 class="font-bold text-gray-900 mb-2">Secure & Private</h3>
+                <p class="text-sm text-gray-600 leading-relaxed">Your signature is generated entirely within your
+                    browser using HTML5 Canvas technology. No image data is ever uploaded to any server.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="py-12 border-t border-gray-200 text-center mt-auto">
+        <p class="text-gray-500 text-xs uppercase tracking-widest">&copy; 2024 FreeProducts24 Tools. All Rights
+            Reserved.</p>
+    </footer>
+
+    <script>
+        const canvas = document.getElementById('sigCanvas');
+        const container = document.getElementById('canvasContainer');
+        const ctx = canvas.getContext('2d');
+        const clearBtn = document.getElementById('clearBtn');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const colorBtns = document.querySelectorAll('.color-btn');
+        const penSizeInput = document.getElementById('penSize');
+
+        let isDrawing = false;
+        let lastX = 0;
+        let lastY = 0;
+        let currentColor = '#000000';
+        let currentSize = 2.5;
+
+        // Resize Canvas
+        function resizeCanvas() {
+            // Save current content
+            const tempCanvas = document.createElement('canvas');
+            const tempCtx = tempCanvas.getContext('2d');
+            tempCanvas.width = canvas.width;
+            tempCanvas.height = canvas.height;
+            tempCtx.drawImage(canvas, 0, 0);
+
+            // Resize
+            const rect = container.getBoundingClientRect();
+            canvas.width = rect.width;
+            canvas.height = rect.height;
+
+            // Restore style settings
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = currentColor;
+            ctx.lineWidth = currentSize;
+
+            // Restore content (optional - might stretch, better to just clear or keep blank on resize for signatures)
+            // ctx.drawImage(tempCanvas, 0, 0); 
+        }
+
+        window.addEventListener('resize', debounce(resizeCanvas, 100));
+        setTimeout(resizeCanvas, 50); // Initial resize
+
+        // Drawing Functions
+        function startDrawing(e) {
+            isDrawing = true;
+            const pos = getPos(e);
+            lastX = pos.x;
+            lastY = pos.y;
+        }
+
+        function draw(e) {
+            if (!isDrawing) return;
+            e.preventDefault();
+
+            const pos = getPos(e);
+
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.quadraticCurveTo(lastX, lastY, pos.x, pos.y);
+            // Simple line for now, quadratic for smoothness is better with more points history
+            ctx.lineTo(pos.x, pos.y);
+            ctx.stroke();
+
+            lastX = pos.x;
+            lastY = pos.y;
+        }
+
+        function stopDrawing() {
+            isDrawing = false;
+        }
+
+        function getPos(e) {
+            const rect = canvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return {
+                x: clientX - rect.left,
+                y: clientY - rect.top
+            };
+        }
+
+        // Event Listeners
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDrawing);
+        canvas.addEventListener('mouseout', stopDrawing);
+
+        // Touch support
+        canvas.addEventListener('touchstart', startDrawing);
+        canvas.addEventListener('touchmove', draw);
+        canvas.addEventListener('touchend', stopDrawing);
+
+        // Controls
+        clearBtn.addEventListener('click', () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            // Create a temporary link
+            const link = document.createElement('a');
+            link.download = `signature-${Date.now()}.png`;
+            link.href = canvas.toDataURL('image/png');
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        colorBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                colorBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentColor = btn.dataset.color;
+                ctx.strokeStyle = currentColor;
+            });
+        });
+
+        penSizeInput.addEventListener('input', (e) => {
+            currentSize = e.target.value;
+            ctx.lineWidth = currentSize;
+        });
+
+        // Utilities
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+    </script>
+</body>
+
+</html>
