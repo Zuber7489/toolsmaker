@@ -537,7 +537,12 @@
                         y = 0;
                     }
 
-                    pdf.addImage(img.src, 'JPEG', x, y, finalWidth, finalHeight);
+                    // Auto-detect format
+                    let format = 'JPEG';
+                    if (img.src.startsWith('data:image/png')) format = 'PNG';
+                    else if (img.src.startsWith('data:image/webp')) format = 'WEBP';
+
+                    pdf.addImage(img.src, format, x, y, finalWidth, finalHeight);
 
                     // Update progress
                     showStatus(`Processing image ${i + 1} of ${images.length}...`, CONSTANTS.STATUS_TYPES.INFO);
