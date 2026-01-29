@@ -177,6 +177,62 @@
                 </div>
             </div>
 
+            <!-- SEO Content & FAQ -->
+            <article class="mt-16 prose prose-zinc max-w-none">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">How do I delete pages from a PDF
+                            specifically?</h3>
+                        <p class="text-gray-600">Simply upload your file, click on the thumbnails of the pages you want
+                            to remove (they will turn red), and click 'Download PDF'. It's that easy.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Is it safe to delete PDF pages here?</h3>
+                        <p class="text-gray-600">Yes! This tool works 100% in your browser. Your files are never
+                            uploaded to any server, ensuring complete privacy.</p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-2">Can I remove multiple pages at once?</h3>
+                        <p class="text-gray-600">Absolutely. You can select as many pages as you need to delete. Just
+                            click each one you want to remove.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- FAQ Schema -->
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [{
+                "@type": "Question",
+                "name": "How do I delete pages from a PDF specifically?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Simply upload your file, click on the thumbnails of the pages you want to remove (they will turn red), and click 'Download PDF'. It's that easy."
+                }
+              }, {
+                "@type": "Question",
+                "name": "Is it safe to delete PDF pages here?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! This tool works 100% in your browser. Your files are never uploaded to any server, ensuring complete privacy."
+                }
+              }, {
+                "@type": "Question",
+                "name": "Can I remove multiple pages at once?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely. You can select as many pages as you need to delete. Just click each one you want to remove."
+                }
+              }]
+            }
+            </script>
+
             <script type="module">
                 const pdfjsLib = window.pdfjsLib;
 
