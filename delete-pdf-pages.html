@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete PDF Pages | Remove Pages from PDF Online | FreeProducts24</title>
+    <meta name="description"
+        content="Remove specific pages from your PDF document online. visual page selector to delete unwanted pages. Free, secure, and client-side processing.">
+    <meta name="keywords"
+        content="delete pdf pages, remove pdf pages, split pdf, extract pdf pages, online pdf editor, free pdf tool">
+    <link rel="canonical" href="https://freeproducts24.site/delete-pdf-pages.html" />
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Delete PDF Pages - Remove Unwanted Pages Free">
+    <meta property="og:description"
+        content="Visually select and remove pages from your PDF. Fast, free, and secure browser-based tool.">
+    <meta property="og:url" content="https://freeproducts24.site/delete-pdf-pages.html">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- pdf-lib -->
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#000000', 600: '#1a1a1a' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f9fafb;
+            min-height: 100vh;
+        }
+
+        .page-thumb {
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .page-thumb:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-thumb.selected {
+            border-color: #ef4444;
+            /* Red border */
+            background-color: #fef2f2;
+        }
+
+        .page-thumb.selected .overlay {
+            opacity: 1;
+        }
+
+        .overlay {
+            background: rgba(239, 68, 68, 0.4);
+            backdrop-filter: blur(1px);
+            opacity: 0;
+            transition: opacity 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFQCWF71SG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KFQCWF71SG');
+    </script>
+</head>
+
+<body class="text-gray-900 antialiased font-sans">
+
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto mt-16 sm:mt-24 px-3 sm:px-4 pb-16">
+        <div class="text-center mb-6 sm:mb-10">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Delete PDF Pages</h1>
+            <p class="text-sm sm:text-base text-gray-600">Click on the pages you want to remove, then download your new
+                PDF.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-sm min-h-[400px]">
+
+            <!-- Step 1: Upload -->
+            <div id="uploadStep" class="block">
+                <div id="uploadArea"
+                    class="border-2 border-dashed border-gray-300 rounded-xl p-8 sm:p-12 text-center cursor-pointer hover:border-gray-400 transition hover:bg-gray-50 h-[300px] flex flex-col items-center justify-center">
+                    <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                        </path>
+                    </svg>
+                    <p class="text-base sm:text-lg font-medium text-gray-900 mb-2">Click to Upload PDF</p>
+                    <p class="text-xs sm:text-sm text-gray-500">Supports .pdf documents</p>
+                    <input type="file" id="fileInput" accept="application/pdf" class="hidden">
+                    <div id="loadingText" class="hidden mt-4 text-blue-600 font-medium">Loading pages...</div>
+                </div>
+            </div>
+
+            <!-- Step 2: Selection -->
+            <div id="selectionStep" class="hidden">
+                <div
+                    class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4 sticky top-[70px] z-40 bg-white/95 backdrop-blur py-4 border-b border-gray-100">
+                    <h2 class="text-lg font-bold">Select pages to DELETE</h2>
+                    <div class="flex gap-2">
+                        <button id="resetSelection"
+                            class="bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-lg text-sm font-medium transition">
+                            Unselect All
+                        </button>
+                        <button id="downloadBtn"
+                            class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition shadow-lg shadow-red-200 flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                            </svg>
+                            Download PDF (<span id="pageCount">0</span> selected)
+                        </button>
+                    </div>
+                </div>
+
+                <div id="pagesGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    <!-- Pages will be injected here -->
+                </div>
+            </div>
+
+        </div>
+
+        <article class="mt-12 prose prose-zinc text-gray-600 text-sm max-w-none">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Delete Pages from PDF</h2>
+            <ol class="list-decimal pl-6 space-y-2 mb-6">
+                <li><strong>Upload PDF:</strong> Select the PDF file you want to edit.</li>
+                <li><strong>Select Pages:</strong> Click on the pages you want to REMOVE. They will be marked with a red
+                    overlay.</li>
+                <li><strong>Download:</strong> Click "Download PDF" to save a new file with only the remaining pages.
+                </li>
+            </ol>
+            <p><strong>Note:</strong> All processing is done locally on your device.</p>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-200 py-8 mt-20 text-center text-gray-500 text-sm">
+        &copy; 2024 FreeProducts24. All Rights Reserved.
+    </footer>
+
+    <script type="module">
+        import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.mjs';
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.mjs';
+
+        const els = {
+            uploadArea: document.getElementById('uploadArea'),
+            fileInput: document.getElementById('fileInput'),
+            uploadStep: document.getElementById('uploadStep'),
+            selectionStep: document.getElementById('selectionStep'),
+            pagesGrid: document.getElementById('pagesGrid'),
+            downloadBtn: document.getElementById('downloadBtn'),
+            pageCount: document.getElementById('pageCount'),
+            loadingText: document.getElementById('loadingText'),
+            resetBtn: document.getElementById('resetSelection')
+        };
+
+        let currentFile = null;
+        let pdfDoc = null; // pdf.js document
+        let pagesToDelete = new Set(); // Stores 1-based page numbers
+
+        els.uploadArea.addEventListener('click', () => els.fileInput.click());
+        els.fileInput.addEventListener('change', handleFile);
+
+        els.resetBtn.addEventListener('click', () => {
+            pagesToDelete.clear();
+            updateUI();
+        });
+
+        els.downloadBtn.addEventListener('click', generatePDF);
+
+        async function handleFile(e) {
+            const file = e.target.files[0];
+            if (!file || file.type !== 'application/pdf') return;
+
+            currentFile = file;
+            els.loadingText.classList.remove('hidden');
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                pdfDoc = await pdfjsLib.getDocument(arrayBuffer).promise;
+                renderThumbnails();
+            } catch (err) {
+                console.error(err);
+                if (err.name === 'PasswordException') {
+                    alert('This PDF is password protected. Please unlock it first.');
+                } else {
+                    alert('Error loading PDF. format might be unsupported.');
+                }
+                els.loadingText.classList.add('hidden');
+            }
+        }
+
+        async function renderThumbnails() {
+            els.uploadStep.classList.add('hidden');
+            els.selectionStep.classList.remove('hidden');
+
+            const numPages = pdfDoc.numPages;
+
+            for (let i = 1; i <= numPages; i++) {
+                const page = await pdfDoc.getPage(i);
+                const viewport = page.getViewport({ scale: 0.3 }); // Small thumb
+
+                const canvas = document.createElement('canvas');
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+                canvas.className = 'w-full h-auto rounded shadow-sm bg-white';
+
+                // Wrapper
+                const div = document.createElement('div');
+                div.className = 'page-thumb relative rounded-lg border-2 border-transparent p-1';
+                div.dataset.pageNum = i;
+                div.onclick = () => togglePage(i, div);
+
+                // Overlay
+                const overlay = document.createElement('div');
+                overlay.className = 'overlay absolute inset-0 rounded pointer-events-none';
+                overlay.innerHTML = '<svg class="w-12 h-12 text-red-600 bg-white rounded-full p-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>';
+
+                // Render
+                await page.render({ canvasContext: canvas.getContext('2d'), viewport }).promise;
+
+                // Page Number
+                const num = document.createElement('div');
+                num.className = 'text-center text-xs text-gray-500 mt-1 font-medium';
+                num.innerText = `Page ${i}`;
+
+                div.appendChild(canvas);
+                div.appendChild(overlay);
+                div.appendChild(num);
+                els.pagesGrid.appendChild(div);
+            }
+        }
+
+        function togglePage(pageNum, div) {
+            if (pagesToDelete.has(pageNum)) {
+                pagesToDelete.delete(pageNum);
+                div.classList.remove('selected');
+            } else {
+                pagesToDelete.add(pageNum);
+                div.classList.add('selected');
+            }
+            updateUI();
+        }
+
+        function updateUI() {
+            els.pageCount.innerText = pagesToDelete.size;
+
+            // Sync all divs (in case of reset)
+            document.querySelectorAll('.page-thumb').forEach(div => {
+                const num = parseInt(div.dataset.pageNum);
+                if (pagesToDelete.has(num)) {
+                    div.classList.add('selected');
+                } else {
+                    div.classList.remove('selected');
+                }
+            });
+        }
+
+        async function generatePDF() {
+            if (pagesToDelete.size === 0) {
+                if (!confirm("You haven't selected any pages to delete. Download original PDF?")) return;
+            }
+
+            const originalText = els.downloadBtn.innerHTML;
+            els.downloadBtn.innerText = 'Processing...';
+            els.downloadBtn.disabled = true;
+
+            try {
+                // Ensure PDFLib is loaded
+                if (!window.PDFLib) throw new Error("PDFLib not loaded");
+                const { PDFDocument } = window.PDFLib;
+
+                const arrayBuffer = await currentFile.arrayBuffer();
+                const srcPdf = await PDFDocument.load(arrayBuffer);
+                const newPdf = await PDFDocument.create();
+
+                const totalPages = srcPdf.getPageCount();
+                const pagesToKeep = []; // 0-based indices
+
+                for (let i = 0; i < totalPages; i++) {
+                    if (!pagesToDelete.has(i + 1)) { // pagesToDelete is 1-based
+                        pagesToKeep.push(i);
+                    }
+                }
+
+                if (pagesToKeep.length > 0) {
+                    const copiedPages = await newPdf.copyPages(srcPdf, pagesToKeep);
+                    copiedPages.forEach(page => newPdf.addPage(page));
+
+                    const pdfBytes = await newPdf.save();
+                    const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = `edited_${currentFile.name}`;
+                    link.click();
+                } else {
+                    alert("You can't delete all pages!");
+                }
+
+            } catch (err) {
+                console.error(err);
+                alert("Error creating PDF");
+            }
+
+            els.downloadBtn.innerHTML = originalText;
+            els.downloadBtn.disabled = false;
+        }
+    </script>
+</body>
+
+</html>

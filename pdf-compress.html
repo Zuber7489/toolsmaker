@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Compressor | Reduce PDF Size Online Free | FreeProducts24</title>
+    <meta name="description"
+        content="Compress PDF files online for free. Reduce PDF file size with adjustable quality slider. 100% client-side, fast, and secure. No upload limits.">
+    <meta name="keywords"
+        content="compress pdf, reduce pdf size, optimize pdf, pdf compressor online, shrink pdf, free pdf tool">
+    <link rel="canonical" href="https://freeproducts24.site/pdf-compress.html" />
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="PDF Compressor | Reduce PDF Size Free">
+    <meta property="og:description"
+        content="Compress PDF files instantly in your browser. Adjustable compression level. 100% private and secure.">
+    <meta property="og:url" content="https://freeproducts24.site/pdf-compress.html">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- jsPDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- PDF.js - Loaded via module in script below -->
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] },
+                    colors: { brand: { 500: '#000000', 600: '#1a1a1a' } }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f9fafb;
+            min-height: 100vh;
+        }
+
+        .range-slider {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            height: 6px;
+            background: #e5e7eb;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #000000;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+
+        .range-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        #previewCanvas {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFQCWF71SG"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-KFQCWF71SG');
+    </script>
+</head>
+
+<body class="text-gray-900 antialiased font-sans">
+
+    <nav class="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex justify-between items-center"><a href="index.html"
+                class="flex items-center gap-2">
+                <div
+                    class="w-7 h-7 sm:w-8 sm:h-8 bg-black rounded-lg flex items-center justify-center font-bold text-white text-sm sm:text-base">
+                    T</div><span class="text-lg sm:text-2xl font-bold text-black">FreeProducts24</span>
+            </a>
+            <div class="hidden md:flex gap-8 text-sm font-medium"><a href="index.html"
+                    class="text-black hover:text-gray-600 transition">Explore</a><a href="blog/index.html"
+                    class="text-gray-600 hover:text-black transition">Blog</a><a href="about.html"
+                    class="text-gray-600 hover:text-black transition">About</a><a href="privacy.html"
+                    class="text-gray-600 hover:text-black transition">Privacy</a></div>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto mt-16 sm:mt-24 px-3 sm:px-4 pb-16">
+        <div class="text-center mb-6 sm:mb-10">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">PDF Compressor</h1>
+            <p class="text-sm sm:text-base text-gray-600">Reduce PDF file size by compressing images. Adjust quality to
+                balance size and clarity.</p>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-2xl p-4 sm:p-6 shadow-sm">
+
+            <!-- Step 1: Upload -->
+            <div id="uploadStep" class="block">
+                <div id="uploadArea"
+                    class="border-2 border-dashed border-gray-300 rounded-xl p-8 sm:p-12 text-center cursor-pointer hover:border-gray-400 transition hover:bg-gray-50">
+                    <svg class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12">
+                        </path>
+                    </svg>
+                    <p class="text-base sm:text-lg font-medium text-gray-900 mb-2">Click to Upload PDF</p>
+                    <p class="text-xs sm:text-sm text-gray-500">Supports .pdf documents</p>
+                    <input type="file" id="fileInput" accept="application/pdf" class="hidden">
+                    <div id="fileName" class="mt-4 text-sm font-semibold text-blue-600 hidden"></div>
+                </div>
+            </div>
+
+            <!-- Step 2: Controls & Preview -->
+            <div id="controlsStep" class="hidden mt-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Preview Section -->
+                    <div
+                        class="bg-gray-100 rounded-xl p-4 flex items-center justify-center border border-gray-200 min-h-[300px]">
+                        <div class="relative w-full text-center">
+                            <p class="text-gray-500 text-xs mb-2 uppercase tracking-wide font-semibold">First Page
+                                Preview</p>
+                            <canvas id="previewCanvas"
+                                class="mx-auto bg-white shadow-lg mx-auto max-h-[400px]"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Settings Section -->
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-4">Compression Level</label>
+                            <input type="range" id="qualitySlider" min="10" max="100" value="50"
+                                class="range-slider mb-2">
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>High Compression (Smaller Size)</span>
+                                <span id="qualityValue" class="font-bold text-black text-sm">50%</span>
+                                <span>High Quality (Larger Size)</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-blue-50 border border-blue-100 rounded-lg p-4">
+                            <h4 class="text-sm font-bold text-blue-900 mb-1">Note</h4>
+                            <p class="text-xs text-blue-700">Compression works by rasterizing pages. Text will become
+                                part of the image and may not be selectable in the output PDF.</p>
+                        </div>
+
+                        <div class="pt-4">
+                            <button id="compressBtn"
+                                class="w-full bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                                Compress PDF
+                            </button>
+                            <button id="resetBtn"
+                                class="w-full mt-3 text-gray-500 hover:text-black py-2 text-sm font-medium underline">Upload
+                                Different File</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status -->
+            <div id="statusArea" class="hidden mt-6 text-center">
+                <div class="w-full bg-gray-200 rounded-full h-2.5 mb-2 max-w-md mx-auto">
+                    <div id="progressBar" class="bg-black h-2.5 rounded-full transition-all duration-300"
+                        style="width: 0%"></div>
+                </div>
+                <p id="statusText" class="text-sm text-gray-600">Processing page 1...</p>
+            </div>
+
+            <div id="resultArea" class="hidden mt-8 text-center p-6 bg-green-50 rounded-xl border border-green-100">
+                <div
+                    class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                <h3 class="text-lg font-bold text-green-900 mb-1">Compression Complete!</h3>
+                <p class="text-green-700 text-sm mb-4">Your file has been downloaded.</p>
+                <button onclick="location.reload()"
+                    class="text-sm font-medium text-green-700 underline hover:text-green-900">Compress Another</button>
+            </div>
+
+        </div>
+
+        <!-- How It Works & Info -->
+        <article class="mt-12 prose prose-zinc text-gray-600 text-sm max-w-none">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">How to Compress PDF Files Online</h2>
+            <ol class="list-decimal pl-6 space-y-2 mb-6">
+                <li><strong>Upload PDF:</strong> Click the upload area or drop your PDF file to start.</li>
+                <li><strong>Adjust Quality:</strong> Use the slider to control the compression level. Lower percentage
+                    means smaller file size.</li>
+                <li><strong>Compress:</strong> Click "Compress PDF" to start the process.</li>
+                <li><strong>Download:</strong> The optimized PDF will download automatically.</li>
+            </ol>
+
+            <h3 class="text-xl font-bold text-gray-900">Client-Side Compression</h3>
+            <p>Unlike other tools that upload your sensitive documents to a server, this tool runs entirely in your
+                browser using modern WebAssembly technology. Your files never leave your device, ensuring 100% privacy
+                and security.</p>
+        </article>
+    </main>
+
+    <footer class="border-t border-gray-200 py-8 mt-20 text-center text-gray-500 text-sm">
+        &copy; 2024 FreeProducts24. All Rights Reserved.
+    </footer>
+
+    <script type="module">
+        import * as pdfjsLib from 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.mjs';
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.mjs';
+
+        const els = {
+            uploadArea: document.getElementById('uploadArea'),
+            fileInput: document.getElementById('fileInput'),
+            uploadStep: document.getElementById('uploadStep'),
+            controlsStep: document.getElementById('controlsStep'),
+            fileName: document.getElementById('fileName'),
+            previewCanvas: document.getElementById('previewCanvas'),
+            qualitySlider: document.getElementById('qualitySlider'),
+            qualityValue: document.getElementById('qualityValue'),
+            compressBtn: document.getElementById('compressBtn'),
+            statusArea: document.getElementById('statusArea'),
+            progressBar: document.getElementById('progressBar'),
+            statusText: document.getElementById('statusText'),
+            resultArea: document.getElementById('resultArea'),
+            resetBtn: document.getElementById('resetBtn')
+        };
+
+        let currentFile = null;
+        let pdfDoc = null;
+
+        // UI Event Listeners
+        els.uploadArea.addEventListener('click', () => els.fileInput.click());
+        els.fileInput.addEventListener('change', handleFile);
+
+        els.uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            els.uploadArea.classList.add('bg-gray-50', 'border-gray-400');
+        });
+
+        els.uploadArea.addEventListener('dragleave', (e) => {
+            els.uploadArea.classList.remove('bg-gray-50', 'border-gray-400');
+        });
+
+        els.uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            els.uploadArea.classList.remove('bg-gray-50', 'border-gray-400');
+            if (e.dataTransfer.files.length) {
+                els.fileInput.files = e.dataTransfer.files;
+                handleFile({ target: els.fileInput });
+            }
+        });
+
+        els.qualitySlider.addEventListener('input', (e) => {
+            els.qualityValue.textContent = `${e.target.value}%`;
+            // Optional: Debounced preview update could go here, but might be heavy
+        });
+
+        els.compressBtn.addEventListener('click', startCompression);
+        els.resetBtn.addEventListener('click', () => location.reload());
+
+        async function handleFile(e) {
+            const file = e.target.files[0];
+            if (!file || file.type !== 'application/pdf') {
+                alert('Please upload a valid PDF file.');
+                return;
+            }
+
+            currentFile = file;
+            els.fileName.textContent = file.name;
+            els.fileName.classList.remove('hidden');
+
+            // Switch view
+            els.uploadStep.classList.add('hidden');
+            els.controlsStep.classList.remove('hidden');
+
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                pdfDoc = await pdfjsLib.getDocument(arrayBuffer).promise;
+                renderPreview(1); // Render page 1
+            } catch (err) {
+                console.error(err);
+                alert('Error loading PDF.');
+                location.reload();
+            }
+        }
+
+        async function renderPreview(pageNum) {
+            const page = await pdfDoc.getPage(pageNum);
+            const viewport = page.getViewport({ scale: 1.0 });
+
+            // Adjust scale to fit the preview container
+            const containerWidth = els.previewCanvas.parentElement.clientWidth;
+            const scale = Math.min(1.0, containerWidth / viewport.width);
+            const scaledViewport = page.getViewport({ scale: scale });
+
+            els.previewCanvas.height = scaledViewport.height;
+            els.previewCanvas.width = scaledViewport.width;
+
+            const renderContext = {
+                canvasContext: els.previewCanvas.getContext('2d'),
+                viewport: scaledViewport
+            };
+            await page.render(renderContext).promise;
+        }
+
+        async function startCompression() {
+            if (!pdfDoc) return;
+
+            els.compressBtn.disabled = true;
+            els.compressBtn.classList.add('opacity-50');
+            els.statusArea.classList.remove('hidden');
+            els.resultArea.classList.add('hidden');
+
+            // Wait a bit to let UI update
+            await new Promise(r => setTimeout(r, 100));
+
+            try {
+                const quality = parseInt(els.qualitySlider.value) / 100;
+
+                // Ensure jsPDF is available
+                if (!window.jspdf) throw new Error("jsPDF library not loaded");
+                const { jsPDF } = window.jspdf;
+
+                // Create PDF with default settings. We will adjust per page.
+                // Note: jsPDF starts with 1 blank page. We will remove it at the end.
+                const newPdf = new jsPDF({
+                    orientation: 'p',
+                    unit: 'px',
+                    hotfixes: ["px_scaling"]
+                });
+
+                const totalPages = pdfDoc.numPages;
+
+                for (let i = 1; i <= totalPages; i++) {
+                    els.statusText.textContent = `Processing page ${i} of ${totalPages}...`;
+                    els.progressBar.style.width = `${(i / totalPages) * 100}%`;
+
+                    const page = await pdfDoc.getPage(i);
+                    // Use scale 1.5 for balance between quality and memory usage. 
+                    // 2.0 can crash on large files/mobile.
+                    const viewport = page.getViewport({ scale: 1.5 });
+
+                    const canvas = document.createElement('canvas');
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    const ctx = canvas.getContext('2d');
+
+                    await page.render({
+                        canvasContext: ctx,
+                        viewport: viewport
+                    }).promise;
+
+                    // Compress
+                    const imgData = canvas.toDataURL('image/jpeg', quality);
+
+                    // Add new page with correct dimensions and orientation
+                    // jsPDF addPage(format, orientation)
+                    const orientation = viewport.width > viewport.height ? 'landscape' : 'portrait';
+                    newPdf.addPage([viewport.width, viewport.height], orientation);
+
+                    // Add the image to the CURRENT page (the one we just added)
+                    // Note: addPage moves the cursor to the new page
+                    newPdf.addImage(imgData, 'JPEG', 0, 0, viewport.width, viewport.height);
+
+                    // Yield to UI to prevent freezing
+                    await new Promise(r => setTimeout(r, 10));
+                }
+
+                // Delete the initial blank page (Page 1)
+                // We added pages starting from index 2 essentially (because of the initial 1)
+                // So now we have [Blank, Page1, Page2...]
+                if (newPdf.getNumberOfPages() > 1) {
+                    newPdf.deletePage(1);
+                }
+
+                // Finish
+                els.statusText.textContent = 'Saving PDF...';
+                await new Promise(r => setTimeout(r, 100)); // UI update
+                newPdf.save(`compressed_${currentFile.name}`);
+
+                els.statusArea.classList.add('hidden');
+                els.resultArea.classList.remove('hidden');
+
+            } catch (err) {
+                console.error("Compression Failed:", err);
+                alert("An error occurred during compression. \n\nDetails: " + err.message);
+                els.statusArea.classList.add('hidden');
+            } finally {
+                els.compressBtn.disabled = false;
+                els.compressBtn.classList.remove('opacity-50');
+            }
+        }
+    </script>
+</body>
+
+</html>
