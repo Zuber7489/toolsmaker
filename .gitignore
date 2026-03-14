@@ -1,0 +1,7 @@
+node_modules/
+service_account.json
+package-lock.json
+package.json
+.agent/
+.agents/
+.DS_Store
